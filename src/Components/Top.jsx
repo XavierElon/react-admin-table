@@ -16,8 +16,9 @@ const Button = styled.button `
 `
 
 function setActive() {
-    console.log("penis")
+    console.log("empty")
 }
+
 
 
 export default class Table extends React.Component {
@@ -26,23 +27,22 @@ export default class Table extends React.Component {
         this.state = {
 
         }
-        this.setActive.bind(this);
+
     }
 
-
-    setActive = event => {
-        console.log("selected")
+    newRequest() {
+        console.log("empty")
     }
 
     render() {
 
         return (
             <div className="wrapper">
-                <h2 id="admin-title">Admin Dashboard</h2>
-                <Button onclick={setActive} className="NewRequestsText">New Requests</Button>
-                <Button className="ExistingListingsText">Existing Listings</Button>
-                <img className="PlusButton" src={PlusButton} alt="" onclick/>
-                <p className="NewRequestText">new request</p>
+                <h2 className="admin-title">Admin Dashboard</h2>
+                <Button onClick={setActive} className="NewRequestsButton">New Requests</Button>
+                <Button onClick={setActive} className="ExistingListingsButton">Existing Listings</Button>
+                <img className="PlusButton" src={PlusButton} alt="" onclick={this.newRequest}/>
+                <p className="NewRequestText" onclick={this.newRequest}>new request</p>
             </div>
             
 

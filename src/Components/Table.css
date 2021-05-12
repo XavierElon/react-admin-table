@@ -17,9 +17,9 @@
     display: none !important;
 }
 
-table th {
+/* table {
     border-bottom: 1px solid #666666 !important;
-}
+} */
 
 tr {
     height: 50px;

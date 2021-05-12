@@ -1,6 +1,6 @@
-#admin-title {
+.admin-title {
     position: absolute;
-    top: 130px;
+    top: 160px;
     left: 80px;
     width: 200px;
     height: 23px;
@@ -11,11 +11,11 @@
     font-weight: bold;
 }
 
-.NewRequestsText {
+.NewRequestsButton {
     position: absolute;
     padding-top:5px;
     left: 100px;
-    top: 200px;
+    top: 190px;
     z-index:10;
     font-family: Source Sans Pro;
     font-size: 12px;
@@ -24,11 +24,11 @@
     text-decoration: none solid rgb(255, 255, 255);
 }
 
-.ExistingListingsText {
+.ExistingListingsButton {
     position: absolute;
     text-align: center;
-    left: 260px;
-    top: 200px;
+    left: 265px;
+    top: 190px;
     padding-top:5px;
     width: 163px;
     height: 30px;
@@ -41,18 +41,22 @@
 }
 
 .PlusButton {
-    position: absolute;
-    right: 400px;
+    position: fixed;
+    right: 25%;
+    display: block;
     top: 175px;
     width: 16px;
     height: 16px;
+    padding-right:1px;
+    cursor: pointer
 }
 
 .NewRequestText {
-    position: absolute;
-    display: inline-block;
-    top: 175px;
-    right: 300px;
+    position: fixed;
+    display: block;
+    float: right;
+    top: 174px;
+    right: 18%;
     width: 88px;
     height: 17px;
     font-family: Source Sans Pro;
@@ -60,7 +64,10 @@
     color: #3d7aa9;
     text-decoration: none solid rgb(61, 122, 169);
     line-height: 18px;
+    padding-left: 5px;
+    margin-left: 5px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .Filter {
@@ -94,4 +101,8 @@
     fill: #ffffff;
     stroke-width: 1;
     border-style: ridge;
+}
+
+.pagination {
+    cursor: pointer !important;
 }
