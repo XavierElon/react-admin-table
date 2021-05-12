@@ -1,7 +1,6 @@
 import './App.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header'
-import Top from './Components/Top'
 import Table from './Components/Table'
 
 
@@ -10,9 +9,6 @@ function App() {
     <div className="App">
       <div className="Header">
        <Header></Header>
-      </div>
-      <div className="Top">
-        <Top></Top>
       </div>
       <div className="DataTable">
         <Table></Table>
