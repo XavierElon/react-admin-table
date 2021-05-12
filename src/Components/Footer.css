@@ -1,0 +1,72 @@
+/* .Footer {
+    width: 100%;
+    height: 72px;
+    background-color: #a1a1a1;
+    position: relative;
+    top: 1340px;
+} */
+
+.LogoFooter {
+    position: absolute;
+    left: 128px;
+    bottom: 20px;
+    width: 130px;
+    height: 33px;
+}
+
+.PrivacyText {
+    position: absolute;
+    bottom: 16px;
+    left: 550px;
+    width: 156px;
+    height: 17px;
+    font-family: Source Sans Pro;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    line-height: 17px;
+}
+
+.AccessibilityText {
+    position: absolute;
+    bottom: 16px;
+    left: 749px;
+    width: 72px;
+    height: 17px;
+    font-family: Source Sans Pro;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    line-height: 17px;
+}
+
+.OhioCheckbookText {
+    position: absolute;
+    bottom: 16px;
+    left: 861px;
+    width: 97px;
+    height: 17px;
+    font-family: Source Sans Pro;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    line-height: 17px;
+}
+
+.FacebookLogo {
+    position: absolute;
+    bottom: 30px;
+    left: 1259px;
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+}
+
+.TwitterLogo {
+    position: absolute;
+    bottom: 30px;
+    left: 1292px;
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+}

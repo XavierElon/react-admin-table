@@ -1,0 +1,38 @@
+/* .Header {
+    width: 1440px;
+    height: 80px;
+    background-color: #363636;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+} */
+
+.Title {
+    position: absolute;
+    left: 90px;
+    top: 26px;
+    width: 165px;
+    height: 28px;
+    font-family: Source Sans Pro;
+    font-size: 14px;
+    color: #e8e6e3;
+    text-decoration: none solid rgb(232, 230, 227);
+    line-height: 14px;
+    letter-spacing: 0.5px;
+}
+
+.Logo {
+    position: absolute;
+    left: 25px;
+    top: 30px;
+    width: 60px;
+    height: 40p
+}
+
+.Bar {
+    position: absolute;
+    top: 26px;
+    left: 96px;
+    width: 1px;
+    height: 26px;
+    fill: #000000;
+    stroke-width: 1;
+}

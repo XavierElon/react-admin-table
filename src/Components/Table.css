@@ -1,0 +1,47 @@
+/* .Table {
+    position: fixed;
+    display: table;
+    margin: auto;
+    top: 500px;
+    left: 180px;
+    width: 50%;
+    height: 800px;
+    stroke-width: 1;
+} */
+
+.bs-select {
+    display: none !important;
+}
+
+.dataTables_info {
+    display: none !important;
+}
+
+table th {
+    border-bottom: 1px solid #666666 !important;
+}
+
+tr {
+    height: 50px;
+}
+
+table td {
+    border-left: 1px solid  #666666;
+    border-right: 1px solid #666666;
+}
+
+.form-control {
+    width: 305px !important;
+}
+
+.SearchIcon {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width:16px;
+    height:16px;
+}
+
+.sr-only {
+    display: none !important;
+}
