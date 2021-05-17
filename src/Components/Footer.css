@@ -15,9 +15,9 @@
 }
 
 .PrivacyText {
-    position: absolute;
+    position: fixed;
     bottom: 16px;
-    left: 550px;
+    left: 38%;
     width: 156px;
     height: 17px;
     font-family: Source Sans Pro;
@@ -28,9 +28,9 @@
 }
 
 .AccessibilityText {
-    position: absolute;
+    position: fixed;
     bottom: 16px;
-    left: 749px;
+    left: 47%;
     width: 72px;
     height: 17px;
     font-family: Source Sans Pro;
@@ -41,9 +41,9 @@
 }
 
 .OhioCheckbookText {
-    position: absolute;
+    position: fixed;
     bottom: 16px;
-    left: 861px;
+    left: 54%;
     width: 97px;
     height: 17px;
     font-family: Source Sans Pro;
@@ -57,7 +57,7 @@
     position: absolute;
     z-index: 10;
     bottom: 30px;
-    left: 1259px;
+    right: 10%;
     width: 14px;
     height: 14px;
     fill: #ffffff;
@@ -66,7 +66,7 @@
 .TwitterLogo {
     position: absolute;
     bottom: 30px;
-    left: 1292px;
+    right:7%;
     width: 14px;
     height: 14px;
     fill: #ffffff;

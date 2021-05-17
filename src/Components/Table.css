@@ -1,18 +1,7 @@
-/* .Table {
-    position: fixed;
-    display: table;
-    margin: auto;
-    top: 500px;
-    left: 180px;
-    width: 50%;
-    height: 800px;
-    stroke-width: 1;
-} */
-
 .admin-title {
     position: absolute;
-    top: -20px;
-    left: -10px;
+    margin-top: -30px;
+    margin-left: -30px;
     width: 200px;
     height: 23px;
     font-family: Source Sans Pro;
@@ -22,31 +11,42 @@
     font-weight: bold;
 }
 
+.DataTable {
+    top:30px;
+    left:10%;
+}
+
 .ToggleButtons {
     position: absolute;
-    color:red;
-    top: 200px;
+    top: -100px;
     left: 0px;
+    height:20px;
+    width: 324px;
+    border-color: #d8d8d8;
 }
 
 .PlusButton {
     position: fixed;
-    right: 25%;
+    right: 15%;
     display: block;
-    top: 175px;
+    top: 210px;
     width: 16px;
     height: 16px;
     padding-right:1px;
     cursor: pointer
 }
 
+.Butttons2 {
+    position: fixed;
+    top:100px;
+}
+
 .NewRequestText {
     position: fixed;
     display: block;
-    float: right;
-    top: 174px;
-    right: 18%;
-    width: 88px;
+    top: 210px;
+    right: 11.5%;
+    width: 90px;
     height: 17px;
     font-family: Source Sans Pro;
     font-size: 16px;
@@ -83,13 +83,14 @@
     display: none !important;
 }
 
+
 .dataTables_info {
     display: none !important;
 }
 
-/* table {
-    border-bottom: 1px solid #666666 !important;
-} */
+th {
+    border-bottom: 1px solid #666666;
+}
 
 tr {
     height: 50px;
@@ -106,7 +107,7 @@ table td {
 
 .SearchIcon {
     position: absolute;
-    right: 30px;
+    right: 10px;
     top: 10px;
     width:16px;
     height:16px;
@@ -114,4 +115,8 @@ table td {
 
 .sr-only {
     display: none !important;
+}
+
+.fa-sort {
+    display: inline-block !important;
 }

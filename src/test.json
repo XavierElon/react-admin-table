@@ -39,15 +39,16 @@
     ],
     "rows": [
       {
-        "number": "1",
+        "number": "01234567890",
         "type": "Donated Device",
         "name": "Computer",
         "startDate": "01/01/2021",
         "endDate": "01/02/2021",
-        "status": "Pending"
+        "status": "Pending",
+        "clickEvent": ""
       },
       {
-        "number": "2",
+        "number": "01234567891",
         "type": "Donated Device",
         "name": "Computer",
         "startDate": "01/02/2021",
@@ -55,7 +56,7 @@
         "status": "Finished"
       },
       {
-        "number": "3",
+        "number": "01234567801",
         "type": "Donated Device",
         "name": "Computer",
         "startDate": "05/02/2021",
@@ -63,7 +64,7 @@
         "status": "Pending"
       },
       {
-        "number": "4",
+        "number": "01234567826",
         "type": "Digital Resource",
         "name": "Computer",
         "startDate": "05/01/2021",
@@ -71,7 +72,7 @@
         "status": "Finished"
       },
       {
-        "number": "5",
+        "number": "50129354238756",
         "type": "Donated Device",
         "name": "Laptop",
         "startDate": "04/15/2021",
@@ -79,7 +80,7 @@
         "status": "Finished"
       },
       {
-        "number": "6",
+        "number": "5287896407239",
         "type": "Digital Resource",
         "name": "Laptop",
         "startDate": "04/17/2021",
@@ -87,7 +88,7 @@
         "status": "Finished"
       },
       {
-        "number": "7",
+        "number": "12942137344",
         "type": "Donated Device",
         "name": "Laptop",
         "startDate": "03/01/2021",
@@ -95,7 +96,7 @@
         "status": "Finished"
       },
       {
-        "number": "8",
+        "number": "85235239853",
         "type": "Donated Device",
         "name": "Laptop",
         "startDate": "02/09/2021",
@@ -103,7 +104,7 @@
         "status": "Pending"
       },
       {
-        "number": "9",
+        "number": "95232349645",
         "type": "Donated Device",
         "name": "Laptop",
         "startDate": "03/11/2021",
@@ -111,7 +112,7 @@
         "status": "Pending"
       },
       {
-        "number": "10",
+        "number": "112414230",
         "type": "Donated Device",
         "name": "Router",
         "startDate": "02/01/2021",
@@ -119,7 +120,7 @@
         "status": "Pending"
       },
       {
-        "number": "11",
+        "number": "14232432641",
         "type": "Donated Device",
         "name": "Laptop",
         "startDate": "12/31/2020",
@@ -127,7 +128,7 @@
         "status": "Pending"
       },
       {
-        "number": "12",
+        "number": "12142357565",
         "type": "Donated Device",
         "name": "Router",
         "startDate": "01/01/2021",
@@ -135,7 +136,7 @@
         "status": "Pending"
       },
       {
-        "number": "13",
+        "number": "1353534568",
         "type": "Donated Device",
         "name": "Router",
         "startDate": "12/21/2020",
@@ -143,7 +144,7 @@
         "status": "Pending"
       },
       {
-        "number": "14",
+        "number": "14743567457",
         "type": "Donated Devicer",
         "name": "Router",
         "startDate": "05/10/2021",
@@ -151,7 +152,7 @@
         "status": "Pending"
       },
       {
-        "number": "15",
+        "number": "15543223265",
         "type": "Digital Resource",
         "name": "Phone",
         "startDate": "05/01/2021",
@@ -159,12 +160,13 @@
         "status": "Pending"
       },
       {
-        "number": "16",
+        "number": "11426567986",
         "type": "Donated Device",
         "name": "Router",
         "startDate": "03/14/2021",
         "endDate": "03/24/2021",
-        "status": "Pending"
+        "status": "Pending",
+        "clickEvent": "this.handleNewClick()"
       }
     ]
   }
