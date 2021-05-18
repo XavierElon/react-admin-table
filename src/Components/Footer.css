@@ -1,9 +1,7 @@
 /* .Footer {
-    width: 100%;
-    height: 72px;
-    background-color: #a1a1a1;
-    position: relative;
-    top: 1340px;
+    position: absolute;
+    background-color: blue;
+    bottom: 0px;
 } */
 
 .LogoFooter {
@@ -28,8 +26,8 @@
 }
 
 .AccessibilityText {
-    position: fixed;
-    bottom: 16px;
+    position: relative;
+    margin-top: 3%;
     left: 47%;
     width: 72px;
     height: 17px;
@@ -38,10 +36,11 @@
     color: #ffffff;
     text-decoration: none solid rgb(255, 255, 255);
     line-height: 17px;
+    border: 2px black solid;
 }
 
 .OhioCheckbookText {
-    position: fixed;
+    position: relative;
     bottom: 16px;
     left: 54%;
     width: 97px;
@@ -54,19 +53,22 @@
 }
 
 .FacebookLogo {
-    position: absolute;
-    z-index: 10;
+    border: 1px blue solid;
+    position: relative;
+    right: -40%;
+    margin-top: -1%;
+    /* z-index: 10;
     bottom: 30px;
     right: 10%;
     width: 14px;
     height: 14px;
-    fill: #ffffff;
+    fill: #ffffff; */
 }
 
 .TwitterLogo {
-    position: absolute;
-    bottom: 30px;
-    right:7%;
+    position: relative;
+    margin-top: -1%;
+    right:-35%;
     width: 14px;
     height: 14px;
     fill: #ffffff;
