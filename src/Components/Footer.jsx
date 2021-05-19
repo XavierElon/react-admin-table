@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <div className="Footer">
-        <footer>
+        
           <img className="LogoFooter" src={Logo} alt="" />
           <p className="PrivacyText">Privacy Notice and Policies</p>
           <p className="AccessibilityText">Accessibility</p>
@@ -19,7 +19,6 @@ export default class Footer extends React.Component {
           <a target="_blank" href="https://www.twitter.com/">
             <img className="TwitterLogo" src={Twitter} alt="" />
           </a>
-        </footer>
       </div>
     );
   }

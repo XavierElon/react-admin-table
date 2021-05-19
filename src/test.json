@@ -1,7 +1,7 @@
 {
   "columns": [
       {
-        "label": "Request No",
+        "label": "Request No.",
         "field": "number",
         "sort": "asc",
         "width": 170

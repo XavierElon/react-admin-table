@@ -1,63 +1,67 @@
-/* .Footer {
+.Footer {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 1440px;
+    height:72px;
     position: absolute;
-    background-color: blue;
     bottom: 0px;
-} */
+    width: 100%;
+    background-color: #700017;
+    z-index: 100;
+}
 
 .LogoFooter {
-    position: absolute;
-    left: 128px;
-    bottom: 20px;
-    width: 130px;
-    height: 33px;
+  position: absolute;
+  left: 128px;
+  bottom: 20px;
+  width: 130px;
+  height: 33px;
 }
 
 .PrivacyText {
-    position: fixed;
-    bottom: 16px;
-    left: 38%;
-    width: 156px;
-    height: 17px;
-    font-family: Source Sans Pro;
-    font-size: 14px;
-    color: #ffffff;
-    text-decoration: none solid rgb(255, 255, 255);
-    line-height: 17px;
+  position: absolute;
+  bottom: 10px;
+  left: 500px;
+  width: 156px;
+  height: 17px;
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none solid rgb(255, 255, 255);
+  line-height: 17px;
 }
 
 .AccessibilityText {
-    position: relative;
-    margin-top: 3%;
-    left: 47%;
-    width: 72px;
-    height: 17px;
-    font-family: Source Sans Pro;
-    font-size: 14px;
-    color: #ffffff;
-    text-decoration: none solid rgb(255, 255, 255);
-    line-height: 17px;
-    border: 2px black solid;
+  position: absolute;
+  bottom: 10px;
+  left: 750px;
+  width: 72px;
+  height: 17px;
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none solid rgb(255, 255, 255);
+  line-height: 17px;
 }
 
 .OhioCheckbookText {
-    position: relative;
-    bottom: 16px;
-    left: 54%;
-    width: 97px;
-    height: 17px;
-    font-family: Source Sans Pro;
-    font-size: 14px;
-    color: #ffffff;
-    text-decoration: none solid rgb(255, 255, 255);
-    line-height: 17px;
+  position: absolute;
+  bottom: 10px;
+  left: 900px;
+  width: 97px;
+  height: 17px;
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none solid rgb(255, 255, 255);
+  line-height: 17px;
 }
 
 .FacebookLogo {
-    border: 1px blue solid;
-    position: relative;
-    right: -40%;
-    margin-top: -1%;
-    /* z-index: 10;
+  position: absolute;
+  bottom: 30px;
+  right: 100px;
+  /* z-index: 10;
     bottom: 30px;
     right: 10%;
     width: 14px;
@@ -66,10 +70,10 @@
 }
 
 .TwitterLogo {
-    position: relative;
-    margin-top: -1%;
-    right:-35%;
-    width: 14px;
-    height: 14px;
-    fill: #ffffff;
+  position: absolute;
+  bottom: 30px;
+  right: 150px;
+  width: 14px;
+  height: 14px;
+  fill: #ffffff;
 }

@@ -5,8 +5,12 @@
   margin-left: auto;
   margin-right: auto;
   min-width: auto;
-  padding-bottom: 100px;
+  padding-bottom: 72px;
 
+}
+
+.Content-Wrap {
+  padding-bottom: 72px;
 }
 
 .Header {
@@ -17,25 +21,20 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.Top {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin-top: 0px;
-  margin-right: auto;
-}
 
 .DataTable {
-  position: fixed;
-  margin-top: 200px;
-  margin-left: 100px;
-  width: 75%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1080px;
+  height: 523px;
+  margin-top: 60px;
 }
 
-.Footer {
+/* .Footer {
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 100px;
+  height: 72px;
   background-color: #700017;
-}
+} */

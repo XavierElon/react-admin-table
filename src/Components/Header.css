@@ -1,14 +1,14 @@
-/* .Header {
-    width: 1440px;
+.Header {
+    min-width: 1440px;
     height: 110px;
     fill: #ffffff;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-} */
+}
 
 .Title {
   position: absolute;
-  left: 90px;
-  top: 26px;
+  left: 135px;
+  top: 32px;
   width: 165px;
   height: 28px;
   font-family: Source Sans Pro;
@@ -23,14 +23,14 @@
   position: absolute;
   left: 25px;
   top: 30px;
-  width: 60px;
-  height: 40p;
+  width: 110x;
+  height: 28px;
 }
 
 .Bar {
   position: absolute;
-  top: 30px;
-  left: 96px;
+  top: 32px;
+  left: 144px;
   width: 10px;
   height: 26px;
   fill: #700017;
