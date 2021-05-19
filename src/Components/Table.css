@@ -1,144 +1,154 @@
-/* .Table {
-    top: 50px;
-    position: absolute;
-    right: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0px;
-    border:1px red solid;
-} */
+.Table {
+  top: 20%;
+  position: absolute;
+  width: 1080px;
+  height: 800px;
+  margin: 0 auto;
+  /* margin-left: auto;
+    margin-right: auto; */
+  left: 50%;
+}
 
 .admin-title {
-    position: absolute;
-    top: 100px;
-    left: 80px;
-    width: 200px;
-    height: 23px;
-    font-family: Source Sans Pro;
-    font-size: 18px;
-    color: #222222;
-    text-decoration: none solid rgb(34, 34, 34);
-    font-weight: bold;
+  position: absolute;
+  top: -30px;
+  left: -15px;
+  width: 200px;
+  height: 23px;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  color: #222222;
+  text-decoration: none solid rgb(34, 34, 34);
+  font-weight: bold;
 }
 
 .DataTable {
-    top:30px;
-    left:10%;
+  top: 50px;
+  left: 150px;
 }
 
 .ToggleButtons {
-    position: absolute;
-    top: 30px;
-    left: 110px;
-    height:20px;
-    width: 324px;
-    border-color: #d8d8d8;
+  position: absolute;
+  top: -110px;
+  left: 10px;
+  height: 20px;
+  width: 324px;
+  border-color: #d8d8d8;
+}
+
+.sc-pNWdM {
+    display: flex;
 }
 
 .PlusButton {
-    position: absolute;
-    right: -20px;
-    top: 80px;
-    width: 16px;
-    height: 16px;
-    padding-right:1px;
-    cursor: pointer
-}
-
-.Butttons2 {
-    position: fixed;
-    top:100px;
+  position: absolute;
+  right: 100px;
+  top: -50px;
+  width: 16px;
+  height: 16px;
+  padding-right: 1px;
+  cursor: pointer;
 }
 
 .NewRequestText {
-    position: absolute;
-    top: 80px;
-    right: -10%;
-    width: 90px;
-    height: 17px;
-    font-family: Source Sans Pro;
-    font-size: 16px;
-    color: #3d7aa9;
-    text-decoration: none solid rgb(61, 122, 169);
-    line-height: 18px;
-    padding-left: 5px;
-    margin-left: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.Filter {
-    position: absolute;
-    top: 165px;
-    left: 861px;
-    width: 12px;
-    height: 16px;
-}
-
-.FilterText {
-    position: absolute;
-    top: 160px;
-    left: 880px;
-    width: 38px;
-    height: 20px;
-    font-family: Source Sans Pro;
-    font-size: 16px;
-    color: #3d7aa9;
-    text-decoration: none solid rgb(61, 122, 169);
-    font-weight: bold;
-}
-.bs-select {
-    display: none !important;
-}
-
-
-.dataTables_info {
-    display: none !important;
-}
-
-th {
-    border-bottom: 1px solid #666666;
-}
-
-tr {
-    height: 50px;
-}
-
-table td {
-    border-left: 1px solid  #666666;
-    border-right: 1px solid #666666;
-}
-
-.form-control {
-    width: 305px !important;
-}
-
-.SearchIcon {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    width:16px;
-    height:16px;
-}
-
-.sr-only {
-    display: none !important;
-}
-
-.fa-sort {
-    display: inline-block !important;
+  position: absolute;
+  top: -50px;
+  right: 10px;
+  width: 90px;
+  height: 17px;
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  color: #3d7aa9;
+  text-decoration: none solid rgb(61, 122, 169);
+  line-height: 18px;
+  padding-left: 5px;
+  margin-left: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .FilterIcon {
-    width: 12px;
-    height: 16px;
-    position: absolute;
-    /* display: inline-block;  */
-    z-index: 10;
+  position: absolute;
+  top: 10px;
+  right: 380px;
+  width: 12px;
+  height: 16px;
+}
+
+.FilterText {
+  position: absolute;
+  top: 8px;
+  right: 335px;
+  width: 38px;
+  height: 20px;
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  color: #700017;
+  text-decoration: none solid rgb(112, 0, 23);
+}
+
+.bs-select {
+  display: none !important;
+}
+
+.dataTables_info {
+  display: none !important;
+}
+
+th {
+  border-bottom: 1px solid #666666;
+}
+
+tr {
+  height: 50px;
+}
+
+table td {
+  border-left: 1px solid #666666;
+  border-right: 1px solid #666666;
+}
+
+.form-control {
+  width: 305px !important;
+}
+
+.SearchIcon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+.sr-only {
+  display: none !important;
+}
+
+.fa-sort {
+  display: inline-block !important;
+}
+
+.SmallFilter {
+  width: 12px;
+  height: 16px;
+  position: absolute;
+  /* display: inline-block;  */
+  z-index: 10;
 }
 
 #filter1 {
-    top: 65px;
-    left: 150px;
+  top: 60px;
+  left: 135px;
 }
+
+#filter1 {
+    top: 60px;
+    left: 135px;
+  }
+
+  #filter1 {
+    top: 60px;
+    left: 135px;
+  }
+  

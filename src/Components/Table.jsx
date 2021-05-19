@@ -3,9 +3,9 @@ import { MDBDataTable, MDBBadge, MDBTable, MDBTableHead, MDBBtn } from "mdbreact
 import Button from 'react-bootstrap/Button'
 import "./Table.css";
 import SearchIcon from "../images/icn-search.png";
-import FilterIcon from "../images/filter-icon.png"
+import FilterIcon from "../images/icn-filter.png"
 import PlusButton from "../images/plus-button.png";
-import SmallFilter from "../images/filter.png"
+import SmallFilter from "../images/filter-icon.png"
 import styled from "styled-components";
 import blueBadge from "./Badge"
 
@@ -44,13 +44,10 @@ const ButtonToggle = styled(NewButton)`
 
 const ButtonGroup = styled.div`
   display: flex;
+  height: 100px;
 `;
 
 const types = ["New Requests", "Existing Entries"];
-
-function SetData(types,type) {
-  
-}
 
 function ToggleGroup() {
   const [active, setActive] = useState(types[0]);
@@ -96,17 +93,17 @@ export default class Table extends React.Component {
   data2 = {
     columns: [
           {
-            'label': [<i key="Lorem" className="fa fa-leaf mr-2 blue-text" aria-hidden="true"></i>, 'Lorem'],
+            label: "Resource No." ,
             field: "number",
             sort: "asc",
-            width: 170,
+            width: 200,
 
           },
           {
             label: "Resource Type",
             field: "type",
             sort: "asc",
-            width: 10
+            width: 200
           },
           {
             label: "Resource Name",
@@ -143,7 +140,7 @@ export default class Table extends React.Component {
             status: <blueBadge>Pending Review</blueBadge>
           },
           {
-            number: "123",
+            number: "01234537890",
             type: "Donated Device",
             name: "Computer",
             startDate: "01/02/2021",
@@ -167,7 +164,7 @@ export default class Table extends React.Component {
             status: <Button variant="dark">Disabled</Button>
           },
           {
-            number: "50129354238756",
+            number: "01634567890",
             type: "Donated Device",
             name: "Laptop",
             startDate: "04/15/2021",
@@ -175,7 +172,7 @@ export default class Table extends React.Component {
             status: <Button variant="success">Approved</Button>
           },
           {
-            number: "5287896407239",
+            number: "01234567840",
             type: "Digital Resource",
             name: "Laptop",
             startDate: "04/17/2021",
@@ -183,7 +180,7 @@ export default class Table extends React.Component {
             status: <Button variant="success">Approved</Button>
           },
           {
-            number: "12942137344",
+            number: "11234567890",
             type: "Donated Device",
             name: "Laptop",
             startDate: "03/01/2021",
@@ -191,7 +188,7 @@ export default class Table extends React.Component {
             status: <Button variant="primary">Pending Review</Button>
           },
           {
-            number: "85235239853",
+            number: "01234563890",
             type: "Donated Device",
             name: "Laptop",
             startDate: "02/09/2021",
@@ -199,7 +196,7 @@ export default class Table extends React.Component {
             status: <Button variant="success">Approved</Button>
           },
           {
-            number: "95232349645",
+            number: "01234567891",
             type: "Donated Device",
             name: "Laptop",
             startDate: "03/11/2021",
@@ -207,7 +204,7 @@ export default class Table extends React.Component {
             status: <Button variant="primary">Pending Review</Button>
           },
           {
-            number: "112414230",
+            number: "02034537890",
             type: "Donated Device",
             name: "Router",
             startDate: "02/01/2021",
@@ -215,7 +212,7 @@ export default class Table extends React.Component {
             status: <Button variant="success">Approved</Button>
           },
           {
-            number: "14232432641",
+            number: "02034567890",
             type: "Donated Device",
             name: "Laptop",
             startDate: "12/31/2020",
@@ -223,7 +220,7 @@ export default class Table extends React.Component {
             status: <Button variant="primary">Pending Review</Button>
           },
           {
-            number: "12142357565",
+            number: "01234543890",
             type: "Donated Device",
             name: "Router",
             startDate: "01/01/2021",
@@ -231,7 +228,7 @@ export default class Table extends React.Component {
             status: <Button variant="primary">Pending Review</Button>
           },
           {
-            number: "1353534568",
+            number: "12234567890",
             type: "Donated Device",
             name: "Router",
             startDate: "12/21/2020",
@@ -239,7 +236,7 @@ export default class Table extends React.Component {
             status: <Button variant="success">Approved</Button>
           },
           {
-            number: "14743567457",
+            number: "01212567890",
             type: "Donated Devicer",
             name: "Router",
             startDate: "05/10/2021",
@@ -247,7 +244,7 @@ export default class Table extends React.Component {
             status: <Button variant="primary">Pending Review</Button>
           },
           {
-            number: "15543223265",
+            number: "01233567890",
             type: "Digital Resource",
             name: "Phone",
             startDate: "05/01/2021",
@@ -255,7 +252,7 @@ export default class Table extends React.Component {
             status: <Button variant="success">Approved</Button>
           },
           {
-            number: "11426567986",
+            number: "01234567891",
             type: "Donated Device",
             name: "Router",
             startDate: "03/14/2021",
@@ -298,11 +295,11 @@ export default class Table extends React.Component {
         <div className="Table">
           <blueBadge/>
           <h2 className="admin-title">Admin Dashboard</h2>
-         
-          <div className="ToggleButtons"  onClick={this.handleClick}>
+          <div className="ToggleButtons">
             <ToggleGroup></ToggleGroup>
-            
           </div>
+          <img className="FilterIcon" src={FilterIcon} alt=""/>
+          <p className="FilterText">Filter</p>
           <img
             className="PlusButton"
             src={PlusButton}
@@ -312,12 +309,11 @@ export default class Table extends React.Component {
           <p className="NewRequestText" onClick={this.newEntries}>
             new request
           </p>
-          <div className ="DataTable">
-            <img className="FilterIcon" id="filter1" src={FilterIcon} alt=""/>
+          {/* <div className ="DataTable"> */}
+            <img className="SmallFilter" id="filter1" src={SmallFilter} alt=""/>
           <MDBDataTable
               bordered
               btn
-              fixed
               sortable
               noBottomColumns={true}
               entriesLabel=""
@@ -326,8 +322,8 @@ export default class Table extends React.Component {
               entriesOptions={[]}
               paginationLabel={["<",">"]}
             />
-          </div>
             <img className="SearchIcon" src={SearchIcon} alt="" />
+          {/* </div> */}
         </div>
        
 

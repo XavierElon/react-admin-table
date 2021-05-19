@@ -21,7 +21,7 @@
 .PrivacyText {
   position: absolute;
   bottom: 10px;
-  left: 500px;
+  left: 32%;
   width: 156px;
   height: 17px;
   font-family: Source Sans Pro;
@@ -34,7 +34,7 @@
 .AccessibilityText {
   position: absolute;
   bottom: 10px;
-  left: 750px;
+  left: 50%;
   width: 72px;
   height: 17px;
   font-family: Source Sans Pro;
@@ -47,7 +47,7 @@
 .OhioCheckbookText {
   position: absolute;
   bottom: 10px;
-  left: 900px;
+  right: 32%;
   width: 97px;
   height: 17px;
   font-family: Source Sans Pro;
