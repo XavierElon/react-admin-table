@@ -7,7 +7,7 @@ import FilterIcon from "../images/icn-filter.png"
 import PlusButton from "../images/plus-button.png";
 import SmallFilter from "../images/filter-icon.png"
 import styled from "styled-components";
-import blueBadge from "./Badge"
+import * as Badges from "./Badge"
 
 
 let data = require("../test.json");
@@ -137,7 +137,7 @@ export default class Table extends React.Component {
             name: "Computer",
             startDate: "01/01/2021",
             endDate: "01/02/2021",
-            status: <blueBadge>Pending Review</blueBadge>
+            status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>
           },
           {
             number: "01234537890",
@@ -145,7 +145,7 @@ export default class Table extends React.Component {
             name: "Computer",
             startDate: "01/02/2021",
             endDate: "02/21/2021",
-            status: <Button variant="success">Approved</Button>
+            status: <Badges.GreenBadge>Approved</Badges.GreenBadge>
           },
           {
             number: "01234567801",
@@ -153,7 +153,7 @@ export default class Table extends React.Component {
             name: "Computer",
             startDate: "05/02/2021",
             endDate: "05/05/2021",
-            status: <Button variant="danger">Denied</Button>
+            status: <Badges.RedBadge>Denied</Badges.RedBadge>
           },
           {
             number: "01234567826",
@@ -161,7 +161,7 @@ export default class Table extends React.Component {
             name: "Computer",
             startDate: "05/01/2021",
             endDate: "05/06/2021",
-            status: <Button variant="dark">Disabled</Button>
+            status: <Badges.GreyBadge>Disabled</Badges.GreyBadge>
           },
           {
             number: "01634567890",
@@ -169,7 +169,7 @@ export default class Table extends React.Component {
             name: "Laptop",
             startDate: "04/15/2021",
             endDate: "04/21/2021",
-            status: <Button variant="success">Approved</Button>
+            status: <Badges.GreenBadge>Approved</Badges.GreenBadge>
           },
           {
             number: "01234567840",
@@ -177,7 +177,7 @@ export default class Table extends React.Component {
             name: "Laptop",
             startDate: "04/17/2021",
             endDate: "05/01/2021",
-            status: <Button variant="success">Approved</Button>
+            status: <Badges.RedBadge>Denied</Badges.RedBadge>
           },
           {
             number: "11234567890",
@@ -185,7 +185,7 @@ export default class Table extends React.Component {
             name: "Laptop",
             startDate: "03/01/2021",
             endDate: "03/10/2021",
-            status: <Button variant="primary">Pending Review</Button>
+            status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>
           },
           {
             number: "01234563890",
@@ -193,7 +193,7 @@ export default class Table extends React.Component {
             name: "Laptop",
             startDate: "02/09/2021",
             endDate: "02/14/2021",
-            status: <Button variant="success">Approved</Button>
+            status: <Badges.GreenBadge>Approved</Badges.GreenBadge>
           },
           {
             number: "01234567891",
@@ -201,7 +201,7 @@ export default class Table extends React.Component {
             name: "Laptop",
             startDate: "03/11/2021",
             endDate: "03/15/2021",
-            status: <Button variant="primary">Pending Review</Button>
+            status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>
           },
           {
             number: "02034537890",
@@ -209,7 +209,7 @@ export default class Table extends React.Component {
             name: "Router",
             startDate: "02/01/2021",
             endDate: "02/05/2021",
-            status: <Button variant="success">Approved</Button>
+            status: <Badges.GreenBadge>Approved</Badges.GreenBadge>
           },
           {
             number: "02034567890",
@@ -217,7 +217,7 @@ export default class Table extends React.Component {
             name: "Laptop",
             startDate: "12/31/2020",
             endDate: "01/01/2021",
-            status: <Button variant="primary">Pending Review</Button>
+            status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>
           },
           {
             number: "01234543890",
@@ -225,7 +225,7 @@ export default class Table extends React.Component {
             name: "Router",
             startDate: "01/01/2021",
             endDate: "01/02/2021",
-            status: <Button variant="primary">Pending Review</Button>
+            status: <Badges.GreyBadge>Disabled</Badges.GreyBadge>
           },
           {
             number: "12234567890",
@@ -233,7 +233,7 @@ export default class Table extends React.Component {
             name: "Router",
             startDate: "12/21/2020",
             endDate: "01/02/2021",
-            status: <Button variant="success">Approved</Button>
+            status: <Badges.GreenBadge>Approved</Badges.GreenBadge>
           },
           {
             number: "01212567890",
@@ -241,7 +241,7 @@ export default class Table extends React.Component {
             name: "Router",
             startDate: "05/10/2021",
             endDate: "05/16/2021",
-            status: <Button variant="primary">Pending Review</Button>
+            status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>
           },
           {
             number: "01233567890",
@@ -249,7 +249,7 @@ export default class Table extends React.Component {
             name: "Phone",
             startDate: "05/01/2021",
             endDate: "05/03/2021",
-            status: <Button variant="success">Approved</Button>
+            status: <Badges.GreenBadge>Approved</Badges.GreenBadge>
           },
           {
             number: "01234567891",
@@ -257,7 +257,7 @@ export default class Table extends React.Component {
             name: "Router",
             startDate: "03/14/2021",
             endDate: "03/24/2021",
-            status: <Button variant="primary">Pending Review</Button>
+            status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>
           }
         ]
       }
