@@ -4,8 +4,6 @@
   width: 1080px;
   height: 800px;
   margin: 0 auto;
-  /* margin-left: auto;
-    margin-right: auto; */
   left: 50%;
 }
 
@@ -97,16 +95,16 @@
 }
 
 th {
-  border-bottom: 1px solid #666666;
+  border-bottom: 2px solid grey !important;
+  width: 1080px;
+    height: 1px;
+    stroke-width: 1;
 }
 
-tr {
-  height: 50px;
-}
 
-table td {
-  border-left: 1px solid #666666;
-  border-right: 1px solid #666666;
+
+td {
+  border: 1px solid red !important;
 }
 
 .form-control {
@@ -133,8 +131,7 @@ table td {
   width: 12px;
   height: 16px;
   position: absolute;
-  /* display: inline-block;  */
-  z-index: 10;
+  z-index: -1;
 }
 
 #filter1 {
