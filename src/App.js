@@ -15,9 +15,7 @@ function App() {
           <div className="DataTable">
             <Table></Table>
           </div>
-          <div className="Footer">
             <Footer></Footer>
-          </div>
         </div>
       </div>
     </Router>
