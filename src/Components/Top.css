@@ -1,0 +1,114 @@
+.admin-title {
+    position: absolute;
+    top: 160px;
+    left: 80px;
+    width: 200px;
+    height: 23px;
+    font-family: Source Sans Pro;
+    font-size: 18px;
+    color: #222222;
+    text-decoration: none solid rgb(34, 34, 34);
+    font-weight: bold;
+
+}
+
+.wrapper{
+    position: absolute;
+    top: 100px;
+    left:100px;
+}
+.NewRequestsButton {
+    position: absolute;
+    padding-top:5px;
+    left: 100px;
+    top: 190px;
+    z-index:10;
+    font-family: Source Sans Pro;
+    font-size: 12px;
+    border: solid 1px #d8d8d8;
+    color: #222222;
+    text-decoration: none solid rgb(255, 255, 255);
+}
+
+.ExistingListingsButton {
+    position: absolute;
+    text-align: center;
+    left: 265px;
+    top: 190px;
+    padding-top:5px;
+    width: 163px;
+    height: 30px;
+    z-index:10;
+    font-family: Source Sans Pro;
+    font-size: 12px;
+    border: solid 1px #d8d8d8;
+    color: #222222;
+    text-decoration: none solid rgb(34, 34, 34);
+}
+
+.PlusButton {
+    position: fixed;
+    right: 25%;
+    display: block;
+    top: 175px;
+    width: 16px;
+    height: 16px;
+    padding-right:1px;
+    cursor: pointer
+}
+
+.NewRequestText {
+    position: fixed;
+    display: block;
+    float: right;
+    top: 174px;
+    right: 18%;
+    width: 88px;
+    height: 17px;
+    font-family: Source Sans Pro;
+    font-size: 16px;
+    color: #3d7aa9;
+    text-decoration: none solid rgb(61, 122, 169);
+    line-height: 18px;
+    padding-left: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Filter {
+    position: absolute;
+    top: 165px;
+    left: 861px;
+    width: 12px;
+    height: 16px;
+}
+
+.FilterText {
+    position: absolute;
+    top: 160px;
+    left: 880px;
+    width: 38px;
+    height: 20px;
+    font-family: Source Sans Pro;
+    font-size: 16px;
+    color: #3d7aa9;
+    text-decoration: none solid rgb(61, 122, 169);
+    font-weight: bold;
+}
+
+.SearchBar {
+    position: absolute;
+    top: 148px;
+    left: 924px;
+    width: 325px;
+    height: 28px;
+    border-radius: 3px;
+    fill: #ffffff;
+    stroke-width: 1;
+    border-style: ridge;
+}
+
+.pagination {
+    cursor: pointer !important;
+}

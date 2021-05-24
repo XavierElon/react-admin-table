@@ -3,6 +3,7 @@ import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Table from "../Components/Table";
 import { Link } from "react-router-dom";
+import { Grid } from "@material-ui/core";
 
 const appStyle = {
   textAlign: "center",
@@ -43,9 +44,11 @@ export default class Dashboard extends React.Component {
           <div style={headerStyle} className="Header">
             <Header></Header>
           </div>
+          <Grid>
           <div style={tableStyle} className="DataTable">
             <Table></Table>
           </div>
+        </Grid>
           <Footer></Footer>
         </div>
       </div>

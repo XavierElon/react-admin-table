@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@formio/react": "*",
+    "@material-ui/core": "^4.11.4",
     "@ramonak/react-button-group": "^1.1.1",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",

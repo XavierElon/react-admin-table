@@ -3,7 +3,7 @@
   position: absolute;
   width: 1080px;
   height: 600px;
-  left: 35%;
+  left: 260px;
 }
 
 .Modal {
@@ -46,8 +46,8 @@
 
 .PlusButton {
   position: absolute;
-  right: 92px;
-  top: 1px;
+  right: 102px;
+  top: -50px;
   width: 16px;
   height: 16px;
   padding-right: 1px;
