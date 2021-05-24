@@ -4,7 +4,7 @@
     min-width: 1440px;
     height:72px;
     position: absolute;
-    bottom: 0px;
+    bottom: -100px;
     width: 100%;
     background-color: #700017;
     z-index: 100;
@@ -21,7 +21,7 @@
 .PrivacyText {
   position: absolute;
   bottom: 10px;
-  left: 36%;
+  left: 600px;
   width: 156px;
   height: 17px;
   font-family: Source Sans Pro;
@@ -34,7 +34,7 @@
 .AccessibilityText {
   position: absolute;
   bottom: 10px;
-  left: 46.5%;
+  left: 900px;
   width: 72px;
   height: 17px;
   font-family: Source Sans Pro;
@@ -47,7 +47,7 @@
 .OhioCheckbookText {
   position: absolute;
   bottom: 10px;
-  right: 42%;
+  left: 1100px;
   width: 97px;
   height: 17px;
   font-family: Source Sans Pro;
@@ -60,19 +60,13 @@
 .FacebookLogo {
   position: absolute;
   bottom: 30px;
-  right: 100px;
-  /* z-index: 10;
-    bottom: 30px;
-    right: 10%;
-    width: 14px;
-    height: 14px;
-    fill: #ffffff; */
+  left:  1600px;
 }
 
 .TwitterLogo {
   position: absolute;
   bottom: 30px;
-  right: 150px;
+  left: 1700px;
   width: 14px;
   height: 14px;
   fill: #ffffff;

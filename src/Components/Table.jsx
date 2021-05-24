@@ -1,12 +1,14 @@
 import React, { Component, useState } from "react";
 import { MDBDataTable, MDBTable, MDBTableHead } from "mdbreact";
-import './Table.css'
+import "./Table.css";
 import SearchIcon from "../images/icn-search.png";
 import FilterIcon from "../images/icn-filter.png";
 import PlusButton from "../images/plus-button.png";
 import SmallFilter from "../images/small-filter.png";
 import styled from "styled-components";
-import * as Badges from './Badge';
+import * as Badges from "./Badge";
+import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
 let data = require("../test.json");
 let new_data = JSON.parse(JSON.stringify(data));
@@ -266,7 +268,7 @@ export default class Table extends React.Component {
   }
 
   filterMenu() {
-    console.log("do stuff")
+    console.log("do stuff");
   }
 
   handleClick() {
@@ -279,23 +281,25 @@ export default class Table extends React.Component {
       console.log("new");
       return (
         <div className="Table">
+          <Modal color="green" className="Modal"></Modal>
           <h2 className="admin-title">Admin Dashboard</h2>
           <div className="ToggleButtons">
             <ToggleGroup></ToggleGroup>
           </div>
-          <p className="NewRequestText">
-          <div className="Filter" onClick={this.filterMenu}></div>
+
+          {/* <div className="Filter" onClick={this.filterMenu}></div>
           <img className="FilterIcon" src={FilterIcon} alt="" />
-          <p className="FilterText">Filter</p>
-          
-          <img
-            className="PlusButton"
-            src={PlusButton}
-            alt=""
-            onClick={this.getNewEntries}
-          />
-            new request
-          </p>
+          <p className="FilterText">Filter</p> */}
+          <Link to='/requestform'>
+            <p className="NewRequestText">new request</p>
+            <img
+              className="PlusButton"
+              src={PlusButton}
+              alt=""
+              onClick={this.getNewEntries}
+            />
+          </Link>
+
           <img className="SmallFilter" id="filter1" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
@@ -337,17 +341,17 @@ export default class Table extends React.Component {
           <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter4" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter5" src={SmallFilter} alt="" />
-            <MDBDataTable
-              bordered
-              btn
-              sortable
-              noBottomColumns={true}
-              entriesLabel=""
-              data={this.state.data}
-              infoLabel={["", "", "", ""]}
-              entriesOptions={[]}
-              paginationLabel={["<", ">"]}
-            />
+          <MDBDataTable
+            bordered
+            btn
+            sortable
+            noBottomColumns={true}
+            entriesLabel=""
+            data={this.state.data}
+            infoLabel={["", "", "", ""]}
+            entriesOptions={[]}
+            paginationLabel={["<", ">"]}
+          />
           <img className="SearchIcon" src={SearchIcon} alt="" />
         </div>
       );

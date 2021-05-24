@@ -1,10 +1,16 @@
 .Table {
-  top: 20%;
+  top: 40%;
   position: absolute;
   width: 1080px;
-  height: 800px;
-  margin: 0 auto;
-  left: 50%;
+  height: 600px;
+  left: 260px;
+}
+
+.Modal {
+  position: absolute;
+  top: -150px;
+  text-align:left;
+  padding-left: 50px;
 }
 
 .admin-title {
@@ -40,8 +46,8 @@
 
 .PlusButton {
   position: absolute;
-  right: 92px;
-  top: 1px;
+  right: 102px;
+  top: -50px;
   width: 16px;
   height: 16px;
   padding-right: 1px;
