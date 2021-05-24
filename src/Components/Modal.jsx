@@ -47,7 +47,7 @@ export default class Modal extends React.Component {
           <GreenModal>
             <p>Request #123456789 was approved.</p>
             <img
-              style={{ position: "absolute", top: "15px", right: "25px" }}
+              style={{ position: "absolute", top: "15px", right: "25px", cursor: "pointer" }}
               src={GX}
               alt=""
             />
@@ -60,7 +60,7 @@ export default class Modal extends React.Component {
           <RedModal>
             <p>Request #1234567890 has been denied.</p>
             <img
-              style={{ position: "absolute", top: "15px", right: "25px" }}
+              style={{ position: "absolute", top: "15px", right: "25px", cursor: "pointer" }}
               src={RX}
               alt=""
             />

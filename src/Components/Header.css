@@ -52,6 +52,7 @@
   position: absolute;
   right: 100px;
   top: 30px;
+  cursor: pointer;
 }
 
 .HelpText {
@@ -65,6 +66,7 @@
   color: #4a4a4a;
   text-decoration: none solid rgb(74, 74, 74);
   text-align: center;
+  cursor: pointer;
 }
 
 .UserIcon {
@@ -73,6 +75,7 @@
   position: absolute;
   right: 50px;
   top: 30px;
+  cursor: pointer;
 }
 
 .ProfileText {
@@ -86,4 +89,5 @@
   color: #4a4a4a;
   text-decoration: none solid rgb(74, 74, 74);
   text-align: center;
+  cursor: pointer;
 }
