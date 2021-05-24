@@ -1,23 +1,17 @@
 import "./App.css";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-import Table from "./Components/Table";
+import Dashboard from "./pages/Dashboard";
+import RequestForm from "./pages/RequestForm";
+import RequestDetails from "./pages/RequestDetails";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <div className="Content-Wrap">
-          <div className="Header">
-            <Header></Header>
-          </div>
-          <div className="DataTable">
-            <Table></Table>
-          </div>
-            <Footer></Footer>
-        </div>
-      </div>
+      <Switch>
+        <Route path="/" exact component={Dashboard}></Route>
+        <Route path="/requestform" exact component={RequestForm}></Route>
+        <Route path="/requestdetails" exact component={RequestDetails}></Route>
+      </Switch>
     </Router>
   );
 }

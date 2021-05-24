@@ -8,7 +8,7 @@ import SmallFilter from "../images/small-filter.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
 import Modal from "./Modal";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 let data = require("../test.json");
 let new_data = JSON.parse(JSON.stringify(data));
@@ -281,25 +281,25 @@ export default class Table extends React.Component {
       console.log("new");
       return (
         <div className="Table">
-          <Modal color="green" className="Modal">
-            Achilles and Flocka
-          </Modal>
+          <Modal color="green" className="Modal"></Modal>
           <h2 className="admin-title">Admin Dashboard</h2>
           <div className="ToggleButtons">
             <ToggleGroup></ToggleGroup>
           </div>
-          <p className="NewRequestText">
-            <div className="Filter" onClick={this.filterMenu}></div>
-            <img className="FilterIcon" src={FilterIcon} alt="" />
-            <p className="FilterText">Filter</p>
+
+          {/* <div className="Filter" onClick={this.filterMenu}></div>
+          <img className="FilterIcon" src={FilterIcon} alt="" />
+          <p className="FilterText">Filter</p> */}
+          <Link to='/requestform'>
+            <p className="NewRequestText">new request</p>
             <img
               className="PlusButton"
               src={PlusButton}
               alt=""
               onClick={this.getNewEntries}
             />
-            new request
-          </p>
+          </Link>
+
           <img className="SmallFilter" id="filter1" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />

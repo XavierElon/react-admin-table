@@ -45,7 +45,7 @@ export default class Modal extends React.Component {
       return (
         <div>
           <GreenModal>
-            <p>Achilles</p>
+            <p>Request #123456789 was approved.</p>
             <img
               style={{ position: "absolute", top: "15px", right: "25px" }}
               src={GX}
@@ -58,7 +58,7 @@ export default class Modal extends React.Component {
       return (
         <div>
           <RedModal>
-            <p>Reqyest #1234567890 has been denied.</p>
+            <p>Request #1234567890 has been denied.</p>
             <img
               style={{ position: "absolute", top: "15px", right: "25px" }}
               src={RX}
