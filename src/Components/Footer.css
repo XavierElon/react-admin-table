@@ -60,13 +60,13 @@
 .FacebookLogo {
   position: absolute;
   bottom: 30px;
-  left:  1600px;
+  right: 100px;
 }
 
 .TwitterLogo {
   position: absolute;
   bottom: 30px;
-  left: 1700px;
+  right: 50px;
   width: 14px;
   height: 14px;
   fill: #ffffff;

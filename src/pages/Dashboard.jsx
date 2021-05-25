@@ -20,15 +20,19 @@ const wrapperStyle = {
 };
 
 const headerStyle = {
-  position: "absolute",
+  position: "fixed",
   width: "100%",
+  minWidth: "1440px",
   height: "80px",
-  backgroundColor: "#white",
+  backgroundColor: "white",
+  fill: "white",
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+  zIndex: "1"
 };
 
 const tableStyle = {
   position: "absolute",
+  left: "50px",
   marginLeft: "auto",
   marginRight: "auto",
   width: "1080px",
@@ -45,10 +49,10 @@ export default class Dashboard extends React.Component {
             <Header></Header>
           </div>
           <Grid>
-          <div style={tableStyle} className="DataTable">
-            <Table></Table>
-          </div>
-        </Grid>
+            <div style={tableStyle} className="DataTable">
+              <Table></Table>
+            </div>
+          </Grid>
           <Footer></Footer>
         </div>
       </div>

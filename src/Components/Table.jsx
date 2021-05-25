@@ -9,9 +9,7 @@ import styled from "styled-components";
 import * as Badges from "./Badge";
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
-
-let data = require("../test.json");
-let new_data = JSON.parse(JSON.stringify(data));
+import RequestDetails from "../pages/RequestDetails";
 
 const NewButton = styled.button`
   background: grey;
@@ -43,6 +41,17 @@ const ButtonGroup = styled.div`
   height: 100px;
 `;
 
+const linkStyle = `
+  color: #700017;
+  width: 150px;
+  height: 28px;
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  text-decoration: none solid rgb(112, 0, 23);
+  line-height: 28px;
+  text-transform: capitalize;
+`;
+
 const types = ["New Requests", "Existing Entries"];
 
 function ToggleGroup() {
@@ -63,12 +72,17 @@ function ToggleGroup() {
   );
 }
 
+function getRow(id) {
+  console.log("row");
+  return <Link to={`/requestdetails/${id}`}></Link>;
+}
+
 export default class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.data2,
-      new_data: this.data2,
+      data: {},
+
       isNewRequests: true,
       button1: {
         active: true,
@@ -81,194 +95,101 @@ export default class Table extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+
+    console.log(this.state.data);
+
+    let data2 = {
+      columns: [
+        {
+          label: "Resource No.",
+          field: "number",
+          sort: "asc",
+          width: 200,
+        },
+        {
+          label: "Resource Type",
+          field: "type",
+          sort: "asc",
+          width: 200,
+        },
+        {
+          label: "Resource Name",
+          field: "name",
+          sort: "asc",
+          width: 270,
+        },
+        {
+          label: "Offer Start Date",
+          field: "startDate",
+          sort: "asc",
+          width: 100,
+        },
+        {
+          label: "Offer End Date",
+          field: "endDate",
+          sort: "asc",
+          width: 150,
+        },
+        {
+          label: "Status",
+          field: "status",
+          sort: "asc",
+          width: 170,
+        },
+      ],
+      rows: [],
+    };
+
+    fetch(
+      "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission"
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result[0]._id);
+        let length = result.length;
+        for (let i = 0; i < length; i++) {
+          let start = result[i].data.offerStartDate;
+          let newStart = start.substr(0, start.length - 14);
+          let end = result[i].data.offerExpirationDate;
+          let newEnd = end.substr(0, end.length - 14);
+          let status;
+          let id = result[i]._id;
+          let new_id = <Link to={`/requestdetails/${id}`}>${id}</Link>
+
+          if (result[i].state === "submitted") {
+            status = <Badges.BlueBadge>Pending Review</Badges.BlueBadge>;
+          } else if (result[i].state === "approved") {
+            status = <Badges.GreenBadge>Approved</Badges.GreenBadge>;
+          } else if (result[i].state === "disabled") {
+            status = <Badges.GreyBadge>Disabled</Badges.GreyBadge>;
+          } else if (result[i].state === "denied") {
+            status = <Badges.RedBadge>Denied</Badges.RedBadge>;
+          }
+
+          data2.rows.push({
+            number: new_id,
+            type: result[i].data.requestType,
+            name: result[i].data.resourceName,
+            startDate: newStart,
+            endDate: newEnd,
+            status: status,
+            clickEvent: () => this.getRow(id),
+          });
+        }
+      });
+    this.setState((this.state.data = data2));
+    console.log("this.state.data");
+    console.log(this.state.data);
+    console.log(data2);
   }
 
-  data2 = {
-    columns: [
-      {
-        label: "Resource No.",
-        field: "number",
-        sort: "asc",
-        width: 200,
-      },
-      {
-        label: "Resource Type",
-        field: "type",
-        sort: "asc",
-        width: 200,
-      },
-      {
-        label: "Resource Name",
-        field: "name",
-        sort: "asc",
-        width: 270,
-      },
-      {
-        label: "Offer Start Date",
-        field: "startDate",
-        sort: "asc",
-        width: 100,
-      },
-      {
-        label: "Offer End Date",
-        field: "endDate",
-        sort: "asc",
-        width: 150,
-      },
-      {
-        label: "Status",
-        field: "status",
-        sort: "asc",
-        width: 170,
-      },
-    ],
-    rows: [
-      {
-        number: "01234567890",
-        type: "Donated Device",
-        name: "Computer",
-        startDate: "01/01/2021",
-        endDate: "01/02/2021",
-        status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>,
-      },
-      {
-        number: "01234537890",
-        type: "Donated Device",
-        name: "Computer",
-        startDate: "01/02/2021",
-        endDate: "02/21/2021",
-        status: <Badges.GreenBadge>Approved</Badges.GreenBadge>,
-      },
-      {
-        number: "01234567801",
-        type: "Donated Device",
-        name: "Computer",
-        startDate: "05/02/2021",
-        endDate: "05/05/2021",
-        status: <Badges.RedBadge>Denied</Badges.RedBadge>,
-      },
-      {
-        number: "01234567826",
-        type: "Digital Resource",
-        name: "Computer",
-        startDate: "05/01/2021",
-        endDate: "05/06/2021",
-        status: <Badges.GreyBadge>Disabled</Badges.GreyBadge>,
-      },
-      {
-        number: "01634567890",
-        type: "Donated Device",
-        name: "Laptop",
-        startDate: "04/15/2021",
-        endDate: "04/21/2021",
-        status: <Badges.GreenBadge>Approved</Badges.GreenBadge>,
-      },
-      {
-        number: "01234567840",
-        type: "Digital Resource",
-        name: "Laptop",
-        startDate: "04/17/2021",
-        endDate: "05/01/2021",
-        status: <Badges.RedBadge>Denied</Badges.RedBadge>,
-      },
-      {
-        number: "11234567890",
-        type: "Donated Device",
-        name: "Laptop",
-        startDate: "03/01/2021",
-        endDate: "03/10/2021",
-        status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>,
-      },
-      {
-        number: "01234563890",
-        type: "Donated Device",
-        name: "Laptop",
-        startDate: "02/09/2021",
-        endDate: "02/14/2021",
-        status: <Badges.GreenBadge>Approved</Badges.GreenBadge>,
-      },
-      {
-        number: "01234567891",
-        type: "Donated Device",
-        name: "Laptop",
-        startDate: "03/11/2021",
-        endDate: "03/15/2021",
-        status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>,
-      },
-      {
-        number: "02034537890",
-        type: "Donated Device",
-        name: "Router",
-        startDate: "02/01/2021",
-        endDate: "02/05/2021",
-        status: <Badges.GreenBadge>Approved</Badges.GreenBadge>,
-      },
-      {
-        number: "02034567890",
-        type: "Donated Device",
-        name: "Laptop",
-        startDate: "12/31/2020",
-        endDate: "01/01/2021",
-        status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>,
-      },
-      {
-        number: "01234543890",
-        type: "Donated Device",
-        name: "Router",
-        startDate: "01/01/2021",
-        endDate: "01/02/2021",
-        status: <Badges.GreyBadge>Disabled</Badges.GreyBadge>,
-      },
-      {
-        number: "12234567890",
-        type: "Donated Device",
-        name: "Router",
-        startDate: "12/21/2020",
-        endDate: "01/02/2021",
-        status: <Badges.GreenBadge>Approved</Badges.GreenBadge>,
-      },
-      {
-        number: "01212567890",
-        type: "Donated Devicer",
-        name: "Router",
-        startDate: "05/10/2021",
-        endDate: "05/16/2021",
-        status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>,
-      },
-      {
-        number: "01233567890",
-        type: "Digital Resource",
-        name: "Phone",
-        startDate: "05/01/2021",
-        endDate: "05/03/2021",
-        status: <Badges.GreenBadge>Approved</Badges.GreenBadge>,
-      },
-      {
-        number: "01234567891",
-        type: "Donated Device",
-        name: "Router",
-        startDate: "03/14/2021",
-        endDate: "03/24/2021",
-        status: <Badges.BlueBadge>Pending Review</Badges.BlueBadge>,
-      },
-    ],
-  };
+  getRow(id) {
+    console.log(id);
+    return <RequestDetails></RequestDetails>;
+  }
 
   componentDidMount() {
-    // this.newEntries();
-  }
-
-  newEntries() {
-    let length = new_data.rows.length;
-    for (let i = 0; i < length; i++) {
-      if (new_data.rows[i].status !== "Pending") {
-        delete new_data.rows[i];
-      }
-    }
-  }
-
-  filterMenu() {
-    console.log("do stuff");
+    getRow();
   }
 
   handleClick() {
@@ -277,11 +198,11 @@ export default class Table extends React.Component {
   }
 
   render() {
+    console.log("in render");
+    console.log(this.state.data);
     if (this.state.isNewRequests) {
-      console.log("new");
       return (
         <div className="Table">
-          <Modal color="green" className="Modal"></Modal>
           <h2 className="admin-title">Admin Dashboard</h2>
           <div className="ToggleButtons">
             <ToggleGroup></ToggleGroup>
@@ -290,7 +211,7 @@ export default class Table extends React.Component {
           {/* <div className="Filter" onClick={this.filterMenu}></div>
           <img className="FilterIcon" src={FilterIcon} alt="" />
           <p className="FilterText">Filter</p> */}
-          <Link to='/requestform'>
+          <Link to="/requestform">
             <p className="NewRequestText">new request</p>
             <img
               className="PlusButton"
@@ -311,7 +232,7 @@ export default class Table extends React.Component {
             sortable
             noBottomColumns={true}
             entriesLabel=""
-            data={this.state.new_data}
+            data={this.state.data}
             infoLabel={["", "", "", ""]}
             entriesOptions={[]}
             paginationLabel={["<", ">"]}
@@ -320,7 +241,6 @@ export default class Table extends React.Component {
         </div>
       );
     } else {
-      console.log("old");
       return (
         <div className="Table">
           <h2 className="admin-title">Admin Dashboard</h2>

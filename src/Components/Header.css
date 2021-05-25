@@ -1,9 +1,6 @@
-/* .Header {
+.Header {
     min-width: 1440px;
-    height: 110px;
-    fill: #ffffff;
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-} */
+}
 
 .Title {
   position: absolute;

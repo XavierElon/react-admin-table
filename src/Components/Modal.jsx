@@ -41,7 +41,6 @@ export default class Modal extends React.Component {
 
   render() {
     if (this.props.color === "green") {
-      console.log("here");
       return (
         <div>
           <GreenModal>
