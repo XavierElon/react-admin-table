@@ -15,6 +15,7 @@
     "bootstrap": "^5.0.1",
     "downshift": "^6.1.3",
     "formiojs": "^4.13.1",
+    "fs": "*",
     "material-ui-search-bar": "^1.0.0",
     "mdbreact": "^5.0.2",
     "react": "^17.0.2",

@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import { ClickAwayListener } from "@material-ui/core";
+import React, { useState } from "react";
+import { isDOMComponent } from "react-dom/test-utils";
 import styled from "styled-components";
 import GX from "../images/icn-close-green.svg";
 import RX from "../images/icn-close-red.svg";
@@ -32,41 +34,53 @@ const GreenModal = styled("div")`
   padding-top: 20px;
 `;
 
-export default class Modal extends React.Component {
-  constructor(props) {
-    super(props);
+
+
+export default function Modal({ color, open, close }) {
+  
+  const styledModal = {
+    opacity: open ? 0 : 1
   }
-
-  closeModal() {}
-
-  render() {
-    if (this.props.color === "green") {
-      console.log("here");
-      return (
-        <div>
-          <GreenModal>
-            <p>Request #123456789 was approved.</p>
-            <img
-              style={{ position: "absolute", top: "15px", right: "25px" }}
-              src={GX}
-              alt=""
-            />
-          </GreenModal>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <RedModal>
-            <p>Request #1234567890 has been denied.</p>
-            <img
-              style={{ position: "absolute", top: "15px", right: "25px" }}
-              src={RX}
-              alt=""
-            />
-          </RedModal>
-        </div>
-      );
-    }
+  
+  const lick = () => console.log('clciekd')
+  console.log(open)
+  console.log(close)
+  if (color === "green") {
+    return (
+      <div>
+        <GreenModal style={styledModal}>
+          <p>Request #123456789 was approved.</p>
+          <img
+            style={{
+              position: "absolute",
+              top: "15px",
+              right: "25px",
+              cursor: "pointer",
+            }}
+            src={GX}
+            alt=""
+            onClick={(close)}
+          />
+        </GreenModal>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <RedModal>
+          <p>Request #1234567890 has been denied.</p>
+          <img
+            style={{
+              position: "absolute",
+              top: "15px",
+              right: "25px",
+              cursor: "pointer",
+            }}
+            src={RX}
+            alt=""
+          />
+        </RedModal>
+      </div>
+    );
   }
 }

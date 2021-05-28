@@ -10,7 +10,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Dashboard}></Route>
         <Route path="/requestform" exact component={RequestForm}></Route>
-        <Route path="/requestdetails" exact component={RequestDetails}></Route>
+        <Route path="/requestdetails/:id" exact component={RequestDetails}></Route>
       </Switch>
     </Router>
   );

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Table from "../Components/Table";
+import Modal from "../Components/Modal";
 import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
@@ -20,38 +21,44 @@ const wrapperStyle = {
 };
 
 const headerStyle = {
-  position: "absolute",
+  position: "fixed",
   width: "100%",
+  minWidth: "1440px",
   height: "80px",
-  backgroundColor: "#white",
+  backgroundColor: "white",
+  fill: "white",
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+  zIndex: "1",
 };
 
 const tableStyle = {
   position: "absolute",
+  left: "50px",
   marginLeft: "auto",
   marginRight: "auto",
   width: "1080px",
   height: "523px",
-  marginTop: "60px",
+  marginTop: "10rem",
 };
 
-export default class Dashboard extends React.Component {
-  render() {
-    return (
-      <div style={appStyle} className="App">
-        <div style={wrapperStyle} className="Content-Wrap">
-          <div style={headerStyle} className="Header">
-            <Header></Header>
-          </div>
-          <Grid>
+export default function Dashboard() {
+
+  
+
+  return (
+    <div style={appStyle} className="App">
+      <div style={wrapperStyle} className="Content-Wrap">
+        <div style={headerStyle} className="Header">
+          <Header></Header>
+        </div>
+        <Grid>
           <div style={tableStyle} className="DataTable">
+            
             <Table></Table>
           </div>
         </Grid>
-          <Footer></Footer>
-        </div>
+        <Footer></Footer>
       </div>
-    );
-  }
+    </div>
+  );
 }

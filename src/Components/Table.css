@@ -147,27 +147,22 @@ th {
   cursor: pointer;
 }
 
-#filter1 {
-  top: 52px;
-  left: 155px;
-}
-
 #filter2 {
-  top: 52px;
-  left: 322px;
+  top: 46px;
+  left: 415px;
 }
 
 #filter3 {
-  top: 52px;
-  left: 485px;
+  top: 46px;
+  left: 565px;
 }
 
 #filter4 {
-  top: 52px;
-  left: 655px;
+  top: 46px;
+  left: 695px;
 }
 
 #filter5 {
-  top: 52px;
-  left: 825px;
+  top: 46px;
+  left: 820px;
 }

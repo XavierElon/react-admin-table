@@ -1,9 +1,6 @@
-/* .Header {
+.Header {
     min-width: 1440px;
-    height: 110px;
-    fill: #ffffff;
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-} */
+}
 
 .Title {
   position: absolute;
@@ -52,6 +49,7 @@
   position: absolute;
   right: 100px;
   top: 30px;
+  cursor: pointer;
 }
 
 .HelpText {
@@ -65,6 +63,7 @@
   color: #4a4a4a;
   text-decoration: none solid rgb(74, 74, 74);
   text-align: center;
+  cursor: pointer;
 }
 
 .UserIcon {
@@ -73,6 +72,7 @@
   position: absolute;
   right: 50px;
   top: 30px;
+  cursor: pointer;
 }
 
 .ProfileText {
@@ -86,4 +86,5 @@
   color: #4a4a4a;
   text-decoration: none solid rgb(74, 74, 74);
   text-align: center;
+  cursor: pointer;
 }
