@@ -10,6 +10,7 @@ import * as Badges from "./Badge";
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
 import RequestDetails from "../pages/RequestDetails";
+import {makeStyles} from '@material-ui/core';
 
 const NewButton = styled.button`
   background: grey;
@@ -41,16 +42,13 @@ const ButtonGroup = styled.div`
   height: 100px;
 `;
 
-const linkStyle = `
-  color: #700017;
-  width: 150px;
-  height: 28px;
-  font-family: Source Sans Pro;
-  font-size: 14px;
-  text-decoration: none solid rgb(112, 0, 23);
-  line-height: 28px;
-  text-transform: capitalize;
-`;
+const useStyles = makeStyles({
+  link: {
+    'a:visited': {
+      color: 'red'
+    }
+  }
+})
 
 const types = ["New Requests", "Existing Entries"];
 
@@ -78,11 +76,12 @@ function getRow(id) {
 }
 
 export default class Table extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       data: {},
-
+      isLoading: true,
       isNewRequests: true,
       button1: {
         active: true,
@@ -95,8 +94,10 @@ export default class Table extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+  }
 
-    console.log(this.state.data);
+  async componentDidMount() {
+    console.log("component did mount");
 
     let data2 = {
       columns: [
@@ -140,56 +141,70 @@ export default class Table extends React.Component {
       rows: [],
     };
 
-    fetch(
-      "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission"
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result[0]._id);
-        let length = result.length;
-        for (let i = 0; i < length; i++) {
-          let start = result[i].data.offerStartDate;
-          let newStart = start.substr(0, start.length - 14);
-          let end = result[i].data.offerExpirationDate;
-          let newEnd = end.substr(0, end.length - 14);
-          let status;
-          let id = result[i]._id;
-          let new_id = <Link to={`/requestdetails/${id}`}>${id}</Link>
+    const linkStyle = {
+      color: "#700017",
+      width: "150px",
+      height: "28px",
+      fontFamily: "Source Sans Pro",
+      fontSize: "14px",
+      textDecoration: "underline rgb(112, 0, 23)",
+      lineHeight: "28px",
+      textTransform: "uppercase",
+    };
 
-          if (result[i].state === "submitted") {
-            status = <Badges.BlueBadge>Pending Review</Badges.BlueBadge>;
-          } else if (result[i].state === "approved") {
-            status = <Badges.GreenBadge>Approved</Badges.GreenBadge>;
-          } else if (result[i].state === "disabled") {
-            status = <Badges.GreyBadge>Disabled</Badges.GreyBadge>;
-          } else if (result[i].state === "denied") {
-            status = <Badges.RedBadge>Denied</Badges.RedBadge>;
-          }
+    try {
+      const res = await fetch(
+        "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission"
+      );
+      const result = await res.json();
+      let length = result.length;
 
-          data2.rows.push({
-            number: new_id,
-            type: result[i].data.requestType,
-            name: result[i].data.resourceName,
-            startDate: newStart,
-            endDate: newEnd,
-            status: status,
-            clickEvent: () => this.getRow(id),
-          });
+      for (let i = 0; i < length; i++) {
+        console.log(result[i].state);
+        let newStart = "";
+        let newEnd = "";
+
+        let start = result[i].data.offerStartDate;
+        if (start != null) {
+          newStart = start.substr(0, start.length - 14);
         }
-      });
-    this.setState((this.state.data = data2));
-    console.log("this.state.data");
-    console.log(this.state.data);
-    console.log(data2);
-  }
 
-  getRow(id) {
-    console.log(id);
-    return <RequestDetails></RequestDetails>;
-  }
+        let end = result[i].data.offerExpirationDate;
+        if (end != null) {
+          newEnd = end.substr(0, end.length - 14);
+        }
 
-  componentDidMount() {
-    getRow();
+        let status;
+        let id = result[i]._id;
+        let new_id = (
+          <Link className="Link" style={linkStyle} to={`/requestdetails/${id}`}>
+            {id}
+          </Link>
+        );
+
+        if (result[i].state === "submitted") {
+          status = <Badges.BlueBadge>Pending Review</Badges.BlueBadge>;
+        } else if (result[i].state === "approved") {
+          status = <Badges.GreenBadge>Approved</Badges.GreenBadge>;
+        } else if (result[i].state === "disabled") {
+          status = <Badges.GreyBadge>Disabled</Badges.GreyBadge>;
+        } else if (result[i].state === "denied") {
+          status = <Badges.RedBadge>Denied</Badges.RedBadge>;
+        }
+        data2.rows.push({
+          number: new_id,
+          type: result[i].data.resourceType,
+          name: result[i].data.resourceName,
+          startDate: newStart,
+          endDate: newEnd,
+          status: status,
+          // clickEvent: () => this.getRow(id),
+        });
+      }
+      this.setState((this.state.data = data2));
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   handleClick() {
@@ -199,7 +214,6 @@ export default class Table extends React.Component {
 
   render() {
     console.log("in render");
-    console.log(this.state.data);
     if (this.state.isNewRequests) {
       return (
         <div className="Table">
@@ -220,8 +234,6 @@ export default class Table extends React.Component {
               onClick={this.getNewEntries}
             />
           </Link>
-
-          <img className="SmallFilter" id="filter1" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter4" src={SmallFilter} alt="" />
@@ -256,7 +268,6 @@ export default class Table extends React.Component {
           <p className="NewRequestText" onclick={this.newEntries}>
             new request
           </p>
-          <img className="SmallFilter" id="filter1" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter4" src={SmallFilter} alt="" />
