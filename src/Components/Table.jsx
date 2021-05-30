@@ -105,7 +105,7 @@ export default class Table extends React.Component {
           label: "Resource No.",
           field: "number",
           sort: "asc",
-          width: 200,
+          width: 180,
         },
         {
           label: "Resource Type",
@@ -234,13 +234,12 @@ export default class Table extends React.Component {
               onClick={this.getNewEntries}
             />
           </Link>
-          <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
+          {/* <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter4" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter5" src={SmallFilter} alt="" />
+          <img className="SmallFilter" id="filter5" src={SmallFilter} alt="" /> */}
           <MDBDataTable
             bordered
-            btn
             sortable
             noBottomColumns={true}
             entriesLabel=""
@@ -268,10 +267,10 @@ export default class Table extends React.Component {
           <p className="NewRequestText" onclick={this.newEntries}>
             new request
           </p>
-          <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
+          {/* <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
           <img className="SmallFilter" id="filter4" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter5" src={SmallFilter} alt="" />
+          <img className="SmallFilter" id="filter5" src={SmallFilter} alt="" /> */}
           <MDBDataTable
             bordered
             btn
