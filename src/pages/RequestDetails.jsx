@@ -22,7 +22,9 @@ import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
-} from '@material-ui/pickers';
+} from "@material-ui/pickers";
+
+import FilledInput from '@material-ui/core/FilledInput';
 
 const appStyle = {
   textAlign: "center",
@@ -45,15 +47,6 @@ const headerStyle = {
   backgroundColor: "#white",
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
 };
-
-// const tableStyle = {
-//   position: "absolute",
-//   marginLeft: "auto",
-//   marginRight: "auto",
-//   width: "1080px",
-//   height: "523px",
-//   marginTop: "60px",
-// };
 
 const h2Style = {
   position: "absolute",
@@ -78,10 +71,9 @@ const typeStyle = {
 
 const nameStyle = {
   position: "absolute",
-  top: "6%",
-  height: "20px",
-  left: "75%",
-  width: "300px",
+  top: "5%",
+  left: "72%",
+  width: "200px",
 };
 
 const checkboxesStyle = {
@@ -142,9 +134,86 @@ const zipcodeStyle = {
   left: "69rem",
 };
 
-const startDateStyle = {};
+const startDateStyle = {
+  width: "200px",
+  position: "absolute",
+  top: "60rem",
+  left: "10%",
+};
 
-const endDateStyle = {};
+const endDateStyle = {
+  width: "200px",
+  position: "absolute",
+  top: "60rem",
+  left: "42%",
+};
+
+const descriptionStyle = {
+  width: "550px",
+  position: "absolute",
+  top: "70rem",
+  left: "10%",
+};
+
+const link = {
+  position: "absolute",
+  top: "85rem",
+  left: "10%",
+};
+
+const linkStyle = {
+  position: "absolute",
+  top: "2rem",
+  left: "0rem",
+  width: "300px",
+};
+
+const resourceContactStyle = {
+  position: "absolute",
+  top: "95rem",
+  left: "10%",
+};
+
+const contactNameStyle = {
+  position: "absolute",
+  top: "5rem",
+  left: "0rem",
+  width: "200px",
+};
+
+const phoneNumberStyle = {
+  position: "absolute",
+  top: "5rem",
+  left: "35rem",
+  width: "200px",
+};
+
+const emailStyle = {
+  position: "absolute",
+  top: "5rem",
+  left: "70rem",
+  width: "200px",
+};
+
+const lineStyle = {
+  width: "1080px",
+  height: "1px",
+  strokeWidth: "1",
+  backgroundColor: "#d8d8d8",
+  position: "absolute",
+  top: "110rem",
+  left: "10rem"
+}
+
+const statusStyle = {
+  position: "absolute",
+  top: "112rem",
+  left: "10rem"
+}
+
+const statusTextStyle = {
+  textAlign: "left"
+}
 
 export default class RequestDetails extends React.Component {
   constructor(props) {
@@ -152,6 +221,8 @@ export default class RequestDetails extends React.Component {
     this.state = {
       id: this.props.match.params.id,
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -160,6 +231,7 @@ export default class RequestDetails extends React.Component {
     )
       .then((res) => res.json())
       .then((result) => {
+        console.log("result");
         console.log(result);
         console.log(
           result.data.categoriesSelectAllThatApply
@@ -218,12 +290,16 @@ export default class RequestDetails extends React.Component {
     },
   }));
 
-  handleChange = (event) => {
-    setState((this.state.type = event));
-  };
+  handleChange(event) {
+    console.log(event.target.value)
+    this.setState({name: event.target.value});
+    console.log("change")
+    console.log("name = " + this.state.name)
+  }
 
   render() {
     console.log(this.state.type);
+    console.log(this.state.name);
     return (
       <div style={appStyle} className="App">
         <div style={wrapperStyle} className="Content-Wrap">
@@ -237,28 +313,38 @@ export default class RequestDetails extends React.Component {
             <form noValidate autoComplete="off">
               <FormControl style={typeStyle}>
                 <Select
-                  value={this.state.type}
+                  value={this.state.type ? this.state.type : " "}
                   displayEmpty
                   onChange={(e) => setState((this.state.type = e.target.value))}
                   // inputProps={{ "aria-label": "Without label" }}
                 >
-                  <MenuItem value={this.state.type} disabled>
+                  {/* <MenuItem value={this.state.type} disabled>
                     {this.state.type}
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem value="Donated Resource">Donated Resource</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
                 </Select>
                 <FormHelperText>Resource Type</FormHelperText>
               </FormControl>
+              {/* <FormControl variant="standard" stlye={nameStyle}>
+                <InputLabel htmlFor="component-filled">Name</InputLabel>
+                <FilledInput
+                  id="component-filled"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </FormControl> */}
               <TextField
-                required
-                style={nameStyle}
-                size="small"
-                label="Resource Name"
-                defaultValue={this.state.name}
-                variant="standard"
-                color="#700017"
-              ></TextField>
+                  style={nameStyle}
+                  size="medium"
+                  label="Resource Name"
+                  value={this.state.name}
+                  variant="standard"
+                  onChange={this.handleChange}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                ></TextField>
               <div style={checkboxesStyle}>
                 <h5>
                   <b>Categories</b> (select all that apply)
@@ -398,6 +484,112 @@ export default class RequestDetails extends React.Component {
                   value=""
                   variant="standard"
                 ></TextField>
+              </div>
+            </form>
+            <form noValidate>
+              <TextField
+                style={startDateStyle}
+                id="date"
+                label="Offer Start Date"
+                type="date"
+                defaultValue={this.state.startDate}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              <TextField
+                style={endDateStyle}
+                id="date"
+                label="Offer Expiration Date"
+                type="date"
+                defaultValue={this.state.startDate}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              <TextField
+                multiline
+                rows="6"
+                style={descriptionStyle}
+                size="medium"
+                label="Description"
+                defaultValue=" "
+                variant="standard"
+              ></TextField>
+              <div style={link}>
+                <h5>
+                  <b>Link to Website</b>
+                </h5>
+                <TextField
+                  style={linkStyle}
+                  size="medium"
+                  label="website "
+                  defaultValue=" flocka"
+                  variant="standard"
+                ></TextField>
+              </div>
+              <div style={resourceContactStyle}>
+                <h5>
+                  <b>Resource Contact</b>
+                </h5>
+                <TextField
+                  style={contactNameStyle}
+                  size="medium"
+                  label="Name (if applicable)"
+                  defaultValue=" "
+                  variant="standard"
+                ></TextField>
+                <TextField
+                  style={phoneNumberStyle}
+                  size="medium"
+                  label="Phone Number"
+                  defaultValue=" "
+                  variant="standard"
+                ></TextField>
+                <TextField
+                  style={emailStyle}
+                  size="medium"
+                  label="Email"
+                  defaultValue=" "
+                  variant="standard"
+                ></TextField>
+              </div>
+              <div style={lineStyle}>
+              </div>
+              <div style={statusStyle}>
+                <h5 style={statusTextStyle}><b>Status</b></h5>
+                <FormControl component="fieldset">
+                  {/* <FormLabel component="legend">Gender</FormLabel> */}
+                  <RadioGroup
+                    style={radioText}
+                    row
+                    aria-label="location"
+                    name="status"
+                    value="Status"
+                    onChange=""
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio />}
+                      label="Approve"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio />}
+                      label="Deny"
+                    />
+                    <FormControlLabel
+                      value="other"
+                      control={<Radio />}
+                      label="Disable"
+                    />
+                    <FormControlLabel
+                      value="true"
+                      control={<Radio />}
+                      label="Delete"
+                    />
+                  </RadioGroup>
+                </FormControl>
               </div>
             </form>
           </div>
