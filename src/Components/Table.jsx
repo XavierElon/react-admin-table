@@ -50,6 +50,10 @@ const useStyles = makeStyles({
   }
 })
 
+const badgeStyle = {
+  paddingTop: ".6rem"
+}
+
 const types = ["New Requests", "Existing Entries"];
 
 function ToggleGroup() {
@@ -183,13 +187,13 @@ export default class Table extends React.Component {
         );
 
         if (result[i].state === "submitted") {
-          status = <Badges.BlueBadge>Pending Review</Badges.BlueBadge>;
+          status = <Badges.BlueBadge style={badgeStyle}>Pending Review</Badges.BlueBadge>;
         } else if (result[i].state === "approved") {
-          status = <Badges.GreenBadge>Approved</Badges.GreenBadge>;
+          status = <Badges.GreenBadge style={badgeStyle}>Approved</Badges.GreenBadge>;
         } else if (result[i].state === "disabled") {
-          status = <Badges.GreyBadge>Disabled</Badges.GreyBadge>;
+          status = <Badges.GreyBadge style={badgeStyle}>Disabled</Badges.GreyBadge>;
         } else if (result[i].state === "denied") {
-          status = <Badges.RedBadge>Denied</Badges.RedBadge>;
+          status = <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>;
         }
         data2.rows.push({
           number: new_id,

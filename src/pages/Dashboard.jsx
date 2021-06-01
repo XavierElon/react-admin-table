@@ -9,15 +9,13 @@ import { Grid } from "@material-ui/core";
 const appStyle = {
   textAlign: "center",
   width: "100%",
-  height: "774px",
+  height: "1080px",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "auto",
   paddingBottom: "72px",
-};
-
-const wrapperStyle = {
-  paddingBottom: "72px",
+  flexDirection: "column",
+  display: "flex"
 };
 
 const headerStyle = {
@@ -29,36 +27,39 @@ const headerStyle = {
   fill: "white",
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
   zIndex: "1",
+  flexGrow: "0"
 };
 
-const tableStyle = {
+const bodyStyle = {
   position: "absolute",
-  left: "50px",
+  left: "0%",
   marginLeft: "auto",
   marginRight: "auto",
-  width: "1080px",
+  minWidth: "100%",
   height: "523px",
   marginTop: "10rem",
+  flexGrow: "1"
 };
+
+const footerStyle = {
+  flexGrow: "0"
+}
 
 export default function Dashboard() {
 
   
 
   return (
-    <div style={appStyle} className="App">
-      <div style={wrapperStyle} className="Content-Wrap">
-        <div style={headerStyle} className="Header">
+    <div style={appStyle}>
+        <div style={headerStyle}>
           <Header></Header>
         </div>
         <Grid>
-          <div style={tableStyle} className="DataTable">
-            
+          <div style={bodyStyle}>
             <Table></Table>
           </div>
         </Grid>
-        <Footer></Footer>
-      </div>
+        <Footer style={footerStyle}></Footer>
     </div>
   );
 }

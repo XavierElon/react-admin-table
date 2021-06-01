@@ -1,5 +1,6 @@
 .Header {
     min-width: 1440px;
+    z-index: 15;
 }
 
 .Title {

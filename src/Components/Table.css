@@ -38,6 +38,7 @@
   height: 20px;
   width: 324px;
   border-color: #d8d8d8;
+  z-index: 0;
 }
 
 .sc-pNWdM {
@@ -69,7 +70,6 @@
   margin-left: 5px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 10;
 }
 
 .FilterIcon {

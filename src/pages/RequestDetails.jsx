@@ -1,30 +1,30 @@
-import React, { setState } from "react";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
-import Details from "../Components/Details";
-import { Radio } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormGroup from "@material-ui/core/FormGroup";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import Grid from "@material-ui/core/Grid";
-import "date-fns";
-import DateFnsUtils from "@date-io/date-fns";
+import React, { setState } from 'react'
+import Header from '../Components/Header'
+import Footer from '../Components/Footer'
+import { Link } from 'react-router-dom'
+import { Radio } from '@material-ui/core'
+import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@material-ui/core/styles'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormGroup from '@material-ui/core/FormGroup'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import Grid from '@material-ui/core/Grid'
+import 'date-fns'
+import DateFnsUtils from '@date-io/date-fns'
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
-} from "@material-ui/pickers";
-
-import FilledInput from '@material-ui/core/FilledInput';
+} from '@material-ui/pickers'
+import FilledInput from '@material-ui/core/FilledInput'
+import axios from 'axios'
 
 const appStyle = {
   textAlign: "center",
@@ -34,19 +34,36 @@ const appStyle = {
   marginRight: "auto",
   minWidth: "auto",
   paddingBottom: "72px",
-};
-
-const wrapperStyle = {
-  paddingBottom: "72px",
+  flexDirection: "column",
+  display: "flex"
 };
 
 const headerStyle = {
-  position: "absolute",
+  position: "fixed",
   width: "100%",
+  minWidth: "1440px",
   height: "80px",
-  backgroundColor: "#white",
+  backgroundColor: "white",
+  fill: "white",
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+  zIndex: "1",
+  flexGrow: "0"
 };
+
+const bodyStyle = {
+  position: "absolute",
+  left: "0%",
+  marginLeft: "auto",
+  marginRight: "auto",
+  minWidth: "100%",
+  height: "523px",
+  marginTop: "10rem",
+  flexGrow: "1"
+};
+
+const footerStyle = {
+  flexGrow: "0"
+}
 
 const h2Style = {
   position: "absolute",
@@ -215,6 +232,40 @@ const statusTextStyle = {
   textAlign: "left"
 }
 
+const submitStyle = {
+  position: "absolute",
+  top: "125rem",
+  left: "100rem",
+  width: "112px",
+  height: "36px",
+  borderRadius: "4px",
+  backgroundColor: "#700017",
+  color: "white",
+  fontFamily: "Source Sans Pro",
+  fontSize: "14px",
+  textDecoration: "bold solid rgb(255, 255, 255)",
+  lineHeight: "32px",
+  textAlign: "center",
+  border: "0px"
+}
+
+const cancelStyle = {
+  position: "absolute",
+  top: "125.3rem",
+  left: "88rem",
+  width: "112px",
+  height: "36px",
+  borderRadius: "4px",
+  backgroundColor: "white",
+  color: "black",
+  fontFamily: "Source Sans Pro",
+  fontSize: "14px",
+  textDecoration: "bold solid rgb(255, 255, 255)",
+  lineHeight: "32px",
+  textAlign: "center",
+  cursor: "pointer"
+}
+
 export default class RequestDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -222,7 +273,9 @@ export default class RequestDetails extends React.Component {
       id: this.props.match.params.id,
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -231,12 +284,7 @@ export default class RequestDetails extends React.Component {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log("result");
-        console.log(result);
-        console.log(
-          result.data.categoriesSelectAllThatApply
-            .lowCostInternetServicesOrDeals
-        );
+        console.log(result)
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
@@ -297,43 +345,51 @@ export default class RequestDetails extends React.Component {
     console.log("name = " + this.state.name)
   }
 
+  handleInputChange = (event) => {
+    const target = event.target
+    console.log(target)
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    console.log(value)
+    const name = target.name
+    console.log(name)
+    this.setState({
+      [name]: value
+    })
+  }
+
+  async handleSubmit(event) {
+    console.log('submit')
+    console.log(this.state)
+    const update = this.state
+    console.log(update)
+    // const response = await
+  }
+
   render() {
-    console.log(this.state.type);
-    console.log(this.state.name);
+    console.log(this.state.streetAddress)
     return (
-      <div style={appStyle} className="App">
-        <div style={wrapperStyle} className="Content-Wrap">
-          <div style={headerStyle} className="Header">
+      <div style={appStyle}>
+          <div style={headerStyle}>
             <Header></Header>
           </div>
-          <div className="DataTable">
+          <div style={bodyStyle}>
             <h2 style={h2Style}>
               <b>Request #{this.state.id}</b>
             </h2>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <FormControl style={typeStyle}>
                 <Select
                   value={this.state.type ? this.state.type : " "}
                   displayEmpty
-                  onChange={(e) => setState((this.state.type = e.target.value))}
+                  name="type"
+                  onChange={this.handleInputChange}
                   // inputProps={{ "aria-label": "Without label" }}
                 >
-                  {/* <MenuItem value={this.state.type} disabled>
-                    {this.state.type}
-                  </MenuItem> */}
                   <MenuItem value="Donated Resource">Donated Resource</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
                 </Select>
                 <FormHelperText>Resource Type</FormHelperText>
               </FormControl>
-              {/* <FormControl variant="standard" stlye={nameStyle}>
-                <InputLabel htmlFor="component-filled">Name</InputLabel>
-                <FilledInput
-                  id="component-filled"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-              </FormControl> */}
               <TextField
                   style={nameStyle}
                   size="medium"
@@ -356,8 +412,8 @@ export default class RequestDetails extends React.Component {
                       control={
                         <Checkbox
                           checked={this.state.lowCostInternetServicesOrDeals}
-                          onChange=""
-                          name="lowCostInternet"
+                          onChange={this.handleInputChange}
+                          name="lowCostInternetServicesOrDeals"
                         />
                       }
                       label="Low-Cost Internet Services Or Deals"
@@ -366,8 +422,8 @@ export default class RequestDetails extends React.Component {
                       control={
                         <Checkbox
                           checked={this.state.lowCostOrSubsidizedDevices}
-                          onChange=""
-                          name="subsidizedDevices"
+                          onChange={this.handleInputChange}
+                          name="lowCostOrSubsidizedDevices"
                         />
                       }
                       label="Low-Cost Or Subsidized Devices"
@@ -375,11 +431,9 @@ export default class RequestDetails extends React.Component {
                     <FormControlLabel
                       control={
                         <Checkbox
-                          checked={
-                            this.state.locationsThatOfferFreeWiFiPublicDevices
-                          }
-                          onChange=""
-                          name="freeWifi"
+                          checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
+                          onChange={this.handleInputChange}
+                          name="locationsThatOfferFreeWifiPublicDevices"
                         />
                       }
                       label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -388,8 +442,8 @@ export default class RequestDetails extends React.Component {
                       control={
                         <Checkbox
                           checked={this.state.rentableLoanerHotspots}
-                          onChange=""
-                          name="hotspots"
+                          onChange={this.handleInputChange}
+                          name="rentableLoanerHotspots"
                         />
                       }
                       label="Rentable/Loaner Hotspots"
@@ -398,8 +452,8 @@ export default class RequestDetails extends React.Component {
                       control={
                         <Checkbox
                           checked={this.state.rentableLoanerDevices}
-                          onChange=""
-                          name="loanerDevices"
+                          onChange={this.handleInputChange}
+                          name="rentableLoanerDevices"
                         />
                       }
                       label="Rentable/Loaner Devices"
@@ -418,27 +472,27 @@ export default class RequestDetails extends React.Component {
                     style={radioText}
                     row
                     aria-label="location"
-                    name="location1"
-                    value="Location"
-                    onChange=""
+                    name="address"
+                    value={this.state.address}
+                    onChange={this.handleInputChange}
                   >
                     <FormControlLabel
-                      value="female"
+                      value="noPhysicalAddress"
                       control={<Radio />}
                       label="No physical address"
                     />
                     <FormControlLabel
-                      value="male"
+                      value="allOfOhio"
                       control={<Radio />}
                       label="All of Ohio"
                     />
                     <FormControlLabel
-                      value="other"
+                      value="zipCode"
                       control={<Radio />}
                       label="Zip Code"
                     />
                     <FormControlLabel
-                      value="true"
+                      value="streetAddress"
                       control={<Radio />}
                       label="Street Address"
                     />
@@ -453,46 +507,71 @@ export default class RequestDetails extends React.Component {
                   style={streetAddressStyle}
                   size="medium"
                   label="Street Address 1"
-                  value=""
+                  name="streetAddress"
+                  value={this.state.streetAddress}
+                  onChange={this.handleInputChange}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   variant="standard"
                 ></TextField>
                 <TextField
                   style={streetAddress2Style}
                   size="medium"
                   label="Street Address 2"
-                  value=""
+                  value=" "
+                  name="street2"
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
                 <TextField
                   style={cityStyle}
                   size="medium"
                   label="City"
-                  value=""
+                  value={this.state.city}
+                  name="city"
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
                 <TextField
                   style={stateStyle}
                   size="medium"
                   label="State"
-                  value=""
+                  name="state"
+                  value={this.state.state}
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
                 <TextField
                   style={zipcodeStyle}
                   size="medium"
                   label="Zipcode"
-                  value=""
+                  name="zipcode"
+                  value={this.state.zipcode}
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
               </div>
-            </form>
-            <form noValidate>
               <TextField
                 style={startDateStyle}
                 id="date"
                 label="Offer Start Date"
                 type="date"
-                defaultValue={this.state.startDate}
+                value={this.state.startDate}
+                name="startDate"
+                onChange={this.handleInputChange}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -502,7 +581,9 @@ export default class RequestDetails extends React.Component {
                 id="date"
                 label="Offer Expiration Date"
                 type="date"
-                defaultValue={this.state.startDate}
+                value={this.state.endDate}
+                name="endDate"
+                onChange={this.handleInputChange}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -513,8 +594,13 @@ export default class RequestDetails extends React.Component {
                 style={descriptionStyle}
                 size="medium"
                 label="Description"
-                defaultValue=" "
+                value={this.state.description}
+                name="description"
+                onChange={this.handleInputChange}
                 variant="standard"
+                InputLabelProps={{
+                  shrink: true,
+                }}
               ></TextField>
               <div style={link}>
                 <h5>
@@ -523,9 +609,14 @@ export default class RequestDetails extends React.Component {
                 <TextField
                   style={linkStyle}
                   size="medium"
-                  label="website "
-                  defaultValue=" flocka"
+                  label="Website"
+                  name="website"
+                  value={this.state.website}
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
               </div>
               <div style={resourceContactStyle}>
@@ -536,22 +627,37 @@ export default class RequestDetails extends React.Component {
                   style={contactNameStyle}
                   size="medium"
                   label="Name (if applicable)"
-                  defaultValue=" "
+                  value={this.state.contactName}
+                  name="contactName"
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
                 <TextField
                   style={phoneNumberStyle}
                   size="medium"
                   label="Phone Number"
-                  defaultValue=" "
+                  value={this.state.phoneNumber}
+                  name="phoneNumber"
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
                 <TextField
                   style={emailStyle}
                   size="medium"
                   label="Email"
-                  defaultValue=" "
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
                   variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
               </div>
               <div style={lineStyle}>
@@ -565,36 +671,39 @@ export default class RequestDetails extends React.Component {
                     row
                     aria-label="location"
                     name="status"
-                    value="Status"
-                    onChange=""
+                    value={this.state.status}
+                    onChange={this.handleInputChange}
                   >
                     <FormControlLabel
-                      value="female"
+                      value="approved"
                       control={<Radio />}
                       label="Approve"
                     />
                     <FormControlLabel
-                      value="male"
+                      value="denied"
                       control={<Radio />}
                       label="Deny"
                     />
                     <FormControlLabel
-                      value="other"
+                      value="disabled"
                       control={<Radio />}
                       label="Disable"
                     />
                     <FormControlLabel
-                      value="true"
+                      value="deleted"
                       control={<Radio />}
                       label="Delete"
                     />
                   </RadioGroup>
                 </FormControl>
               </div>
+              <input style={submitStyle} type="submit" value="Save"/>
+              <Link to="/">
+              <div style={cancelStyle}><b>Cancel</b></div>
+              </Link>
             </form>
           </div>
-          <Footer></Footer>
-        </div>
+          <Footer stlye={footerStyle}></Footer>
       </div>
     );
   }
