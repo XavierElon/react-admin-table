@@ -1,16 +1,15 @@
-import React, { Component, useState } from "react";
-import { MDBDataTable, MDBTable, MDBTableHead } from "mdbreact";
+import React, { useState } from "react";
+import { MDBDataTable } from "mdbreact";
 import "./Table.css";
 import SearchIcon from "../images/icn-search.png";
-import FilterIcon from "../images/icn-filter.png";
+// import FilterIcon from "../images/icn-filter.png";
 import PlusButton from "../images/plus-button.png";
-import SmallFilter from "../images/small-filter.png";
+// import SmallFilter from "../images/small-filter.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
-import Modal from "./Modal";
+// import Modal from "./Modal";
 import { Link } from "react-router-dom";
-import RequestDetails from "../pages/RequestDetails";
-import {makeStyles} from '@material-ui/core';
+import { makeStyles } from "@material-ui/core";
 
 const NewButton = styled.button`
   background: grey;
@@ -42,17 +41,9 @@ const ButtonGroup = styled.div`
   height: 100px;
 `;
 
-const useStyles = makeStyles({
-  link: {
-    'a:visited': {
-      color: 'red'
-    }
-  }
-})
-
 const badgeStyle = {
-  paddingTop: ".6rem"
-}
+  paddingTop: ".6rem",
+};
 
 const types = ["New Requests", "Existing Entries"];
 
@@ -74,13 +65,12 @@ function ToggleGroup() {
   );
 }
 
-function getRow(id) {
-  console.log("row");
-  return <Link to={`/requestdetails/${id}`}></Link>;
-}
+// function getRow(id) {
+//   console.log("row");
+//   return <Link to={`/requestdetails/${id}`}></Link>;
+// }
 
 export default class Table extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -162,7 +152,7 @@ export default class Table extends React.Component {
       );
       const result = await res.json();
       let length = result.length;
-
+      console.log(result);
       for (let i = 0; i < length; i++) {
         console.log(result[i].state);
         let newStart = "";
@@ -185,13 +175,21 @@ export default class Table extends React.Component {
             {id}
           </Link>
         );
-
+        console.log("status = " + result[i].state);
         if (result[i].state === "submitted") {
-          status = <Badges.BlueBadge style={badgeStyle}>Pending Review</Badges.BlueBadge>;
+          status = (
+            <Badges.BlueBadge style={badgeStyle}>
+              Pending Review
+            </Badges.BlueBadge>
+          );
         } else if (result[i].state === "approved") {
-          status = <Badges.GreenBadge style={badgeStyle}>Approved</Badges.GreenBadge>;
+          status = (
+            <Badges.GreenBadge style={badgeStyle}>Approved</Badges.GreenBadge>
+          );
         } else if (result[i].state === "disabled") {
-          status = <Badges.GreyBadge style={badgeStyle}>Disabled</Badges.GreyBadge>;
+          status = (
+            <Badges.GreyBadge style={badgeStyle}>Disabled</Badges.GreyBadge>
+          );
         } else if (result[i].state === "denied") {
           status = <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>;
         }

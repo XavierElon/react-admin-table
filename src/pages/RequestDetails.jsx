@@ -1,30 +1,22 @@
-import React, { setState } from 'react'
-import Header from '../Components/Header'
-import Footer from '../Components/Footer'
-import { Link } from 'react-router-dom'
-import { Radio } from '@material-ui/core'
-import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormLabel from '@material-ui/core/FormLabel'
-import FormGroup from '@material-ui/core/FormGroup'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import Grid from '@material-ui/core/Grid'
-import 'date-fns'
-import DateFnsUtils from '@date-io/date-fns'
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers'
-import FilledInput from '@material-ui/core/FilledInput'
-import axios from 'axios'
+import React from "react";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
+import { Radio } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import "date-fns";
+import axios from "axios";
 
 const appStyle = {
   textAlign: "center",
@@ -35,7 +27,7 @@ const appStyle = {
   minWidth: "auto",
   paddingBottom: "72px",
   flexDirection: "column",
-  display: "flex"
+  display: "flex",
 };
 
 const headerStyle = {
@@ -47,7 +39,7 @@ const headerStyle = {
   fill: "white",
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
   zIndex: "1",
-  flexGrow: "0"
+  flexGrow: "0",
 };
 
 const bodyStyle = {
@@ -58,12 +50,12 @@ const bodyStyle = {
   minWidth: "100%",
   height: "523px",
   marginTop: "10rem",
-  flexGrow: "1"
+  flexGrow: "1",
 };
 
 const footerStyle = {
-  flexGrow: "0"
-}
+  flexGrow: "0",
+};
 
 const h2Style = {
   position: "absolute",
@@ -219,18 +211,18 @@ const lineStyle = {
   backgroundColor: "#d8d8d8",
   position: "absolute",
   top: "110rem",
-  left: "10rem"
-}
+  left: "10rem",
+};
 
 const statusStyle = {
   position: "absolute",
   top: "112rem",
-  left: "10rem"
-}
+  left: "10rem",
+};
 
 const statusTextStyle = {
-  textAlign: "left"
-}
+  textAlign: "left",
+};
 
 const submitStyle = {
   position: "absolute",
@@ -246,8 +238,8 @@ const submitStyle = {
   textDecoration: "bold solid rgb(255, 255, 255)",
   lineHeight: "32px",
   textAlign: "center",
-  border: "0px"
-}
+  border: "0px",
+};
 
 const cancelStyle = {
   position: "absolute",
@@ -263,19 +255,39 @@ const cancelStyle = {
   textDecoration: "bold solid rgb(255, 255, 255)",
   lineHeight: "32px",
   textAlign: "center",
-  cursor: "pointer"
-}
+  cursor: "pointer",
+};
 
 export default class RequestDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: this.props.match.params.id,
+      type: " ",
+      name: " ",
+      locationsThatOfferFreeWiFiPublicDevices: " ",
+      lowCostInternetServicesOrDeals: " ",
+      lowCostOrSubsidizedDevices: " ",
+      rentableLoanerDevices: " ",
+      rentableLoanerHotspots: " ",
+      location: " ",
+      streetAddress: " ",
+      streetAddress2: " ",
+      city: " ",
+      state: " ",
+      zipcode: " ",
+      startDate: " ",
+      endDate: " ",
+      description: " ",
+      website: " ",
+      contactName: " ",
+      phoneNumber: " ",
+      email: " ",
+      status: " ",
     };
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -284,32 +296,23 @@ export default class RequestDetails extends React.Component {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
-          categories: result.data.categoriesSelectAllThatApply,
           locationsThatOfferFreeWiFiPublicDevices:
-            result.data.categoriesSelectAllThatApply
-              .locationsThatOfferFreeWiFiPublicDevices,
+            result.data.categories.locationsThatOfferFreeWiFiPublicDevices,
           lowCostInternetServicesOrDeals:
-            result.data.categoriesSelectAllThatApply
-              .lowCostInternetServicesOrDeals,
+            result.data.categories.lowCostInternetServicesOrDeals,
           lowCostOrSubsidizedDevices:
-            result.data.categoriesSelectAllThatApply.lowCostOrSubsidizedDevices,
-          rentableLoanerDevices:
-            result.data.categoriesSelectAllThatApply.rentableLoanerDevices,
-          rentableLoanerHotspots:
-            result.data.categoriesSelectAllThatApplyrentableLoanerHotspots,
-          address: result.data.address.address,
-          streetAddress:
-            result.data.address.address.house_number +
-            " " +
-            result.data.address.address.road,
-          neighborhood: result.data.address.address.neighbourhood,
-          city: result.data.address.address.city,
-          state: result.data.address.address.state,
-          zipcode: result.data.address.address.postcode,
+            result.data.categories.lowCostOrSubsidizedDevices,
+          rentableLoanerDevices: result.data.categories.rentableLoanerDevices,
+          rentableLoanerHotspots: result.data.categories.rentableLoanerHotspots,
+          location: result.data.location,
+          streetAddress1: result.data.streetAddress1,
+          streetAddress2: result.data.streetAddress2,
+          city: result.data.city,
+          state: result.data.state,
+          zipcode: result.data.zipCode,
           startDate: result.data.offerStartDate.substr(
             0,
             result.data.offerStartDate.length - 14
@@ -323,7 +326,7 @@ export default class RequestDetails extends React.Component {
           contactName: result.data.contactName,
           phoneNumber: result.data.phoneNumber,
           email: result.data.email,
-          status: result.data.state,
+          status: result.state,
         });
       });
   }
@@ -338,40 +341,78 @@ export default class RequestDetails extends React.Component {
     },
   }));
 
-  handleChange(event) {
-    console.log(event.target.value)
-    this.setState({name: event.target.value});
-    console.log("change")
-    console.log("name = " + this.state.name)
-  }
-
   handleInputChange = (event) => {
-    const target = event.target
-    console.log(target)
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    console.log(value)
-    const name = target.name
-    console.log(name)
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+    console.log("value = " + value + " name = " + name)
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
+  };
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
   }
 
   async handleSubmit(event) {
-    console.log('submit')
-    console.log(this.state)
-    const update = this.state
-    console.log(update)
-    // const response = await
+    if(this.state.status === "deleted") {
+      console.log('delete')
+      const response = await axios.delete(`https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`)
+      console.log(response)
+      await this.sleep(2000)
+      this.props.history.push('/')
+    }
+    event.preventDefault();
+    const update = {
+      data: {
+        resourceType: `${this.state.type}`,
+        resourceName: `${this.state.name}`,
+        offerStartDate: `${this.state.startDate}`,
+        offerExpirationDate: `${this.state.endDate}`,
+        streetAddress1: `${this.state.streetAddress1}`,
+        location: `${this.state.location}`,
+        streetAddress: `${this.state.streetAddress1}`,
+        streetAddress2: `${this.state.streetAddress2}`,
+        city: `${this.state.city}`,
+        state: `${this.state.state}`,
+        zipcode: `${this.state.zipcode}`,
+        startDate: `${this.state.startDate}`,
+        endDate: `${this.state.endDate}`,
+        briefDescription: `${this.state.description}`,
+        website: `${this.state.website}`,
+        contactName: `${this.state.contactName}`,
+        phoneNumber: `${this.state.phoneNumber}`,
+        email: `${this.state.email}`,
+        categories: {
+          locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+          lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+          lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+          rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+          rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+        },
+      },
+      
+      state: `${this.state.status}`,
+    };
+    console.log(update);
+    const response = await axios.put(
+      `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`,
+      update
+    );
+    console.log(response);
+    this.props.history.push('/')
   }
 
   render() {
-    console.log(this.state.streetAddress)
+    console.log("State");
+    console.log(this.state);
     return (
       <div style={appStyle}>
-          <div style={headerStyle}>
-            <Header></Header>
-          </div>
+        <div style={headerStyle}>
+          <Header></Header>
+        </div>
+        <Grid>
           <div style={bodyStyle}>
             <h2 style={h2Style}>
               <b>Request #{this.state.id}</b>
@@ -379,6 +420,7 @@ export default class RequestDetails extends React.Component {
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <FormControl style={typeStyle}>
                 <Select
+                  required
                   value={this.state.type ? this.state.type : " "}
                   displayEmpty
                   name="type"
@@ -391,16 +433,18 @@ export default class RequestDetails extends React.Component {
                 <FormHelperText>Resource Type</FormHelperText>
               </FormControl>
               <TextField
-                  style={nameStyle}
-                  size="medium"
-                  label="Resource Name"
-                  value={this.state.name}
-                  variant="standard"
-                  onChange={this.handleChange}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
+                style={nameStyle}
+                required
+                size="medium"
+                label="Resource Name"
+                value={this.state.name}
+                name="name"
+                variant="standard"
+                onChange={this.handleInputChange}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              ></TextField>
               <div style={checkboxesStyle}>
                 <h5>
                   <b>Categories</b> (select all that apply)
@@ -431,9 +475,11 @@ export default class RequestDetails extends React.Component {
                     <FormControlLabel
                       control={
                         <Checkbox
-                          checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
+                          checked={
+                            this.state.locationsThatOfferFreeWiFiPublicDevices
+                          }
                           onChange={this.handleInputChange}
-                          name="locationsThatOfferFreeWifiPublicDevices"
+                          name="locationsThatOfferFreeWiFiPublicDevices"
                         />
                       }
                       label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -472,8 +518,8 @@ export default class RequestDetails extends React.Component {
                     style={radioText}
                     row
                     aria-label="location"
-                    name="address"
-                    value={this.state.address}
+                    name="location"
+                    value={this.state.location}
                     onChange={this.handleInputChange}
                   >
                     <FormControlLabel
@@ -508,7 +554,7 @@ export default class RequestDetails extends React.Component {
                   size="medium"
                   label="Street Address 1"
                   name="streetAddress"
-                  value={this.state.streetAddress}
+                  value={this.state.streetAddress1}
                   onChange={this.handleInputChange}
                   InputLabelProps={{
                     shrink: true,
@@ -518,8 +564,8 @@ export default class RequestDetails extends React.Component {
                 <TextField
                   style={streetAddress2Style}
                   size="medium"
-                  label="Street Address 2"
-                  value=" "
+                  label="Street Address 2 (Apt., etc.)"
+                  value={this.state.streetAddress2}
                   name="street2"
                   onChange={this.handleInputChange}
                   variant="standard"
@@ -660,18 +706,19 @@ export default class RequestDetails extends React.Component {
                   }}
                 ></TextField>
               </div>
-              <div style={lineStyle}>
-              </div>
+              <div style={lineStyle}></div>
               <div style={statusStyle}>
-                <h5 style={statusTextStyle}><b>Status</b></h5>
+                <h5 style={statusTextStyle}>
+                  <b>Status</b>
+                </h5>
                 <FormControl component="fieldset">
                   {/* <FormLabel component="legend">Gender</FormLabel> */}
                   <RadioGroup
                     style={radioText}
                     row
                     aria-label="location"
-                    name="status"
                     value={this.state.status}
+                    name="status"
                     onChange={this.handleInputChange}
                   >
                     <FormControlLabel
@@ -697,13 +744,21 @@ export default class RequestDetails extends React.Component {
                   </RadioGroup>
                 </FormControl>
               </div>
-              <input style={submitStyle} type="submit" value="Save"/>
+              <input
+                style={submitStyle}
+                type="submit"
+                value="Save"
+                onSubmit={this.handleSubmit}
+              />
               <Link to="/">
-              <div style={cancelStyle}><b>Cancel</b></div>
+                <div style={cancelStyle}>
+                  <b>Cancel</b>
+                </div>
               </Link>
             </form>
           </div>
-          <Footer stlye={footerStyle}></Footer>
+        </Grid>
+        <Footer stlye={footerStyle}></Footer>
       </div>
     );
   }

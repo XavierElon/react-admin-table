@@ -1,6 +1,4 @@
-import { ClickAwayListener } from "@material-ui/core";
-import React, { useState } from "react";
-import { isDOMComponent } from "react-dom/test-utils";
+import React from "react";
 import styled from "styled-components";
 import GX from "../images/icn-close-green.svg";
 import RX from "../images/icn-close-red.svg";
@@ -42,7 +40,6 @@ export default function Modal({ color, open, close }) {
     opacity: open ? 0 : 1
   }
   
-  const lick = () => console.log('clciekd')
   console.log(open)
   console.log(close)
   if (color === "green") {
