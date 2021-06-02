@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Table from "../Components/Table";
-import Modal from "../Components/Modal";
-import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
 const appStyle = {
