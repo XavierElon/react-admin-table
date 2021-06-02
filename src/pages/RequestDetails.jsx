@@ -356,6 +356,7 @@ export default class RequestDetails extends React.Component {
   }
 
   async handleSubmit(event) {
+    event.preventDefault();
     if(this.state.status === "deleted") {
       console.log('delete')
       const response = await axios.delete(`https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`)
