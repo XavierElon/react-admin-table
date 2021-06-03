@@ -15,7 +15,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import InputLabel from '@material-ui/core/InputLabel';
+import InputLabel from "@material-ui/core/InputLabel";
+import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
 
@@ -68,7 +69,7 @@ const h2Style = {
   color: "#222222",
   textDecoration: "none solid rgb(34, 34, 34)",
   textTransform: "uppercase",
-  textAlign: "left"
+  textAlign: "left",
 };
 
 const typeStyle = {
@@ -83,7 +84,7 @@ const typeStyle = {
 const nameStyle = {
   position: "absolute",
   top: "5%",
-  left: "72%",
+  left: "66%",
   width: "200px",
 };
 
@@ -194,14 +195,15 @@ const contactNameStyle = {
 
 const phoneNumberStyle = {
   position: "absolute",
-  top: "5rem",
+  top: "3rem",
   left: "35rem",
   width: "200px",
+  color: "black",
 };
 
 const emailStyle = {
   position: "absolute",
-  top: "5rem",
+  top: "4rem",
   left: "70rem",
   width: "200px",
 };
@@ -214,16 +216,6 @@ const lineStyle = {
   position: "absolute",
   top: "110rem",
   left: "10rem",
-};
-
-const statusStyle = {
-  position: "absolute",
-  top: "112rem",
-  left: "10rem",
-};
-
-const statusTextStyle = {
-  textAlign: "left",
 };
 
 const submitStyle = {
@@ -277,13 +269,13 @@ export default class RequestDetails extends React.Component {
       city: " ",
       state: " ",
       zipcode: " ",
-    //   startDate: " ",
-    //   endDate: " ",
+      //   startDate: " ",
+      //   endDate: " ",
       description: " ",
       website: " ",
       contactName: " ",
-      phoneNumber: " ",
-      email: " ",
+      //   phoneNumber: " ",
+      //   email: " ",
       status: " ",
     };
 
@@ -291,9 +283,7 @@ export default class RequestDetails extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
 
   useStyles = makeStyles((theme) => ({
     formControl: {
@@ -309,51 +299,144 @@ export default class RequestDetails extends React.Component {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-    console.log("value = " + value + " name = " + name)
+    console.log("value = " + value + " name = " + name);
     this.setState({
       [name]: value,
     });
   };
 
-  async handleSubmit(event) {
-    
+  handleSubmit(event) {
     event.preventDefault();
-    const update = {
-      data: {
-        resourceType: `${this.state.type}`,
-        resourceName: `${this.state.name}`,
-        offerStartDate: `${this.state.startDate}`,
-        offerExpirationDate: `${this.state.endDate}`,
-        streetAddress1: `${this.state.streetAddress1}`,
-        location: `${this.state.location}`,
-        streetAddress: `${this.state.streetAddress1}`,
-        streetAddress2: `${this.state.streetAddress2}`,
-        city: `${this.state.city}`,
-        state: `${this.state.state}`,
-        zipcode: `${this.state.zipcode}`,
-        startDate: `${this.state.startDate}`,
-        endDate: `${this.state.endDate}`,
-        briefDescription: `${this.state.description}`,
-        website: `${this.state.website}`,
-        contactName: `${this.state.contactName}`,
-        phoneNumber: `${this.state.phoneNumber}`,
-        email: `${this.state.email}`,
-        categories: {
-            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-          }
-      },
-    };
+    let update
+    console.log("email = " + this.state.email)
+    console.log("phojne number = " + this.state.phoneNumber)
+    if (this.state.email == null && this.state.phoneNumber == null) {
+        console.log("both null")
+        update = {
+            data: {
+              resourceType: `${this.state.type}`,
+              resourceName: `${this.state.name}`,
+              offerStartDate: `${this.state.startDate}`,
+              offerExpirationDate: `${this.state.endDate}`,
+              streetAddress1: `${this.state.streetAddress1}`,
+              location: `${this.state.location}`,
+              streetAddress: `${this.state.streetAddress1}`,
+              streetAddress2: `${this.state.streetAddress2}`,
+              city: `${this.state.city}`,
+              state: `${this.state.state}`,
+              zipcode: `${this.state.zipcode}`,
+              startDate: `${this.state.startDate}`,
+              endDate: `${this.state.endDate}`,
+              briefDescription: `${this.state.description}`,
+              website: `${this.state.website}`,
+              contactName: `${this.state.contactName}`,
+              
+              categories: {
+                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+              },
+            },
+        }
+    } else if (this.state.email == null) {
+        console.log("empty")
+        update = {
+            data: {
+              resourceType: `${this.state.type}`,
+              resourceName: `${this.state.name}`,
+              offerStartDate: `${this.state.startDate}`,
+              offerExpirationDate: `${this.state.endDate}`,
+              streetAddress1: `${this.state.streetAddress1}`,
+              location: `${this.state.location}`,
+              streetAddress: `${this.state.streetAddress1}`,
+              streetAddress2: `${this.state.streetAddress2}`,
+              city: `${this.state.city}`,
+              state: `${this.state.state}`,
+              zipcode: `${this.state.zipcode}`,
+              startDate: `${this.state.startDate}`,
+              endDate: `${this.state.endDate}`,
+              briefDescription: `${this.state.description}`,
+              website: `${this.state.website}`,
+              phoneNumber: `${this.state.phoneNumber}`,
+              contactName: `${this.state.contactName}`,
+              categories: {
+                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+              },
+            },
+        }
+    } else if (this.state.phoneNumber == null) {
+        update = {
+            data: {
+              resourceType: `${this.state.type}`,
+              resourceName: `${this.state.name}`,
+              offerStartDate: `${this.state.startDate}`,
+              offerExpirationDate: `${this.state.endDate}`,
+              streetAddress1: `${this.state.streetAddress1}`,
+              location: `${this.state.location}`,
+              streetAddress: `${this.state.streetAddress1}`,
+              streetAddress2: `${this.state.streetAddress2}`,
+              city: `${this.state.city}`,
+              state: `${this.state.state}`,
+              zipcode: `${this.state.zipcode}`,
+              startDate: `${this.state.startDate}`,
+              endDate: `${this.state.endDate}`,
+              briefDescription: `${this.state.description}`,
+              website: `${this.state.website}`,
+              email: `${this.state.email}`,
+              contactName: `${this.state.contactName}`,
+              categories: {
+                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+              },
+            },
+        }
+    } else {
+        update = {
+            data: {
+              resourceType: `${this.state.type}`,
+              resourceName: `${this.state.name}`,
+              offerStartDate: `${this.state.startDate}`,
+              offerExpirationDate: `${this.state.endDate}`,
+              streetAddress1: `${this.state.streetAddress1}`,
+              location: `${this.state.location}`,
+              streetAddress: `${this.state.streetAddress1}`,
+              streetAddress2: `${this.state.streetAddress2}`,
+              city: `${this.state.city}`,
+              state: `${this.state.state}`,
+              zipcode: `${this.state.zipcode}`,
+              startDate: `${this.state.startDate}`,
+              endDate: `${this.state.endDate}`,
+              briefDescription: `${this.state.description}`,
+              website: `${this.state.website}`,
+              phoneNumber: `${this.state.phoneNumber}`,
+              email: `${this.state.email}`,
+              contactName: `${this.state.contactName}`,
+              categories: {
+                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+              },
+            },
+        }
+    } 
     console.log(update);
-    const response = await axios.post(
-      "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/",
+    const response = axios.post(
+      "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission",
       update
     );
     console.log(response);
-    this.props.history.push('/')
+    this.props.history.push("/");
   }
 
   render() {
@@ -369,7 +452,9 @@ export default class RequestDetails extends React.Component {
             </h2>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <FormControl required style={typeStyle}>
-              <InputLabel id="demo-simple-select-required-label">Resource Type</InputLabel>
+                <InputLabel id="demo-simple-select-required-label">
+                  Resource Type
+                </InputLabel>
                 <Select
                   labelId="demo-simple-select-required-label"
                   displayEmpty
@@ -379,10 +464,11 @@ export default class RequestDetails extends React.Component {
                   <MenuItem value="Donated Resource">Donated Resource</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
                 </Select>
-                {/* <FormHelperText>Resource Type</FormHelperText> */}
               </FormControl>
+
               <TextField
                 style={nameStyle}
+                required
                 size="medium"
                 label="Resource Name"
                 name="name"
@@ -459,7 +545,6 @@ export default class RequestDetails extends React.Component {
                     row
                     aria-label="location"
                     name="location"
-                    value={this.state.location}
                     onChange={this.handleInputChange}
                   >
                     <FormControlLabel
@@ -493,8 +578,7 @@ export default class RequestDetails extends React.Component {
                   style={streetAddressStyle}
                   size="medium"
                   label="Street Address 1"
-                  name="streetAddress"
-                  value={this.state.streetAddress1}
+                  name="streetAddress1"
                   onChange={this.handleInputChange}
                   InputLabelProps={{
                     shrink: true,
@@ -505,8 +589,7 @@ export default class RequestDetails extends React.Component {
                   style={streetAddress2Style}
                   size="medium"
                   label="Street Address 2 (Apt., etc.)"
-                  value={this.state.streetAddress2}
-                  name="street2"
+                  name="streetAddress2"
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{
@@ -517,7 +600,6 @@ export default class RequestDetails extends React.Component {
                   style={cityStyle}
                   size="medium"
                   label="City"
-                  value={this.state.city}
                   name="city"
                   onChange={this.handleInputChange}
                   variant="standard"
@@ -530,7 +612,6 @@ export default class RequestDetails extends React.Component {
                   size="medium"
                   label="State"
                   name="state"
-                  value={this.state.state}
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{
@@ -542,7 +623,6 @@ export default class RequestDetails extends React.Component {
                   size="medium"
                   label="Zipcode"
                   name="zipcode"
-                  value={this.state.zipcode}
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{
@@ -551,11 +631,11 @@ export default class RequestDetails extends React.Component {
                 ></TextField>
               </div>
               <TextField
+                required
                 style={startDateStyle}
                 id="date"
                 label="Offer Start Date"
                 type="date"
-                value={this.state.startDate}
                 name="startDate"
                 onChange={this.handleInputChange}
                 InputLabelProps={{
@@ -563,11 +643,11 @@ export default class RequestDetails extends React.Component {
                 }}
               />
               <TextField
+                required
                 style={endDateStyle}
                 id="date"
                 label="Offer Expiration Date"
                 type="date"
-                value={this.state.endDate}
                 name="endDate"
                 onChange={this.handleInputChange}
                 InputLabelProps={{
@@ -580,7 +660,6 @@ export default class RequestDetails extends React.Component {
                 style={descriptionStyle}
                 size="medium"
                 label="Description"
-                value={this.state.description}
                 name="description"
                 onChange={this.handleInputChange}
                 variant="standard"
@@ -597,7 +676,6 @@ export default class RequestDetails extends React.Component {
                   size="medium"
                   label="Website"
                   name="website"
-                  value={this.state.website}
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{
@@ -613,7 +691,6 @@ export default class RequestDetails extends React.Component {
                   style={contactNameStyle}
                   size="medium"
                   label="Name (if applicable)"
-                  value={this.state.contactName}
                   name="contactName"
                   onChange={this.handleInputChange}
                   variant="standard"
@@ -621,24 +698,25 @@ export default class RequestDetails extends React.Component {
                     shrink: true,
                   }}
                 ></TextField>
-                <TextField
-                  style={phoneNumberStyle}
-                  size="medium"
-                  label="Phone Number"
-                  value={this.state.phoneNumber}
-                  name="phoneNumber"
+                <InputMask
+                  mask="(999) 999-9999"
                   onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
+                >
+                  {() => (
+                    <TextField
+                      style={phoneNumberStyle}
+                      label="Phone Number"
+                      name="phoneNumber"
+                      margin="normal"
+                      type="text"
+                    />
+                  )}
+                </InputMask>
                 <TextField
                   style={emailStyle}
                   size="medium"
                   label="Email"
                   name="email"
-                  value={this.state.email}
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{

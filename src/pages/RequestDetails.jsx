@@ -364,7 +364,7 @@ export default class RequestDetails extends React.Component {
       await this.sleep(2000)
       this.props.history.push('/')
     }
-    event.preventDefault();
+    
     const update = {
       data: {
         resourceType: `${this.state.type}`,
@@ -393,7 +393,6 @@ export default class RequestDetails extends React.Component {
           rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
         },
       },
-      
       state: `${this.state.status}`,
     };
     console.log(update);
@@ -402,7 +401,7 @@ export default class RequestDetails extends React.Component {
       update
     );
     console.log(response);
-    this.props.history.push('/')
+    this.props.history.push('/');
   }
 
   render() {
@@ -554,7 +553,7 @@ export default class RequestDetails extends React.Component {
                   style={streetAddressStyle}
                   size="medium"
                   label="Street Address 1"
-                  name="streetAddress"
+                  name="streetAddress1"
                   value={this.state.streetAddress1}
                   onChange={this.handleInputChange}
                   InputLabelProps={{
@@ -567,7 +566,7 @@ export default class RequestDetails extends React.Component {
                   size="medium"
                   label="Street Address 2 (Apt., etc.)"
                   value={this.state.streetAddress2}
-                  name="street2"
+                  name="streetAddress2"
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{
@@ -612,6 +611,7 @@ export default class RequestDetails extends React.Component {
                 ></TextField>
               </div>
               <TextField
+                required
                 style={startDateStyle}
                 id="date"
                 label="Offer Start Date"
@@ -624,6 +624,7 @@ export default class RequestDetails extends React.Component {
                 }}
               />
               <TextField
+                required
                 style={endDateStyle}
                 id="date"
                 label="Offer Expiration Date"
