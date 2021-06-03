@@ -195,15 +195,15 @@ const contactNameStyle = {
 
 const phoneNumberStyle = {
   position: "absolute",
-  top: "5rem",
-  left: "50rem",
+  top: "3rem",
+  left: "35rem",
   width: "200px",
   color: "black",
 };
 
 const emailStyle = {
   position: "absolute",
-  top: "5rem",
+  top: "4rem",
   left: "70rem",
   width: "200px",
 };
@@ -631,6 +631,7 @@ export default class RequestDetails extends React.Component {
                 ></TextField>
               </div>
               <TextField
+                required
                 style={startDateStyle}
                 id="date"
                 label="Offer Start Date"
@@ -642,6 +643,7 @@ export default class RequestDetails extends React.Component {
                 }}
               />
               <TextField
+                required
                 style={endDateStyle}
                 id="date"
                 label="Offer Expiration Date"
@@ -712,7 +714,6 @@ export default class RequestDetails extends React.Component {
                 </InputMask>
                 <TextField
                   style={emailStyle}
-                  required
                   size="medium"
                   label="Email"
                   name="email"

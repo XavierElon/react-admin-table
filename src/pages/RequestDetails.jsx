@@ -611,6 +611,7 @@ export default class RequestDetails extends React.Component {
                 ></TextField>
               </div>
               <TextField
+                required
                 style={startDateStyle}
                 id="date"
                 label="Offer Start Date"
@@ -623,6 +624,7 @@ export default class RequestDetails extends React.Component {
                 }}
               />
               <TextField
+                required
                 style={endDateStyle}
                 id="date"
                 label="Offer Expiration Date"
