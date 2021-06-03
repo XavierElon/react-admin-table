@@ -401,12 +401,22 @@ export default class RequestDetails extends React.Component {
       update
     );
     console.log(response);
-    this.props.history.push('/');
+    console.log("status = " + this.state.status)
+
+    if(this.state.status === "approved") {
+      console.log("approved")
+      this.props.history.push(`/requestapproved/${this.state.id}`)
+    } else if (this.state.status === "denied") {
+      console.log("denied")
+      this.props.history.push(`/requestdenied/${this.state.id}`)
+    } else {
+      console.log("disabled")
+      this.props.history.push('/')
+    }
+    
   }
 
   render() {
-    console.log("State");
-    console.log(this.state);
     return (
       <div style={appStyle}>
         <div style={headerStyle}>

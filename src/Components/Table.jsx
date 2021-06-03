@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { MDBDataTable } from "mdbreact";
 import "./Table.css";
 import SearchIcon from "../images/icn-search.png";
-// import FilterIcon from "../images/icn-filter.png";
 import PlusButton from "../images/plus-button.png";
 // import SmallFilter from "../images/small-filter.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
-// import Modal from "./Modal";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
 
 const NewButton = styled.button`
   background: grey;
@@ -154,7 +151,6 @@ export default class Table extends React.Component {
       let length = result.length;
       console.log(result);
       for (let i = 0; i < length; i++) {
-        console.log(result[i].state);
         let newStart = "";
         let newEnd = "";
 
@@ -175,7 +171,7 @@ export default class Table extends React.Component {
             {id}
           </Link>
         );
-        console.log("status = " + result[i].state);
+  
         if (result[i].state === "submitted") {
           status = (
             <Badges.BlueBadge style={badgeStyle}>
@@ -210,7 +206,6 @@ export default class Table extends React.Component {
   }
 
   handleClick() {
-    console.log("handleClick");
     this.setState((prevState) => ({ isNewRequests: !prevState.isNewRequests }));
   }
 

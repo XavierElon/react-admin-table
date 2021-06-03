@@ -2,17 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import GX from "../images/icn-close-green.svg";
 import RX from "../images/icn-close-red.svg";
+import { Link } from "react-router-dom";
 
 const RedModal = styled("div")`
   width: 1080px;
   height: 65px;
-  background: #fce7e7;
+  background-color: #f5cccc;
   stroke-width: 1;
   border-radius: 3px;
   color: #222222;
   border: 1px solid #e32222;
   position: absolute;
-  top: -150px;
+  top: 3rem;
+  left: 25rem;
   text-align: left;
   padding-left: 50px;
   padding-top: 20px;
@@ -20,33 +22,40 @@ const RedModal = styled("div")`
 const GreenModal = styled("div")`
   width: 1080px;
   height: 65px;
-  background: #eef2e5;
+  background-color: #c8d3ae;
+  font-size: 30x;
   stroke-width: 1;
   border-radius: 3px;
   color: #222222;
   border: 1px solid #5e8000;
   position: absolute;
-  top: -150px;
+  top: 3rem;
+  left: 25rem;
   text-align: left;
   padding-left: 30px;
   padding-top: 20px;
+  text-transform: uppercase;
 `;
 
+const textStyle = {
+  fontSize: "30px"
+}
 
+export default function Modal({ color, id }) {
+  
+  // const styledModal = {
+  //   opacity: open ? 0 : 1
+  // }
 
-export default function Modal({ color, open, close }) {
   
-  const styledModal = {
-    opacity: open ? 0 : 1
-  }
-  
-  console.log(open)
-  console.log(close)
   if (color === "green") {
+    console.log("green")
+    console.log(id)
     return (
       <div>
-        <GreenModal style={styledModal}>
-          <p>Request #123456789 was approved.</p>
+        <GreenModal className="Green">
+          <p>Request {id} was approved.</p>
+          <Link to='/'>
           <img
             style={{
               position: "absolute",
@@ -56,16 +65,17 @@ export default function Modal({ color, open, close }) {
             }}
             src={GX}
             alt=""
-            onClick={(close)}
           />
+          </Link>
         </GreenModal>
       </div>
     );
   } else {
     return (
       <div>
-        <RedModal>
+        <RedModal className="Red">
           <p>Request #1234567890 has been denied.</p>
+          <Link to='/'>
           <img
             style={{
               position: "absolute",
@@ -76,6 +86,7 @@ export default function Modal({ color, open, close }) {
             src={RX}
             alt=""
           />
+          </Link>
         </RedModal>
       </div>
     );
