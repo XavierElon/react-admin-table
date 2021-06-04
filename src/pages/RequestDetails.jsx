@@ -296,6 +296,7 @@ export default class RequestDetails extends React.Component {
     )
       .then((res) => res.json())
       .then((result) => {
+        console.log(result)
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
@@ -326,7 +327,9 @@ export default class RequestDetails extends React.Component {
           contactName: result.data.contactName,
           phoneNumber: result.data.phoneNumber,
           email: result.data.email,
-          status: result.state,
+          status: result.data.status,
+          deniedComment: result.data.deniedComment,
+          userOhid: result.data.userOhid
         });
       });
   }
@@ -386,15 +389,18 @@ export default class RequestDetails extends React.Component {
         contactName: `${this.state.contactName}`,
         phoneNumber: `${this.state.phoneNumber}`,
         email: `${this.state.email}`,
+        status: `${this.state.status}`,
+        userOhid: `${this.state.userOhid}`,
+        deniedComment: `${this.state.deniedComment}`,
         categories: {
           locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
           lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
           lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
           rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
           rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-        },
-      },
-      state: `${this.state.status}`,
+        }
+      }
+      
     };
     console.log(update);
     const response = await axios.put(

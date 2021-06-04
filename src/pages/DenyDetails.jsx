@@ -144,6 +144,19 @@ export default class DenyDetails extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    fetch(
+      `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result)
+        this.setState({
+          deniedComment: result.data.deniedComment
+        });
+      });
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -158,20 +171,21 @@ export default class DenyDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
 
-    const update = {
-      data: {
-        deniedComment: `${this.state.deniedComment}`,
-      }
-    }
+    const update = [
+        {
+      op: "replace",
+      path: "/data/deniedComment",
+      value: `${this.state.deniedComment}`
+        }
+    ]
 
     console.log(update);
-    const response = await axios.put(
+    const response = await axios.patch(
       `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`,
       update
     );
     console.log(response);
-
-    
+    this.props.history.push("/");
   }
 
   render() {
@@ -203,6 +217,7 @@ export default class DenyDetails extends React.Component {
                 name="deniedComment"
                 onChange={this.handleInputChange}
                 variant="standard"
+                value={this.state.deniedComment}
                 InputLabelProps={{
                   shrink: true,
                 }}

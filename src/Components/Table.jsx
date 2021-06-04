@@ -172,21 +172,21 @@ export default class Table extends React.Component {
           </Link>
         );
   
-        if (result[i].state === "submitted") {
+        if (result[i].data.status === "pending") {
           status = (
             <Badges.BlueBadge style={badgeStyle}>
               Pending Review
             </Badges.BlueBadge>
           );
-        } else if (result[i].state === "approved") {
+        } else if (result[i].data.status === "approved") {
           status = (
             <Badges.GreenBadge style={badgeStyle}>Approved</Badges.GreenBadge>
           );
-        } else if (result[i].state === "disabled") {
+        } else if (result[i].data.status === "disabled") {
           status = (
             <Badges.GreyBadge style={badgeStyle}>Disabled</Badges.GreyBadge>
           );
-        } else if (result[i].state === "denied") {
+        } else if (result[i].data.status === "denied") {
           status = <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>;
         }
         data2.rows.push({
