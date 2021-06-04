@@ -72,6 +72,7 @@ export default class Table extends React.Component {
     super(props);
     this.state = {
       data: {},
+      data2: {},
       isLoading: true,
       isNewRequests: true,
       button1: {
@@ -89,6 +90,48 @@ export default class Table extends React.Component {
 
   async componentDidMount() {
     console.log("component did mount");
+
+    let data = {
+      columns: [
+        {
+          label: "Resource No.",
+          field: "number",
+          sort: "asc",
+          width: 180,
+        },
+        {
+          label: "Resource Type",
+          field: "type",
+          sort: "asc",
+          width: 200,
+        },
+        {
+          label: "Resource Name",
+          field: "name",
+          sort: "asc",
+          width: 270,
+        },
+        {
+          label: "Offer Start Date",
+          field: "startDate",
+          sort: "asc",
+          width: 100,
+        },
+        {
+          label: "Offer End Date",
+          field: "endDate",
+          sort: "asc",
+          width: 150,
+        },
+        {
+          label: "Status",
+          field: "status",
+          sort: "asc",
+          width: 170,
+        },
+      ],
+      rows: [],
+    };
 
     let data2 = {
       columns: [
@@ -171,7 +214,7 @@ export default class Table extends React.Component {
             {id}
           </Link>
         );
-  
+
         if (result[i].data.status === "pending") {
           status = (
             <Badges.BlueBadge style={badgeStyle}>
@@ -189,7 +232,7 @@ export default class Table extends React.Component {
         } else if (result[i].data.status === "denied") {
           status = <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>;
         }
-        data2.rows.push({
+        data.rows.push({
           number: new_id,
           type: result[i].data.resourceType,
           name: result[i].data.resourceName,
@@ -198,8 +241,20 @@ export default class Table extends React.Component {
           status: status,
           // clickEvent: () => this.getRow(id),
         });
+
+        if (result[i].data.status === "pending") {
+          data2.rows.push({
+            number: new_id,
+            type: result[i].data.resourceType,
+            name: result[i].data.resourceName,
+            startDate: newStart,
+            endDate: newEnd,
+            status: status,
+          });
+        }
       }
-      this.setState((this.state.data = data2));
+      this.setState((this.state.data2 = data2));
+      this.setState((this.state.data = data));
     } catch (error) {
       console.log(error);
     }
@@ -274,7 +329,7 @@ export default class Table extends React.Component {
             sortable
             noBottomColumns={true}
             entriesLabel=""
-            data={this.state.data}
+            data={this.state.data2}
             infoLabel={["", "", "", ""]}
             entriesOptions={[]}
             paginationLabel={["<", ">"]}

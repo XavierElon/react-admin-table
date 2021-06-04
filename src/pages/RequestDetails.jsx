@@ -180,7 +180,7 @@ const linkStyle = {
 const resourceContactStyle = {
   position: "absolute",
   top: "95rem",
-  left: "10%",
+  left: "10%"
 };
 
 const contactNameStyle = {
@@ -256,6 +256,13 @@ const cancelStyle = {
   lineHeight: "32px",
   textAlign: "center",
   cursor: "pointer",
+};
+
+const ohidStyle = {
+  position: "absolute",
+  top: "-2rem",
+  left: "73rem",
+  width: "200px"
 };
 
 export default class RequestDetails extends React.Component {
@@ -760,7 +767,20 @@ export default class RequestDetails extends React.Component {
                       label="Delete"
                     />
                   </RadioGroup>
+                  <TextField
+                  style={ohidStyle}
+                  size="medium"
+                  label="OHID"
+                  name="userOhid"
+                  value={this.state.userOhid}
+                  onChange={this.handleInputChange}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  variant="standard"
+                ></TextField>
                 </FormControl>
+                
               </div>
               <input
                 style={submitStyle}
