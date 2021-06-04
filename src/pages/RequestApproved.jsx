@@ -45,7 +45,7 @@ const footerStyle = {
   flexGrow: "0"
 }
 
-class RequestApproved extends React.Component {
+export default class RequestApproved extends React.Component {
 
     constructor(props) {
         super(props)
@@ -73,5 +73,3 @@ class RequestApproved extends React.Component {
     }
   
 }
-
-export default RequestApproved

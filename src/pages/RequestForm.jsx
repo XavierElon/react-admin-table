@@ -269,14 +269,10 @@ export default class RequestDetails extends React.Component {
       city: " ",
       state: " ",
       zipcode: " ",
-      //   startDate: " ",
-      //   endDate: " ",
       description: " ",
       website: " ",
       contactName: " ",
-      //   phoneNumber: " ",
-      //   email: " ",
-      status: " ",
+      status: "pending"
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -320,7 +316,6 @@ export default class RequestDetails extends React.Component {
               offerExpirationDate: `${this.state.endDate}`,
               streetAddress1: `${this.state.streetAddress1}`,
               location: `${this.state.location}`,
-              streetAddress: `${this.state.streetAddress1}`,
               streetAddress2: `${this.state.streetAddress2}`,
               city: `${this.state.city}`,
               state: `${this.state.state}`,
@@ -330,7 +325,7 @@ export default class RequestDetails extends React.Component {
               briefDescription: `${this.state.description}`,
               website: `${this.state.website}`,
               contactName: `${this.state.contactName}`,
-              
+              status: `${this.state.status}`,
               categories: {
                 locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
                 lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
@@ -361,6 +356,7 @@ export default class RequestDetails extends React.Component {
               website: `${this.state.website}`,
               phoneNumber: `${this.state.phoneNumber}`,
               contactName: `${this.state.contactName}`,
+              status: `${this.state.status}`,
               categories: {
                 locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
                 lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
@@ -390,6 +386,7 @@ export default class RequestDetails extends React.Component {
               website: `${this.state.website}`,
               email: `${this.state.email}`,
               contactName: `${this.state.contactName}`,
+              status: `${this.state.status}`,
               categories: {
                 locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
                 lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
@@ -420,6 +417,7 @@ export default class RequestDetails extends React.Component {
               phoneNumber: `${this.state.phoneNumber}`,
               email: `${this.state.email}`,
               contactName: `${this.state.contactName}`,
+              status: `${this.state.status}`,
               categories: {
                 locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
                 lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,

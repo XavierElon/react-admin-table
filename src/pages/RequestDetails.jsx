@@ -296,6 +296,7 @@ export default class RequestDetails extends React.Component {
     )
       .then((res) => res.json())
       .then((result) => {
+        console.log(result)
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
@@ -326,7 +327,9 @@ export default class RequestDetails extends React.Component {
           contactName: result.data.contactName,
           phoneNumber: result.data.phoneNumber,
           email: result.data.email,
-          status: result.state,
+          status: result.data.status,
+          deniedComment: result.data.deniedComment,
+          userOhid: result.data.userOhid
         });
       });
   }
@@ -345,26 +348,28 @@ export default class RequestDetails extends React.Component {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-    console.log("value = " + value + " name = " + name)
+    console.log("value = " + value + " name = " + name);
     this.setState({
       [name]: value,
     });
   };
 
   sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   async handleSubmit(event) {
     event.preventDefault();
-    if(this.state.status === "deleted") {
-      console.log('delete')
-      const response = await axios.delete(`https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`)
-      console.log(response)
-      await this.sleep(2000)
-      this.props.history.push('/')
+    if (this.state.status === "deleted") {
+      console.log("delete");
+      const response = await axios.delete(
+        `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`
+      );
+      console.log(response);
+      await this.sleep(2000);
+      this.props.history.push("/");
     }
-    
+
     const update = {
       data: {
         resourceType: `${this.state.type}`,
@@ -373,7 +378,6 @@ export default class RequestDetails extends React.Component {
         offerExpirationDate: `${this.state.endDate}`,
         streetAddress1: `${this.state.streetAddress1}`,
         location: `${this.state.location}`,
-        streetAddress: `${this.state.streetAddress1}`,
         streetAddress2: `${this.state.streetAddress2}`,
         city: `${this.state.city}`,
         state: `${this.state.state}`,
@@ -385,15 +389,18 @@ export default class RequestDetails extends React.Component {
         contactName: `${this.state.contactName}`,
         phoneNumber: `${this.state.phoneNumber}`,
         email: `${this.state.email}`,
+        status: `${this.state.status}`,
+        userOhid: `${this.state.userOhid}`,
+        deniedComment: `${this.state.deniedComment}`,
         categories: {
           locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
           lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
           lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
           rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
           rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-        },
-      },
-      state: `${this.state.status}`,
+        }
+      }
+      
     };
     console.log(update);
     const response = await axios.put(
@@ -401,19 +408,18 @@ export default class RequestDetails extends React.Component {
       update
     );
     console.log(response);
-    console.log("status = " + this.state.status)
+    console.log("status = " + this.state.status);
 
-    if(this.state.status === "approved") {
-      console.log("approved")
-      this.props.history.push(`/requestapproved/${this.state.id}`)
+    if (this.state.status === "approved") {
+      console.log("approved");
+      this.props.history.push(`/requestapproved/${this.state.id}`);
     } else if (this.state.status === "denied") {
-      console.log("denied")
-      this.props.history.push(`/requestdenied/${this.state.id}`)
+      console.log("denied");
+      this.props.history.push(`/denydetails/${this.state.id}`);
     } else {
-      console.log("disabled")
-      this.props.history.push('/')
+      console.log("disabled");
+      this.props.history.push("/");
     }
-    
   }
 
   render() {
