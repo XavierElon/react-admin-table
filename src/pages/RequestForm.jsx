@@ -276,7 +276,7 @@ export default class RequestDetails extends React.Component {
       contactName: " ",
       //   phoneNumber: " ",
       //   email: " ",
-      status: " ",
+      status: " "
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
