@@ -96,7 +96,7 @@ export default class Table extends React.Component {
         {
           label: "Resource No.",
           field: "number",
-          sort: "asc",
+          sort: "disabled",
           width: 180,
         },
         {
@@ -126,7 +126,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "asc",
+          sort: "disabled",
           width: 170,
         },
       ],
