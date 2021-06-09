@@ -23,7 +23,7 @@ import axios from "axios";
 const appStyle = {
   textAlign: "center",
   width: "100%",
-  height: "1080px",
+  height: "1200px",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "auto",
@@ -263,8 +263,14 @@ export default class RequestDetails extends React.Component {
       lowCostOrSubsidizedDevices: "",
       rentableLoanerDevices: "",
       rentableLoanerHotspots: "",
+      digitalLiteracyTrainingOptions: "",
+      technicalAssistantForPublicDevicesOrSoftware: "",
+      resourceToAssistGettingASmallBusinessOnline: "",
+      laptopAndDesktops: "",
+      mobileDevices: "",
+      networkingDevices: "",
       location: "",
-      streetAddress: "",
+      streetAddress1: "",
       streetAddress2: "",
       city: "",
       state: "",
@@ -332,6 +338,12 @@ export default class RequestDetails extends React.Component {
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
+            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
+            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            mobileDevices: `${this.state.mobileDevices}`,
+            networkingDevices: `${this.state.networkingDevices}`,
           },
         },
       };
@@ -363,6 +375,12 @@ export default class RequestDetails extends React.Component {
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
+            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
+            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            mobileDevices: `${this.state.mobileDevices}`,
+            networkingDevices: `${this.state.networkingDevices}`,
           },
         },
       };
@@ -393,6 +411,12 @@ export default class RequestDetails extends React.Component {
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
+            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
+            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            mobileDevices: `${this.state.mobileDevices}`,
+            networkingDevices: `${this.state.networkingDevices}`,
           },
         },
       };
@@ -424,6 +448,12 @@ export default class RequestDetails extends React.Component {
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
+            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
+            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            mobileDevices: `${this.state.mobileDevices}`,
+            networkingDevices: `${this.state.networkingDevices}`,
           },
         },
       };
@@ -581,14 +611,14 @@ export default class RequestDetails extends React.Component {
     console.log("render");
     if (this.state.type === "") {
       console.log("value");
-      value = ""
+      value = "";
     } else if (this.state.type === "Digital Literacy") {
-      console.log("digital literacy")
-      value = this.digitalLiteracy()
+      console.log("digital literacy");
+      value = this.digitalLiteracy();
     } else if (this.state.type === "Digital Resource") {
-      value = this.digitalResources()
+      value = this.digitalResources();
     } else if (this.state.type === "Donated Resource") {
-      value = this.donatedResources()
+      value = this.donatedResources();
     }
 
     return (
@@ -634,7 +664,7 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Categories</b> (select all that apply)
                 </h5>
-                  {value}
+                {value}
               </div>
               <div style={locationStyle}>
                 <h5 style={locationText}>
