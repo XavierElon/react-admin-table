@@ -270,27 +270,27 @@ export default class RequestDetails extends React.Component {
     super(props);
     this.state = {
       id: this.props.match.params.id,
-      type: " ",
-      name: " ",
-      locationsThatOfferFreeWiFiPublicDevices: " ",
-      lowCostInternetServicesOrDeals: " ",
-      lowCostOrSubsidizedDevices: " ",
-      rentableLoanerDevices: " ",
-      rentableLoanerHotspots: " ",
-      location: " ",
-      streetAddress: " ",
-      streetAddress2: " ",
-      city: " ",
-      state: " ",
-      zipcode: " ",
-      startDate: " ",
-      endDate: " ",
-      description: " ",
-      website: " ",
-      contactName: " ",
-      phoneNumber: " ",
-      email: " ",
-      status: " ",
+      type: "",
+      name: "",
+      locationsThatOfferFreeWiFiPublicDevices: "",
+      lowCostInternetServicesOrDeals: "",
+      lowCostOrSubsidizedDevices: "",
+      rentableLoanerDevices: "",
+      rentableLoanerHotspots: "",
+      location: "",
+      streetAddress: "",
+      streetAddress2: "",
+      city: "",
+      state: "",
+      zipcode: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+      website: "",
+      contactName: "",
+      phoneNumber: "",
+      email: "",
+      status: "",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -450,8 +450,10 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   // inputProps={{ "aria-label": "Without label" }}
                 >
-                  <MenuItem value="Donated Resource">Donated Resource</MenuItem>
+                  <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
+                  <MenuItem value="Donated Resource">Donated Resource</MenuItem>
+                  
                 </Select>
                 <FormHelperText>Resource Type</FormHelperText>
               </FormControl>

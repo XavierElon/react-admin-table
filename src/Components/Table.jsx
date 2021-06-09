@@ -12,7 +12,7 @@ const NewButton = styled.button`
   background: grey;
   color: white;
   font-size: 12px;
-  // padding: 10px 60px;
+  // spadding: 10px 60px;
   width: 163px;
   height: 30px;
   border-radius: 5px;
@@ -36,6 +36,7 @@ const ButtonToggle = styled(NewButton)`
 const ButtonGroup = styled.div`
   display: flex;
   height: 100px;
+  textAlign: center;
 `;
 
 const badgeStyle = {
@@ -266,17 +267,13 @@ export default class Table extends React.Component {
 
   render() {
     console.log("in render");
-    if (this.state.isNewRequests) {
+    let newRequests = true
       return (
         <div className="Table">
           <h2 className="admin-title">Admin Dashboard</h2>
           <div className="ToggleButtons">
             <ToggleGroup></ToggleGroup>
           </div>
-
-          {/* <div className="Filter" onClick={this.filterMenu}></div>
-          <img className="FilterIcon" src={FilterIcon} alt="" />
-          <p className="FilterText">Filter</p> */}
           <Link to="/requestform">
             <p className="NewRequestText">new request</p>
             <img
@@ -286,10 +283,6 @@ export default class Table extends React.Component {
               onClick={this.getNewEntries}
             />
           </Link>
-          {/* <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter4" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter5" src={SmallFilter} alt="" /> */}
           <MDBDataTable
             bordered
             sortable
@@ -303,40 +296,6 @@ export default class Table extends React.Component {
           <img className="SearchIcon" src={SearchIcon} alt="" />
         </div>
       );
-    } else {
-      return (
-        <div className="Table">
-          <h2 className="admin-title">Admin Dashboard</h2>
-          <div className="ToggleButtons" onClick={this.handleClick}>
-            <ToggleGroup></ToggleGroup>
-          </div>
-          <img
-            className="PlusButton"
-            src={PlusButton}
-            alt=""
-            onclick={this.getNewEntries}
-          />
-          <p className="NewRequestText" onclick={this.newEntries}>
-            new request
-          </p>
-          {/* <img className="SmallFilter" id="filter2" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter3" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter4" src={SmallFilter} alt="" />
-          <img className="SmallFilter" id="filter5" src={SmallFilter} alt="" /> */}
-          <MDBDataTable
-            bordered
-            btn
-            sortable
-            noBottomColumns={true}
-            entriesLabel=""
-            data={this.state.data2}
-            infoLabel={["", "", "", ""]}
-            entriesOptions={[]}
-            paginationLabel={["<", ">"]}
-          />
-          <img className="SearchIcon" src={SearchIcon} alt="" />
-        </div>
-      );
-    }
+    
   }
 }

@@ -256,23 +256,23 @@ export default class RequestDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: " ",
-      name: " ",
-      locationsThatOfferFreeWiFiPublicDevices: " ",
-      lowCostInternetServicesOrDeals: " ",
-      lowCostOrSubsidizedDevices: " ",
-      rentableLoanerDevices: " ",
-      rentableLoanerHotspots: " ",
-      location: " ",
-      streetAddress: " ",
-      streetAddress2: " ",
-      city: " ",
-      state: " ",
-      zipcode: " ",
-      description: " ",
-      website: " ",
-      contactName: " ",
-      status: "pending"
+      type: "",
+      name: "",
+      locationsThatOfferFreeWiFiPublicDevices: "",
+      lowCostInternetServicesOrDeals: "",
+      lowCostOrSubsidizedDevices: "",
+      rentableLoanerDevices: "",
+      rentableLoanerHotspots: "",
+      location: "",
+      streetAddress: "",
+      streetAddress2: "",
+      city: "",
+      state: "",
+      zipcode: "",
+      description: "",
+      website: "",
+      contactName: "",
+      status: "pending",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -303,131 +303,131 @@ export default class RequestDetails extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let update
-    console.log("email = " + this.state.email)
-    console.log("phojne number = " + this.state.phoneNumber)
+    let update;
+    console.log("email = " + this.state.email);
+    console.log("phojne number = " + this.state.phoneNumber);
     if (this.state.email == null && this.state.phoneNumber == null) {
-        console.log("both null")
-        update = {
-            data: {
-              resourceType: `${this.state.type}`,
-              resourceName: `${this.state.name}`,
-              offerStartDate: `${this.state.startDate}`,
-              offerExpirationDate: `${this.state.endDate}`,
-              streetAddress1: `${this.state.streetAddress1}`,
-              location: `${this.state.location}`,
-              streetAddress2: `${this.state.streetAddress2}`,
-              city: `${this.state.city}`,
-              state: `${this.state.state}`,
-              zipcode: `${this.state.zipcode}`,
-              startDate: `${this.state.startDate}`,
-              endDate: `${this.state.endDate}`,
-              briefDescription: `${this.state.description}`,
-              website: `${this.state.website}`,
-              contactName: `${this.state.contactName}`,
-              status: `${this.state.status}`,
-              categories: {
-                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-              },
-            },
-        }
+      console.log("both null");
+      update = {
+        data: {
+          resourceType: `${this.state.type}`,
+          resourceName: `${this.state.name}`,
+          offerStartDate: `${this.state.startDate}`,
+          offerExpirationDate: `${this.state.endDate}`,
+          streetAddress1: `${this.state.streetAddress1}`,
+          location: `${this.state.location}`,
+          streetAddress2: `${this.state.streetAddress2}`,
+          city: `${this.state.city}`,
+          state: `${this.state.state}`,
+          zipcode: `${this.state.zipcode}`,
+          startDate: `${this.state.startDate}`,
+          endDate: `${this.state.endDate}`,
+          briefDescription: `${this.state.description}`,
+          website: `${this.state.website}`,
+          contactName: `${this.state.contactName}`,
+          status: `${this.state.status}`,
+          categories: {
+            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+          },
+        },
+      };
     } else if (this.state.email == null) {
-        console.log("empty")
-        update = {
-            data: {
-              resourceType: `${this.state.type}`,
-              resourceName: `${this.state.name}`,
-              offerStartDate: `${this.state.startDate}`,
-              offerExpirationDate: `${this.state.endDate}`,
-              streetAddress1: `${this.state.streetAddress1}`,
-              location: `${this.state.location}`,
-              streetAddress: `${this.state.streetAddress1}`,
-              streetAddress2: `${this.state.streetAddress2}`,
-              city: `${this.state.city}`,
-              state: `${this.state.state}`,
-              zipcode: `${this.state.zipcode}`,
-              startDate: `${this.state.startDate}`,
-              endDate: `${this.state.endDate}`,
-              briefDescription: `${this.state.description}`,
-              website: `${this.state.website}`,
-              phoneNumber: `${this.state.phoneNumber}`,
-              contactName: `${this.state.contactName}`,
-              status: `${this.state.status}`,
-              categories: {
-                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-              },
-            },
-        }
+      console.log("empty");
+      update = {
+        data: {
+          resourceType: `${this.state.type}`,
+          resourceName: `${this.state.name}`,
+          offerStartDate: `${this.state.startDate}`,
+          offerExpirationDate: `${this.state.endDate}`,
+          streetAddress1: `${this.state.streetAddress1}`,
+          location: `${this.state.location}`,
+          streetAddress: `${this.state.streetAddress1}`,
+          streetAddress2: `${this.state.streetAddress2}`,
+          city: `${this.state.city}`,
+          state: `${this.state.state}`,
+          zipcode: `${this.state.zipcode}`,
+          startDate: `${this.state.startDate}`,
+          endDate: `${this.state.endDate}`,
+          briefDescription: `${this.state.description}`,
+          website: `${this.state.website}`,
+          phoneNumber: `${this.state.phoneNumber}`,
+          contactName: `${this.state.contactName}`,
+          status: `${this.state.status}`,
+          categories: {
+            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+          },
+        },
+      };
     } else if (this.state.phoneNumber == null) {
-        update = {
-            data: {
-              resourceType: `${this.state.type}`,
-              resourceName: `${this.state.name}`,
-              offerStartDate: `${this.state.startDate}`,
-              offerExpirationDate: `${this.state.endDate}`,
-              streetAddress1: `${this.state.streetAddress1}`,
-              location: `${this.state.location}`,
-              streetAddress: `${this.state.streetAddress1}`,
-              streetAddress2: `${this.state.streetAddress2}`,
-              city: `${this.state.city}`,
-              state: `${this.state.state}`,
-              zipcode: `${this.state.zipcode}`,
-              startDate: `${this.state.startDate}`,
-              endDate: `${this.state.endDate}`,
-              briefDescription: `${this.state.description}`,
-              website: `${this.state.website}`,
-              email: `${this.state.email}`,
-              contactName: `${this.state.contactName}`,
-              status: `${this.state.status}`,
-              categories: {
-                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-              },
-            },
-        }
+      update = {
+        data: {
+          resourceType: `${this.state.type}`,
+          resourceName: `${this.state.name}`,
+          offerStartDate: `${this.state.startDate}`,
+          offerExpirationDate: `${this.state.endDate}`,
+          streetAddress1: `${this.state.streetAddress1}`,
+          location: `${this.state.location}`,
+          streetAddress: `${this.state.streetAddress1}`,
+          streetAddress2: `${this.state.streetAddress2}`,
+          city: `${this.state.city}`,
+          state: `${this.state.state}`,
+          zipcode: `${this.state.zipcode}`,
+          startDate: `${this.state.startDate}`,
+          endDate: `${this.state.endDate}`,
+          briefDescription: `${this.state.description}`,
+          website: `${this.state.website}`,
+          email: `${this.state.email}`,
+          contactName: `${this.state.contactName}`,
+          status: `${this.state.status}`,
+          categories: {
+            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+          },
+        },
+      };
     } else {
-        update = {
-            data: {
-              resourceType: `${this.state.type}`,
-              resourceName: `${this.state.name}`,
-              offerStartDate: `${this.state.startDate}`,
-              offerExpirationDate: `${this.state.endDate}`,
-              streetAddress1: `${this.state.streetAddress1}`,
-              location: `${this.state.location}`,
-              streetAddress: `${this.state.streetAddress1}`,
-              streetAddress2: `${this.state.streetAddress2}`,
-              city: `${this.state.city}`,
-              state: `${this.state.state}`,
-              zipcode: `${this.state.zipcode}`,
-              startDate: `${this.state.startDate}`,
-              endDate: `${this.state.endDate}`,
-              briefDescription: `${this.state.description}`,
-              website: `${this.state.website}`,
-              phoneNumber: `${this.state.phoneNumber}`,
-              email: `${this.state.email}`,
-              contactName: `${this.state.contactName}`,
-              status: `${this.state.status}`,
-              categories: {
-                locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-                lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-                lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-                rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-                rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-              },
-            },
-        }
-    } 
+      update = {
+        data: {
+          resourceType: `${this.state.type}`,
+          resourceName: `${this.state.name}`,
+          offerStartDate: `${this.state.startDate}`,
+          offerExpirationDate: `${this.state.endDate}`,
+          streetAddress1: `${this.state.streetAddress1}`,
+          location: `${this.state.location}`,
+          streetAddress: `${this.state.streetAddress1}`,
+          streetAddress2: `${this.state.streetAddress2}`,
+          city: `${this.state.city}`,
+          state: `${this.state.state}`,
+          zipcode: `${this.state.zipcode}`,
+          startDate: `${this.state.startDate}`,
+          endDate: `${this.state.endDate}`,
+          briefDescription: `${this.state.description}`,
+          website: `${this.state.website}`,
+          phoneNumber: `${this.state.phoneNumber}`,
+          email: `${this.state.email}`,
+          contactName: `${this.state.contactName}`,
+          status: `${this.state.status}`,
+          categories: {
+            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+          },
+        },
+      };
+    }
     console.log(update);
     const response = axios.post(
       "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission",
@@ -437,7 +437,160 @@ export default class RequestDetails extends React.Component {
     this.props.history.push("/");
   }
 
+  digitalLiteracy() {
+    return (
+      <div>
+        <FormControl component="fieldset">
+          <FormLabel component="legend"></FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="digitalLiteracyTrainingOptions"
+                />
+              }
+              label="Digital Literacy Training Options"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="technicalAssistantForPublicDevicesOrSoftware"
+                />
+              }
+              label="Technical Assistant for Public Devices or Software"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="resourceToAssistGettingASmallBusinessOnline"
+                />
+              }
+              label="Resource to Assist Getting a Small Business Online"
+            />
+          </FormGroup>
+          <FormHelperText></FormHelperText>
+        </FormControl>
+      </div>
+    );
+  }
+
+  digitalResources() {
+    return (
+      <div>
+        <FormControl component="fieldset">
+          <FormLabel component="legend"></FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="lowCostInternetServicesOrDeals"
+                />
+              }
+              label="Low-Cost Internet Services Or Deals"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="lowCostOrSubsidizedDevices"
+                />
+              }
+              label="Low-Cost Or Subsidized Devices"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="locationsThatOfferFreeWiFiPublicDevices"
+                />
+              }
+              label="Locations That Offer Free Wi-Fi/Public Devices"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="rentableLoanerHotspots"
+                />
+              }
+              label="Rentable/Loaner Hotspots"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="rentableLoanerDevices"
+                />
+              }
+              label="Rentable/Loaner Devices"
+            />
+          </FormGroup>
+          <FormHelperText></FormHelperText>
+        </FormControl>
+      </div>
+    );
+  }
+
+  donatedResources() {
+    return (
+      <div>
+        <FormControl component="fieldset">
+          <FormLabel component="legend"></FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="laptopsAndDesktops"
+                />
+              }
+              label="Laptops and Desktops"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="mobileDevices"
+                />
+              }
+              label="Mobile Devices"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="networkingDevices"
+                />
+              }
+              label="Networking Devices"
+            />
+          </FormGroup>
+          <FormHelperText></FormHelperText>
+        </FormControl>
+      </div>
+    );
+  }
+
   render() {
+    let value;
+    console.log(this.state.type);
+    console.log("render");
+    if (this.state.type === "") {
+      console.log("value");
+      value = ""
+    } else if (this.state.type === "Digital Literacy") {
+      console.log("digital literacy")
+      value = this.digitalLiteracy()
+    } else if (this.state.type === "Digital Resource") {
+      value = this.digitalResources()
+    } else if (this.state.type === "Donated Resource") {
+      value = this.donatedResources()
+    }
+
     return (
       <div style={appStyle}>
         <div style={headerStyle}>
@@ -459,8 +612,9 @@ export default class RequestDetails extends React.Component {
                   name="type"
                   onChange={this.handleInputChange}
                 >
-                  <MenuItem value="Donated Resource">Donated Resource</MenuItem>
+                  <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
+                  <MenuItem value="Donated Resource">Donated Resource</MenuItem>
                 </Select>
               </FormControl>
 
@@ -480,57 +634,7 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Categories</b> (select all that apply)
                 </h5>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend"></FormLabel>
-                  <FormGroup>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          onChange={this.handleInputChange}
-                          name="lowCostInternetServicesOrDeals"
-                        />
-                      }
-                      label="Low-Cost Internet Services Or Deals"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          onChange={this.handleInputChange}
-                          name="lowCostOrSubsidizedDevices"
-                        />
-                      }
-                      label="Low-Cost Or Subsidized Devices"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          onChange={this.handleInputChange}
-                          name="locationsThatOfferFreeWiFiPublicDevices"
-                        />
-                      }
-                      label="Locations That Offer Free Wi-Fi/Public Devices"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          onChange={this.handleInputChange}
-                          name="rentableLoanerHotspots"
-                        />
-                      }
-                      label="Rentable/Loaner Hotspots"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          onChange={this.handleInputChange}
-                          name="rentableLoanerDevices"
-                        />
-                      }
-                      label="Rentable/Loaner Devices"
-                    />
-                  </FormGroup>
-                  <FormHelperText></FormHelperText>
-                </FormControl>
+                  {value}
               </div>
               <div style={locationStyle}>
                 <h5 style={locationText}>

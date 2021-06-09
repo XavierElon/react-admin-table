@@ -49,8 +49,6 @@ export default function Modal({ color, id }) {
 
   
   if (color === "green") {
-    console.log("green")
-    console.log(id)
     return (
       <div>
         <GreenModal className="Green">
