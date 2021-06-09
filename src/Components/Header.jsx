@@ -17,7 +17,7 @@ export default class Header extends React.Component {
             <Link to="/">
           <img className="Logo" src={Logo} alt="" />
           <img className="Bar" src={Bar} alt="" />
-          <p className="Title">Office of Workforce Transforamtion</p>
+          <p className="Title">Office of Workforce Transformation</p>
           </Link>
           <img className="VerticalDivider" src={VerticalDivider} alt="" />
           <img className="HelpIcon" src={HelpIcon} alt="" />

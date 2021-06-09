@@ -277,6 +277,12 @@ export default class RequestDetails extends React.Component {
       lowCostOrSubsidizedDevices: "",
       rentableLoanerDevices: "",
       rentableLoanerHotspots: "",
+      digitalLiteracyTrainingOptions: "",
+      technicalAssistantForPublicDevicesOrSoftware: "",
+      resourceToAssistGettingASmallBusinessOnline: "",
+      laptopAndDesktops: "",
+      mobileDevices: "",
+      networkingDevices: "",
       location: "",
       streetAddress: "",
       streetAddress2: "",
@@ -315,6 +321,12 @@ export default class RequestDetails extends React.Component {
             result.data.categories.lowCostOrSubsidizedDevices,
           rentableLoanerDevices: result.data.categories.rentableLoanerDevices,
           rentableLoanerHotspots: result.data.categories.rentableLoanerHotspots,
+          digitalLiteracyTrainingOptions: result.data.categories.digitalLiteracyTrainingOptions,
+          technicalAssistantForPublicDevicesOrSoftware: result.data.categories.technicalAssistantForPublicDevicesOrSoftware,
+          resourceToAssistGettingASmallBusinessOnline: result.data.categories.resourceToAssistGettingASmallBusinessOnline,
+          laptopAndDesktops: result.data.categories.laptopAndDesktops,
+          mobileDevices: result.data.categories.mobileDevices,
+          networkingDevices: result.data.categories.networkingDevices,
           location: result.data.location,
           streetAddress1: result.data.streetAddress1,
           streetAddress2: result.data.streetAddress2,
@@ -405,6 +417,12 @@ export default class RequestDetails extends React.Component {
           lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
           rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
           rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+          digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
+          technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
+          resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+          laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+          mobileDevices: `${this.state.mobileDevices}`,
+          networkingDevices: `${this.state.networkingDevices}`,
         }
       }
       
@@ -429,7 +447,170 @@ export default class RequestDetails extends React.Component {
     }
   }
 
+  digitalLiteracy() {
+    return (
+      <div>
+        <FormControl component="fieldset">
+          <FormLabel component="legend"></FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="digitalLiteracyTrainingOptions"
+                  checked={this.state.digitalLiteracyTrainingOptions}
+                />
+              }
+              label="Digital Literacy Training Options"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="technicalAssistantForPublicDevicesOrSoftware"
+                  checked={this.state.technicalAssistantForPublicDevicesOrSoftware}
+                />
+              }
+              label="Technical Assistant for Public Devices or Software"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="resourceToAssistGettingASmallBusinessOnline"
+                  checked={this.state.resourceToAssistGettingASmallBusinessOnline}
+                />
+              }
+              label="Resource to Assist Getting a Small Business Online"
+            />
+          </FormGroup>
+          <FormHelperText></FormHelperText>
+        </FormControl>
+      </div>
+    );
+  }
+
+  digitalResources() {
+    return (
+      <div>
+        <FormControl component="fieldset">
+          <FormLabel component="legend"></FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="lowCostInternetServicesOrDeals"
+                  checked={this.state.lowCostInternetServicesOrDeals}
+                />
+              }
+              label="Low-Cost Internet Services Or Deals"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="lowCostOrSubsidizedDevices"
+                  checked={this.state.lowCostOrSubsidizedDevices}
+                />
+              }
+              label="Low-Cost Or Subsidized Devices"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="locationsThatOfferFreeWiFiPublicDevices"
+                  checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
+                />
+              }
+              label="Locations That Offer Free Wi-Fi/Public Devices"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="rentableLoanerHotspots"
+                  checked={this.state.rentableLoanerHotspots}
+                />
+              }
+              label="Rentable/Loaner Hotspots"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="rentableLoanerDevices"
+                  checked={this.rentableLoanerDevices}
+                />
+              }
+              label="Rentable/Loaner Devices"
+            />
+          </FormGroup>
+          <FormHelperText></FormHelperText>
+        </FormControl>
+      </div>
+    );
+  }
+
+  donatedResources() {
+    return (
+      <div>
+        <FormControl component="fieldset">
+          <FormLabel component="legend"></FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="laptopsAndDesktops"
+                  checked={this.state.laptopAndDesktops}
+                />
+              }
+              label="Laptops and Desktops"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="mobileDevices"
+                  checked={this.state.mobileDevices}
+                />
+              }
+              label="Mobile Devices"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={this.handleInputChange}
+                  name="networkingDevices"
+                  checked={this.state.networkingDevices}
+                />
+              }
+              label="Networking Devices"
+            />
+          </FormGroup>
+          <FormHelperText></FormHelperText>
+        </FormControl>
+      </div>
+    );
+  }
+
+
   render() {
+    let value;
+    if (this.state.type === "") {
+      console.log("value");
+      value = "";
+    } else if (this.state.type === "Digital Literacy") {
+      console.log("digital literacy");
+      value = this.digitalLiteracy();
+    } else if (this.state.type === "Digital Resource") {
+      value = this.digitalResources();
+    } else if (this.state.type === "Donated Resource") {
+      value = this.donatedResources();
+    }
+
     return (
       <div style={appStyle}>
         <div style={headerStyle}>
@@ -474,64 +655,7 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Categories</b> (select all that apply)
                 </h5>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend"></FormLabel>
-                  <FormGroup>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={this.state.lowCostInternetServicesOrDeals}
-                          onChange={this.handleInputChange}
-                          name="lowCostInternetServicesOrDeals"
-                        />
-                      }
-                      label="Low-Cost Internet Services Or Deals"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={this.state.lowCostOrSubsidizedDevices}
-                          onChange={this.handleInputChange}
-                          name="lowCostOrSubsidizedDevices"
-                        />
-                      }
-                      label="Low-Cost Or Subsidized Devices"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={
-                            this.state.locationsThatOfferFreeWiFiPublicDevices
-                          }
-                          onChange={this.handleInputChange}
-                          name="locationsThatOfferFreeWiFiPublicDevices"
-                        />
-                      }
-                      label="Locations That Offer Free Wi-Fi/Public Devices"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={this.state.rentableLoanerHotspots}
-                          onChange={this.handleInputChange}
-                          name="rentableLoanerHotspots"
-                        />
-                      }
-                      label="Rentable/Loaner Hotspots"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={this.state.rentableLoanerDevices}
-                          onChange={this.handleInputChange}
-                          name="rentableLoanerDevices"
-                        />
-                      }
-                      label="Rentable/Loaner Devices"
-                    />
-                  </FormGroup>
-                  <FormHelperText></FormHelperText>
-                </FormControl>
+                    {value}
               </div>
               <div style={locationStyle}>
                 <h5 style={locationText}>
