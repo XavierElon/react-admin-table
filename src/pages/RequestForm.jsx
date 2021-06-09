@@ -256,11 +256,11 @@ export default class RequestDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: "",
-      name: "",
-      locationsThatOfferFreeWiFiPublicDevices: "",
-      lowCostInternetServicesOrDeals: "",
-      lowCostOrSubsidizedDevices: "",
+      type: " ",
+      name: " ",
+      locationsThatOfferFreeWiFiPublicDevices: " ",
+      lowCostInternetServicesOrDeals: " ",
+      lowCostOrSubsidizedDevices: " ",
       rentableLoanerDevices: "",
       rentableLoanerHotspots: "",
       digitalLiteracyTrainingOptions: "",
@@ -270,9 +270,7 @@ export default class RequestDetails extends React.Component {
       mobileDevices: "",
       networkingDevices: "",
       location: "",
-      streetAddress1: "",
-      streetAddress2: "",
-      city: "",
+      address1: " ",
       state: "",
       zipcode: "",
       description: "",
@@ -305,13 +303,14 @@ export default class RequestDetails extends React.Component {
     this.setState({
       [name]: value,
     });
+    console.log(this.state)
   };
 
   handleSubmit(event) {
     event.preventDefault();
     let update;
     console.log("email = " + this.state.email);
-    console.log("phojne number = " + this.state.phoneNumber);
+    console.log("phone number = " + this.state.phoneNumber);
     if (this.state.email == null && this.state.phoneNumber == null) {
       console.log("both null");
       update = {
@@ -320,10 +319,8 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          streetAddress1: `${this.state.streetAddress1}`,
+          address1: `${this.state.address1}`,
           location: `${this.state.location}`,
-          streetAddress2: `${this.state.streetAddress2}`,
-          city: `${this.state.city}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
           startDate: `${this.state.startDate}`,
@@ -355,11 +352,8 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          streetAddress1: `${this.state.streetAddress1}`,
+          address1: `${this.state.address1}`,
           location: `${this.state.location}`,
-          streetAddress: `${this.state.streetAddress1}`,
-          streetAddress2: `${this.state.streetAddress2}`,
-          city: `${this.state.city}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
           startDate: `${this.state.startDate}`,
@@ -391,11 +385,8 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          streetAddress1: `${this.state.streetAddress1}`,
+          address1: `${this.state.address1}`,
           location: `${this.state.location}`,
-          streetAddress: `${this.state.streetAddress1}`,
-          streetAddress2: `${this.state.streetAddress2}`,
-          city: `${this.state.city}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
           startDate: `${this.state.startDate}`,
@@ -427,11 +418,8 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          streetAddress1: `${this.state.streetAddress1}`,
+          address1: `${this.state.address1}`,
           location: `${this.state.location}`,
-          streetAddress: `${this.state.streetAddress1}`,
-          streetAddress2: `${this.state.streetAddress2}`,
-          city: `${this.state.city}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
           startDate: `${this.state.startDate}`,
@@ -608,9 +596,7 @@ export default class RequestDetails extends React.Component {
   render() {
     let value;
     console.log(this.state.type);
-    console.log("render");
     if (this.state.type === "") {
-      console.log("value");
       value = "";
     } else if (this.state.type === "Digital Literacy") {
       console.log("digital literacy");
@@ -706,7 +692,7 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Physical Address</b> (if applicable)
                 </h5>
-                <TextField
+                {/* <TextField
                   style={streetAddressStyle}
                   size="medium"
                   label="Street Address 1"
@@ -738,7 +724,7 @@ export default class RequestDetails extends React.Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
-                ></TextField>
+                ></TextField> */}
                 <TextField
                   style={stateStyle}
                   size="medium"
