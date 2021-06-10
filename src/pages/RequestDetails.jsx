@@ -17,9 +17,8 @@ import FormGroup from "@material-ui/core/FormGroup";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import "date-fns";
 import axios from "axios";
-import {
+import PlacesAutocomplete, {
   geocodeByAddress,
-  geocodeByPlaceId,
   getLatLng,
 } from "react-places-autocomplete";
 
@@ -316,9 +315,7 @@ export default class RequestDetails extends React.Component {
           mobileDevices: result.data.categories.mobileDevices,
           networkingDevices: result.data.categories.networkingDevices,
           location: result.data.location,
-          streetAddress1: result.data.streetAddress1,
-          streetAddress2: result.data.streetAddress2,
-          city: result.data.city,
+          address1: result.data.address1.address,
           state: result.data.state,
           zipcode: result.data.zipCode,
           startDate: result.data.offerStartDate.substr(
@@ -383,10 +380,12 @@ export default class RequestDetails extends React.Component {
         resourceName: `${this.state.name}`,
         offerStartDate: `${this.state.startDate}`,
         offerExpirationDate: `${this.state.endDate}`,
-        streetAddress1: `${this.state.streetAddress1}`,
+        address1: {
+          address: `${this.state.address1}`,
+          lat: `${this.state.lat}`,
+          lon: `${this.state.lon}`
+        },
         location: `${this.state.location}`,
-        streetAddress2: `${this.state.streetAddress2}`,
-        city: `${this.state.city}`,
         state: `${this.state.state}`,
         zipcode: `${this.state.zipcode}`,
         startDate: `${this.state.startDate}`,
@@ -628,6 +627,49 @@ export default class RequestDetails extends React.Component {
   streetAddress() {
     return (
       <div>
+        <PlacesAutocomplete
+          value={this.state.address1}
+          onChange={this.handleChange}
+          onSelect={this.handleSelect}
+        >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading,
+          }) => (
+            <div>
+              <input
+                {...getInputProps({
+                  placeholder: "Search Places ...",
+                  className: "location-search-input",
+                })}
+              />
+              <div className="autocomplete-dropdown-container">
+                {loading && <div>Loading...</div>}
+                {suggestions.map((suggestion) => {
+                  const className = suggestion.active
+                    ? "suggestion-item--active"
+                    : "suggestion-item";
+                  // inline style for demonstration purpose
+                  const style = suggestion.active
+                    ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                    : { backgroundColor: "#ffffff", cursor: "pointer" };
+                  return (
+                    <div
+                      {...getSuggestionItemProps(suggestion, {
+                        className,
+                        style,
+                      })}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
       </div>
     );
   }

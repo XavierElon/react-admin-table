@@ -293,7 +293,6 @@ export default class Table extends React.Component {
             entriesOptions={[]}
             paginationLabel={["<", ">"]}
           />
-          <img className="SearchIcon" src={SearchIcon} alt="" />
         </div>
       );
     
