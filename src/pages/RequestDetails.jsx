@@ -17,6 +17,11 @@ import FormGroup from "@material-ui/core/FormGroup";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import "date-fns";
 import axios from "axios";
+import {
+  geocodeByAddress,
+  geocodeByPlaceId,
+  getLatLng,
+} from "react-places-autocomplete";
 
 const appStyle = {
   textAlign: "center",
@@ -102,8 +107,6 @@ const locationText = {
   textAlign: "left",
 };
 
-const radioText = {};
-
 const physicalAddressStyle = {
   position: "absolute",
   top: "80%",
@@ -111,36 +114,18 @@ const physicalAddressStyle = {
   textAlign: "left",
 };
 
-const streetAddressStyle = {
-  width: "200px",
-};
-
-const streetAddress2Style = {
-  width: "200px",
-  position: "absolute",
-  top: "30%",
-  left: "345%",
-};
-
-const cityStyle = {
-  width: "200px",
-  position: "absolute",
-  top: "10rem",
-  left: "0%",
-};
-
 const stateStyle = {
   width: "200px",
   position: "absolute",
-  top: "10rem",
-  left: "35rem",
+  top: "2rem",
+  left: "0rem",
 };
 
 const zipcodeStyle = {
   width: "200px",
   position: "absolute",
-  top: "10rem",
-  left: "69rem",
+  top: "2rem",
+  left: "0rem",
 };
 
 const startDateStyle = {
@@ -180,7 +165,7 @@ const linkStyle = {
 const resourceContactStyle = {
   position: "absolute",
   top: "95rem",
-  left: "10%"
+  left: "10%",
 };
 
 const contactNameStyle = {
@@ -262,7 +247,7 @@ const ohidStyle = {
   position: "absolute",
   top: "-2rem",
   left: "73rem",
-  width: "200px"
+  width: "200px",
 };
 
 export default class RequestDetails extends React.Component {
@@ -309,7 +294,7 @@ export default class RequestDetails extends React.Component {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
+        console.log(result);
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
@@ -321,9 +306,12 @@ export default class RequestDetails extends React.Component {
             result.data.categories.lowCostOrSubsidizedDevices,
           rentableLoanerDevices: result.data.categories.rentableLoanerDevices,
           rentableLoanerHotspots: result.data.categories.rentableLoanerHotspots,
-          digitalLiteracyTrainingOptions: result.data.categories.digitalLiteracyTrainingOptions,
-          technicalAssistantForPublicDevicesOrSoftware: result.data.categories.technicalAssistantForPublicDevicesOrSoftware,
-          resourceToAssistGettingASmallBusinessOnline: result.data.categories.resourceToAssistGettingASmallBusinessOnline,
+          digitalLiteracyTrainingOptions:
+            result.data.categories.digitalLiteracyTrainingOptions,
+          technicalAssistantForPublicDevicesOrSoftware:
+            result.data.categories.technicalAssistantForPublicDevicesOrSoftware,
+          resourceToAssistGettingASmallBusinessOnline:
+            result.data.categories.resourceToAssistGettingASmallBusinessOnline,
           laptopAndDesktops: result.data.categories.laptopAndDesktops,
           mobileDevices: result.data.categories.mobileDevices,
           networkingDevices: result.data.categories.networkingDevices,
@@ -348,7 +336,7 @@ export default class RequestDetails extends React.Component {
           email: result.data.email,
           status: result.data.status,
           deniedComment: result.data.deniedComment,
-          userOhid: result.data.userOhid
+          userOhid: result.data.userOhid,
         });
       });
   }
@@ -423,9 +411,8 @@ export default class RequestDetails extends React.Component {
           laptopAndDesktops: `${this.state.laptopAndDesktops}`,
           mobileDevices: `${this.state.mobileDevices}`,
           networkingDevices: `${this.state.networkingDevices}`,
-        }
-      }
-      
+        },
+      },
     };
     console.log(update);
     const response = await axios.put(
@@ -468,7 +455,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="technicalAssistantForPublicDevicesOrSoftware"
-                  checked={this.state.technicalAssistantForPublicDevicesOrSoftware}
+                  checked={
+                    this.state.technicalAssistantForPublicDevicesOrSoftware
+                  }
                 />
               }
               label="Technical Assistant for Public Devices or Software"
@@ -478,7 +467,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="resourceToAssistGettingASmallBusinessOnline"
-                  checked={this.state.resourceToAssistGettingASmallBusinessOnline}
+                  checked={
+                    this.state.resourceToAssistGettingASmallBusinessOnline
+                  }
                 />
               }
               label="Resource to Assist Getting a Small Business Online"
@@ -596,19 +587,69 @@ export default class RequestDetails extends React.Component {
     );
   }
 
+  allOfOhio() {
+    return (
+      <div>
+        <TextField
+          style={stateStyle}
+          onChange={this.handleInputChange}
+          size="medium"
+          label="State"
+          name="state"
+          value="Ohio"
+          variant="standard"
+          InputLabelProps={{
+            shrink: true,
+            readOnly: true,
+          }}
+        ></TextField>
+      </div>
+    );
+  }
+
+  zipCode() {
+    return (
+      <div>
+        <TextField
+          style={zipcodeStyle}
+          onChange={this.handleInputChange}
+          size="medium"
+          label="Zip Code"
+          name="zipcode"
+          variant="standard"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        ></TextField>
+      </div>
+    );
+  }
+
+  streetAddress() {
+    return (
+      <div>
+      </div>
+    );
+  }
 
   render() {
-    let value;
-    if (this.state.type === "") {
-      console.log("value");
-      value = "";
-    } else if (this.state.type === "Digital Literacy") {
-      console.log("digital literacy");
+    let value = "";
+    if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
     } else if (this.state.type === "Digital Resource") {
       value = this.digitalResources();
     } else if (this.state.type === "Donated Resource") {
       value = this.donatedResources();
+    }
+    let locationRadio = "";
+    if (this.state.location === "allOfOhio") {
+      locationRadio = this.allOfOhio();
+    } else if (this.state.location === "zipCode") {
+      locationRadio = this.zipCode();
+    } else if (this.state.location === "streetAddress") {
+      locationRadio = this.streetAddress();
+      let address = document.querySelector(".address-autocomplete-container");
+      console.log(address);
     }
 
     return (
@@ -634,7 +675,6 @@ export default class RequestDetails extends React.Component {
                   <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
                   <MenuItem value="Donated Resource">Donated Resource</MenuItem>
-                  
                 </Select>
                 <FormHelperText>Resource Type</FormHelperText>
               </FormControl>
@@ -655,7 +695,7 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Categories</b> (select all that apply)
                 </h5>
-                    {value}
+                {value}
               </div>
               <div style={locationStyle}>
                 <h5 style={locationText}>
@@ -664,7 +704,6 @@ export default class RequestDetails extends React.Component {
                 <FormControl component="fieldset">
                   {/* <FormLabel component="legend">Gender</FormLabel> */}
                   <RadioGroup
-                    style={radioText}
                     row
                     aria-label="location"
                     name="location"
@@ -698,66 +737,7 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Physical Address</b> (if applicable)
                 </h5>
-                <TextField
-                  style={streetAddressStyle}
-                  size="medium"
-                  label="Street Address 1"
-                  name="streetAddress1"
-                  value={this.state.streetAddress1}
-                  onChange={this.handleInputChange}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="standard"
-                ></TextField>
-                <TextField
-                  style={streetAddress2Style}
-                  size="medium"
-                  label="Street Address 2 (Apt., etc.)"
-                  value={this.state.streetAddress2}
-                  name="streetAddress2"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-                <TextField
-                  style={cityStyle}
-                  size="medium"
-                  label="City"
-                  value={this.state.city}
-                  name="city"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-                <TextField
-                  style={stateStyle}
-                  size="medium"
-                  label="State"
-                  name="state"
-                  value={this.state.state}
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-                <TextField
-                  style={zipcodeStyle}
-                  size="medium"
-                  label="Zipcode"
-                  name="zipcode"
-                  value={this.state.zipcode}
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
+                {locationRadio}
               </div>
               <TextField
                 required
@@ -865,7 +845,6 @@ export default class RequestDetails extends React.Component {
                 <FormControl component="fieldset">
                   {/* <FormLabel component="legend">Gender</FormLabel> */}
                   <RadioGroup
-                    style={radioText}
                     row
                     aria-label="location"
                     value={this.state.status}
@@ -894,19 +873,18 @@ export default class RequestDetails extends React.Component {
                     />
                   </RadioGroup>
                   <TextField
-                  style={ohidStyle}
-                  size="medium"
-                  label="OHID"
-                  name="userOhid"
-                  value={this.state.userOhid}
-                  onChange={this.handleInputChange}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="standard"
-                ></TextField>
+                    style={ohidStyle}
+                    size="medium"
+                    label="OHID"
+                    name="userOhid"
+                    value={this.state.userOhid}
+                    onChange={this.handleInputChange}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    variant="standard"
+                  ></TextField>
                 </FormControl>
-                
               </div>
               <input
                 style={submitStyle}
@@ -922,7 +900,7 @@ export default class RequestDetails extends React.Component {
             </form>
           </div>
         </Grid>
-        <Footer stlye={footerStyle}></Footer>
+        {/* <Footer stlye={footerStyle}></Footer> */}
       </div>
     );
   }

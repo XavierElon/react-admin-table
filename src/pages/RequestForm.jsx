@@ -19,6 +19,11 @@ import InputLabel from "@material-ui/core/InputLabel";
 import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
+import { Form } from "react-formio";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
 
 const appStyle = {
   textAlign: "center",
@@ -105,8 +110,6 @@ const locationText = {
   textAlign: "left",
 };
 
-const radioText = {};
-
 const physicalAddressStyle = {
   position: "absolute",
   top: "80%",
@@ -114,36 +117,18 @@ const physicalAddressStyle = {
   textAlign: "left",
 };
 
-const streetAddressStyle = {
-  width: "200px",
-};
-
-const streetAddress2Style = {
-  width: "200px",
-  position: "absolute",
-  top: "30%",
-  left: "345%",
-};
-
-const cityStyle = {
-  width: "200px",
-  position: "absolute",
-  top: "10rem",
-  left: "0%",
-};
-
 const stateStyle = {
   width: "200px",
   position: "absolute",
-  top: "10rem",
-  left: "35rem",
+  top: "2rem",
+  left: "0rem",
 };
 
 const zipcodeStyle = {
   width: "200px",
   position: "absolute",
-  top: "10rem",
-  left: "69rem",
+  top: "2rem",
+  left: "0rem",
 };
 
 const startDateStyle = {
@@ -303,7 +288,13 @@ export default class RequestDetails extends React.Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state)
+    console.log(this.state);
+  };
+
+  handleAddressChange = (event) => {
+    console.log(event);
+    const target = event.target;
+    console.log(target);
   };
 
   handleSubmit(event) {
@@ -593,18 +584,117 @@ export default class RequestDetails extends React.Component {
     );
   }
 
+  allOfOhio() {
+    return (
+      <div>
+        <TextField
+          style={stateStyle}
+          onChange={this.handleInputChange}
+          size="medium"
+          label="State"
+          name="state"
+          value="Ohio"
+          variant="standard"
+          InputLabelProps={{
+            shrink: true,
+            readOnly: true,
+          }}
+        ></TextField>
+      </div>
+    );
+  }
+
+  zipCode() {
+    return (
+      <div>
+        <TextField
+          style={zipcodeStyle}
+          onChange={this.handleInputChange}
+          size="medium"
+          label="Zip Code"
+          name="zipcode"
+          variant="standard"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        ></TextField>
+      </div>
+    );
+  }
+
+  handleSelect = (address) => {
+    geocodeByAddress(address)
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) => console.log("Success", latLng))
+      .catch((error) => console.error("Error", error));
+  };
+
+  streetAddress() {
+    return (
+      <div>
+        <PlacesAutocomplete
+          value={this.state.address}
+          onChange={this.handleChange}
+          onSelect={this.handleSelect}
+        >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading,
+          }) => (
+            <div>
+              <input
+                {...getInputProps({
+                  placeholder: "Search Places ...",
+                  className: "location-search-input",
+                })}
+              />
+              <div className="autocomplete-dropdown-container">
+                {loading && <div>Loading...</div>}
+                {suggestions.map((suggestion) => {
+                  const className = suggestion.active
+                    ? "suggestion-item--active"
+                    : "suggestion-item";
+                  // inline style for demonstration purpose
+                  const style = suggestion.active
+                    ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                    : { backgroundColor: "#ffffff", cursor: "pointer" };
+                  return (
+                    <div
+                      {...getSuggestionItemProps(suggestion, {
+                        className,
+                        style,
+                      })}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+      </div>
+    );
+  }
+
   render() {
-    let value;
-    console.log(this.state.type);
-    if (this.state.type === "") {
-      value = "";
-    } else if (this.state.type === "Digital Literacy") {
-      console.log("digital literacy");
+    let value = "";
+    if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
     } else if (this.state.type === "Digital Resource") {
       value = this.digitalResources();
     } else if (this.state.type === "Donated Resource") {
       value = this.donatedResources();
+    }
+    let locationRadio = "";
+    if (this.state.location === "allOfOhio") {
+      locationRadio = this.allOfOhio();
+    } else if (this.state.location === "zipCode") {
+      locationRadio = this.zipCode();
+    } else if (this.state.location === "streetAddress") {
+      locationRadio = this.streetAddress();
     }
 
     return (
@@ -659,7 +749,6 @@ export default class RequestDetails extends React.Component {
                 <FormControl component="fieldset">
                   {/* <FormLabel component="legend">Gender</FormLabel> */}
                   <RadioGroup
-                    style={radioText}
                     row
                     aria-label="location"
                     name="location"
@@ -692,61 +781,7 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Physical Address</b> (if applicable)
                 </h5>
-                {/* <TextField
-                  style={streetAddressStyle}
-                  size="medium"
-                  label="Street Address 1"
-                  name="streetAddress1"
-                  onChange={this.handleInputChange}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="standard"
-                ></TextField>
-                <TextField
-                  style={streetAddress2Style}
-                  size="medium"
-                  label="Street Address 2 (Apt., etc.)"
-                  name="streetAddress2"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-                <TextField
-                  style={cityStyle}
-                  size="medium"
-                  label="City"
-                  name="city"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField> */}
-                <TextField
-                  style={stateStyle}
-                  size="medium"
-                  label="State"
-                  name="state"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-                <TextField
-                  style={zipcodeStyle}
-                  size="medium"
-                  label="Zipcode"
-                  name="zipcode"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
+                {locationRadio}
               </div>
               <TextField
                 required
@@ -857,7 +892,7 @@ export default class RequestDetails extends React.Component {
             </form>
           </div>
         </Grid>
-        <Footer stlye={footerStyle}></Footer>
+        {/* <Footer stlye={footerStyle}></Footer> */}
       </div>
     );
   }
