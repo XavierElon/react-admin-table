@@ -39,6 +39,45 @@ const ButtonGroup = styled.div`
   textAlign: center;
 `;
 
+const Button1Active = styled("div")`
+  width: 250px;
+  height: 36px;
+  background-color: #525051;
+  stroke-width: 1;
+  border-top-left-radius: 4px;
+  color: white;
+  text-align: center;
+  border: 1px solid ;
+  position: absolute;
+  top: -5rem;
+  left: 0rem;
+  text-align: left;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  padding-left: 75px;
+  padding-top: 5px;
+  text-decoration: none solid rgb(255, 255, 255);
+`;
+
+const Button2Inactive = styled("div")`
+  width: 250px;
+  height: 36px;
+  background-color: white;
+  stroke-width: 1;
+  border-top-right-radius: 4px;
+  color: black;
+  text-align: center;
+  position: absolute;
+  top: -5rem;
+  left: 25rem;
+  text-align: left;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  padding-left: 75px;
+  padding-top: 5px;
+  text-decoration: none solid rgb(255, 255, 255);
+`;
+
 const badgeStyle = {
   paddingTop: ".6rem",
 };
@@ -271,8 +310,9 @@ export default class Table extends React.Component {
       return (
         <div className="Table">
           <h2 className="admin-title">Admin Dashboard</h2>
-          <div className="ToggleButtons">
-            <ToggleGroup></ToggleGroup>
+          <div>
+            <Button1Active>New Requests</Button1Active>
+            <Button2Inactive>Existing Entries</Button2Inactive>
           </div>
           <Link to="/requestform">
             <p className="NewRequestText">new request</p>
