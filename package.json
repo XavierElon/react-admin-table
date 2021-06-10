@@ -28,6 +28,7 @@
     "react-emotion": "^10.0.0",
     "react-formio": "^4.3.0",
     "react-input-mask": "^2.0.4",
+    "react-places-autocomplete": "^7.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-search-input": "^0.11.3",
