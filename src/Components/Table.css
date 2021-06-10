@@ -26,6 +26,13 @@
   font-weight: bold;
 }
 
+.page-link {
+  margin: auto;
+  position: absolute;
+  right: 50rem;
+
+}
+
 .DataTable {
   top: 50px;
   left: 150px;

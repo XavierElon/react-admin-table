@@ -19,7 +19,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
-import { Form } from "react-formio";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -134,27 +133,27 @@ const zipcodeStyle = {
 const startDateStyle = {
   width: "200px",
   position: "absolute",
-  top: "60rem",
+  top: "55rem",
   left: "10%",
 };
 
 const endDateStyle = {
   width: "200px",
   position: "absolute",
-  top: "60rem",
+  top: "55rem",
   left: "42%",
 };
 
 const descriptionStyle = {
   width: "550px",
   position: "absolute",
-  top: "70rem",
+  top: "60rem",
   left: "10%",
 };
 
 const link = {
   position: "absolute",
-  top: "85rem",
+  top: "75rem",
   left: "10%",
 };
 
@@ -167,7 +166,7 @@ const linkStyle = {
 
 const resourceContactStyle = {
   position: "absolute",
-  top: "95rem",
+  top: "85rem",
   left: "10%",
 };
 
@@ -199,13 +198,13 @@ const lineStyle = {
   strokeWidth: "1",
   backgroundColor: "#d8d8d8",
   position: "absolute",
-  top: "110rem",
+  top: "100rem",
   left: "10rem",
 };
 
 const submitStyle = {
   position: "absolute",
-  top: "125rem",
+  top: "115rem",
   left: "100rem",
   width: "112px",
   height: "36px",
@@ -222,7 +221,7 @@ const submitStyle = {
 
 const cancelStyle = {
   position: "absolute",
-  top: "125.3rem",
+  top: "115.3rem",
   left: "88rem",
   width: "112px",
   height: "36px",
@@ -235,6 +234,10 @@ const cancelStyle = {
   lineHeight: "32px",
   textAlign: "center",
   cursor: "pointer",
+};
+
+const placesStyle = {
+  width: "500px",
 };
 
 export default class RequestDetails extends React.Component {
@@ -256,6 +259,8 @@ export default class RequestDetails extends React.Component {
       networkingDevices: "",
       location: "",
       address1: " ",
+      lat: " ",
+      lon: " ",
       state: "",
       zipcode: "",
       description: "",
@@ -310,7 +315,11 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          address1: `${this.state.address1}`,
+          address1: {
+            address: `${this.state.address1}`,
+            lat: `${this.state.lat}`,
+            lon: `${this.state.lon}`
+          },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
@@ -343,7 +352,11 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          address1: `${this.state.address1}`,
+          address1: {
+            address: `${this.state.address1}`,
+            lat: `${this.state.lat}`,
+            lon: `${this.state.lon}`
+          },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
@@ -376,7 +389,11 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          address1: `${this.state.address1}`,
+          address1: {
+            address: `${this.state.address1}`,
+            lat: `${this.state.lat}`,
+            lon: `${this.state.lon}`
+          },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
@@ -409,7 +426,11 @@ export default class RequestDetails extends React.Component {
           resourceName: `${this.state.name}`,
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
-          address1: `${this.state.address1}`,
+          address1: {
+            address: `${this.state.address1}`,
+            lat: `${this.state.lat}`,
+            lon: `${this.state.lon}`
+          },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipcode: `${this.state.zipcode}`,
@@ -622,18 +643,27 @@ export default class RequestDetails extends React.Component {
     );
   }
 
+  handleChange = (address1) => {
+    this.setState({ address1 });
+  };
+
   handleSelect = (address) => {
+    console.log(address);
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
-      .then((latLng) => console.log("Success", latLng))
-      .catch((error) => console.error("Error", error));
+      .then((latLng) => this.setState({ lat: latLng.lat, lon: latLng.lng }))
+    .catch((error) =>
+      console.error("Error", error)
+    );
   };
 
   streetAddress() {
     return (
       <div>
         <PlacesAutocomplete
-          value={this.state.address}
+          style={placesStyle}
+          name="address1"
+          value={this.state.address1}
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -646,8 +676,8 @@ export default class RequestDetails extends React.Component {
             <div>
               <input
                 {...getInputProps({
-                  placeholder: "Search Places ...",
-                  className: "location-search-input",
+                  placeholder: "Search Places...",
+                  // className: "location-search-input",
                 })}
               />
               <div className="autocomplete-dropdown-container">
@@ -696,7 +726,7 @@ export default class RequestDetails extends React.Component {
     } else if (this.state.location === "streetAddress") {
       locationRadio = this.streetAddress();
     }
-
+    
     return (
       <div style={appStyle}>
         <div style={headerStyle}>
