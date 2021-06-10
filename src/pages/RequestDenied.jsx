@@ -1,10 +1,7 @@
 import React from "react";
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
 import Table from "../Components/Table";
 import Modal  from "../Components/Modal";
 import { Grid } from "@material-ui/core";
-import { Link } from "react-router-dom";
 
 const appStyle = {
   textAlign: "center",
@@ -58,7 +55,6 @@ export default class RequestDenied extends React.Component {
     return (
         <div style={appStyle}>
             <div style={headerStyle}>
-              <Header></Header>
             </div>
             <Grid>
               <div style={bodyStyle}>
@@ -66,7 +62,6 @@ export default class RequestDenied extends React.Component {
                 <Table></Table>
               </div>
             </Grid>
-            <Footer style={footerStyle}></Footer>
         </div>
       );
   }

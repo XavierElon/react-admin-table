@@ -1,4 +1,3 @@
-import "./App.css";
 import Dashboard from "./pages/Dashboard";
 import RequestForm from "./pages/RequestForm";
 import RequestDetails from "./pages/RequestDetails";

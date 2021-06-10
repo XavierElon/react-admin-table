@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
 import Table from "../Components/Table";
 import { Grid } from "@material-ui/core";
 
@@ -39,25 +37,17 @@ const bodyStyle = {
   flexGrow: "1"
 };
 
-const footerStyle = {
-  flexGrow: "0"
-}
-
 export default function Dashboard() {
-
-  
 
   return (
     <div style={appStyle}>
         <div style={headerStyle}>
-          <Header></Header>
         </div>
         <Grid>
           <div style={bodyStyle}>
             <Table></Table>
           </div>
         </Grid>
-        <Footer style={footerStyle}></Footer>
     </div>
   );
 }
