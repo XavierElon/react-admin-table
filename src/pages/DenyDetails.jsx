@@ -39,10 +39,6 @@ const bodyStyle = {
   flexGrow: "1",
 };
 
-const footerStyle = {
-  flexGrow: "0",
-};
-
 const link1Style = {
   position: "absolute",
   top: "5rem",

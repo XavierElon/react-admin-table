@@ -37,13 +37,7 @@ const bodyStyle = {
   flexGrow: "1"
 };
 
-const footerStyle = {
-  flexGrow: "0"
-}
-
 export default function Dashboard() {
-
-  
 
   return (
     <div style={appStyle}>
