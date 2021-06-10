@@ -624,6 +624,28 @@ export default class RequestDetails extends React.Component {
     );
   }
 
+  handleChange = (address1) => {
+    this.setState({ address1 });
+  };
+
+  handleSelect = (address) => {
+    console.log(address);
+    geocodeByAddress(address)
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) => this.setState({ lat: latLng.lat, lon: latLng.lng }))
+    .catch((error) =>
+      console.error("Error", error)
+    );
+  };
+
+  handleClick = (address) => {
+    console.log(address)
+    geocodeByAddress(address.description)
+        .then(results => getLatLng(results[0]))
+        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, long: latLng.lng}))
+        .catch(error => console.error('Error', error));
+}
+
   streetAddress() {
     return (
       <div>
@@ -661,6 +683,7 @@ export default class RequestDetails extends React.Component {
                         className,
                         style,
                       })}
+                      onClick={(e) => {this.handleClick(suggestion)}}
                     >
                       <span>{suggestion.description}</span>
                     </div>

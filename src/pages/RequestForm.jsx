@@ -657,13 +657,20 @@ export default class RequestDetails extends React.Component {
     );
   };
 
+  handleClick = (address) => {
+    console.log(address)
+    geocodeByAddress(address.description)
+        .then(results => getLatLng(results[0]))
+        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, long: latLng.lng}))
+        .catch(error => console.error('Error', error));
+}
+
   streetAddress() {
     return (
       <div>
         <PlacesAutocomplete
           style={placesStyle}
           name="address1"
-          value={this.state.address1}
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -696,6 +703,7 @@ export default class RequestDetails extends React.Component {
                         className,
                         style,
                       })}
+                      onClick={(e) => {this.handleClick(suggestion)}}
                     >
                       <span>{suggestion.description}</span>
                     </div>
