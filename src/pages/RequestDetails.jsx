@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import { Radio } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
@@ -66,10 +64,8 @@ const h2Style = {
   left: "3%",
   width: "500px",
   height: "23px",
-  fontFamily: "Source Sans Pro",
   fontSize: "18px",
   color: "#222222",
-  textDecoration: "none solid rgb(34, 34, 34)",
   textTransform: "uppercase",
 };
 
@@ -217,9 +213,7 @@ const submitStyle = {
   borderRadius: "4px",
   backgroundColor: "#700017",
   color: "white",
-  fontFamily: "Source Sans Pro",
   fontSize: "14px",
-  textDecoration: "bold solid rgb(255, 255, 255)",
   lineHeight: "32px",
   textAlign: "center",
   border: "0px",
@@ -234,9 +228,7 @@ const cancelStyle = {
   borderRadius: "4px",
   backgroundColor: "white",
   color: "black",
-  fontFamily: "Source Sans Pro",
   fontSize: "14px",
-  textDecoration: "bold solid rgb(255, 255, 255)",
   lineHeight: "32px",
   textAlign: "center",
   cursor: "pointer",
@@ -720,7 +712,6 @@ export default class RequestDetails extends React.Component {
     return (
       <div style={appStyle}>
         <div style={headerStyle}>
-          <Header></Header>
         </div>
         <Grid>
           <div style={bodyStyle}>
@@ -965,7 +956,6 @@ export default class RequestDetails extends React.Component {
             </form>
           </div>
         </Grid>
-        {/* <Footer stlye={footerStyle}></Footer> */}
       </div>
     );
   }

@@ -1,43 +1,10 @@
 import React, { useState } from "react";
 import { MDBDataTable } from "mdbreact";
 import "./Table.css";
-import SearchIcon from "../images/icn-search.png";
 import PlusButton from "../images/plus-button.png";
-// import SmallFilter from "../images/small-filter.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
-
-const NewButton = styled.button`
-  background: grey;
-  color: white;
-  font-size: 12px;
-  // spadding: 10px 60px;
-  width: 163px;
-  height: 30px;
-  border-radius: 5px;
-  border-color: white;
-  margin: 100px -1px;
-  cursor: pointer;
-  z-index: 10;
-`;
-
-const ButtonToggle = styled(NewButton)`
-  background: #f2f2f2;
-  color: black;
-  ${({ active }) =>
-    active &&
-    `
-    background: #000000;
-    color: #FFFFFF;
-  `}
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  height: 100px;
-  textAlign: center;
-`;
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -51,12 +18,39 @@ const Button1Active = styled("div")`
   position: absolute;
   top: -5rem;
   left: 0rem;
-  text-align: left;
-  font-family: Source Sans Pro;
   font-size: 18px;
-  padding-left: 75px;
   padding-top: 5px;
-  text-decoration: none solid rgb(255, 255, 255);
+`;
+
+const Button1Inactive = styled("div")`
+  width: 250px;
+  height: 36px;
+  background-color: white;
+  stroke-width: 1;
+  border-top-left-radius: 4px;
+  color: black;
+  text-align: center;
+  position: absolute;
+  top: -5rem;
+  left: 0rem;
+  font-size: 18px;
+  padding-top: 5px;
+  cursor: pointer;
+`;
+
+const Button2Active = styled("div")`
+  width: 250px;
+  height: 36px;
+  background-color: #525051;
+  stroke-width: 1;
+  border-top-right-radius: 4px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: -5rem;
+  left: 25rem;
+  font-size: 18px;
+  padding-top: 5px;
 `;
 
 const Button2Inactive = styled("div")`
@@ -70,37 +64,14 @@ const Button2Inactive = styled("div")`
   position: absolute;
   top: -5rem;
   left: 25rem;
-  text-align: left;
-  font-family: Source Sans Pro;
   font-size: 18px;
-  padding-left: 75px;
   padding-top: 5px;
-  text-decoration: none solid rgb(255, 255, 255);
+  cursor: pointer;
 `;
 
 const badgeStyle = {
   paddingTop: ".6rem",
 };
-
-const types = ["New Requests", "Existing Entries"];
-
-function ToggleGroup() {
-  const [active, setActive] = useState(types[0]);
-  return (
-    <ButtonGroup>
-      {types.map((type) => (
-        <ButtonToggle
-          dat={type === type[1]}
-          key={type}
-          active={active === type}
-          onClick={() => setActive(type)}
-        >
-          {type}
-        </ButtonToggle>
-      ))}
-    </ButtonGroup>
-  );
-}
 
 // function getRow(id) {
 //   console.log("row");
@@ -114,23 +85,13 @@ export default class Table extends React.Component {
       data: {},
       data2: {},
       isLoading: true,
-      isNewRequests: true,
-      button1: {
-        active: true,
-        color: false,
-      },
-      button2: {
-        active: false,
-        color: true,
-      },
+      active: true
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   async componentDidMount() {
-    console.log("component did mount");
-
     let data = {
       columns: [
         {
@@ -219,9 +180,7 @@ export default class Table extends React.Component {
       color: "#700017",
       width: "150px",
       height: "28px",
-      fontFamily: "Source Sans Pro",
       fontSize: "14px",
-      textDecoration: "underline rgb(112, 0, 23)",
       lineHeight: "28px",
       textTransform: "uppercase",
     };
@@ -301,18 +260,47 @@ export default class Table extends React.Component {
   }
 
   handleClick() {
-    this.setState((prevState) => ({ isNewRequests: !prevState.isNewRequests }));
+    console.log(this.state.active)
+    this.setState({ active: !this.state.active})
   }
 
   render() {
-    console.log("in render");
-    let newRequests = true
+    if (this.state.active) {
       return (
         <div className="Table">
           <h2 className="admin-title">Admin Dashboard</h2>
           <div>
             <Button1Active>New Requests</Button1Active>
-            <Button2Inactive>Existing Entries</Button2Inactive>
+            <Button2Inactive onClick={this.handleClick}>Existing Entries</Button2Inactive>
+          </div>
+          <Link to="/requestform">
+            <p className="NewRequestText">new request</p>
+            <img
+              className="PlusButton"
+              src={PlusButton}
+              alt=""
+              onClick={this.getNewEntries}
+            />
+          </Link>
+          <MDBDataTable
+            bordered
+            sortable
+            noBottomColumns={true}
+            entriesLabel=""
+            data={this.state.data2}
+            infoLabel={["", "", "", ""]}
+            entriesOptions={[]}
+            paginationLabel={["<", ">"]}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className="Table">
+          <h2 className="admin-title">Admin Dashboard</h2>
+          <div>
+            <Button1Inactive onClick={this.handleClick}>New Requests</Button1Inactive>
+            <Button2Active>Existing Entries</Button2Active>
           </div>
           <Link to="/requestform">
             <p className="NewRequestText">new request</p>
@@ -335,6 +323,7 @@ export default class Table extends React.Component {
           />
         </div>
       );
+    }
     
   }
 }

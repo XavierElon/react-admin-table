@@ -43,11 +43,6 @@ const textStyle = {
 
 export default function Modal({ color, id }) {
   
-  // const styledModal = {
-  //   opacity: open ? 0 : 1
-  // }
-
-  
   if (color === "green") {
     return (
       <div>
