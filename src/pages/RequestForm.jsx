@@ -664,6 +664,7 @@ export default class RequestDetails extends React.Component {
       <div>
         <PlacesAutocomplete
           style={placesStyle}
+          value={this.state.address1}
           name="address1"
           onChange={this.handleChange}
           onSelect={this.handleSelect}

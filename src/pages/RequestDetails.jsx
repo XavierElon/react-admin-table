@@ -705,8 +705,6 @@ export default class RequestDetails extends React.Component {
       locationRadio = this.zipCode();
     } else if (this.state.location === "streetAddress") {
       locationRadio = this.streetAddress();
-      let address = document.querySelector(".address-autocomplete-container");
-      console.log(address);
     }
 
     return (
