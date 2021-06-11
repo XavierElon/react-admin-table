@@ -232,6 +232,7 @@ const cancelStyle = {
 
 const placesStyle = {
   width: "500px",
+  minWidth: "500px"
 };
 
 export default class RequestDetails extends React.Component {
@@ -676,6 +677,7 @@ export default class RequestDetails extends React.Component {
             loading,
           }) => (
             <div>
+              
               <input
                 {...getInputProps({
                   placeholder: "Search Places...",
