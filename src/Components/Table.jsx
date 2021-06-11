@@ -139,7 +139,7 @@ export default class Table extends React.Component {
         {
           label: "Resource No.",
           field: "number",
-          sort: "asc",
+          sort: "disabled",
           width: 180,
         },
         {
@@ -169,7 +169,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "asc",
+          sort: "disabled",
           width: 170,
         },
       ],
@@ -187,7 +187,7 @@ export default class Table extends React.Component {
 
     try {
       const res = await fetch(
-        "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission"
+        "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission?limit=1000000"
       );
       const result = await res.json();
       let length = result.length;

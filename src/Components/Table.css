@@ -62,8 +62,8 @@
 .NewRequestText {
   position: absolute;
   top: -50px;
-  right: 10px;
-  width: 90px;
+  right: -10px;
+  width: 120px;
   height: 17px;
   font-size: 16px;
   color: #3d7aa9;
