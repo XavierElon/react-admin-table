@@ -232,7 +232,7 @@ const cancelStyle = {
 
 const placesStyle = {
   width: "500px",
-  minWidth: "500px"
+  minWidth: "500px",
 };
 
 export default class RequestDetails extends React.Component {
@@ -257,9 +257,9 @@ export default class RequestDetails extends React.Component {
       lat: " ",
       lon: " ",
       state: "",
-      zipcode: "",
+      zipCode: "",
       description: "",
-      website: "",
+      linkToWebsite: "",
       contactName: "",
       status: "pending",
     };
@@ -313,15 +313,15 @@ export default class RequestDetails extends React.Component {
           address1: {
             address: `${this.state.address1}`,
             lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`
+            lon: `${this.state.lon}`,
           },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
-          zipcode: `${this.state.zipcode}`,
+          zipCode: `${this.state.zipCode}`,
           startDate: `${this.state.startDate}`,
           endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
-          website: `${this.state.website}`,
+          linkToWebsite: `${this.state.linkToWebsite}`,
           contactName: `${this.state.contactName}`,
           status: `${this.state.status}`,
           categories: {
@@ -350,15 +350,15 @@ export default class RequestDetails extends React.Component {
           address1: {
             address: `${this.state.address1}`,
             lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`
+            lon: `${this.state.lon}`,
           },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
-          zipcode: `${this.state.zipcode}`,
+          zipCode: `${this.state.zipCode}`,
           startDate: `${this.state.startDate}`,
           endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
-          website: `${this.state.website}`,
+          linkToWebsite: `${this.state.linkToWebsite}`,
           phoneNumber: `${this.state.phoneNumber}`,
           contactName: `${this.state.contactName}`,
           status: `${this.state.status}`,
@@ -387,15 +387,15 @@ export default class RequestDetails extends React.Component {
           address1: {
             address: `${this.state.address1}`,
             lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`
+            lon: `${this.state.lon}`,
           },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
-          zipcode: `${this.state.zipcode}`,
+          zipCode: `${this.state.zipCode}`,
           startDate: `${this.state.startDate}`,
           endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
-          website: `${this.state.website}`,
+          linkToWebsite: `${this.state.linkToWebsite}`,
           email: `${this.state.email}`,
           contactName: `${this.state.contactName}`,
           status: `${this.state.status}`,
@@ -424,15 +424,15 @@ export default class RequestDetails extends React.Component {
           address1: {
             address: `${this.state.address1}`,
             lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`
+            lon: `${this.state.lon}`,
           },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
-          zipcode: `${this.state.zipcode}`,
+          zipCode: `${this.state.zipCode}`,
           startDate: `${this.state.startDate}`,
           endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
-          website: `${this.state.website}`,
+          linkToWebsite: `${this.state.linkToWebsite}`,
           phoneNumber: `${this.state.phoneNumber}`,
           email: `${this.state.email}`,
           contactName: `${this.state.contactName}`,
@@ -628,8 +628,9 @@ export default class RequestDetails extends React.Component {
           onChange={this.handleInputChange}
           size="medium"
           label="Zip Code"
-          name="zipcode"
+          name="zipCode"
           variant="standard"
+          value=""
           InputLabelProps={{
             shrink: true,
           }}
@@ -647,18 +648,37 @@ export default class RequestDetails extends React.Component {
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => this.setState({ lat: latLng.lat, lon: latLng.lng }))
-    .catch((error) =>
-      console.error("Error", error)
-    );
+      .catch((error) => console.error("Error", error));
+    geocodeByAddress(address)
+      .then((results) =>
+        this.setState({
+          address1: results[0].formatted_address,
+          zipCode: results[0].address_components[7].long_name,
+        })
+      )
+      .catch((error) => console.error("Error", error));
   };
 
   handleClick = (address) => {
-    console.log(address)
+    console.log(address);
     geocodeByAddress(address.description)
-        .then(results => getLatLng(results[0]))
-        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, lon: latLng.lng}))
-        .catch(error => console.error('Error', error));
-}
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) =>
+        this.setState({
+          lat: latLng.lat,
+          lon: latLng.lng,
+        })
+      )
+      .catch((error) => console.error("Error", error));
+    geocodeByAddress(address.description)
+      .then((results) =>
+        this.setState({
+          address1: results[0].formatted_address,
+          zipCode: results[0].address_components[7].long_name,
+        })
+      )
+      .catch((error) => console.error("Error", error));
+  };
 
   streetAddress() {
     return (
@@ -677,7 +697,6 @@ export default class RequestDetails extends React.Component {
             loading,
           }) => (
             <div>
-              
               <input
                 {...getInputProps({
                   placeholder: "Search Places...",
@@ -700,7 +719,9 @@ export default class RequestDetails extends React.Component {
                         className,
                         style,
                       })}
-                      onClick={(e) => {this.handleClick(suggestion)}}
+                      onClick={(e) => {
+                        this.handleClick(suggestion);
+                      }}
                     >
                       <span>{suggestion.description}</span>
                     </div>
@@ -731,12 +752,11 @@ export default class RequestDetails extends React.Component {
     } else if (this.state.location === "streetAddress") {
       locationRadio = this.streetAddress();
     }
-    console.log(this.state)
-    
+    console.log(this.state);
+
     return (
       <div style={appStyle}>
-        <div style={headerStyle}>
-        </div>
+        <div style={headerStyle}></div>
         <Grid>
           <div style={bodyStyle}>
             <h2 style={h2Style}>
@@ -863,7 +883,7 @@ export default class RequestDetails extends React.Component {
                   style={linkStyle}
                   size="medium"
                   label="Website"
-                  name="website"
+                  name="linkToWebsite"
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{

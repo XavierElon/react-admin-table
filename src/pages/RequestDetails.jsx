@@ -264,11 +264,11 @@ export default class RequestDetails extends React.Component {
       streetAddress2: "",
       city: "",
       state: "",
-      zipcode: "",
+      zipCode: "",
       startDate: "",
       endDate: "",
       description: "",
-      website: "",
+      linkToWebsite: "",
       contactName: "",
       phoneNumber: "",
       email: "",
@@ -309,7 +309,7 @@ export default class RequestDetails extends React.Component {
           location: result.data.location,
           address1: result.data.address1.address,
           state: result.data.state,
-          zipcode: result.data.zipCode,
+          zipCode: result.data.zipCode,
           startDate: result.data.offerStartDate.substr(
             0,
             result.data.offerStartDate.length - 14
@@ -319,7 +319,7 @@ export default class RequestDetails extends React.Component {
             result.data.offerExpirationDate.length - 14
           ),
           description: result.data.briefDescription,
-          website: result.data.linkToWebsite,
+          linkToWebsite: result.data.linkToWebsite,
           contactName: result.data.contactName,
           phoneNumber: result.data.phoneNumber,
           email: result.data.email,
@@ -375,15 +375,15 @@ export default class RequestDetails extends React.Component {
         address1: {
           address: `${this.state.address1}`,
           lat: `${this.state.lat}`,
-          lon: `${this.state.lon}`
+          lon: `${this.state.lon}`,
         },
         location: `${this.state.location}`,
         state: `${this.state.state}`,
-        zipcode: `${this.state.zipcode}`,
+        zipCode: `${this.state.zipCode}`,
         startDate: `${this.state.startDate}`,
         endDate: `${this.state.endDate}`,
         briefDescription: `${this.state.description}`,
-        website: `${this.state.website}`,
+        linkToWebsite: `${this.state.linkToWebsite}`,
         contactName: `${this.state.contactName}`,
         phoneNumber: `${this.state.phoneNumber}`,
         email: `${this.state.email}`,
@@ -608,6 +608,7 @@ export default class RequestDetails extends React.Component {
           label="Zip Code"
           name="zipcode"
           variant="standard"
+          value={this.state.zipCode}
           InputLabelProps={{
             shrink: true,
           }}
@@ -625,18 +626,38 @@ export default class RequestDetails extends React.Component {
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => this.setState({ lat: latLng.lat, lon: latLng.lng }))
-    .catch((error) =>
-      console.error("Error", error)
-    );
+      .catch((error) => console.error("Error", error));
+    geocodeByAddress(address)
+      .then((results) =>
+        this.setState({
+          address1: results[0].formatted_address,
+          zipCode: results[0].address_components[7].long_name,
+        })
+      )
+      .catch((error) => console.error("Error", error));
   };
 
   handleClick = (address) => {
-    console.log(address)
+    console.log(address);
     geocodeByAddress(address.description)
-        .then(results => getLatLng(results[0]))
-        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, lon: latLng.lng}))
-        .catch(error => console.error('Error', error));
-}
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) =>
+        this.setState({
+          address1: address.description,
+          lat: latLng.lat,
+          lon: latLng.lng,
+        })
+      )
+      .catch((error) => console.error("Error", error));
+      geocodeByAddress(address.description)
+      .then((results) =>
+        this.setState({
+          address1: results[0].formatted_address,
+          zipCode: results[0].address_components[7].long_name,
+        })
+      )
+      .catch((error) => console.error("Error", error));
+  };
 
   streetAddress() {
     return (
@@ -675,7 +696,9 @@ export default class RequestDetails extends React.Component {
                         className,
                         style,
                       })}
-                      onClick={(e) => {this.handleClick(suggestion)}}
+                      onClick={(e) => {
+                        this.handleClick(suggestion);
+                      }}
                     >
                       <span>{suggestion.description}</span>
                     </div>
@@ -709,8 +732,7 @@ export default class RequestDetails extends React.Component {
 
     return (
       <div style={appStyle}>
-        <div style={headerStyle}>
-        </div>
+        <div style={headerStyle}></div>
         <Grid>
           <div style={bodyStyle}>
             <h2 style={h2Style}>
@@ -841,8 +863,8 @@ export default class RequestDetails extends React.Component {
                   style={linkStyle}
                   size="medium"
                   label="Website"
-                  name="website"
-                  value={this.state.website}
+                  name="linkToWebsite"
+                  value={this.state.linkToWebsite}
                   onChange={this.handleInputChange}
                   variant="standard"
                   InputLabelProps={{
