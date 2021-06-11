@@ -37,9 +37,9 @@ const GreenModal = styled("div")`
   text-transform: uppercase;
 `;
 
-const textStyle = {
-  fontSize: "30px"
-}
+// const textStyle = {
+//   fontSize: "30px"
+// }
 
 export default function Modal({ color, id }) {
   

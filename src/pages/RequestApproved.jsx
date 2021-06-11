@@ -2,7 +2,6 @@ import React from "react";
 import Table from "../Components/Table";
 import Modal from "../Components/Modal";
 import { Grid } from "@material-ui/core";
-import { Link } from "react-router-dom";
 
 const appStyle = {
   textAlign: "center",
@@ -39,9 +38,9 @@ const bodyStyle = {
   flexGrow: "1"
 };
 
-const footerStyle = {
-  flexGrow: "0"
-}
+// const footerStyle = {
+//   flexGrow: "0"
+// }
 
 export default class RequestApproved extends React.Component {
 

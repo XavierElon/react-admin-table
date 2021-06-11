@@ -55,9 +55,9 @@ const bodyStyle = {
   flexGrow: "1",
 };
 
-const footerStyle = {
-  flexGrow: "0",
-};
+// const footerStyle = {
+//   flexGrow: "0",
+// };
 
 const h2Style = {
   position: "absolute",
@@ -256,7 +256,7 @@ export default class RequestDetails extends React.Component {
       digitalLiteracyTrainingOptions: "",
       technicalAssistantForPublicDevicesOrSoftware: "",
       resourceToAssistGettingASmallBusinessOnline: "",
-      laptopAndDesktops: "",
+      laptopsAndDesktops: "",
       mobileDevices: "",
       networkingDevices: "",
       location: "",
@@ -303,7 +303,7 @@ export default class RequestDetails extends React.Component {
             result.data.categories.technicalAssistantForPublicDevicesOrSoftware,
           resourceToAssistGettingASmallBusinessOnline:
             result.data.categories.resourceToAssistGettingASmallBusinessOnline,
-          laptopAndDesktops: result.data.categories.laptopAndDesktops,
+          laptopsAndDesktops: result.data.categories.laptopsAndDesktops,
           mobileDevices: result.data.categories.mobileDevices,
           networkingDevices: result.data.categories.networkingDevices,
           location: result.data.location,
@@ -399,7 +399,7 @@ export default class RequestDetails extends React.Component {
           digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
           technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
           resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
-          laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+          laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
           mobileDevices: `${this.state.mobileDevices}`,
           networkingDevices: `${this.state.networkingDevices}`,
         },
@@ -546,7 +546,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="laptopsAndDesktops"
-                  checked={this.state.laptopAndDesktops}
+                  checked={this.state.laptopsAndDesktops}
                 />
               }
               label="Laptops and Desktops"

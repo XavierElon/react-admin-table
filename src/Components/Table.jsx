@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MDBDataTable } from "mdbreact";
 import "./Table.css";
 import PlusButton from "../images/plus-button.png";

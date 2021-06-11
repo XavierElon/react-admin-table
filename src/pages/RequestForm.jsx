@@ -57,9 +57,9 @@ const bodyStyle = {
   flexGrow: "1",
 };
 
-const footerStyle = {
-  flexGrow: "0",
-};
+// const footerStyle = {
+//   flexGrow: "0",
+// };
 
 const h2Style = {
   position: "absolute",
@@ -249,7 +249,7 @@ export default class RequestDetails extends React.Component {
       digitalLiteracyTrainingOptions: "",
       technicalAssistantForPublicDevicesOrSoftware: "",
       resourceToAssistGettingASmallBusinessOnline: "",
-      laptopAndDesktops: "",
+      laptopsAndDesktops: "",
       mobileDevices: "",
       networkingDevices: "",
       location: "",
@@ -333,7 +333,7 @@ export default class RequestDetails extends React.Component {
             digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
             technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
             resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
-            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
           },
@@ -371,7 +371,7 @@ export default class RequestDetails extends React.Component {
             digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
             technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
             resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
-            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
           },
@@ -408,7 +408,7 @@ export default class RequestDetails extends React.Component {
             digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
             technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
             resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
-            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
           },
@@ -446,7 +446,7 @@ export default class RequestDetails extends React.Component {
             digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
             technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
             resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
-            laptopAndDesktops: `${this.state.laptopAndDesktops}`,
+            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
           },
@@ -656,7 +656,7 @@ export default class RequestDetails extends React.Component {
     console.log(address)
     geocodeByAddress(address.description)
         .then(results => getLatLng(results[0]))
-        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, long: latLng.lng}))
+        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, lon: latLng.lng}))
         .catch(error => console.error('Error', error));
 }
 
@@ -731,6 +731,7 @@ export default class RequestDetails extends React.Component {
     } else if (this.state.location === "streetAddress") {
       locationRadio = this.streetAddress();
     }
+    console.log(this.state)
     
     return (
       <div style={appStyle}>
