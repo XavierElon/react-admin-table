@@ -634,7 +634,7 @@ export default class RequestDetails extends React.Component {
     console.log(address)
     geocodeByAddress(address.description)
         .then(results => getLatLng(results[0]))
-        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, long: latLng.lng}))
+        .then(latLng => this.setState({address1: address.description, lat: latLng.lat, lon: latLng.lng}))
         .catch(error => console.error('Error', error));
 }
 
