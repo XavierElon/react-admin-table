@@ -241,17 +241,17 @@ export default class RequestDetails extends React.Component {
     this.state = {
       type: " ",
       name: " ",
-      locationsThatOfferFreeWiFiPublicDevices: " ",
-      lowCostInternetServicesOrDeals: " ",
-      lowCostOrSubsidizedDevices: " ",
-      rentableLoanerDevices: "",
-      rentableLoanerHotspots: "",
-      digitalLiteracyTrainingOptions: "",
-      technicalAssistantForPublicDevicesOrSoftware: "",
-      resourceToAssistGettingASmallBusinessOnline: "",
-      laptopsAndDesktops: "",
-      mobileDevices: "",
-      networkingDevices: "",
+      locationsThatOfferFreeWiFiPublicDevices: false,
+      lowCostInternetServicesOrDeals: false,
+      lowCostOrSubsidizedDevices: false,
+      rentableLoanerDevices: false,
+      rentableLoanerHotspots: false,
+      digitalLiteracyTrainingOptions: false,
+      technicalAssistantForPublicDevicesOrSoftware: false,
+      resourceToAssistGettingASmallBusinessOnline: false,
+      laptopsAndDesktops: false,
+      mobileDevices: false,
+      networkingDevices: false,
       location: "",
       address1: " ",
       lat: " ",
@@ -473,6 +473,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="digitalLiteracyTrainingOptions"
+                  checked={this.state.digitalLiteracyTrainingOptions}
                 />
               }
               label="Digital Literacy Training Options"
@@ -482,6 +483,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="technicalAssistantForPublicDevicesOrSoftware"
+                  checked={this.state.technicalAssistantForPublicDevicesOrSoftware}
                 />
               }
               label="Technical Assistant for Public Devices or Software"
@@ -491,6 +493,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="resourceToAssistGettingASmallBusinessOnline"
+                  checked={this.state.resourceToAssistGettingASmallBusinessOnline}
                 />
               }
               label="Resource to Assist Getting a Small Business Online"
@@ -513,6 +516,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="lowCostInternetServicesOrDeals"
+                  checked={this.state.lowCostInternetServicesOrDeals}
                 />
               }
               label="Low-Cost Internet Services Or Deals"
@@ -522,6 +526,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="lowCostOrSubsidizedDevices"
+                  checked={this.state.lowCostOrSubsidizedDevices}
                 />
               }
               label="Low-Cost Or Subsidized Devices"
@@ -531,6 +536,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="locationsThatOfferFreeWiFiPublicDevices"
+                  checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
                 />
               }
               label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -540,6 +546,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerHotspots"
+                  checked={this.state.rentableLoanerHotspots}
                 />
               }
               label="Rentable/Loaner Hotspots"
@@ -549,6 +556,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerDevices"
+                  checked={this.state.rentableLoanerDevices}
                 />
               }
               label="Rentable/Loaner Devices"
@@ -580,6 +588,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="mobileDevices"
+                  checked={this.state.mobileDevices}
                 />
               }
               label="Mobile Devices"
@@ -589,6 +598,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="networkingDevices"
+                  checked={this.state.networkingDevices}
                 />
               }
               label="Networking Devices"

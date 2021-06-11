@@ -248,17 +248,17 @@ export default class RequestDetails extends React.Component {
       id: this.props.match.params.id,
       type: "",
       name: "",
-      locationsThatOfferFreeWiFiPublicDevices: "",
-      lowCostInternetServicesOrDeals: "",
-      lowCostOrSubsidizedDevices: "",
-      rentableLoanerDevices: "",
-      rentableLoanerHotspots: "",
-      digitalLiteracyTrainingOptions: "",
-      technicalAssistantForPublicDevicesOrSoftware: "",
-      resourceToAssistGettingASmallBusinessOnline: "",
-      laptopsAndDesktops: "",
-      mobileDevices: "",
-      networkingDevices: "",
+      locationsThatOfferFreeWiFiPublicDevices: false,
+      lowCostInternetServicesOrDeals: false,
+      lowCostOrSubsidizedDevices: false,
+      rentableLoanerDevices: false,
+      rentableLoanerHotspots: false,
+      digitalLiteracyTrainingOptions: false,
+      technicalAssistantForPublicDevicesOrSoftware: false,
+      resourceToAssistGettingASmallBusinessOnline: false,
+      laptopsAndDesktops: false,
+      mobileDevices: false,
+      networkingDevices: false,
       location: "",
       streetAddress: "",
       streetAddress2: "",
@@ -308,6 +308,8 @@ export default class RequestDetails extends React.Component {
           networkingDevices: result.data.categories.networkingDevices,
           location: result.data.location,
           address1: result.data.address1.address,
+          lat: result.data.address1.lat,
+          lon: result.data.address1.lon,
           state: result.data.state,
           zipCode: result.data.zipCode,
           startDate: result.data.offerStartDate.substr(
@@ -729,7 +731,7 @@ export default class RequestDetails extends React.Component {
     } else if (this.state.location === "streetAddress") {
       locationRadio = this.streetAddress();
     }
-
+    console.log(this.state)
     return (
       <div style={appStyle}>
         <div style={headerStyle}></div>
