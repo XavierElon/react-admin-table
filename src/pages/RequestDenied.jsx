@@ -65,6 +65,4 @@ export default class RequestDenied extends React.Component {
         </div>
       );
   }
-
-  
 }
