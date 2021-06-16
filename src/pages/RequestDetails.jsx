@@ -261,7 +261,9 @@ export default class RequestDetails extends React.Component {
       mobileDevices: false,
       networkingDevices: false,
       location: "",
-      streetAddress: "",
+      address: "",
+      lat: "",
+      lon: "",
       city: "",
       state: "",
       zipCode: "",
@@ -286,8 +288,6 @@ export default class RequestDetails extends React.Component {
     )
       .then((res) => res.json())
       .then((result) => {
-      
-        console.log("results = " + result);
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
@@ -309,7 +309,7 @@ export default class RequestDetails extends React.Component {
           mobileDevices: JSON.parse(result.data.categories.mobileDevices),
           networkingDevices: JSON.parse(result.data.categories.networkingDevices),
           location: result.data.location,
-          address1: result.data.address1.address,
+          address: result.data.address1.address,
           lat: result.data.address1.lat,
           lon: result.data.address1.lon,
           state: result.data.state,
@@ -373,8 +373,6 @@ export default class RequestDetails extends React.Component {
         location: `${this.state.location}`,
         state: `${this.state.state}`,
         zipCode: `${this.state.zipCode}`,
-        // startDate: `${this.state.startDate}`,
-        // endDate: `${this.state.endDate}`,
         briefDescription: `${this.state.description}`,
         linkToWebsite: `${this.state.linkToWebsite}`,
         contactName: `${this.state.contactName}`,

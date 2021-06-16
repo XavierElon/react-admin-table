@@ -313,7 +313,6 @@ export default class RequestDetails extends React.Component {
     let update;
     console.log("email = " + this.state.email);
     console.log("phone number = " + this.state.phoneNumber);
-    if (this.state.email == null && this.state.phoneNumber == null) {
       console.log("both null");
       update = {
         data: {
@@ -322,15 +321,13 @@ export default class RequestDetails extends React.Component {
           offerStartDate: `${this.state.startDate}`,
           offerExpirationDate: `${this.state.endDate}`,
           address1: {
-            address: `${this.state.address1}`,
+            address: `${this.state.address}`,
             lat: `${this.state.lat}`,
             lon: `${this.state.lon}`,
           },
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipCode: `${this.state.zipCode}`,
-          // startDate: `${this.state.startDate}`,
-          // endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
           linkToWebsite: `${this.state.linkToWebsite}`,
           contactName: `${this.state.contactName}`,
@@ -353,123 +350,8 @@ export default class RequestDetails extends React.Component {
           },
         },
       };
-    } else if (this.state.email == null) {
-      console.log("empty");
-      update = {
-        data: {
-          resourceType: `${this.state.type}`,
-          resourceName: `${this.state.name}`,
-          offerStartDate: `${this.state.startDate}`,
-          offerExpirationDate: `${this.state.endDate}`,
-          address1: {
-            address: `${this.state.address1}`,
-            lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`,
-          },
-          location: `${this.state.location}`,
-          state: `${this.state.state}`,
-          zipCode: `${this.state.zipCode}`,
-          // startDate: `${this.state.startDate}`,
-          // endDate: `${this.state.endDate}`,
-          briefDescription: `${this.state.description}`,
-          linkToWebsite: `${this.state.linkToWebsite}`,
-          phoneNumber: `${this.state.phoneNumber}`,
-          contactName: `${this.state.contactName}`,
-          status: `${this.state.status}`,
-          userOhid: `${this.state.userOhid}`,
-          categories: {
-            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
-            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
-            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
-            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
-            mobileDevices: `${this.state.mobileDevices}`,
-            networkingDevices: `${this.state.networkingDevices}`,
-          },
-        },
-      };
-    } else if (this.state.phoneNumber == null) {
-      update = {
-        data: {
-          resourceType: `${this.state.type}`,
-          resourceName: `${this.state.name}`,
-          offerStartDate: `${this.state.startDate}`,
-          offerExpirationDate: `${this.state.endDate}`,
-          address1: {
-            address: `${this.state.address1}`,
-            lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`,
-          },
-          location: `${this.state.location}`,
-          state: `${this.state.state}`,
-          zipCode: `${this.state.zipCode}`,
-          // startDate: `${this.state.startDate}`,
-          // endDate: `${this.state.endDate}`,
-          briefDescription: `${this.state.description}`,
-          linkToWebsite: `${this.state.linkToWebsite}`,
-          email: `${this.state.email}`,
-          contactName: `${this.state.contactName}`,
-          status: `${this.state.status}`,
-          userOhid: `${this.state.userOhid}`,
-          categories: {
-            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
-            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
-            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
-            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
-            mobileDevices: `${this.state.mobileDevices}`,
-            networkingDevices: `${this.state.networkingDevices}`,
-          },
-        },
-      };
-    } else {
-      update = {
-        data: {
-          resourceType: `${this.state.type}`,
-          resourceName: `${this.state.name}`,
-          offerStartDate: `${this.state.startDate}`,
-          offerExpirationDate: `${this.state.endDate}`,
-          address1: {
-            address: `${this.state.address1}`,
-            lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`,
-          },
-          location: `${this.state.location}`,
-          state: `${this.state.state}`,
-          zipCode: `${this.state.zipCode}`,
-          // startDate: `${this.state.startDate}`,
-          // endDate: `${this.state.endDate}`,
-          briefDescription: `${this.state.description}`,
-          linkToWebsite: `${this.state.linkToWebsite}`,
-          phoneNumber: `${this.state.phoneNumber}`,
-          email: `${this.state.email}`,
-          contactName: `${this.state.contactName}`,
-          status: `${this.state.status}`,
-          userOhid: `${this.state.userOhid}`,
-          categories: {
-            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
-            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
-            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
-            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
-            mobileDevices: `${this.state.mobileDevices}`,
-            networkingDevices: `${this.state.networkingDevices}`,
-          },
-        },
-      };
-    }
+    
+  
     console.log(update);
     const response = axios.post(
       `${Constants.DFRT_FORM_URL}`,
