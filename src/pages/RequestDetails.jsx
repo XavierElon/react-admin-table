@@ -292,22 +292,22 @@ export default class RequestDetails extends React.Component {
           type: result.data.resourceType,
           name: result.data.resourceName,
           locationsThatOfferFreeWiFiPublicDevices:
-            result.data.categories.locationsThatOfferFreeWiFiPublicDevices,
+            JSON.parse(result.data.categories.locationsThatOfferFreeWiFiPublicDevices),
           lowCostInternetServicesOrDeals:
-            result.data.categories.lowCostInternetServicesOrDeals,
+            JSON.parse(result.data.categories.lowCostInternetServicesOrDeals),
           lowCostOrSubsidizedDevices:
-            result.data.categories.lowCostOrSubsidizedDevices,
-          rentableLoanerDevices: result.data.categories.rentableLoanerDevices,
-          rentableLoanerHotspots: result.data.categories.rentableLoanerHotspots,
+            JSON.parse(result.data.categories.lowCostOrSubsidizedDevices),
+          rentableLoanerDevices: JSON.parse(result.data.categories.rentableLoanerDevices),
+          rentableLoanerHotspots: JSON.parse(result.data.categories.rentableLoanerHotspots),
           digitalLiteracyTrainings:
-            result.data.categories.digitalLiteracyTrainings,
+            JSON.parse(result.data.categories.digitalLiteracyTrainings),
           assistanceForDevicesOrSoftware:
-            result.data.categories.assistanceForDevicesOrSoftware,
+            JSON.parse(result.data.categories.assistanceForDevicesOrSoftware),
           assistanceGettingASmallBusinessOnline:
-            result.data.categories.assistanceGettingASmallBusinessOnline,
-          laptopsAndDesktops: result.data.categories.laptopsAndDesktops,
-          mobileDevices: result.data.categories.mobileDevices,
-          networkingDevices: result.data.categories.networkingDevices,
+            JSON.parse(result.data.categories.assistanceGettingASmallBusinessOnline),
+          laptopsAndDesktops: JSON.parse(result.data.categories.laptopsAndDesktops),
+          mobileDevices: JSON.parse(result.data.categories.mobileDevices),
+          networkingDevices: JSON.parse(result.data.categories.networkingDevices),
           location: result.data.location,
           address1: result.data.address1.address,
           lat: result.data.address1.lat,
