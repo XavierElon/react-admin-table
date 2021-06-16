@@ -19,6 +19,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import Constants from "../helpers/constants"
 
 const appStyle = {
   textAlign: "center",
@@ -253,15 +254,14 @@ export default class RequestDetails extends React.Component {
       lowCostOrSubsidizedDevices: false,
       rentableLoanerDevices: false,
       rentableLoanerHotspots: false,
-      digitalLiteracyTrainingOptions: false,
-      technicalAssistantForPublicDevicesOrSoftware: false,
-      resourceToAssistGettingASmallBusinessOnline: false,
+      digitalLiteracyTrainings: false,
+      assistanceForDevicesOrSoftware: false,
+      assistanceGettingASmallBusinessOnline: false,
       laptopsAndDesktops: false,
       mobileDevices: false,
       networkingDevices: false,
       location: "",
       streetAddress: "",
-      streetAddress2: "",
       city: "",
       state: "",
       zipCode: "",
@@ -272,6 +272,7 @@ export default class RequestDetails extends React.Component {
       contactName: "",
       phoneNumber: "",
       email: "",
+      userOhid:"",
       status: "",
     };
 
@@ -281,11 +282,12 @@ export default class RequestDetails extends React.Component {
 
   componentDidMount() {
     fetch(
-      `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`
+      `${Constants.DFRT_FORM_URL}/${this.state.id}`
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+      
+        console.log("results = " + result);
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
@@ -297,12 +299,12 @@ export default class RequestDetails extends React.Component {
             result.data.categories.lowCostOrSubsidizedDevices,
           rentableLoanerDevices: result.data.categories.rentableLoanerDevices,
           rentableLoanerHotspots: result.data.categories.rentableLoanerHotspots,
-          digitalLiteracyTrainingOptions:
-            result.data.categories.digitalLiteracyTrainingOptions,
-          technicalAssistantForPublicDevicesOrSoftware:
-            result.data.categories.technicalAssistantForPublicDevicesOrSoftware,
-          resourceToAssistGettingASmallBusinessOnline:
-            result.data.categories.resourceToAssistGettingASmallBusinessOnline,
+          digitalLiteracyTrainings:
+            result.data.categories.digitalLiteracyTrainings,
+          assistanceForDevicesOrSoftware:
+            result.data.categories.assistanceForDevicesOrSoftware,
+          assistanceGettingASmallBusinessOnline:
+            result.data.categories.assistanceGettingASmallBusinessOnline,
           laptopsAndDesktops: result.data.categories.laptopsAndDesktops,
           mobileDevices: result.data.categories.mobileDevices,
           networkingDevices: result.data.categories.networkingDevices,
@@ -332,16 +334,6 @@ export default class RequestDetails extends React.Component {
       });
   }
 
-  useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }));
-
   handleInputChange = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -359,12 +351,11 @@ export default class RequestDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     if (this.state.status === "deleted") {
-      console.log("delete");
       const response = await axios.delete(
-        `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`
+        `${Constants.DFRT_FORM_URL}/${this.state.id}`
       );
       console.log(response);
-      await this.sleep(2000);
+      await this.sleep(1000);
       this.props.history.push("/");
     }
 
@@ -398,33 +389,33 @@ export default class RequestDetails extends React.Component {
           lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
           rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
           rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-          digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
-          technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
-          resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+          digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
+          assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
+          assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
           laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
           mobileDevices: `${this.state.mobileDevices}`,
           networkingDevices: `${this.state.networkingDevices}`,
         },
       },
     };
-    console.log(update);
-    const response = await axios.put(
-      `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`,
-      update
-    );
-    console.log(response);
-    console.log("status = " + this.state.status);
-
-    if (this.state.status === "approved") {
-      console.log("approved");
-      this.props.history.push(`/requestapproved/${this.state.id}`);
-    } else if (this.state.status === "denied") {
-      console.log("denied");
-      this.props.history.push(`/denydetails/${this.state.id}`);
-    } else {
-      console.log("disabled");
-      this.props.history.push("/");
+    if (this.state.status !== "deleted") {
+      console.log(update);
+      const response = await axios.put(
+        `${Constants.DFRT_FORM_URL}/${this.state.id}`,
+        update
+      );
+      console.log(response);
+      console.log("status = " + this.state.status);
+  
+      if (this.state.status === "approved") {
+        this.props.history.push(`/requestapproved/${this.state.id}`);
+      } else if (this.state.status === "denied") {
+        this.props.history.push(`/denydetails/${this.state.id}`);
+      } else {
+        this.props.history.push("/");
+      }
     }
+    
   }
 
   digitalLiteracy() {
@@ -437,35 +428,35 @@ export default class RequestDetails extends React.Component {
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
-                  name="digitalLiteracyTrainingOptions"
-                  checked={this.state.digitalLiteracyTrainingOptions}
+                  name="digitalLiteracyTrainings"
+                  checked={!!this.state.assistanceForDevicesOrSoftware}
                 />
               }
-              label="Digital Literacy Training Options"
+              label="Digital Literacy Trainings"
             />
             <FormControlLabel
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
-                  name="technicalAssistantForPublicDevicesOrSoftware"
-                  checked={
-                    this.state.technicalAssistantForPublicDevicesOrSoftware
+                  name="assistanceForDevicesOrSoftware"
+                  checked={!!
+                    this.state.assistanceForDevicesOrSoftware
                   }
                 />
               }
-              label="Technical Assistant for Public Devices or Software"
+              label="Assistance for Devices or Software"
             />
             <FormControlLabel
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
-                  name="resourceToAssistGettingASmallBusinessOnline"
-                  checked={
-                    this.state.resourceToAssistGettingASmallBusinessOnline
+                  name="assistanceGettingASmallBusinessOnline"
+                  checked={!!
+                    this.state.assistanceGettingASmallBusinessOnline
                   }
                 />
               }
-              label="Resource to Assist Getting a Small Business Online"
+              label="Assistance Getting a Small Business Online"
             />
           </FormGroup>
           <FormHelperText></FormHelperText>
@@ -495,7 +486,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="lowCostOrSubsidizedDevices"
-                  checked={this.state.lowCostOrSubsidizedDevices}
+                  checked={!!this.state.lowCostOrSubsidizedDevices}
                 />
               }
               label="Low-Cost Or Subsidized Devices"
@@ -505,7 +496,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="locationsThatOfferFreeWiFiPublicDevices"
-                  checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
+                  checked={!!this.state.locationsThatOfferFreeWiFiPublicDevices}
                 />
               }
               label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -515,7 +506,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerHotspots"
-                  checked={this.state.rentableLoanerHotspots}
+                  checked={!!this.state.rentableLoanerHotspots}
                 />
               }
               label="Rentable/Loaner Hotspots"
@@ -525,7 +516,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerDevices"
-                  checked={this.rentableLoanerDevices}
+                  checked={!!this.state.rentableLoanerDevices}
                 />
               }
               label="Rentable/Loaner Devices"
@@ -548,7 +539,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="laptopsAndDesktops"
-                  checked={this.state.laptopsAndDesktops}
+                  checked={!!this.state.laptopsAndDesktops}
                 />
               }
               label="Laptops and Desktops"
@@ -558,7 +549,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="mobileDevices"
-                  checked={this.state.mobileDevices}
+                  checked={!!this.state.mobileDevices}
                 />
               }
               label="Mobile Devices"
@@ -568,7 +559,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="networkingDevices"
-                  checked={this.state.networkingDevices}
+                  checked={!!this.state.networkingDevices}
                 />
               }
               label="Networking Devices"
@@ -715,6 +706,7 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
+    console.log("test = " + this.state.locationsThatOfferFreeWiFiPublicDevices)
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();

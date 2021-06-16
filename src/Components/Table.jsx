@@ -265,7 +265,6 @@ export default class Table extends React.Component {
   }
 
   render() {
-    console.log(Constants.DFRT_FORM_URL)
     if (this.state.active) {
       return (
         <div className="Table">

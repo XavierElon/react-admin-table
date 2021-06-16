@@ -241,23 +241,26 @@ export default class RequestDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: " ",
-      name: " ",
+      type: "",
+      name: "",
       locationsThatOfferFreeWiFiPublicDevices: false,
       lowCostInternetServicesOrDeals: false,
       lowCostOrSubsidizedDevices: false,
       rentableLoanerDevices: false,
       rentableLoanerHotspots: false,
-      digitalLiteracyTrainingOptions: false,
-      technicalAssistantForPublicDevicesOrSoftware: false,
-      resourceToAssistGettingASmallBusinessOnline: false,
+      digitalLiteracyTrainings: false,
+      assistanceForDevicesOrSoftware: false,
+      assistanceGettingASmallBusinessOnline: false,
       laptopsAndDesktops: false,
       mobileDevices: false,
       networkingDevices: false,
       location: "",
-      address1: " ",
-      lat: " ",
-      lon: " ",
+      address1: "",
+      userOhid: "",
+      email: "",
+      phoneNumber: "",
+      lat: "",
+      lon: "",
       state: "",
       zipCode: "",
       description: "",
@@ -299,7 +302,11 @@ export default class RequestDetails extends React.Component {
     console.log(target);
   };
 
-  handleSubmit(event) {
+  sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async handleSubmit(event) {
     event.preventDefault();
     let update;
     console.log("email = " + this.state.email);
@@ -326,15 +333,18 @@ export default class RequestDetails extends React.Component {
           linkToWebsite: `${this.state.linkToWebsite}`,
           contactName: `${this.state.contactName}`,
           status: `${this.state.status}`,
+          userOhid: `${this.state.userOhid}`,
+          email: `${this.state.email}`,
+          phoneNumber: `${this.state.phoneNumber}`,
           categories: {
             locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
             lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
-            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
-            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
+            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
+            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
             laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
@@ -364,15 +374,16 @@ export default class RequestDetails extends React.Component {
           phoneNumber: `${this.state.phoneNumber}`,
           contactName: `${this.state.contactName}`,
           status: `${this.state.status}`,
+          userOhid: `${this.state.userOhid}`,
           categories: {
             locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
             lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
-            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
-            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
+            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
+            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
             laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
@@ -401,15 +412,16 @@ export default class RequestDetails extends React.Component {
           email: `${this.state.email}`,
           contactName: `${this.state.contactName}`,
           status: `${this.state.status}`,
+          userOhid: `${this.state.userOhid}`,
           categories: {
             locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
             lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
-            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
-            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
+            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
+            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
             laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
@@ -439,15 +451,16 @@ export default class RequestDetails extends React.Component {
           email: `${this.state.email}`,
           contactName: `${this.state.contactName}`,
           status: `${this.state.status}`,
+          userOhid: `${this.state.userOhid}`,
           categories: {
             locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
             lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
             lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
             rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
             rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainingOptions: `${this.state.digitalLiteracyTrainingOptions}`,
-            technicalAssistantForPublicDevicesOrSoftware: `${this.state.technicalAssistantForPublicDevicesOrSoftware}`,
-            resourceToAssistGettingASmallBusinessOnline: `${this.state.resourceToAssistGettingASmallBusinessOnline}`,
+            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
+            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
+            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
             laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
             mobileDevices: `${this.state.mobileDevices}`,
             networkingDevices: `${this.state.networkingDevices}`,
@@ -461,6 +474,7 @@ export default class RequestDetails extends React.Component {
       update
     );
     console.log(response);
+    await this.sleep(1000);
     this.props.history.push("/");
   }
 
@@ -474,31 +488,31 @@ export default class RequestDetails extends React.Component {
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
-                  name="digitalLiteracyTrainingOptions"
-                  checked={this.state.digitalLiteracyTrainingOptions}
+                  name="digitalLiteracyTrainings"
+                  checked={this.state.digitalLiteracyTrainings}
                 />
               }
-              label="Digital Literacy Training Options"
+              label="Digital Literacy Trainings"
             />
             <FormControlLabel
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
-                  name="technicalAssistantForPublicDevicesOrSoftware"
-                  checked={this.state.technicalAssistantForPublicDevicesOrSoftware}
+                  name="assistanceForDevicesOrSoftware"
+                  checked={this.state.assistanceForDevicesOrSoftware}
                 />
               }
-              label="Technical Assistant for Public Devices or Software"
+              label="Assistance for Devices or Software"
             />
             <FormControlLabel
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
-                  name="resourceToAssistGettingASmallBusinessOnline"
-                  checked={this.state.resourceToAssistGettingASmallBusinessOnline}
+                  name="assistanceGettingASmallBusinessOnline"
+                  checked={this.state.assistanceGettingASmallBusinessOnline}
                 />
               }
-              label="Resource to Assist Getting a Small Business Online"
+              label="Assistance Getting a Small Business Online"
             />
           </FormGroup>
           <FormHelperText></FormHelperText>

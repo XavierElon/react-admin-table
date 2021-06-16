@@ -166,7 +166,7 @@ export default class DenyDetails extends React.Component {
 
     console.log(update);
     const response = await axios.patch(
-      `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`,
+      `${Constants.DFRT_FORM_URL}/${this.state.id}`,
       update
     );
     console.log(response);
