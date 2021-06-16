@@ -373,8 +373,6 @@ export default class RequestDetails extends React.Component {
         location: `${this.state.location}`,
         state: `${this.state.state}`,
         zipCode: `${this.state.zipCode}`,
-        // startDate: `${this.state.startDate}`,
-        // endDate: `${this.state.endDate}`,
         briefDescription: `${this.state.description}`,
         linkToWebsite: `${this.state.linkToWebsite}`,
         contactName: `${this.state.contactName}`,
