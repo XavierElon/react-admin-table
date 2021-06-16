@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
+import Constants from "../helpers/constants"
 
 const appStyle = {
   textAlign: "center",
@@ -130,7 +131,7 @@ export default class DenyDetails extends React.Component {
 
   componentDidMount() {
     fetch(
-      `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`
+      `${Constants.DFRT_FORM_URL}/${this.state.id}`
     )
       .then((res) => res.json())
       .then((result) => {
@@ -165,7 +166,7 @@ export default class DenyDetails extends React.Component {
 
     console.log(update);
     const response = await axios.patch(
-      `https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/${this.state.id}`,
+      `${Constants.DFRT_FORM_URL}/${this.state.id}`,
       update
     );
     console.log(response);

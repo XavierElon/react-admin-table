@@ -5,6 +5,7 @@ import PlusButton from "../images/plus-button.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
+import Constants from "../helpers/constants"
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -187,7 +188,7 @@ export default class Table extends React.Component {
 
     try {
       const res = await fetch(
-        "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission?limit=1000000"
+        `${Constants.DFRT_FORM_URL}?limit=${Constants.LIMIT_AMOUNT}`
       );
       const result = await res.json();
       let length = result.length;
@@ -260,7 +261,6 @@ export default class Table extends React.Component {
   }
 
   handleClick() {
-    console.log(this.state.active)
     this.setState({ active: !this.state.active})
   }
 
