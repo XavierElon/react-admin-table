@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <Router basename={'/wps/myportal/gov/ohid/applications/owt-finder-admin'}>
       <Switch>
         <Route path="/" exact component={Dashboard}></Route>
         <Route path="/requestform" exact component={RequestForm}></Route>

@@ -17,18 +17,6 @@ const appStyle = {
   display: "flex",
 };
 
-const headerStyle = {
-  position: "fixed",
-  width: "100%",
-  minWidth: "1440px",
-  height: "80px",
-  backgroundColor: "white",
-  fill: "white",
-  boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-  zIndex: "1",
-  flexGrow: "0",
-};
-
 const bodyStyle = {
   position: "absolute",
   left: "0%",
@@ -177,8 +165,6 @@ export default class DenyDetails extends React.Component {
       console.log(this.state)
     return (
       <div style={appStyle}>
-        <div style={headerStyle}>
-        </div>
         <Grid>
           <div style={bodyStyle}>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
