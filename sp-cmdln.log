@@ -1,0 +1,18 @@
+2021-06-16 11:40:21 -- Script Application command line utility version: 8.5
+
+2021-06-16 11:40:21 -- Script Application command line utility build number: 20190928-2258
+
+2021-06-16 11:40:21 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
+
+2021-06-16 11:40:21 -- Java environment: 
+
+	java.home = C:\Program Files\Java\jre1.8.0_291
+	java.vendor = Oracle Corporation
+	java.version = 1.8.0_291
+
+2021-06-16 11:40:21 -- Effective configuration properties: 
+
+	contentRoot = ./OhioOWT
+	excludes = [^bin$, ^lib$, ^src$, ^node_modules$, ^\.classpath$, ^\.project$, ^\..*ignore$, ^sp-config.json$, ^sp-cmdln.log$, ^sp.bat$, ^sp.sh$]
+	wcmSiteArea = Script Portlet Library/Script Portlet Applications/
+

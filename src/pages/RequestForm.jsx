@@ -243,6 +243,8 @@ export default class RequestDetails extends React.Component {
     this.state = {
       type: "",
       name: "",
+      startDate: "",
+      endDate: "",
       locationsThatOfferFreeWiFiPublicDevices: false,
       lowCostInternetServicesOrDeals: false,
       lowCostOrSubsidizedDevices: false,
@@ -255,10 +257,10 @@ export default class RequestDetails extends React.Component {
       mobileDevices: false,
       networkingDevices: false,
       location: "",
-      address1: "",
       userOhid: "",
       email: "",
       phoneNumber: "",
+      address: "",
       lat: "",
       lon: "",
       state: "",
@@ -327,8 +329,8 @@ export default class RequestDetails extends React.Component {
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipCode: `${this.state.zipCode}`,
-          startDate: `${this.state.startDate}`,
-          endDate: `${this.state.endDate}`,
+          // startDate: `${this.state.startDate}`,
+          // endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
           linkToWebsite: `${this.state.linkToWebsite}`,
           contactName: `${this.state.contactName}`,
@@ -367,8 +369,8 @@ export default class RequestDetails extends React.Component {
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipCode: `${this.state.zipCode}`,
-          startDate: `${this.state.startDate}`,
-          endDate: `${this.state.endDate}`,
+          // startDate: `${this.state.startDate}`,
+          // endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
           linkToWebsite: `${this.state.linkToWebsite}`,
           phoneNumber: `${this.state.phoneNumber}`,
@@ -405,8 +407,8 @@ export default class RequestDetails extends React.Component {
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipCode: `${this.state.zipCode}`,
-          startDate: `${this.state.startDate}`,
-          endDate: `${this.state.endDate}`,
+          // startDate: `${this.state.startDate}`,
+          // endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
           linkToWebsite: `${this.state.linkToWebsite}`,
           email: `${this.state.email}`,
@@ -443,8 +445,8 @@ export default class RequestDetails extends React.Component {
           location: `${this.state.location}`,
           state: `${this.state.state}`,
           zipCode: `${this.state.zipCode}`,
-          startDate: `${this.state.startDate}`,
-          endDate: `${this.state.endDate}`,
+          // startDate: `${this.state.startDate}`,
+          // endDate: `${this.state.endDate}`,
           briefDescription: `${this.state.description}`,
           linkToWebsite: `${this.state.linkToWebsite}`,
           phoneNumber: `${this.state.phoneNumber}`,
@@ -594,6 +596,7 @@ export default class RequestDetails extends React.Component {
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
+                  checked={this.state.laptopsAndDesktops}
                   name="laptopsAndDesktops"
                 />
               }
@@ -656,7 +659,7 @@ export default class RequestDetails extends React.Component {
           label="Zip Code"
           name="zipCode"
           variant="standard"
-          value=""
+          value={this.state.zipCode}
           InputLabelProps={{
             shrink: true,
           }}
@@ -798,6 +801,7 @@ export default class RequestDetails extends React.Component {
                   displayEmpty
                   name="type"
                   onChange={this.handleInputChange}
+                  value={this.state.type}
                 >
                   <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
