@@ -2,6 +2,7 @@
   "name": "ohio",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@date-io/date-fns": "^2.10.11",
     "@emotion/react": "^11.4.0",
@@ -23,7 +24,9 @@
     "fs": "*",
     "material-ui-search-bar": "^1.0.0",
     "mdbreact": "^5.0.2",
+    "prettier": "^2.3.1",
     "react": "^17.0.2",
+    "react-app-rewired": "^2.1.8",
     "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.2",
     "react-emotion": "^10.0.0",
@@ -40,7 +43,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "set \"GENERATE_SOURCEMAP=false\" &&  react-scripts build",
+    "newBuild": "set \"GENERATE_SOURCEMAP=false\" &&  react-scripts build",
+    "build": "set \"INLINE_RUNTIME_CHUNK=false GENERATE_SOURCEMAP=false\" react-app-rewired build && prettier build/index.html --write",
     "watch": "watch npm run build ./OhioOWT",
     "build:bundle": "webpack --config webpack.config.js",
     "test": "react-scripts test",

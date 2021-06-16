@@ -1,0 +1,8 @@
+{
+    // "wcmContentName": "jQuery DataTables Sample",
+    "wcmContentID":"1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1",
+    "scriptPortletServer":"https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com",
+    "laxSSL": true,
+    "virtualPortalContext":"gov",
+    "mainHtmlFile": "build/index.html"
+ }

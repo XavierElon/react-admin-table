@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Radio } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
@@ -427,7 +426,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="digitalLiteracyTrainings"
-                  checked={!!this.state.assistanceForDevicesOrSoftware}
+                  checked={!!this.state.digitalLiteracyTrainings}
                 />
               }
               label="Digital Literacy Trainings"
@@ -597,7 +596,7 @@ export default class RequestDetails extends React.Component {
           onChange={this.handleInputChange}
           size="medium"
           label="Zip Code"
-          name="zipcode"
+          name="zipCode"
           variant="standard"
           value={this.state.zipCode}
           InputLabelProps={{
