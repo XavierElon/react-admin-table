@@ -665,9 +665,6 @@ export default class RequestDetails extends React.Component {
             </h2>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <FormControl required style={typeStyle}>
-                {/* <InputLabel id="demo-simple-select-required-label">
-                  Resource Type
-                </InputLabel> */}
                 <Select
                   labelId="demo-simple-select-required-label"
                   displayEmpty
