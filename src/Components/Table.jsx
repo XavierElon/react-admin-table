@@ -26,7 +26,7 @@ const Button1Active = styled("div")`
 const Button1Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: white;
+  background-color: #DEDEDE;
   stroke-width: 1;
   border-top-left-radius: 4px;
   color: black;
@@ -57,7 +57,7 @@ const Button2Active = styled("div")`
 const Button2Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: white;
+  background-color: #DEDEDE;
   stroke-width: 1;
   border-top-right-radius: 4px;
   color: black;

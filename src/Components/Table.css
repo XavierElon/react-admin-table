@@ -1,5 +1,5 @@
 .Table {
-  top: 40%;
+  top: 20%;
   position: absolute;
   width: 1080px;
   height: 600px;
@@ -16,11 +16,12 @@
 .admin-title {
   position: absolute;
   top: -8rem;
-  left: -3rem;
-  width: 200px;
+  left: 0rem;
+  width: 300px;
   height: 23px;
   font-size: 18px;
   color: #222222;
+  text-align: left;
 }
 
 .page-link {

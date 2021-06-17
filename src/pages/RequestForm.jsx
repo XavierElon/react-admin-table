@@ -28,8 +28,8 @@ const appStyle = {
   textAlign: "center",
   width: "100%",
   height: "1200px",
-  marginLeft: "auto",
-  marginRight: "auto",
+  marginLeft: "40rem",
+  marginRight: "40rem",
   minWidth: "auto",
   paddingBottom: "72px",
   flexDirection: "column",
@@ -39,11 +39,11 @@ const appStyle = {
 const bodyStyle = {
   position: "absolute",
   left: "0%",
-  marginLeft: "auto",
-  marginRight: "auto",
+  marginLeft: "40rem",
+  marginRight: "40rem",
   minWidth: "100%",
   height: "523px",
-  marginTop: "10rem",
+  marginTop: "3rem",
   flexGrow: "1",
 };
 
@@ -56,23 +56,33 @@ const h2Style = {
   fontSize: "18px",
   color: "#222222",
   textDecoration: "none solid rgb(34, 34, 34)",
-  textTransform: "uppercase",
   textAlign: "left",
 };
 
+const listingTextStyle = {
+  position: "relative",
+  textAlign: "left"
+}
+
 const typeStyle = {
   position: "absolute",
-  top: "8%",
+  top: "3.5rem",
   height: "20px",
   left: "10%",
-  width: "300px",
+  width: "400px",
   fontSize: "12",
 };
 
+const nameTextStyle = {
+  position: "absolute",
+  top: "3.8rem",
+  left: "70rem"
+}
+
 const nameStyle = {
   position: "absolute",
-  top: "5%",
-  left: "66%",
+  top: "5rem",
+  left: "70rem",
   width: "200px",
 };
 
@@ -114,31 +124,56 @@ const zipcodeStyle = {
   left: "0rem",
 };
 
+const startDateTextStyle = {
+  position: "absolute",
+  top: "54rem",
+  left: "10%",
+}
+
 const startDateStyle = {
   width: "200px",
   position: "absolute",
   top: "55rem",
-  left: "10%",
+  left: "14rem",
 };
+
+const endDateTextStyle = {
+  position: "absolute",
+  top: "54rem",
+  left: "37rem",
+}
 
 const endDateStyle = {
   width: "200px",
   position: "absolute",
   top: "55rem",
-  left: "42%",
+  left: "37rem",
 };
+
+const descriptionTextStyle = {
+  position: "absolute",
+  top: "62rem",
+  left: "15rem"
+}
 
 const descriptionStyle = {
   width: "550px",
   position: "absolute",
-  top: "60rem",
+  top: "63rem",
   left: "10%",
 };
 
-const link = {
+const linkDiv = {
   position: "absolute",
   top: "75rem",
   left: "10%",
+};
+
+const linkTextStyle = {
+  position: "absolute",
+  top: "1rem",
+  left: "-1rem",
+  width: "100px"
 };
 
 const linkStyle = {
@@ -156,22 +191,35 @@ const resourceContactStyle = {
 
 const contactNameStyle = {
   position: "absolute",
-  top: "5rem",
+  top: "3rem",
   left: "0rem",
-  width: "200px",
+  width: "400px",
 };
+
+const phoneTextStyle = {
+  position: "absolute",
+  top: "1.8rem",
+  left: "44rem",
+  width: "100px"
+}
 
 const phoneNumberStyle = {
   position: "absolute",
   top: "3rem",
-  left: "35rem",
+  left: "45rem",
   width: "200px",
   color: "black",
 };
 
+const emailTextStyle = {
+  position: "absolute",
+  top: "1.8rem",
+  left: "70rem"
+}
+
 const emailStyle = {
   position: "absolute",
-  top: "4rem",
+  top: "3rem",
   left: "70rem",
   width: "200px",
 };
@@ -192,7 +240,7 @@ const submitStyle = {
   width: "112px",
   height: "36px",
   borderRadius: "4px",
-  backgroundColor: "#700017",
+  backgroundColor: "#1672B5",
   color: "white",
   fontSize: "14px",
   lineHeight: "32px",
@@ -363,6 +411,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="digitalLiteracyTrainings"
                   checked={this.state.digitalLiteracyTrainings}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Digital Literacy Trainings"
@@ -373,6 +423,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="assistanceForDevicesOrSoftware"
                   checked={this.state.assistanceForDevicesOrSoftware}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Assistance for Devices or Software"
@@ -383,6 +435,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="assistanceGettingASmallBusinessOnline"
                   checked={this.state.assistanceGettingASmallBusinessOnline}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Assistance Getting a Small Business Online"
@@ -406,6 +460,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="lowCostInternetServicesOrDeals"
                   checked={this.state.lowCostInternetServicesOrDeals}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Low-Cost Internet Services Or Deals"
@@ -416,6 +472,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="lowCostOrSubsidizedDevices"
                   checked={this.state.lowCostOrSubsidizedDevices}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Low-Cost Or Subsidized Devices"
@@ -426,6 +484,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="locationsThatOfferFreeWiFiPublicDevices"
                   checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -436,6 +496,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="rentableLoanerHotspots"
                   checked={this.state.rentableLoanerHotspots}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Rentable/Loaner Hotspots"
@@ -446,6 +508,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="rentableLoanerDevices"
                   checked={this.state.rentableLoanerDevices}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Rentable/Loaner Devices"
@@ -469,6 +533,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   checked={this.state.laptopsAndDesktops}
                   name="laptopsAndDesktops"
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Laptops and Desktops"
@@ -479,6 +545,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="mobileDevices"
                   checked={this.state.mobileDevices}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Mobile Devices"
@@ -489,6 +557,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="networkingDevices"
                   checked={this.state.networkingDevices}
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               }
               label="Networking Devices"
@@ -661,10 +731,11 @@ export default class RequestDetails extends React.Component {
         <Grid>
           <div style={bodyStyle}>
             <h2 style={h2Style}>
-              <b>New Request</b>
+              <b>New Entry Form</b>
             </h2>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <FormControl required style={typeStyle}>
+                <p style={listingTextStyle}>Listing Type</p>
                 <Select
                   labelId="demo-simple-select-required-label"
                   displayEmpty
@@ -679,19 +750,15 @@ export default class RequestDetails extends React.Component {
                   <MenuItem value="Donated Resource">Donated Resource</MenuItem>
                 </Select>
               </FormControl>
-
+              <p style={nameTextStyle}>Resource Name</p>
               <TextField
                 style={nameStyle}
                 required
                 size="medium"
-                label="Resource Name"
                 name="name"
                 variant="outlined"
                 margin="dense"
                 onChange={this.handleInputChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
               ></TextField>
               <div style={checkboxesStyle}>
                 <h5>
@@ -713,22 +780,22 @@ export default class RequestDetails extends React.Component {
                   >
                     <FormControlLabel
                       value="noPhysicalAddress"
-                      control={<Radio />}
+                      control={<Radio color="primary"/>}
                       label="No physical address"
                     />
                     <FormControlLabel
                       value="allOfOhio"
-                      control={<Radio />}
+                      control={<Radio color="primary"/>}
                       label="All of Ohio"
                     />
                     <FormControlLabel
                       value="zipCode"
-                      control={<Radio />}
+                      control={<Radio color="primary"/>}
                       label="Zip Code"
                     />
                     <FormControlLabel
                       value="streetAddress"
-                      control={<Radio />}
+                      control={<Radio color="primary"/>}
                       label="Street Address"
                     />
                   </RadioGroup>
@@ -740,63 +807,48 @@ export default class RequestDetails extends React.Component {
                 </h5>
                 {locationRadio}
               </div>
+              <p style={startDateTextStyle}>Offer Start Date</p>
               <TextField
                 required
                 style={startDateStyle}
                 id="date"
-                label="Offer Start Date"
                 type="date"
                 name="startDate"
                 variant="outlined"
                 margin="dense"
                 onChange={this.handleInputChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
               />
+              <p style={endDateTextStyle}>Offer Expiration Date</p>
               <TextField
                 required
                 style={endDateStyle}
                 id="date"
-                label="Offer Expiration Date"
                 type="date"
                 name="endDate"
                 variant="outlined"
                 margin="dense"
                 onChange={this.handleInputChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
               />
+              <p style={descriptionTextStyle}>Brief Description</p>
               <TextField
                 multiline
                 rows="4"
                 style={descriptionStyle}
                 size="medium"
-                label="Description"
                 name="description"
                 onChange={this.handleInputChange}
                 variant="outlined"
                 margin="dense"
-                InputLabelProps={{
-                  shrink: true,
-                }}
               ></TextField>
-              <div style={link}>
-                <h5>
-                  <b>Link to Website</b>
-                </h5>
+              <div style={linkDiv}>
+                <p style={linkTextStyle}>Link to Website</p>
                 <TextField
                   style={linkStyle}
                   size="medium"
-                  label="Website"
                   name="linkToWebsite"
                   onChange={this.handleInputChange}
                   variant="outlined"
                   margin="dense"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                 ></TextField>
               </div>
               <div style={resourceContactStyle}>
@@ -811,10 +863,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   variant="outlined"
                   margin="dense"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                 ></TextField>
+                <p style={phoneTextStyle}>Phone Number</p>
                 <InputMask
                   mask="(999) 999-9999"
                   onChange={this.handleInputChange}
@@ -829,17 +879,14 @@ export default class RequestDetails extends React.Component {
                     />
                   )}
                 </InputMask>
+                <p style={emailTextStyle}>Email</p>
                 <TextField
                   style={emailStyle}
                   size="medium"
-                  label="Email"
                   name="email"
                   onChange={this.handleInputChange}
                   variant="outlined"
                   margin="dense"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                 ></TextField>
               </div>
               <div style={lineStyle}></div>

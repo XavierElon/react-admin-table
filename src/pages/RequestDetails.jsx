@@ -195,7 +195,7 @@ const submitStyle = {
   width: "112px",
   height: "36px",
   borderRadius: "4px",
-  backgroundColor: "#700017",
+  backgroundColor: "#1672B5",
   color: "white",
   fontSize: "14px",
   lineHeight: "32px",
