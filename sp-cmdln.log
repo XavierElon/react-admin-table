@@ -1,16 +1,16 @@
-2021-06-16 18:25:16 -- Script Application command line utility version: 8.5
+2021-06-17 14:53:37 -- Script Application command line utility version: 8.5
 
-2021-06-16 18:25:16 -- Script Application command line utility build number: 20190928-2258
+2021-06-17 14:53:37 -- Script Application command line utility build number: 20190928-2258
 
-2021-06-16 18:25:16 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
+2021-06-17 14:53:37 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
 
-2021-06-16 18:25:16 -- Java environment: 
+2021-06-17 14:53:37 -- Java environment: 
 
 	java.home = C:\Program Files\Java\jre1.8.0_291
 	java.vendor = Oracle Corporation
 	java.version = 1.8.0_291
 
-2021-06-16 18:25:16 -- Effective configuration properties: 
+2021-06-17 14:53:37 -- Effective configuration properties: 
 
 	contentRoot = ./OhioOWT
 	excludes = [^bin$, ^lib$, ^src$, ^node_modules$, ^\.classpath$, ^\.project$, ^\..*ignore$, ^sp-config.json$, ^sp-cmdln.log$, ^sp.bat$, ^sp.sh$]
@@ -21,28 +21,28 @@
 	wcmContentID = 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 	wcmSiteArea = Script Portlet Library/Script Portlet Applications/
 
-2021-06-16 18:25:16 -- Begin content push to Portal.
+2021-06-17 14:53:37 -- Begin content push to Portal.
 
-2021-06-16 18:25:56 -- Accept-Language: en-US,en
+2021-06-17 14:54:00 -- Accept-Language: en-US,en
 
-2021-06-16 18:25:56 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
+2021-06-17 14:54:00 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
 
-2021-06-16 18:25:56 -- Virtual Portal Context: gov
+2021-06-17 14:54:00 -- Virtual Portal Context: gov
 
-2021-06-16 18:25:56 -- Project Context: null
+2021-06-17 14:54:00 -- Project Context: null
 
-2021-06-16 18:25:56 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
+2021-06-17 14:54:00 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 
-2021-06-16 18:25:56 -- WCM Content Path: null
+2021-06-17 14:54:00 -- WCM Content Path: null
 
-2021-06-16 18:25:56 -- WCM Content Title: null
+2021-06-17 14:54:00 -- WCM Content Title: null
 
-2021-06-16 18:25:56 -- Main HTML file: build/index.html
+2021-06-17 14:54:00 -- Main HTML file: build/index.html
 
-2021-06-16 18:25:59 -- Archive file: 
+2021-06-17 14:54:04 -- Archive file: 
 
-	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-4235190268064619638.zip
-	(11,953,774 bytes in 242 files) 
+	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-7652457515471596775.zip
+	(12,516,128 bytes in 281 files) 
 
 	.git/COMMIT_EDITMSG
 	.git/config
@@ -66,12 +66,15 @@
 	.git/info/exclude
 	.git/logs/HEAD
 	.git/logs/refs/heads/master
+	.git/logs/refs/heads/uiFixes
 	.git/logs/refs/remotes/origin/bugFixes
 	.git/logs/refs/remotes/origin/dataFixes
 	.git/logs/refs/remotes/origin/emailFix
 	.git/logs/refs/remotes/origin/HEAD
 	.git/logs/refs/remotes/origin/master
 	.git/logs/refs/remotes/origin/moreFixes
+	.git/logs/refs/remotes/origin/uiFixes
+	.git/logs/refs/stash
 	.git/objects/00/e98110dfb60487ab8a4368c035bfac54ef8f8f
 	.git/objects/02/61c005de8e6e8c939180370e93dce3093d8d98
 	.git/objects/03/283d4e74493a66d0fddb966286c0f2136e22d3
@@ -80,12 +83,16 @@
 	.git/objects/04/b3145592630f71955e3a7bae7265c5770601e6
 	.git/objects/06/352a1303f10ef395e4fd4950ef7667b756ad77
 	.git/objects/0b/2beed08809ee2d2dcc41ba7f0a46d6ee255f46
+	.git/objects/0b/641ef3ca4897a60fc14e8757d0c7e88550818e
 	.git/objects/0c/873fa4ec136bd20512c3c5d244b5932e26cfc3
 	.git/objects/0e/2163029cf21dfd5e44300d4d6193230d7ff9ac
 	.git/objects/0e/3b236a0d9c85dbceda5d7ba3d59fc4f6b337f5
+	.git/objects/0f/16f56feaaf8c21b584a793be60efb679859d94
 	.git/objects/0f/d9b327bb2222381085821023284d2cb4ae6e5d
+	.git/objects/10/38e5ec231b15c226b4481a48f5130bdc24566a
 	.git/objects/10/8382646b20c4e32d409e3822c178ed8d89354f
 	.git/objects/12/cbcd2e809cc990c2d80baba6dc7496fd74e09d
+	.git/objects/14/37234d0ba5277e174325d45f5f1191f82064a1
 	.git/objects/15/dec799e5f63178f586d5e18fc194aaf770fff2
 	.git/objects/16/11cc681ddfddfc6fc4ef9b5adc1de9a5be0fbd
 	.git/objects/16/a85e5dbccb037272fcc3ee767c89a249eb98e6
@@ -96,13 +103,18 @@
 	.git/objects/1d/1fa2a7ad1aa46121f1a4011059c0b2b2eeef4d
 	.git/objects/1f/228ed5d9db8972b64bf54dcdf9ed9a9f85bcf5
 	.git/objects/1f/2f141fafdeb1d31d85b008ec5132840c5e6362
+	.git/objects/1f/571e17dcd0a69a6c16f660c2ac10c51a626087
 	.git/objects/1f/dea6eb8560ba8fb7068f7bdcb10614b64bd7bd
 	.git/objects/21/15c9f028ffc828b5b80158e4cb4643ca82e287
 	.git/objects/22/ff399428517c9588aced49ecf91bd92040b7ef
 	.git/objects/24/44f0926499f40f9fbf0a87216737602005a40f
+	.git/objects/24/dce699340eb847b7fa612a3b9c9631a612acc3
 	.git/objects/25/9228a7d87b49f59f05136681eac0665f424af5
+	.git/objects/26/558a28a013b612e9b3eabda4cef913cd984d0a
 	.git/objects/26/c8f52f142d0cb7a128d4c3b00c91f51c146dc3
+	.git/objects/26/d0063700f1c1eb6eea4850829b4dec1b1bc873
 	.git/objects/27/343795b2723f3c236673ca000f9bc03c000a98
+	.git/objects/27/d1898735ae07308d62838423de8770a46ae558
 	.git/objects/27/dc088680b12d670ac3a14c67949261e26f7ec5
 	.git/objects/29/1d5c645acc5c641cb76235f300613ade23f7a5
 	.git/objects/2a/1f42944c81ef9a04d7be526cf2be532d6fc243
@@ -116,6 +128,7 @@
 	.git/objects/33/7f6db690cb3e391047fd95aa0f2cc75513ff73
 	.git/objects/36/dc13cfd9367c4fee5d775d135361eb837706aa
 	.git/objects/3c/c614829d0eca716adb6a6796d161701e1df41e
+	.git/objects/3e/42afdf603d2102ca52a9b752d8d2078c314f40
 	.git/objects/3f/01da5a91183f7e9b657fa509dc3e885deb95a5
 	.git/objects/40/1eb263ab6d07a0959e6181ad53dd896901f2ae
 	.git/objects/40/3d6d29fd4d9fc993f5cbf6b37632d09ed0e85a
@@ -123,9 +136,11 @@
 	.git/objects/43/7b6357033d1d379a5a3a330598e3fb686425dc
 	.git/objects/44/596db3ec3c6062fcb61f50879c10c980cae8ef
 	.git/objects/46/10239cf9c7c1ee1f81c27061415d0b3f020d8d
+	.git/objects/46/405ae2135144e618e7f93e809f7cb252be3a7a
 	.git/objects/47/6c3042d58c3821d8b1bb08dd984dca71669a2c
 	.git/objects/4a/0ad9b7314e28a3973212a62aae393bbc16a8c6
 	.git/objects/4c/5c5941cf5b3dc253de540ba4ece05b28422001
+	.git/objects/4c/5d2f909cbadd23cbefda8e2f4a335e8a7c80f0
 	.git/objects/4e/bb1b5e2eb6f52c28f99baf7e23c125149f6c24
 	.git/objects/51/f34e92731fe249701312894259f5b5327eef69
 	.git/objects/53/e80621bc76fd1ae26d97bc4ab0bee86ebd2af4
@@ -136,6 +151,7 @@
 	.git/objects/5e/f7d1b5b30ff6fb4fd361b11910c41fb269e4b5
 	.git/objects/60/a96c5412415cb8fe2fdc0df037c8f6f324cb9d
 	.git/objects/62/0986adf38e25a0cabd9459da2e73cd64c6913b
+	.git/objects/62/846d074ffad587238b9ff0671a2cd7b734a5eb
 	.git/objects/62/8f6df53766f3d104d34bc41b20d511330a627f
 	.git/objects/62/ae5b1657c7541e9687c506e9bc6c291e9bf667
 	.git/objects/62/e43a2cf3b66c1fda517915e8f28ab1a3bda220
@@ -148,15 +164,20 @@
 	.git/objects/6b/c7a9fc4f28d1fe15c56d43abdc4111827aac7a
 	.git/objects/6d/b4f374f8e92ec4164b37102a79287a418ce3bb
 	.git/objects/6e/ac41c2f4b1b6609ff6cc30d71341a9055d27d0
+	.git/objects/70/18f5b0e519d5a496d39d10988e96785923ec83
 	.git/objects/71/2a45bdd6c7ad603474a0a9cccdbecb64d75695
 	.git/objects/71/f2a2ac614bc5c06c0aaae0fe657ab460ff83a2
+	.git/objects/73/0d6f124b2197b0d3d24926d4e489033387befb
 	.git/objects/73/5b721d480e2e151334a215db7c913cc1efc8b4
 	.git/objects/76/3d3985b8c6fd1d946463687629412f10003426
 	.git/objects/76/5293cd975fc08084ceb8e760edaeb4488c5414
 	.git/objects/79/dd3114fe0b6dc43f579c9f45713622a2ee3016
 	.git/objects/7a/9c2b68b0d14a687b21500c61ff1e09eb3f1b75
 	.git/objects/7d/389db74d4b931029049d7a239257fe6d785b37
+	.git/objects/7e/b78d636c6cb9d6d1b6f0013003be6ea12847f5
 	.git/objects/80/837d890255c64fe0a54ea34dd0cad2bccdbd90
+	.git/objects/80/fdb99c7cee19b9f276a91441a79d8b2d5cac35
+	.git/objects/82/77cc607f604079dc7cbc924e2f6d5e55cf4580
 	.git/objects/85/987f24a98e90f103267c9139106ce65b17db05
 	.git/objects/86/bbfa0eff26e14bba02c0aeae2c2451ca4e8793
 	.git/objects/8a/47db2660be45bbb83f7ba7776b83ec99805537
@@ -165,13 +186,18 @@
 	.git/objects/8f/0a31701ad182be16381dd2b60b93cc2cb98198
 	.git/objects/90/2e2c636fe07f64917efc528df886b5163bff50
 	.git/objects/92/0a006def26475a32cc5ba0c22f41ec2907d9f9
+	.git/objects/92/5394fc1c076f408caa9d77be6558d8867f5012
 	.git/objects/92/7bf5b75af075f9884f14a6b28d5e537770d1eb
 	.git/objects/92/d7b5cdb730a21274ccaabce4a448bf6b2df9d5
+	.git/objects/93/8ddc8b3c8c3298de31aa3112b443b331d53b2e
 	.git/objects/93/d67785fa6861d3c06929ee7914343792da4ab2
 	.git/objects/97/f5d7009db2524ea0c31b1834a6b908c0f91f63
 	.git/objects/9a/608dd563831e61c009f342e77625ad8fead1cd
 	.git/objects/9c/926c8670868c6a5a1745263a0ef52401d7b6dc
+	.git/objects/9d/82a5385e80c01f519927fe284c9e6617fd5c5d
+	.git/objects/9e/8b728cabf4722b274123ff8e9f4ff671c57b17
 	.git/objects/a1/1e48cac5fb105cda78814d11fdbc291a8eb16c
+	.git/objects/a3/cfe1e9445f25043b90f90cd268bdea46ddebcf
 	.git/objects/a5/40308f52460983c2a5577f8b2d0b155240277e
 	.git/objects/a6/dd4d10ac0dd2f2331ff15f20cd226b4c0a4854
 	.git/objects/a7/5b2438e182101b9a362fca42cfef0ed481aef0
@@ -181,7 +207,9 @@
 	.git/objects/aa/01f76d41ad9980d391b4db3fe85f64b155ecfb
 	.git/objects/ab/5125407a6a77767330e29a028b97c3ac64ce18
 	.git/objects/ac/46b80cc927500469862db47c9056b0e2e18e52
+	.git/objects/ac/c90b223fe020cebd7a4001c4f41a316bb82ead
 	.git/objects/ad/5de88dc1b8b9c7bd1929311063ea9cadeffe3f
+	.git/objects/ad/e86060831bbd2eb6d2dd5f321ea955a31276ba
 	.git/objects/b0/7dc04448802015d1a32697d4c775c5476f9f54
 	.git/objects/b1/6eedba68b7b8a4cd946f99b2616e9be2135785
 	.git/objects/b4/7124580acb70d0addd94596e9e5025b040fbd1
@@ -194,18 +222,23 @@
 	.git/objects/be/81dbaef46cecf9c17a0a3349e84d2be74944d1
 	.git/objects/bf/66eeee3796ab493763aa1519bb93b8240997a6
 	.git/objects/c1/c3fa9742b1c936d7dd238434bb86d55891229f
+	.git/objects/c2/87f70656f0d0e5a479945af8a64a0334f6f676
 	.git/objects/c4/11f5c851b78ba18e1615b5eb3af88b946db639
 	.git/objects/c6/3f365fa6999725019abc35d439e2a9f310caf3
 	.git/objects/c6/47ba8bde8af0d1fe4aba8a7bce5764c2c1b10e
+	.git/objects/c8/f617a4f9375d4017b5c3c293ec20c3c0274931
 	.git/objects/ca/4a5cea55fbc9577463dbd3633f96293d3e338d
 	.git/objects/ca/54e5e17a63dacc4565e1bc2f05e9cbbf4f108a
+	.git/objects/cb/91c7749c2d9e868f8e81f77302f0892156b8a3
 	.git/objects/cd/8a8da21a608817a6e97eed12e216607eabe044
 	.git/objects/d0/0a59237fb1b17dace938898c5e11b5eca73bf9
 	.git/objects/d1/c7295164040aad12e2b1af2e3d992c77560d97
 	.git/objects/d2/0c6b1af68eb00c3280d4241816b92691bfa672
 	.git/objects/d7/73177c2c0a255de3413f91d9be8752288ea443
 	.git/objects/d8/2f299af21a225f1fa2c164b3cbdf29c05ba9b5
+	.git/objects/d9/6daa1c74f6b85de1ab4c825c425dd70be6aa3c
 	.git/objects/db/cb56de9ac84a8170e8c6bc19ec0c43946a1896
+	.git/objects/dd/b585ebdf9264b5a0519f76bfe3bd946b1bf6bf
 	.git/objects/dd/ed38455d724b24e67fb09b9cce87daefb8badd
 	.git/objects/dd/f211dcf442636346e0b9e43d20f07da181c550
 	.git/objects/de/15ca115287fc40f6871bac5501e96bd9ea8a6c
@@ -231,8 +264,11 @@
 	.git/objects/f3/0c91645409053956e1dda1465642f56b36a4fd
 	.git/objects/f4/3b4888afd02489c001b9aecb2e175693724c17
 	.git/objects/f5/5e812b3f33b08493ba20d4be0dcc0776e2f15b
+	.git/objects/f6/8ccd2ef641f23ad4930ca51c7eb8a17225dd51
+	.git/objects/f7/1146c7f50c2bca34ac0eb2dba2b2bd184a352e
 	.git/objects/f9/19918067ef2551dfd7a772173d0991acf0aec6
 	.git/objects/fb/de32eae46c8d8a2e59312bc17224214e3394cb
+	.git/objects/fb/f1ced00450efe87f027b4e681b434720dc67b8
 	.git/objects/fd/527ed32e23f32d516928c938388cee26478d52
 	.git/objects/ff/bccd3dc0920dddf0cf49c291c4b937dfd2b183
 	.git/objects/pack/pack-0ad7c4be40a75cd6ba4058963269076a07f4fccf.idx
@@ -240,24 +276,27 @@
 	.git/ORIG_HEAD
 	.git/packed-refs
 	.git/refs/heads/master
+	.git/refs/heads/uiFixes
 	.git/refs/remotes/origin/bugFixes
 	.git/refs/remotes/origin/dataFixes
 	.git/refs/remotes/origin/emailFix
 	.git/refs/remotes/origin/HEAD
 	.git/refs/remotes/origin/master
 	.git/refs/remotes/origin/moreFixes
+	.git/refs/remotes/origin/uiFixes
+	.git/refs/stash
 	build/asset-manifest.json
 	build/favicon.ico
 	build/index.html
 	build/manifest.json
 	build/robots.txt
 	build/static/css/2.ac66e263.chunk.css
-	build/static/css/main.be99581e.chunk.css
-	build/static/js/2.f24e708b.chunk.js
-	build/static/js/2.f24e708b.chunk.js.LICENSE.txt
-	build/static/js/3.8e768c28.chunk.js
-	build/static/js/main.32cbff71.chunk.js
-	build/static/js/runtime-main.9f6c93fe.js
+	build/static/css/main.2f589d7d.chunk.css
+	build/static/js/2.8b2d69d7.chunk.js
+	build/static/js/2.8b2d69d7.chunk.js.LICENSE.txt
+	build/static/js/3.20a4c11b.chunk.js
+	build/static/js/main.05099ee6.chunk.js
+	build/static/js/runtime-main.21154576.js
 	build/static/media/arrow_left.2b063d13.svg
 	build/static/media/arrow_right.0897f985.svg
 	build/static/media/fa-brands-400.216edb96.svg
@@ -287,84 +326,33 @@
 	public/robots.txt
 	README.md
 
-2021-06-16 18:27:11 -- Response status: HTTP/1.1 200 OK
+2021-06-17 14:54:34 -- EJPRC0028E: Application push failed with one or more errors.
 
-2021-06-16 18:27:11 -- Content-Type: application/json; charset=UTF-8
+org.apache.http.conn.ConnectTimeoutException: Connect to internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com:443 [internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/10.54.27.141, internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/10.54.26.144] failed: connect timed out
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:134)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:214)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:160)
+	at com.ibm.wps.scriptportlet.cmdln.PushCommand.invoke(PushCommand.java:219)
+	at com.ibm.wps.scriptportlet.cmdln.CommandLine.main(CommandLine.java:141)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:244)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
+	... 12 more
 
-2021-06-16 18:27:11 -- Effective character set of body: UTF-8
-
-2021-06-16 18:27:11 -- Body content: 
-
-{
-
-   "results" : {
-
-      "status" : "success",
-      "importedFiles" : {
-
-         "file" : [
-            {
-
-               "filename" : "HTML\/index.html"
-            }
-            ,
-            {
-
-               "filename" : "JavaScript\/static\/js\/2.f24e708b.chunk.js"
-            }
-            ,
-            {
-
-               "filename" : "JavaScript\/static\/js\/3.8e768c28.chunk.js"
-            }
-            ,
-            {
-
-               "filename" : "JavaScript\/static\/js\/main.32cbff71.chunk.js"
-            }
-            ,
-            {
-
-               "filename" : "JavaScript\/static\/js\/runtime-main.9f6c93fe.js"
-            }
-            ,
-            {
-
-               "filename" : "CSS\/static\/css\/2.ac66e263.chunk.css"
-            }
-            ,
-            {
-
-               "filename" : "CSS\/static\/css\/main.be99581e.chunk.css"
-            }
-            ,
-            {
-
-               "filename" : "Other\/asset-manifest.json"
-            }
-            ,
-            {
-
-               "filename" : "Other\/manifest.json"
-            }
-
-         ]
-      }
-      ,
-      "skippedFiles" : "",
-      "message" : "The file that you selected was imported successfully.",
-      "contentId" : "1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1"
-   }
-}
-
-
-2021-06-16 18:27:11 -- Target authentication state: SUCCESS
-
-2021-06-16 18:27:11 -- Target authentication scheme: BASIC
-
-2021-06-16 18:27:11 -- Target authentication credentials: [principal: 39761230]
-
-2021-06-16 18:27:11 -- Content push was successful.
-
-2021-06-16 18:27:11 -- End content push to Portal.
 

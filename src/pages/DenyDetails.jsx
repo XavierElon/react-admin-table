@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Grid } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
 import Constants from "../helpers/constants"
+import Grid from '@material-ui/core/Grid';
 
 const appStyle = {
   textAlign: "center",
@@ -18,8 +18,8 @@ const appStyle = {
 };
 
 const bodyStyle = {
-  position: "absolute",
-  left: "0%",
+  // position: "absolute",
+  // left: "0%",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "100%",
@@ -29,9 +29,9 @@ const bodyStyle = {
 };
 
 const link1Style = {
-  position: "absolute",
-  top: "5rem",
-  left: "15rem",
+  // position: "absolute",
+  // top: "5rem",
+  // left: "15rem",
   color: "#700017",
   width: "150px",
   height: "28px",
@@ -76,9 +76,9 @@ const commentStyle = {
 };
 
 const submitStyle = {
-  position: "absolute",
-  top: "90rem",
-  left: "125rem",
+  // position: "absolute",
+  // top: "90rem",
+  // left: "125rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -91,9 +91,9 @@ const submitStyle = {
 };
 
 const cancelStyle = {
-  position: "absolute",
-  top: "90rem",
-  left: "113rem",
+  // position: "absolute",
+  // top: "90rem",
+  // left: "113rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",

@@ -6,6 +6,7 @@ import styled from "styled-components";
 import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants"
+import Grid from '@material-ui/core/Grid';
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -16,9 +17,9 @@ const Button1Active = styled("div")`
   color: white;
   text-align: center;
   border: 1px solid ;
-  position: absolute;
-  top: -5rem;
-  left: 0rem;
+  // position: absolute;
+  // top: -5rem;
+  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -26,14 +27,14 @@ const Button1Active = styled("div")`
 const Button1Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #DEDEDE;
+  background-color: #F2F2F2;
   stroke-width: 1;
   border-top-left-radius: 4px;
   color: black;
   text-align: center;
-  position: absolute;
-  top: -5rem;
-  left: 0rem;
+  // position: absolute;
+  // top: -5rem;
+  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -47,9 +48,9 @@ const Button2Active = styled("div")`
   border-top-right-radius: 4px;
   color: white;
   text-align: center;
-  position: absolute;
-  top: -5rem;
-  left: 25rem;
+  // position: absolute;
+  // top: -5rem;
+  // left: 25rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -57,14 +58,14 @@ const Button2Active = styled("div")`
 const Button2Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #DEDEDE;
+  background-color: #F2F2F2;
   stroke-width: 1;
   border-top-right-radius: 4px;
   color: black;
   text-align: center;
-  position: absolute;
-  top: -5rem;
-  left: 25rem;
+  // position: absolute;
+  // top: -5rem;
+  // left: 25rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -267,11 +268,17 @@ export default class Table extends React.Component {
   render() {
     if (this.state.active) {
       return (
+        <Grid container spacing={3} direction="row" justify="center" alignItems="center">
         <div className="Table">
+          <Grid item xs={6}>
           <h2 className="admin-title">Admin Dashboard</h2>
+          </Grid>
           <div>
+            <Grid item xs={3}>
             <Button1Active>New Requests</Button1Active>
-            <Button2Inactive onClick={this.handleClick}>Existing Entries</Button2Inactive>
+            </Grid>
+            <Grid item xs={3}><Button2Inactive onClick={this.handleClick}>Existing Entries</Button2Inactive></Grid>
+            
           </div>
           <Link to="/requestform">
             <p className="NewRequestText">new request</p>
@@ -293,6 +300,7 @@ export default class Table extends React.Component {
             paginationLabel={["<", ">"]}
           />
         </div>
+        </Grid>
       );
     } else {
       return (
@@ -322,6 +330,7 @@ export default class Table extends React.Component {
             paginationLabel={["<", ">"]}
           />
         </div>
+        
       );
     }
     

@@ -1,22 +1,14 @@
 .Table {
-  top: 20%;
-  position: absolute;
   width: 1080px;
   height: 600px;
-  left: 260px;
 }
 
 .Modal {
-  position: absolute;
-  top: -150px;
   text-align:left;
   padding-left: 50px;
 }
 
 .admin-title {
-  position: absolute;
-  top: -8rem;
-  left: 0rem;
   width: 300px;
   height: 23px;
   font-size: 18px;
@@ -28,18 +20,9 @@
   margin: auto;
   position: absolute;
   right: 50rem;
-
-}
-
-.DataTable {
-  top: 50px;
-  left: 150px;
 }
 
 .ToggleButtons {
-  position: absolute;
-  top: -15rem;
-  left: 0rem;
   height: 20px;
   width: 324px;
   border-color: #d8d8d8;
@@ -51,9 +34,6 @@
 }
 
 .PlusButton {
-  position: absolute;
-  right: 102px;
-  top: -50px;
   width: 16px;
   height: 16px;
   padding-right: 1px;
@@ -61,9 +41,6 @@
 }
 
 .NewRequestText {
-  position: absolute;
-  top: -50px;
-  right: -10px;
   width: 120px;
   height: 17px;
   font-size: 16px;
