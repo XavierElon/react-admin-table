@@ -5,8 +5,8 @@ import PlusButton from "../images/plus-button.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
-import Constants from "../helpers/constants"
-import Grid from '@material-ui/core/Grid';
+import Constants from "../helpers/constants";
+import Grid from "@material-ui/core/Grid";
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -16,7 +16,7 @@ const Button1Active = styled("div")`
   border-top-left-radius: 4px;
   color: white;
   text-align: center;
-  border: 1px solid ;
+  border: 1px solid;
   // position: absolute;
   // top: -5rem;
   // left: 0rem;
@@ -27,7 +27,7 @@ const Button1Active = styled("div")`
 const Button1Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   stroke-width: 1;
   border-top-left-radius: 4px;
   color: black;
@@ -48,9 +48,9 @@ const Button2Active = styled("div")`
   border-top-right-radius: 4px;
   color: white;
   text-align: center;
-  // position: absolute;
-  // top: -5rem;
-  // left: 25rem;
+  position: absolute;
+  top: 1.6rem;
+  left: 41rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -58,14 +58,14 @@ const Button2Active = styled("div")`
 const Button2Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #F2F2F2;
+  background-color: #D2D2D2;
   stroke-width: 1;
   border-top-right-radius: 4px;
   color: black;
   text-align: center;
-  // position: absolute;
-  // top: -5rem;
-  // left: 25rem;
+  position: absolute;
+  top: 1.6rem;
+  left: 41rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -87,10 +87,10 @@ export default class Table extends React.Component {
       data: {},
       data2: {},
       isLoading: true,
-      active: true
+      active: true,
     };
 
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
@@ -262,77 +262,91 @@ export default class Table extends React.Component {
   }
 
   handleClick() {
-    this.setState({ active: !this.state.active})
+    this.setState({ active: !this.state.active });
   }
 
   render() {
     if (this.state.active) {
       return (
-        <Grid container spacing={3} direction="row" justify="center" alignItems="center">
-        <div className="Table">
-          <Grid item xs={6}>
-          <h2 className="admin-title">Admin Dashboard</h2>
-          </Grid>
-          <div>
-            <Grid item xs={3}>
-            <Button1Active>New Requests</Button1Active>
-            </Grid>
-            <Grid item xs={3}><Button2Inactive onClick={this.handleClick}>Existing Entries</Button2Inactive></Grid>
-            
-          </div>
-          <Link to="/requestform">
-            <p className="NewRequestText">new request</p>
-            <img
-              className="PlusButton"
-              src={PlusButton}
-              alt=""
-              onClick={this.getNewEntries}
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <div className="Table">
+              <h2 className="admin-title">Admin Dashboard</h2>
+          
+            <div className="ToggleButtons">
+                <Button1Active>New Requests</Button1Active>
+              <Grid item xs={3}>
+                <Button2Inactive onClick={this.handleClick}>
+                  Existing Entries
+                </Button2Inactive>
+              </Grid>
+            </div>
+            <Link to="/requestform">
+              <p className="NewRequestText">new request</p>
+              <img
+                className="PlusButton"
+                src={PlusButton}
+                alt=""
+                onClick={this.getNewEntries}
+              />
+            </Link>
+            <MDBDataTable
+              bordered
+              sortable
+              noBottomColumns={true}
+              entriesLabel=""
+              data={this.state.data2}
+              infoLabel={["", "", "", ""]}
+              entriesOptions={[]}
+              paginationLabel={["<", ">"]}
             />
-          </Link>
-          <MDBDataTable
-            bordered
-            sortable
-            noBottomColumns={true}
-            entriesLabel=""
-            data={this.state.data2}
-            infoLabel={["", "", "", ""]}
-            entriesOptions={[]}
-            paginationLabel={["<", ">"]}
-          />
-        </div>
+          </div>
         </Grid>
       );
     } else {
       return (
-        <div className="Table">
-          <h2 className="admin-title">Admin Dashboard</h2>
-          <div>
-            <Button1Inactive onClick={this.handleClick}>New Requests</Button1Inactive>
-            <Button2Active>Existing Entries</Button2Active>
-          </div>
-          <Link to="/requestform">
-            <p className="NewRequestText">new request</p>
-            <img
-              className="PlusButton"
-              src={PlusButton}
-              alt=""
-              onClick={this.getNewEntries}
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <div className="Table">
+            <h2 className="admin-title">Admin Dashboard</h2>
+            <div>
+              <Button1Inactive onClick={this.handleClick}>
+                New Requests
+              </Button1Inactive>
+              <Button2Active>Existing Entries</Button2Active>
+            </div>
+            <Link to="/requestform">
+              <p className="NewRequestText">new request</p>
+              <img
+                className="PlusButton"
+                src={PlusButton}
+                alt=""
+                onClick={this.getNewEntries}
+              />
+            </Link>
+            <MDBDataTable
+              bordered
+              sortable
+              noBottomColumns={true}
+              entriesLabel=""
+              data={this.state.data}
+              infoLabel={["", "", "", ""]}
+              entriesOptions={[]}
+              paginationLabel={["<", ">"]}
             />
-          </Link>
-          <MDBDataTable
-            bordered
-            sortable
-            noBottomColumns={true}
-            entriesLabel=""
-            data={this.state.data}
-            infoLabel={["", "", "", ""]}
-            entriesOptions={[]}
-            paginationLabel={["<", ">"]}
-          />
-        </div>
-        
+          </div>
+        </Grid>
       );
     }
-    
   }
 }
