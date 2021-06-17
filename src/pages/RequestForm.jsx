@@ -188,7 +188,6 @@ const lineStyle = {
 
 const submitStyle = {
   position: "absolute",
-  top: "115rem",
   left: "100rem",
   width: "112px",
   height: "36px",
@@ -203,7 +202,6 @@ const submitStyle = {
 
 const cancelStyle = {
   position: "absolute",
-  top: "115.3rem",
   left: "88rem",
   width: "112px",
   height: "36px",
@@ -215,6 +213,13 @@ const cancelStyle = {
   textAlign: "center",
   cursor: "pointer",
 };
+
+const buttonsStyle = {
+  position: "absolute",
+  marginBottom: "300px",
+  paddingBottom: "30px",
+  top: "105rem"
+}
 
 const placesStyle = {
   width: "500px",
@@ -505,7 +510,8 @@ export default class RequestDetails extends React.Component {
           label="State"
           name="state"
           value="Ohio"
-          variant="standard"
+          variant="outlined"
+          margin="dense"
           InputLabelProps={{
             shrink: true,
             readOnly: true,
@@ -524,7 +530,8 @@ export default class RequestDetails extends React.Component {
           size="medium"
           label="Zip Code"
           name="zipCode"
-          variant="standard"
+          variant="outlined"
+          margin="dense"
           value={this.state.zipCode}
           InputLabelProps={{
             shrink: true,
@@ -658,13 +665,15 @@ export default class RequestDetails extends React.Component {
             </h2>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <FormControl required style={typeStyle}>
-                <InputLabel id="demo-simple-select-required-label">
+                {/* <InputLabel id="demo-simple-select-required-label">
                   Resource Type
-                </InputLabel>
+                </InputLabel> */}
                 <Select
                   labelId="demo-simple-select-required-label"
                   displayEmpty
+                  margin="dense"
                   name="type"
+                  variant="outlined"
                   onChange={this.handleInputChange}
                   value={this.state.type}
                 >
@@ -680,7 +689,8 @@ export default class RequestDetails extends React.Component {
                 size="medium"
                 label="Resource Name"
                 name="name"
-                variant="standard"
+                variant="outlined"
+                margin="dense"
                 onChange={this.handleInputChange}
                 InputLabelProps={{
                   shrink: true,
@@ -740,6 +750,8 @@ export default class RequestDetails extends React.Component {
                 label="Offer Start Date"
                 type="date"
                 name="startDate"
+                variant="outlined"
+                margin="dense"
                 onChange={this.handleInputChange}
                 InputLabelProps={{
                   shrink: true,
@@ -752,6 +764,8 @@ export default class RequestDetails extends React.Component {
                 label="Offer Expiration Date"
                 type="date"
                 name="endDate"
+                variant="outlined"
+                margin="dense"
                 onChange={this.handleInputChange}
                 InputLabelProps={{
                   shrink: true,
@@ -759,13 +773,14 @@ export default class RequestDetails extends React.Component {
               />
               <TextField
                 multiline
-                rows="6"
+                rows="4"
                 style={descriptionStyle}
                 size="medium"
                 label="Description"
                 name="description"
                 onChange={this.handleInputChange}
-                variant="standard"
+                variant="outlined"
+                margin="dense"
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -780,7 +795,8 @@ export default class RequestDetails extends React.Component {
                   label="Website"
                   name="linkToWebsite"
                   onChange={this.handleInputChange}
-                  variant="standard"
+                  variant="outlined"
+                  margin="dense"
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -790,13 +806,14 @@ export default class RequestDetails extends React.Component {
                 <h5>
                   <b>Resource Contact</b>
                 </h5>
+                <p>Name (if Applicable)</p>
                 <TextField
                   style={contactNameStyle}
                   size="medium"
-                  label="Name (if applicable)"
                   name="contactName"
                   onChange={this.handleInputChange}
-                  variant="standard"
+                  variant="outlined"
+                  margin="dense"
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -808,9 +825,9 @@ export default class RequestDetails extends React.Component {
                   {() => (
                     <TextField
                       style={phoneNumberStyle}
-                      label="Phone Number"
                       name="phoneNumber"
-                      margin="normal"
+                      margin="dense"
+                      variant="outlined"
                       type="text"
                     />
                   )}
@@ -821,13 +838,15 @@ export default class RequestDetails extends React.Component {
                   label="Email"
                   name="email"
                   onChange={this.handleInputChange}
-                  variant="standard"
+                  variant="outlined"
+                  margin="dense"
                   InputLabelProps={{
                     shrink: true,
                   }}
                 ></TextField>
               </div>
               <div style={lineStyle}></div>
+              <div style={buttonsStyle}>
               <input
                 style={submitStyle}
                 type="submit"
@@ -839,6 +858,7 @@ export default class RequestDetails extends React.Component {
                   <b>Cancel</b>
                 </div>
               </Link>
+              </div>
             </form>
           </div>
         </Grid>
