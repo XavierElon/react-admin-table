@@ -13,7 +13,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import InputLabel from "@material-ui/core/InputLabel";
 import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
@@ -28,131 +27,42 @@ const appStyle = {
   marginRight: "20rem",
 };
 
-const bodyStyle = {
-  // position: "absolute",
-  // left: "0%",
-  // marginLeft: "40rem",
-  // marginRight: "40rem",
-  // minWidth: "100%",
-  // height: "523px",
-  // marginTop: "3rem",
-  // flexGrow: "1",
-};
-
-const h2Style = {
-  // position: "absolute",
-  // left: "10%",
-  // width: "500px",
-  // height: "23px",
-  // fontFamily: "Source Sans Pro",
-  // fontSize: "18px",
-  // color: "#222222",
-  // textDecoration: "none solid rgb(34, 34, 34)",
-  // textAlign: "left",
-};
-
-const listingTextStyle = {
-  // position: "relative",
-  // textAlign: "left",
-};
-
 const typeStyle = {
-  // position: "absolute",
-  // top: "3.5rem",
-  // height: "20px",
-  // left: "10%",
-  // width: "400px",
-  // fontSize: "12",
-};
-
-const nameTextStyle = {
-  // position: "absolute",
-  // top: "3.8rem",
-  // left: "70rem",
+  height: "20px",
+  width: "400px",
+  fontSize: "12",
 };
 
 const nameStyle = {
-  // position: "absolute",
-  // top: "5rem",
-  // left: "70rem",
-  // width: "200px",
+  width: "200px",
 };
 
 const checkboxesStyle = {
-  // position: "absolute",
-  // top: "20%",
-  // left: "10%",
-  // textAlign: "left",
-};
-
-const locationStyle = {
-  // position: "absolute",
-  // top: "65%",
-  // left: "10%",
-};
-
-const locationText = {
-  // textAlign: "left",
+  textAlign: "left",
 };
 
 const physicalAddressStyle = {
-  // position: "absolute",
-  // top: "80%",
-  // left: "10%",
-  // textAlign: "left",
+  textAlign: "left",
 };
 
 const stateStyle = {
-  // width: "200px",
-  // position: "absolute",
-  // top: "2rem",
-  // left: "0rem",
+  width: "200px",
 };
 
 const zipcodeStyle = {
-  // width: "200px",
-  // position: "absolute",
-  // top: "2rem",
-  // left: "0rem",
-};
-
-const startDateTextStyle = {
-  // position: "absolute",
-  // top: "54rem",
-  // left: "10%",
+  width: "200px",
 };
 
 const startDateStyle = {
   width: "200px",
-  // position: "absolute",
-  // top: "55rem",
-  // left: "14rem",
-};
-
-const endDateTextStyle = {
-  // position: "absolute",
-  // top: "54rem",
-  // left: "37rem",
 };
 
 const endDateStyle = {
-  // width: "200px",
-  // position: "absolute",
-  // top: "55rem",
   left: "37rem",
 };
 
-const descriptionTextStyle = {
-  // position: "absolute",
-  // top: "62rem",
-  // left: "15rem",
-};
-
 const descriptionStyle = {
-  // width: "550px",
-  // position: "absolute",
-  // top: "63rem",
-  // left: "10%",
+  width: "550px",
 };
 
 const linkTextStyle = {
@@ -254,18 +164,6 @@ export default class RequestDetails extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  componentDidMount() {}
-
-  useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }));
 
   handleInputChange = (event) => {
     const target = event.target;
@@ -882,7 +780,6 @@ export default class RequestDetails extends React.Component {
               onSubmit={this.handleSubmit}
             />
           </Grid>
-          
         </Grid>
         </form>
       </div>
