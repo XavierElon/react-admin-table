@@ -58,7 +58,7 @@ const Button2Active = styled("div")`
 const Button2Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #D2D2D2;
+  background-color: #d2d2d2;
   stroke-width: 1;
   border-top-right-radius: 4px;
   color: black;
@@ -276,10 +276,10 @@ export default class Table extends React.Component {
           alignItems="center"
         >
           <div className="Table">
-              <h2 className="admin-title">Admin Dashboard</h2>
-          
+            <h2 className="admin-title">Admin Dashboard</h2>
+
             <div className="ToggleButtons">
-                <Button1Active>New Requests</Button1Active>
+              <Button1Active>New Requests</Button1Active>
               <Grid item xs={3}>
                 <Button2Inactive onClick={this.handleClick}>
                   Existing Entries

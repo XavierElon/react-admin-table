@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Radio } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -18,7 +18,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
-import Constants from "../helpers/constants"
+import Constants from "../helpers/constants";
 
 const appStyle = {
   textAlign: "center",
@@ -32,20 +32,20 @@ const appStyle = {
   display: "flex",
 };
 
-const bodyStyle = {
-  position: "absolute",
-  left: "0%",
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "100%",
-  height: "523px",
-  marginTop: "10rem",
-  flexGrow: "1",
-};
+// const bodyStyle = {
+//   position: "absolute",
+//   left: "0%",
+//   marginLeft: "auto",
+//   marginRight: "auto",
+//   minWidth: "100%",
+//   height: "523px",
+//   marginTop: "10rem",
+//   flexGrow: "1",
+// };
 
 const h2Style = {
-  position: "absolute",
-  left: "3%",
+  // position: "absolute",
+  // left: "3%",
   width: "500px",
   height: "23px",
   fontSize: "18px",
@@ -54,8 +54,8 @@ const h2Style = {
 };
 
 const typeStyle = {
-  position: "absolute",
-  top: "8%",
+  // position: "absolute",
+  // top: "8%",
   height: "20px",
   left: "10%",
   width: "300px",
@@ -63,23 +63,23 @@ const typeStyle = {
 };
 
 const nameStyle = {
-  position: "absolute",
-  top: "5%",
-  left: "72%",
+  // position: "absolute",
+  // top: "5%",
+  // left: "72%",
   width: "200px",
 };
 
 const checkboxesStyle = {
-  position: "absolute",
-  top: "20%",
-  left: "10%",
+  // position: "absolute",
+  // top: "20%",
+  // left: "10%",
   textAlign: "left",
 };
 
 const locationStyle = {
-  position: "absolute",
-  top: "65%",
-  left: "10%",
+  // position: "absolute",
+  // top: "65%",
+  // left: "10%",
 };
 
 const locationText = {
@@ -87,84 +87,84 @@ const locationText = {
 };
 
 const physicalAddressStyle = {
-  position: "absolute",
-  top: "80%",
-  left: "10%",
+  // position: "absolute",
+  // top: "80%",
+  // left: "10%",
   textAlign: "left",
 };
 
 const stateStyle = {
   width: "200px",
-  position: "absolute",
-  top: "2rem",
-  left: "0rem",
+  // position: "absolute",
+  // top: "2rem",
+  // left: "0rem",
 };
 
 const zipcodeStyle = {
   width: "200px",
-  position: "absolute",
-  top: "2rem",
-  left: "0rem",
+  // position: "absolute",
+  // top: "2rem",
+  // left: "0rem",
 };
 
 const startDateStyle = {
   width: "200px",
-  position: "absolute",
-  top: "60rem",
-  left: "10%",
+  // position: "absolute",
+  // top: "60rem",
+  // left: "10%",
 };
 
 const endDateStyle = {
   width: "200px",
-  position: "absolute",
-  top: "60rem",
-  left: "42%",
+  // position: "absolute",
+  // top: "60rem",
+  // left: "42%",
 };
 
 const descriptionStyle = {
   width: "550px",
-  position: "absolute",
-  top: "70rem",
-  left: "10%",
+  // position: "absolute",
+  // top: "70rem",
+  // left: "10%",
 };
 
 const link = {
-  position: "absolute",
-  top: "85rem",
-  left: "10%",
+  // position: "absolute",
+  // top: "85rem",
+  // left: "10%",
 };
 
 const linkStyle = {
-  position: "absolute",
-  top: "2rem",
-  left: "0rem",
+  // position: "absolute",
+  // top: "2rem",
+  // left: "0rem",
   width: "300px",
 };
 
 const resourceContactStyle = {
-  position: "absolute",
-  top: "95rem",
-  left: "10%",
+  // position: "absolute",
+  // top: "95rem",
+  // left: "10%",
 };
 
 const contactNameStyle = {
-  position: "absolute",
-  top: "5rem",
-  left: "0rem",
+  // position: "absolute",
+  // top: "5rem",
+  // left: "0rem",
   width: "200px",
 };
 
 const phoneNumberStyle = {
-  position: "absolute",
-  top: "5rem",
-  left: "35rem",
+  // position: "absolute",
+  // top: "5rem",
+  // left: "35rem",
   width: "200px",
 };
 
 const emailStyle = {
-  position: "absolute",
-  top: "5rem",
-  left: "70rem",
+  // position: "absolute",
+  // top: "5rem",
+  // left: "70rem",
   width: "200px",
 };
 
@@ -173,15 +173,15 @@ const lineStyle = {
   height: "1px",
   strokeWidth: "1",
   backgroundColor: "#d8d8d8",
-  position: "absolute",
-  top: "110rem",
-  left: "10rem",
+  // position: "absolute",
+  // top: "110rem",
+  // left: "10rem",
 };
 
 const statusStyle = {
-  position: "absolute",
-  top: "112rem",
-  left: "10rem",
+  // position: "absolute",
+  // top: "112rem",
+  // left: "10rem",
 };
 
 const statusTextStyle = {
@@ -189,9 +189,9 @@ const statusTextStyle = {
 };
 
 const submitStyle = {
-  position: "absolute",
-  top: "125rem",
-  left: "100rem",
+  // position: "absolute",
+  // top: "125rem",
+  // left: "100rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -204,9 +204,9 @@ const submitStyle = {
 };
 
 const cancelStyle = {
-  position: "absolute",
-  top: "125.3rem",
-  left: "88rem",
+  // position: "absolute",
+  // top: "125.3rem",
+  // left: "88rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -219,9 +219,9 @@ const cancelStyle = {
 };
 
 const ohidStyle = {
-  position: "absolute",
-  top: "-2rem",
-  left: "73rem",
+  // position: "absolute",
+  // top: "-2rem",
+  // left: "73rem",
   width: "200px",
 };
 
@@ -257,7 +257,7 @@ export default class RequestDetails extends React.Component {
       contactName: "",
       phoneNumber: "",
       email: "",
-      userOhid:"",
+      userOhid: "",
       status: "",
     };
 
@@ -266,31 +266,43 @@ export default class RequestDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch(
-      `${Constants.DFRT_FORM_URL}/${this.state.id}`
-    )
+    fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
       .then((res) => res.json())
       .then((result) => {
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
-          locationsThatOfferFreeWiFiPublicDevices:
-            JSON.parse(result.data.categories.locationsThatOfferFreeWiFiPublicDevices),
-          lowCostInternetServicesOrDeals:
-            JSON.parse(result.data.categories.lowCostInternetServicesOrDeals),
-          lowCostOrSubsidizedDevices:
-            JSON.parse(result.data.categories.lowCostOrSubsidizedDevices),
-          rentableLoanerDevices: JSON.parse(result.data.categories.rentableLoanerDevices),
-          rentableLoanerHotspots: JSON.parse(result.data.categories.rentableLoanerHotspots),
-          digitalLiteracyTrainings:
-            JSON.parse(result.data.categories.digitalLiteracyTrainings),
-          assistanceForDevicesOrSoftware:
-            JSON.parse(result.data.categories.assistanceForDevicesOrSoftware),
-          assistanceGettingASmallBusinessOnline:
-            JSON.parse(result.data.categories.assistanceGettingASmallBusinessOnline),
-          laptopsAndDesktops: JSON.parse(result.data.categories.laptopsAndDesktops),
+          locationsThatOfferFreeWiFiPublicDevices: JSON.parse(
+            result.data.categories.locationsThatOfferFreeWiFiPublicDevices
+          ),
+          lowCostInternetServicesOrDeals: JSON.parse(
+            result.data.categories.lowCostInternetServicesOrDeals
+          ),
+          lowCostOrSubsidizedDevices: JSON.parse(
+            result.data.categories.lowCostOrSubsidizedDevices
+          ),
+          rentableLoanerDevices: JSON.parse(
+            result.data.categories.rentableLoanerDevices
+          ),
+          rentableLoanerHotspots: JSON.parse(
+            result.data.categories.rentableLoanerHotspots
+          ),
+          digitalLiteracyTrainings: JSON.parse(
+            result.data.categories.digitalLiteracyTrainings
+          ),
+          assistanceForDevicesOrSoftware: JSON.parse(
+            result.data.categories.assistanceForDevicesOrSoftware
+          ),
+          assistanceGettingASmallBusinessOnline: JSON.parse(
+            result.data.categories.assistanceGettingASmallBusinessOnline
+          ),
+          laptopsAndDesktops: JSON.parse(
+            result.data.categories.laptopsAndDesktops
+          ),
           mobileDevices: JSON.parse(result.data.categories.mobileDevices),
-          networkingDevices: JSON.parse(result.data.categories.networkingDevices),
+          networkingDevices: JSON.parse(
+            result.data.categories.networkingDevices
+          ),
           location: result.data.location,
           address: result.data.address1.address,
           lat: result.data.address1.lat,
@@ -387,7 +399,7 @@ export default class RequestDetails extends React.Component {
       );
       console.log(response);
       console.log("status = " + this.state.status);
-  
+
       if (this.state.status === "approved") {
         this.props.history.push(`/requestapproved/${this.state.id}`);
       } else if (this.state.status === "denied") {
@@ -396,7 +408,6 @@ export default class RequestDetails extends React.Component {
         this.props.history.push("/");
       }
     }
-    
   }
 
   digitalLiteracy() {
@@ -420,9 +431,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="assistanceForDevicesOrSoftware"
-                  checked={!!
-                    this.state.assistanceForDevicesOrSoftware
-                  }
+                  checked={!!this.state.assistanceForDevicesOrSoftware}
                 />
               }
               label="Assistance for Devices or Software"
@@ -432,9 +441,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="assistanceGettingASmallBusinessOnline"
-                  checked={!!
-                    this.state.assistanceGettingASmallBusinessOnline
-                  }
+                  checked={!!this.state.assistanceGettingASmallBusinessOnline}
                 />
               }
               label="Assistance Getting a Small Business Online"
@@ -623,7 +630,7 @@ export default class RequestDetails extends React.Component {
         })
       )
       .catch((error) => console.error("Error", error));
-      geocodeByAddress(address.description)
+    geocodeByAddress(address.description)
       .then((results) =>
         this.setState({
           address1: results[0].formatted_address,
@@ -687,7 +694,7 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
-    console.log("test = " + this.state.locationsThatOfferFreeWiFiPublicDevices)
+    console.log("test = " + this.state.locationsThatOfferFreeWiFiPublicDevices);
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
@@ -704,11 +711,16 @@ export default class RequestDetails extends React.Component {
     } else if (this.state.location === "streetAddress") {
       locationRadio = this.streetAddress();
     }
-    console.log(this.state)
+    console.log(this.state);
     return (
-      <div style={appStyle}>
-        <Grid>
-          <div style={bodyStyle}>
+      <Grid
+        container
+        spacing={3}
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <div style={appStyle}>
             <h2 style={h2Style}>
               <b>Request #{this.state.id}</b>
             </h2>
@@ -948,9 +960,8 @@ export default class RequestDetails extends React.Component {
                 </div>
               </Link>
             </form>
-          </div>
-        </Grid>
-      </div>
+        </div>
+      </Grid>
     );
   }
 }

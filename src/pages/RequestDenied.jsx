@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "../Components/Table";
 import Modal  from "../Components/Modal";
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 
 const appStyle = {
   textAlign: "center",

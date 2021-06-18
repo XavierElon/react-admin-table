@@ -24,17 +24,7 @@ import PlacesAutocomplete, {
 import Constants from "../helpers/constants";
 
 const appStyle = {
-  marginLeft: "20rem",
-  marginRight: "20rem",
-  // textAlign: "center",
-  // width: "100%",
-  // height: "1200px",
-  // marginLeft: "40rem",
-  // marginRight: "40rem",
-  // minWidth: "auto",
-  // paddingBottom: "72px",
-  // flexDirection: "column",
-  // display: "flex",
+  marginLeft: "100px",
 };
 
 const bodyStyle = {
@@ -230,9 +220,9 @@ const lineStyle = {
   height: "1px",
   strokeWidth: "1",
   backgroundColor: "#d8d8d8",
-  position: "absolute",
-  top: "100rem",
-  left: "10rem",
+  // position: "absolute",
+  // top: "100rem",
+  // left: "10rem",
 };
 
 const submitStyle = {
@@ -261,6 +251,13 @@ const cancelStyle = {
   lineHeight: "32px",
   textAlign: "center",
   cursor: "pointer",
+};
+
+const buttonsStyle = {
+  // position: "absolute",
+  // marginBottom: "300px",
+  // paddingBottom: "30px",
+  // top: "105rem",
 };
 
 const placesStyle = {
@@ -720,202 +717,187 @@ export default class RequestDetails extends React.Component {
       <div style={appStyle}>
         <Grid
           container
-          spacing={1}
+          spacing={3}
           direction="row"
           justify="center"
           alignItems="center"
         >
-          <Grid item xs={12}>
+          <div style={bodyStyle}>
             <h2>
               <b>New Entry Form</b>
             </h2>
-          </Grid>
-          <Grid item xs={6}>
-            <p>Listing Type</p>
-          </Grid>
-          <Grid item xs={6}>
-            <p>Resource Name</p>
-          </Grid>
-          <Grid item xs={6}>
-            <FormControl required>
-              <Select
-                labelId="demo-simple-select-required-label"
-                displayEmpty
-                margin="dense"
-                name="type"
-                variant="outlined"
-                onChange={this.handleInputChange}
-                value={this.state.type}
-              >
-                <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
-                <MenuItem value="Digital Resource">Digital Resource</MenuItem>
-                <MenuItem value="Donated Resource">Donated Resource</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              required
-              size="medium"
-              name="name"
-              variant="outlined"
-              margin="dense"
-              onChange={this.handleInputChange}
-            ></TextField>
-          </Grid>
-          <Grid item xs={12}>
-            <h5>
-              <b>Categories</b> (select all that apply)
-            </h5>
-          </Grid>
-          <Grid item xs={12}>
-            {value}
-          </Grid>
-          <Grid item xs={12}>
-            <h5 className="LocationText">
-              <b>Location</b>
-            </h5>
-          </Grid>
-          <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <RadioGroup
-                row
-                aria-label="location"
-                name="location"
-                onChange={this.handleInputChange}
-              >
-                <FormControlLabel
-                  value="noPhysicalAddress"
-                  control={<Radio color="primary" />}
-                  label="No physical address"
-                />
-                <FormControlLabel
-                  value="allOfOhio"
-                  control={<Radio color="primary" />}
-                  label="All of Ohio"
-                />
-                <FormControlLabel
-                  value="zipCode"
-                  control={<Radio color="primary" />}
-                  label="Zip Code"
-                />
-                <FormControlLabel
-                  value="streetAddress"
-                  control={<Radio color="primary" />}
-                  label="Street Address"
-                />
-              </RadioGroup>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12}>
-            <h5>
-              <b>Physical Address</b> (if applicable)
-            </h5>
-          </Grid>
-          <Grid item xs={12}>
-            {locationRadio}
-          </Grid>
-          <Grid item xs={6}>
-            <p>Offer Start Date</p>
-          </Grid>
-          <Grid item xs={6}>
-            <p>Offer Expiration Date</p>
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              required
-              id="date"
-              type="date"
-              name="startDate"
-              variant="outlined"
-              margin="dense"
-              onChange={this.handleInputChange}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              required
-              id="date"
-              type="date"
-              name="endDate"
-              variant="outlined"
-              margin="dense"
-              onChange={this.handleInputChange}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <p>Brief Description</p>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              multiline
-              rows="4"
-              size="medium"
-              name="description"
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={12}>
-            <p>Link to Website</p>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              size="medium"
-              name="linkToWebsite"
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={6}>
-            <p>Name (if Applicable)</p>
-          </Grid>
-          <Grid item xs={3}>
-            <p>Phone Number</p>
-          </Grid>
-          <Grid item xs={3}>
-            <p>Email</p>
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              size="medium"
-              name="contactName"
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={3}>
-            <InputMask mask="(999) 999-9999" onChange={this.handleInputChange}>
-              {() => (
-                <TextField
-                  name="phoneNumber"
+            <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+              <FormControl required style={typeStyle}>
+                <p style={listingTextStyle}>Listing Type</p>
+                <Select
+                  labelId="demo-simple-select-required-label"
+                  displayEmpty
                   margin="dense"
+                  name="type"
                   variant="outlined"
-                  type="text"
+                  onChange={this.handleInputChange}
+                  value={this.state.type}
+                >
+                  <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
+                  <MenuItem value="Digital Resource">Digital Resource</MenuItem>
+                  <MenuItem value="Donated Resource">Donated Resource</MenuItem>
+                </Select>
+              </FormControl>
+              <p style={nameTextStyle}>Resource Name</p>
+              <TextField
+                style={nameStyle}
+                required
+                size="medium"
+                name="name"
+                variant="outlined"
+                margin="dense"
+                onChange={this.handleInputChange}
+              ></TextField>
+              <div style={checkboxesStyle}>
+                <h5>
+                  <b>Categories</b> (select all that apply)
+                </h5>
+                {value}
+              </div>
+              <div style={locationStyle}>
+                <h5 style={locationText}>
+                  <b>Location</b>
+                </h5>
+                <FormControl component="fieldset">
+                  {/* <FormLabel component="legend">Gender</FormLabel> */}
+                  <RadioGroup
+                    row
+                    aria-label="location"
+                    name="location"
+                    onChange={this.handleInputChange}
+                  >
+                    <FormControlLabel
+                      value="noPhysicalAddress"
+                      control={<Radio color="primary" />}
+                      label="No physical address"
+                    />
+                    <FormControlLabel
+                      value="allOfOhio"
+                      control={<Radio color="primary" />}
+                      label="All of Ohio"
+                    />
+                    <FormControlLabel
+                      value="zipCode"
+                      control={<Radio color="primary" />}
+                      label="Zip Code"
+                    />
+                    <FormControlLabel
+                      value="streetAddress"
+                      control={<Radio color="primary" />}
+                      label="Street Address"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </div>
+              <div style={physicalAddressStyle}>
+                <h5>
+                  <b>Physical Address</b> (if applicable)
+                </h5>
+                {locationRadio}
+              </div>
+              <p style={startDateTextStyle}>Offer Start Date</p>
+              <TextField
+                required
+                style={startDateStyle}
+                id="date"
+                type="date"
+                name="startDate"
+                variant="outlined"
+                margin="dense"
+                onChange={this.handleInputChange}
+              />
+              <p style={endDateTextStyle}>Offer Expiration Date</p>
+              <TextField
+                required
+                style={endDateStyle}
+                id="date"
+                type="date"
+                name="endDate"
+                variant="outlined"
+                margin="dense"
+                onChange={this.handleInputChange}
+              />
+              <p style={descriptionTextStyle}>Brief Description</p>
+              <TextField
+                multiline
+                rows="4"
+                style={descriptionStyle}
+                size="medium"
+                name="description"
+                onChange={this.handleInputChange}
+                variant="outlined"
+                margin="dense"
+              ></TextField>
+              <div style={linkDiv}>
+                <p style={linkTextStyle}>Link to Website</p>
+                <TextField
+                  style={linkStyle}
+                  size="medium"
+                  name="linkToWebsite"
+                  onChange={this.handleInputChange}
+                  variant="outlined"
+                  margin="dense"
+                ></TextField>
+              </div>
+              <div style={resourceContactStyle}>
+                <h5>
+                  <b>Resource Contact</b>
+                </h5>
+                <p>Name (if Applicable)</p>
+                <TextField
+                  style={contactNameStyle}
+                  size="medium"
+                  name="contactName"
+                  onChange={this.handleInputChange}
+                  variant="outlined"
+                  margin="dense"
+                ></TextField>
+                <p style={phoneTextStyle}>Phone Number</p>
+                <InputMask
+                  mask="(999) 999-9999"
+                  onChange={this.handleInputChange}
+                >
+                  {() => (
+                    <TextField
+                      style={phoneNumberStyle}
+                      name="phoneNumber"
+                      margin="dense"
+                      variant="outlined"
+                      type="text"
+                    />
+                  )}
+                </InputMask>
+                <p style={emailTextStyle}>Email</p>
+                <TextField
+                  style={emailStyle}
+                  size="medium"
+                  name="email"
+                  onChange={this.handleInputChange}
+                  variant="outlined"
+                  margin="dense"
+                ></TextField>
+              </div>
+              <div style={lineStyle}></div>
+              <div style={buttonsStyle}>
+                <input
+                  style={submitStyle}
+                  type="submit"
+                  value="Save"
+                  onSubmit={this.handleSubmit}
                 />
-              )}
-            </InputMask>
-          </Grid>
-          <Grid item xs={3}>
-            <TextField
-              size="medium"
-              name="email"
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={12}>
-            <div style={lineStyle}></div>
-          </Grid>
-          <form
-            noValidate
-            autoComplete="off"
-            onSubmit={this.handleSubmit}
-          ></form>
+                <Link to="/">
+                  <div style={cancelStyle}>
+                    <b>Cancel</b>
+                  </div>
+                </Link>
+              </div>
+            </form>
+          </div>
         </Grid>
       </div>
     );
