@@ -26,15 +26,6 @@ import Constants from "../helpers/constants";
 const appStyle = {
   marginLeft: "20rem",
   marginRight: "20rem",
-  // textAlign: "center",
-  // width: "100%",
-  // height: "1200px",
-  // marginLeft: "40rem",
-  // marginRight: "40rem",
-  // minWidth: "auto",
-  // paddingBottom: "72px",
-  // flexDirection: "column",
-  // display: "flex",
 };
 
 const bodyStyle = {
@@ -164,64 +155,27 @@ const descriptionStyle = {
   // left: "10%",
 };
 
-const linkDiv = {
-  // position: "absolute",
-  // top: "75rem",
-  // left: "10%",
-};
-
 const linkTextStyle = {
-  // position: "absolute",
-  // top: "1rem",
-  // left: "-1rem",
   width: "100px",
 };
 
 const linkStyle = {
-  // position: "absolute",
-  // top: "2rem",
-  // left: "0rem",
   width: "300px",
 };
 
-const resourceContactStyle = {
-  // position: "absolute",
-  // top: "85rem",
-  // left: "10%",
-};
-
 const contactNameStyle = {
-  // position: "absolute",
-  // top: "3rem",
-  // left: "0rem",
   width: "400px",
 };
 
 const phoneTextStyle = {
-  // position: "absolute",
-  // top: "1.8rem",
-  // left: "44rem",
   width: "100px",
 };
 
 const phoneNumberStyle = {
-  // position: "absolute",
-  // top: "3rem",
-  // left: "45rem",
   width: "200px",
-  color: "black",
-};
-
-const emailTextStyle = {
-  // position: "absolute",
-  // top: "1.8rem",
-  // left: "70rem",
 };
 
 const emailStyle = {
-  // position: "absolute",
-  // top: "3rem",
-  // left: "70rem",
   width: "200px",
 };
 
@@ -230,14 +184,9 @@ const lineStyle = {
   height: "1px",
   strokeWidth: "1",
   backgroundColor: "#d8d8d8",
-  position: "absolute",
-  top: "100rem",
-  left: "10rem",
 };
 
 const submitStyle = {
-  // position: "absolute",
-  // left: "100rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -718,6 +667,11 @@ export default class RequestDetails extends React.Component {
 
     return (
       <div style={appStyle}>
+        <form
+            noValidate
+            autoComplete="off"
+            onSubmit={this.handleSubmit}
+          >
         <Grid
           container
           spacing={1}
@@ -725,6 +679,7 @@ export default class RequestDetails extends React.Component {
           justify="center"
           alignItems="center"
         >
+          
           <Grid item xs={12}>
             <h2>
               <b>New Entry Form</b>
@@ -736,6 +691,7 @@ export default class RequestDetails extends React.Component {
           <Grid item xs={6}>
             <p>Resource Name</p>
           </Grid>
+
           <Grid item xs={6}>
             <FormControl required>
               <Select
@@ -911,12 +867,24 @@ export default class RequestDetails extends React.Component {
           <Grid item xs={12}>
             <div style={lineStyle}></div>
           </Grid>
-          <form
-            noValidate
-            autoComplete="off"
-            onSubmit={this.handleSubmit}
-          ></form>
+          <Grid item xs={6}>
+            <Link to="/">
+              <div style={cancelStyle}>
+                <b>Cancel</b>
+              </div>
+            </Link>
+          </Grid>
+          <Grid item xs={6}>
+            <input
+              style={submitStyle}
+              type="submit"
+              value="Save"
+              onSubmit={this.handleSubmit}
+            />
+          </Grid>
+          
         </Grid>
+        </form>
       </div>
     );
   }
