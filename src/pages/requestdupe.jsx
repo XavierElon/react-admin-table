@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Radio } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
@@ -13,8 +12,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import InputLabel from "@material-ui/core/InputLabel";
-import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
 import PlacesAutocomplete, {
@@ -24,64 +21,59 @@ import PlacesAutocomplete, {
 import Constants from "../helpers/constants";
 
 const appStyle = {
-  marginLeft: "100px",
+  textAlign: "center",
+  width: "100%",
+  height: "1080px",
+  marginLeft: "auto",
+  marginRight: "auto",
+  minWidth: "auto",
+  paddingBottom: "72px",
+  flexDirection: "column",
+  display: "flex",
 };
 
-const bodyStyle = {
-  // position: "absolute",
-  // left: "0%",
-  // marginLeft: "40rem",
-  // marginRight: "40rem",
-  // minWidth: "100%",
-  // height: "523px",
-  // marginTop: "3rem",
-  // flexGrow: "1",
-};
+// const bodyStyle = {
+//   position: "absolute",
+//   left: "0%",
+//   marginLeft: "auto",
+//   marginRight: "auto",
+//   minWidth: "100%",
+//   height: "523px",
+//   marginTop: "10rem",
+//   flexGrow: "1",
+// };
 
 const h2Style = {
   // position: "absolute",
-  // left: "10%",
-  // width: "500px",
-  // height: "23px",
-  // fontFamily: "Source Sans Pro",
-  // fontSize: "18px",
-  // color: "#222222",
-  // textDecoration: "none solid rgb(34, 34, 34)",
-  // textAlign: "left",
-};
-
-const listingTextStyle = {
-  // position: "relative",
-  // textAlign: "left",
+  // left: "3%",
+  width: "500px",
+  height: "23px",
+  fontSize: "18px",
+  color: "#222222",
+  textTransform: "uppercase",
 };
 
 const typeStyle = {
   // position: "absolute",
-  // top: "3.5rem",
-  // height: "20px",
-  // left: "10%",
-  // width: "400px",
-  // fontSize: "12",
-};
-
-const nameTextStyle = {
-  // position: "absolute",
-  // top: "3.8rem",
-  // left: "70rem",
+  // top: "8%",
+  height: "20px",
+  left: "10%",
+  width: "300px",
+  fontSize: "12",
 };
 
 const nameStyle = {
   // position: "absolute",
-  // top: "5rem",
-  // left: "70rem",
-  // width: "200px",
+  // top: "5%",
+  // left: "72%",
+  width: "200px",
 };
 
 const checkboxesStyle = {
   // position: "absolute",
   // top: "20%",
   // left: "10%",
-  // textAlign: "left",
+  textAlign: "left",
 };
 
 const locationStyle = {
@@ -91,80 +83,55 @@ const locationStyle = {
 };
 
 const locationText = {
-  // textAlign: "left",
+  textAlign: "left",
 };
 
 const physicalAddressStyle = {
   // position: "absolute",
   // top: "80%",
   // left: "10%",
-  // textAlign: "left",
+  textAlign: "left",
 };
 
 const stateStyle = {
-  // width: "200px",
+  width: "200px",
   // position: "absolute",
   // top: "2rem",
   // left: "0rem",
 };
 
 const zipcodeStyle = {
-  // width: "200px",
+  width: "200px",
   // position: "absolute",
   // top: "2rem",
   // left: "0rem",
 };
 
-const startDateTextStyle = {
-  // position: "absolute",
-  // top: "54rem",
-  // left: "10%",
-};
-
 const startDateStyle = {
   width: "200px",
   // position: "absolute",
-  // top: "55rem",
-  // left: "14rem",
-};
-
-const endDateTextStyle = {
-  // position: "absolute",
-  // top: "54rem",
-  // left: "37rem",
+  // top: "60rem",
+  // left: "10%",
 };
 
 const endDateStyle = {
-  // width: "200px",
+  width: "200px",
   // position: "absolute",
-  // top: "55rem",
-  left: "37rem",
-};
-
-const descriptionTextStyle = {
-  // position: "absolute",
-  // top: "62rem",
-  // left: "15rem",
+  // top: "60rem",
+  // left: "42%",
 };
 
 const descriptionStyle = {
-  // width: "550px",
+  width: "550px",
   // position: "absolute",
-  // top: "63rem",
+  // top: "70rem",
   // left: "10%",
 };
 
-const linkDiv = {
+const link = {
   // position: "absolute",
-  // top: "75rem",
+  // top: "85rem",
   // left: "10%",
-};
-
-const linkTextStyle = {
-  // position: "absolute",
-  // top: "1rem",
-  // left: "-1rem",
-  width: "100px",
 };
 
 const linkStyle = {
@@ -176,41 +143,27 @@ const linkStyle = {
 
 const resourceContactStyle = {
   // position: "absolute",
-  // top: "85rem",
+  // top: "95rem",
   // left: "10%",
 };
 
 const contactNameStyle = {
   // position: "absolute",
-  // top: "3rem",
+  // top: "5rem",
   // left: "0rem",
-  width: "400px",
-};
-
-const phoneTextStyle = {
-  // position: "absolute",
-  // top: "1.8rem",
-  // left: "44rem",
-  width: "100px",
+  width: "200px",
 };
 
 const phoneNumberStyle = {
   // position: "absolute",
-  // top: "3rem",
-  // left: "45rem",
+  // top: "5rem",
+  // left: "35rem",
   width: "200px",
-  color: "black",
-};
-
-const emailTextStyle = {
-  // position: "absolute",
-  // top: "1.8rem",
-  // left: "70rem",
 };
 
 const emailStyle = {
   // position: "absolute",
-  // top: "3rem",
+  // top: "5rem",
   // left: "70rem",
   width: "200px",
 };
@@ -221,12 +174,23 @@ const lineStyle = {
   strokeWidth: "1",
   backgroundColor: "#d8d8d8",
   // position: "absolute",
-  // top: "100rem",
+  // top: "110rem",
   // left: "10rem",
+};
+
+const statusStyle = {
+  // position: "absolute",
+  // top: "112rem",
+  // left: "10rem",
+};
+
+const statusTextStyle = {
+  textAlign: "left",
 };
 
 const submitStyle = {
   // position: "absolute",
+  // top: "125rem",
   // left: "100rem",
   width: "112px",
   height: "36px",
@@ -241,6 +205,7 @@ const submitStyle = {
 
 const cancelStyle = {
   // position: "absolute",
+  // top: "125.3rem",
   // left: "88rem",
   width: "112px",
   height: "36px",
@@ -253,26 +218,20 @@ const cancelStyle = {
   cursor: "pointer",
 };
 
-const buttonsStyle = {
+const ohidStyle = {
   // position: "absolute",
-  // marginBottom: "300px",
-  // paddingBottom: "30px",
-  // top: "105rem",
-};
-
-const placesStyle = {
-  width: "500px",
-  minWidth: "500px",
+  // top: "-2rem",
+  // left: "73rem",
+  width: "200px",
 };
 
 export default class RequestDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.match.params.id,
       type: "",
       name: "",
-      startDate: "",
-      endDate: "",
       locationsThatOfferFreeWiFiPublicDevices: false,
       lowCostInternetServicesOrDeals: false,
       lowCostOrSubsidizedDevices: false,
@@ -285,35 +244,90 @@ export default class RequestDetails extends React.Component {
       mobileDevices: false,
       networkingDevices: false,
       location: "",
-      userOhid: "",
-      email: "",
-      phoneNumber: "",
       address: "",
       lat: "",
       lon: "",
+      city: "",
       state: "",
       zipCode: "",
+      startDate: "",
+      endDate: "",
       description: "",
       linkToWebsite: "",
       contactName: "",
-      status: "pending",
+      phoneNumber: "",
+      email: "",
+      userOhid: "",
+      status: "",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {}
-
-  useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }));
+  componentDidMount() {
+    fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({
+          type: result.data.resourceType,
+          name: result.data.resourceName,
+          locationsThatOfferFreeWiFiPublicDevices: JSON.parse(
+            result.data.categories.locationsThatOfferFreeWiFiPublicDevices
+          ),
+          lowCostInternetServicesOrDeals: JSON.parse(
+            result.data.categories.lowCostInternetServicesOrDeals
+          ),
+          lowCostOrSubsidizedDevices: JSON.parse(
+            result.data.categories.lowCostOrSubsidizedDevices
+          ),
+          rentableLoanerDevices: JSON.parse(
+            result.data.categories.rentableLoanerDevices
+          ),
+          rentableLoanerHotspots: JSON.parse(
+            result.data.categories.rentableLoanerHotspots
+          ),
+          digitalLiteracyTrainings: JSON.parse(
+            result.data.categories.digitalLiteracyTrainings
+          ),
+          assistanceForDevicesOrSoftware: JSON.parse(
+            result.data.categories.assistanceForDevicesOrSoftware
+          ),
+          assistanceGettingASmallBusinessOnline: JSON.parse(
+            result.data.categories.assistanceGettingASmallBusinessOnline
+          ),
+          laptopsAndDesktops: JSON.parse(
+            result.data.categories.laptopsAndDesktops
+          ),
+          mobileDevices: JSON.parse(result.data.categories.mobileDevices),
+          networkingDevices: JSON.parse(
+            result.data.categories.networkingDevices
+          ),
+          location: result.data.location,
+          address: result.data.address1.address,
+          lat: result.data.address1.lat,
+          lon: result.data.address1.lon,
+          state: result.data.state,
+          zipCode: result.data.zipCode,
+          startDate: result.data.offerStartDate.substr(
+            0,
+            result.data.offerStartDate.length - 14
+          ),
+          endDate: result.data.offerExpirationDate.substr(
+            0,
+            result.data.offerExpirationDate.length - 14
+          ),
+          description: result.data.briefDescription,
+          linkToWebsite: result.data.linkToWebsite,
+          contactName: result.data.contactName,
+          phoneNumber: result.data.phoneNumber,
+          email: result.data.email,
+          status: result.data.status,
+          deniedComment: result.data.deniedComment,
+          userOhid: result.data.userOhid,
+        });
+      });
+  }
 
   handleInputChange = (event) => {
     const target = event.target;
@@ -323,13 +337,6 @@ export default class RequestDetails extends React.Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state);
-  };
-
-  handleAddressChange = (event) => {
-    console.log(event);
-    const target = event.target;
-    console.log(target);
   };
 
   sleep(ms) {
@@ -338,18 +345,23 @@ export default class RequestDetails extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    let update;
-    console.log("email = " + this.state.email);
-    console.log("phone number = " + this.state.phoneNumber);
-    console.log("both null");
-    update = {
+    if (this.state.status === "deleted") {
+      const response = await axios.delete(
+        `${Constants.DFRT_FORM_URL}/${this.state.id}`
+      );
+      console.log(response);
+      await this.sleep(1000);
+      this.props.history.push("/");
+    }
+
+    const update = {
       data: {
         resourceType: `${this.state.type}`,
         resourceName: `${this.state.name}`,
         offerStartDate: `${this.state.startDate}`,
         offerExpirationDate: `${this.state.endDate}`,
         address1: {
-          address: `${this.state.address}`,
+          address: `${this.state.address1}`,
           lat: `${this.state.lat}`,
           lon: `${this.state.lon}`,
         },
@@ -359,10 +371,11 @@ export default class RequestDetails extends React.Component {
         briefDescription: `${this.state.description}`,
         linkToWebsite: `${this.state.linkToWebsite}`,
         contactName: `${this.state.contactName}`,
+        phoneNumber: `${this.state.phoneNumber}`,
+        email: `${this.state.email}`,
         status: `${this.state.status}`,
         userOhid: `${this.state.userOhid}`,
-        email: `${this.state.email}`,
-        phoneNumber: `${this.state.phoneNumber}`,
+        deniedComment: `${this.state.deniedComment}`,
         categories: {
           locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
           lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
@@ -378,12 +391,23 @@ export default class RequestDetails extends React.Component {
         },
       },
     };
+    if (this.state.status !== "deleted") {
+      console.log(update);
+      const response = await axios.put(
+        `${Constants.DFRT_FORM_URL}/${this.state.id}`,
+        update
+      );
+      console.log(response);
+      console.log("status = " + this.state.status);
 
-    console.log(update);
-    const response = axios.post(`${Constants.DFRT_FORM_URL}`, update);
-    console.log(response);
-    await this.sleep(1000);
-    this.props.history.push("/");
+      if (this.state.status === "approved") {
+        this.props.history.push(`/requestapproved/${this.state.id}`);
+      } else if (this.state.status === "denied") {
+        this.props.history.push(`/denydetails/${this.state.id}`);
+      } else {
+        this.props.history.push("/");
+      }
+    }
   }
 
   digitalLiteracy() {
@@ -397,9 +421,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="digitalLiteracyTrainings"
-                  checked={this.state.digitalLiteracyTrainings}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.digitalLiteracyTrainings}
                 />
               }
               label="Digital Literacy Trainings"
@@ -409,9 +431,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="assistanceForDevicesOrSoftware"
-                  checked={this.state.assistanceForDevicesOrSoftware}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.assistanceForDevicesOrSoftware}
                 />
               }
               label="Assistance for Devices or Software"
@@ -421,9 +441,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="assistanceGettingASmallBusinessOnline"
-                  checked={this.state.assistanceGettingASmallBusinessOnline}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.assistanceGettingASmallBusinessOnline}
                 />
               }
               label="Assistance Getting a Small Business Online"
@@ -447,8 +465,6 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="lowCostInternetServicesOrDeals"
                   checked={this.state.lowCostInternetServicesOrDeals}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Low-Cost Internet Services Or Deals"
@@ -458,9 +474,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="lowCostOrSubsidizedDevices"
-                  checked={this.state.lowCostOrSubsidizedDevices}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.lowCostOrSubsidizedDevices}
                 />
               }
               label="Low-Cost Or Subsidized Devices"
@@ -470,9 +484,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="locationsThatOfferFreeWiFiPublicDevices"
-                  checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.locationsThatOfferFreeWiFiPublicDevices}
                 />
               }
               label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -482,9 +494,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerHotspots"
-                  checked={this.state.rentableLoanerHotspots}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.rentableLoanerHotspots}
                 />
               }
               label="Rentable/Loaner Hotspots"
@@ -494,9 +504,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerDevices"
-                  checked={this.state.rentableLoanerDevices}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.rentableLoanerDevices}
                 />
               }
               label="Rentable/Loaner Devices"
@@ -518,10 +526,8 @@ export default class RequestDetails extends React.Component {
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
-                  checked={this.state.laptopsAndDesktops}
                   name="laptopsAndDesktops"
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.laptopsAndDesktops}
                 />
               }
               label="Laptops and Desktops"
@@ -531,9 +537,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="mobileDevices"
-                  checked={this.state.mobileDevices}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.mobileDevices}
                 />
               }
               label="Mobile Devices"
@@ -543,9 +547,7 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="networkingDevices"
-                  checked={this.state.networkingDevices}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
+                  checked={!!this.state.networkingDevices}
                 />
               }
               label="Networking Devices"
@@ -567,8 +569,7 @@ export default class RequestDetails extends React.Component {
           label="State"
           name="state"
           value="Ohio"
-          variant="outlined"
-          margin="dense"
+          variant="standard"
           InputLabelProps={{
             shrink: true,
             readOnly: true,
@@ -587,8 +588,7 @@ export default class RequestDetails extends React.Component {
           size="medium"
           label="Zip Code"
           name="zipCode"
-          variant="outlined"
-          margin="dense"
+          variant="standard"
           value={this.state.zipCode}
           InputLabelProps={{
             shrink: true,
@@ -624,6 +624,7 @@ export default class RequestDetails extends React.Component {
       .then((results) => getLatLng(results[0]))
       .then((latLng) =>
         this.setState({
+          address1: address.description,
           lat: latLng.lat,
           lon: latLng.lng,
         })
@@ -643,9 +644,7 @@ export default class RequestDetails extends React.Component {
     return (
       <div>
         <PlacesAutocomplete
-          style={placesStyle}
           value={this.state.address1}
-          name="address1"
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -658,8 +657,8 @@ export default class RequestDetails extends React.Component {
             <div>
               <input
                 {...getInputProps({
-                  placeholder: "Search Places...",
-                  // className: "location-search-input",
+                  placeholder: "Search Places ...",
+                  className: "location-search-input",
                 })}
               />
               <div className="autocomplete-dropdown-container">
@@ -695,6 +694,7 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
+    console.log("test = " + this.state.locationsThatOfferFreeWiFiPublicDevices);
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
@@ -712,46 +712,46 @@ export default class RequestDetails extends React.Component {
       locationRadio = this.streetAddress();
     }
     console.log(this.state);
-
     return (
-      <div style={appStyle}>
-        <Grid
-          container
-          spacing={3}
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <div style={bodyStyle}>
-            <h2>
-              <b>New Entry Form</b>
+      <Grid
+        container
+        spacing={3}
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <div style={appStyle}>
+            <h2 style={h2Style}>
+              <b>Request #{this.state.id}</b>
             </h2>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-              <FormControl required style={typeStyle}>
-                <p style={listingTextStyle}>Listing Type</p>
+              <FormControl style={typeStyle}>
                 <Select
-                  labelId="demo-simple-select-required-label"
+                  required
+                  value={this.state.type ? this.state.type : " "}
                   displayEmpty
-                  margin="dense"
                   name="type"
-                  variant="outlined"
                   onChange={this.handleInputChange}
-                  value={this.state.type}
+                  // inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
                   <MenuItem value="Donated Resource">Donated Resource</MenuItem>
                 </Select>
+                <FormHelperText>Resource Type</FormHelperText>
               </FormControl>
-              <p style={nameTextStyle}>Resource Name</p>
               <TextField
                 style={nameStyle}
                 required
                 size="medium"
+                label="Resource Name"
+                value={this.state.name}
                 name="name"
-                variant="outlined"
-                margin="dense"
+                variant="standard"
                 onChange={this.handleInputChange}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               ></TextField>
               <div style={checkboxesStyle}>
                 <h5>
@@ -769,26 +769,27 @@ export default class RequestDetails extends React.Component {
                     row
                     aria-label="location"
                     name="location"
+                    value={this.state.location}
                     onChange={this.handleInputChange}
                   >
                     <FormControlLabel
                       value="noPhysicalAddress"
-                      control={<Radio color="primary" />}
+                      control={<Radio />}
                       label="No physical address"
                     />
                     <FormControlLabel
                       value="allOfOhio"
-                      control={<Radio color="primary" />}
+                      control={<Radio />}
                       label="All of Ohio"
                     />
                     <FormControlLabel
                       value="zipCode"
-                      control={<Radio color="primary" />}
+                      control={<Radio />}
                       label="Zip Code"
                     />
                     <FormControlLabel
                       value="streetAddress"
-                      control={<Radio color="primary" />}
+                      control={<Radio />}
                       label="Street Address"
                     />
                   </RadioGroup>
@@ -800,106 +801,167 @@ export default class RequestDetails extends React.Component {
                 </h5>
                 {locationRadio}
               </div>
-              <p style={startDateTextStyle}>Offer Start Date</p>
               <TextField
                 required
                 style={startDateStyle}
                 id="date"
+                label="Offer Start Date"
                 type="date"
+                value={this.state.startDate}
                 name="startDate"
-                variant="outlined"
-                margin="dense"
                 onChange={this.handleInputChange}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
-              <p style={endDateTextStyle}>Offer Expiration Date</p>
               <TextField
                 required
                 style={endDateStyle}
                 id="date"
+                label="Offer Expiration Date"
                 type="date"
+                value={this.state.endDate}
                 name="endDate"
-                variant="outlined"
-                margin="dense"
                 onChange={this.handleInputChange}
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
-              <p style={descriptionTextStyle}>Brief Description</p>
               <TextField
                 multiline
-                rows="4"
+                rows="6"
                 style={descriptionStyle}
                 size="medium"
+                label="Description"
+                value={this.state.description}
                 name="description"
                 onChange={this.handleInputChange}
-                variant="outlined"
-                margin="dense"
+                variant="standard"
+                InputLabelProps={{
+                  shrink: true,
+                }}
               ></TextField>
-              <div style={linkDiv}>
-                <p style={linkTextStyle}>Link to Website</p>
+              <div style={link}>
+                <h5>
+                  <b>Link to Website</b>
+                </h5>
                 <TextField
                   style={linkStyle}
                   size="medium"
+                  label="Website"
                   name="linkToWebsite"
+                  value={this.state.linkToWebsite}
                   onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
+                  variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
               </div>
               <div style={resourceContactStyle}>
                 <h5>
                   <b>Resource Contact</b>
                 </h5>
-                <p>Name (if Applicable)</p>
                 <TextField
                   style={contactNameStyle}
                   size="medium"
+                  label="Name (if applicable)"
+                  value={this.state.contactName}
                   name="contactName"
                   onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
+                  variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
-                <p style={phoneTextStyle}>Phone Number</p>
-                <InputMask
-                  mask="(999) 999-9999"
+                <TextField
+                  style={phoneNumberStyle}
+                  size="medium"
+                  label="Phone Number"
+                  value={this.state.phoneNumber}
+                  name="phoneNumber"
                   onChange={this.handleInputChange}
-                >
-                  {() => (
-                    <TextField
-                      style={phoneNumberStyle}
-                      name="phoneNumber"
-                      margin="dense"
-                      variant="outlined"
-                      type="text"
-                    />
-                  )}
-                </InputMask>
-                <p style={emailTextStyle}>Email</p>
+                  variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                ></TextField>
                 <TextField
                   style={emailStyle}
                   size="medium"
+                  label="Email"
                   name="email"
+                  value={this.state.email}
                   onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
+                  variant="standard"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 ></TextField>
               </div>
               <div style={lineStyle}></div>
-              <div style={buttonsStyle}>
-                <input
-                  style={submitStyle}
-                  type="submit"
-                  value="Save"
-                  onSubmit={this.handleSubmit}
-                />
-                <Link to="/">
-                  <div style={cancelStyle}>
-                    <b>Cancel</b>
-                  </div>
-                </Link>
+              <div style={statusStyle}>
+                <h5 style={statusTextStyle}>
+                  <b>Status</b>
+                </h5>
+                <FormControl component="fieldset">
+                  {/* <FormLabel component="legend">Gender</FormLabel> */}
+                  <RadioGroup
+                    row
+                    aria-label="location"
+                    value={this.state.status}
+                    name="status"
+                    onChange={this.handleInputChange}
+                  >
+                    <FormControlLabel
+                      value="approved"
+                      control={<Radio />}
+                      label="Approve"
+                    />
+                    <FormControlLabel
+                      value="denied"
+                      control={<Radio />}
+                      label="Deny"
+                    />
+                    <FormControlLabel
+                      value="disabled"
+                      control={<Radio />}
+                      label="Disable"
+                    />
+                    <FormControlLabel
+                      value="deleted"
+                      control={<Radio />}
+                      label="Delete"
+                    />
+                  </RadioGroup>
+                  <TextField
+                    style={ohidStyle}
+                    size="medium"
+                    label="OHID"
+                    name="userOhid"
+                    value={this.state.userOhid}
+                    onChange={this.handleInputChange}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    variant="standard"
+                  ></TextField>
+                </FormControl>
               </div>
+              <input
+                style={submitStyle}
+                type="submit"
+                value="Save"
+                onSubmit={this.handleSubmit}
+              />
+              <Link to="/">
+                <div style={cancelStyle}>
+                  <b>Cancel</b>
+                </div>
+              </Link>
             </form>
-          </div>
-        </Grid>
-      </div>
+        </div>
+      </Grid>
     );
   }
 }

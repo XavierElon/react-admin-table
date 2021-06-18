@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Radio } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
@@ -22,78 +21,59 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import Constants from "../helpers/constants";
 
-const appStyle = {
-  marginLeft: "20rem",
-  marginRight: "20rem",
-};
-
 const typeStyle = {
-  height: "20px",
-  width: "400px",
-  fontSize: "12",
+  width: "400px"
 };
 
 const nameStyle = {
-  width: "200px",
-};
-
-const checkboxesStyle = {
-  textAlign: "left",
-};
-
-const physicalAddressStyle = {
-  textAlign: "left",
+  width: "400px"
 };
 
 const stateStyle = {
-  width: "200px",
+  width: "200px"
 };
 
 const zipcodeStyle = {
-  width: "200px",
+  width: "200px"
 };
 
+const placesStyle = {
+  width: "400px"
+}
+
 const startDateStyle = {
-  width: "200px",
+  width: "200px"
 };
 
 const endDateStyle = {
-  left: "37rem",
+  width: "200px"
 };
 
 const descriptionStyle = {
-  width: "550px",
+  width: "400px"
 };
 
-const linkTextStyle = {
-  width: "100px",
-};
-
-const linkStyle = {
-  width: "300px",
+const websiteStyle = {
+  width: "400px"
 };
 
 const contactNameStyle = {
-  width: "400px",
+  width: "400px"
 };
 
-const phoneTextStyle = {
-  width: "100px",
-};
-
-const phoneNumberStyle = {
-  width: "200px",
+const phoneStyle = {
+  width: "200px"
 };
 
 const emailStyle = {
-  width: "200px",
+  width: "200px"
 };
 
 const lineStyle = {
   width: "1080px",
   height: "1px",
   strokeWidth: "1",
-  backgroundColor: "#d8d8d8",
+  backgroundColor: "#d8d8d8"
 };
 
 const submitStyle = {
@@ -105,12 +85,10 @@ const submitStyle = {
   fontSize: "14px",
   lineHeight: "32px",
   textAlign: "center",
-  border: "0px",
+  border: "0px"
 };
 
 const cancelStyle = {
-  // position: "absolute",
-  // left: "88rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -119,12 +97,7 @@ const cancelStyle = {
   fontSize: "14px",
   lineHeight: "32px",
   textAlign: "center",
-  cursor: "pointer",
-};
-
-const placesStyle = {
-  width: "500px",
-  minWidth: "500px",
+  cursor: "pointer"
 };
 
 export default class RequestDetails extends React.Component {
@@ -189,9 +162,6 @@ export default class RequestDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     let update;
-    console.log("email = " + this.state.email);
-    console.log("phone number = " + this.state.phoneNumber);
-    console.log("both null");
     update = {
       data: {
         resourceType: `${this.state.type}`,
@@ -238,7 +208,7 @@ export default class RequestDetails extends React.Component {
 
   digitalLiteracy() {
     return (
-      <div>
+      <div className="owt-content-digital-literacy">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -287,7 +257,7 @@ export default class RequestDetails extends React.Component {
 
   digitalResources() {
     return (
-      <div>
+      <div className="owt-content-digital-resources">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -360,7 +330,7 @@ export default class RequestDetails extends React.Component {
 
   donatedResources() {
     return (
-      <div>
+      <div className="owt-content-donated-resources">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -409,7 +379,7 @@ export default class RequestDetails extends React.Component {
 
   allOfOhio() {
     return (
-      <div>
+      <div className="owt-content-state">
         <TextField
           style={stateStyle}
           onChange={this.handleInputChange}
@@ -430,7 +400,7 @@ export default class RequestDetails extends React.Component {
 
   zipCode() {
     return (
-      <div>
+      <div className="owt-content-zip-code">
         <TextField
           style={zipcodeStyle}
           onChange={this.handleInputChange}
@@ -491,9 +461,8 @@ export default class RequestDetails extends React.Component {
 
   streetAddress() {
     return (
-      <div>
+      <div class="owt-content-google-places">
         <PlacesAutocomplete
-          style={placesStyle}
           value={this.state.address1}
           name="address1"
           onChange={this.handleChange}
@@ -507,6 +476,7 @@ export default class RequestDetails extends React.Component {
           }) => (
             <div>
               <input
+              style={placesStyle}
                 {...getInputProps({
                   placeholder: "Search Places...",
                   // className: "location-search-input",
@@ -564,7 +534,7 @@ export default class RequestDetails extends React.Component {
     console.log(this.state);
 
     return (
-      <div style={appStyle}>
+      <div className="owt-content-main-body">
         <form
             noValidate
             autoComplete="off"
@@ -572,27 +542,28 @@ export default class RequestDetails extends React.Component {
           >
         <Grid
           container
-          spacing={1}
+          spacing={0.5}
           direction="row"
           justify="center"
           alignItems="center"
         >
           
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-new-entry-form-title">
             <h2>
               <b>New Entry Form</b>
             </h2>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-listing-type-text">
             <p>Listing Type</p>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-resource-name-text">
             <p>Resource Name</p>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-resource-type">
             <FormControl required>
               <Select
+                style={typeStyle}
                 labelId="demo-simple-select-required-label"
                 displayEmpty
                 margin="dense"
@@ -607,8 +578,9 @@ export default class RequestDetails extends React.Component {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-resource-name">
             <TextField
+              style={nameStyle}
               required
               size="medium"
               name="name"
@@ -617,20 +589,20 @@ export default class RequestDetails extends React.Component {
               onChange={this.handleInputChange}
             ></TextField>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-categories-text">
             <h5>
               <b>Categories</b> (select all that apply)
             </h5>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-categories">
             {value}
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-location-text">
             <h5 className="LocationText">
               <b>Location</b>
             </h5>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-location-radios">
             <FormControl component="fieldset">
               <RadioGroup
                 row
@@ -661,23 +633,24 @@ export default class RequestDetails extends React.Component {
               </RadioGroup>
             </FormControl>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-physical-address-text">
             <h5>
               <b>Physical Address</b> (if applicable)
             </h5>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-location">
             {locationRadio}
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-start-date-text">
             <p>Offer Start Date</p>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-end-date-text">
             <p>Offer Expiration Date</p>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-start-date">
             <TextField
               required
+              style={startDateStyle}
               id="date"
               type="date"
               name="startDate"
@@ -686,9 +659,10 @@ export default class RequestDetails extends React.Component {
               onChange={this.handleInputChange}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-end-date">
             <TextField
               required
+              style={endDateStyle}
               id="date"
               type="date"
               name="endDate"
@@ -697,12 +671,13 @@ export default class RequestDetails extends React.Component {
               onChange={this.handleInputChange}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-description-text">
             <p>Brief Description</p>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-description">
             <TextField
               multiline
+              style={descriptionStyle}
               rows="4"
               size="medium"
               name="description"
@@ -711,41 +686,44 @@ export default class RequestDetails extends React.Component {
               margin="dense"
             ></TextField>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-link-to-website-text">
             <p>Link to Website</p>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-link-to-website">
             <TextField
               size="medium"
               name="linkToWebsite"
+              style={websiteStyle}
               onChange={this.handleInputChange}
               variant="outlined"
               margin="dense"
             ></TextField>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-name-text">
             <p>Name (if Applicable)</p>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} className="owt-content-phone-text">
             <p>Phone Number</p>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} className="owt-content-email-text">
             <p>Email</p>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-name">
             <TextField
               size="medium"
               name="contactName"
+              style={contactNameStyle}
               onChange={this.handleInputChange}
               variant="outlined"
               margin="dense"
             ></TextField>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} className="owt-content-phone">
             <InputMask mask="(999) 999-9999" onChange={this.handleInputChange}>
               {() => (
                 <TextField
                   name="phoneNumber"
+                  style={phoneStyle}
                   margin="dense"
                   variant="outlined"
                   type="text"
@@ -753,26 +731,27 @@ export default class RequestDetails extends React.Component {
               )}
             </InputMask>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} className="owt-content-email">
             <TextField
               size="medium"
+              style={emailStyle}
               name="email"
               onChange={this.handleInputChange}
               variant="outlined"
               margin="dense"
             ></TextField>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="owt-content-line-div">
             <div style={lineStyle}></div>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-cancel-button">
             <Link to="/">
               <div style={cancelStyle}>
                 <b>Cancel</b>
               </div>
             </Link>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} className="owt-content-submit-button">
             <input
               style={submitStyle}
               type="submit"

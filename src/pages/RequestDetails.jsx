@@ -12,6 +12,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import RadioGroup from "@material-ui/core/RadioGroup";
+import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
 import PlacesAutocomplete, {
@@ -20,151 +21,51 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import Constants from "../helpers/constants";
 
-const appStyle = {
-  textAlign: "center",
-  width: "100%",
-  height: "1080px",
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "auto",
-  paddingBottom: "72px",
-  flexDirection: "column",
-  display: "flex",
-};
-
-// const bodyStyle = {
-//   position: "absolute",
-//   left: "0%",
-//   marginLeft: "auto",
-//   marginRight: "auto",
-//   minWidth: "100%",
-//   height: "523px",
-//   marginTop: "10rem",
-//   flexGrow: "1",
-// };
-
-const h2Style = {
-  // position: "absolute",
-  // left: "3%",
-  width: "500px",
-  height: "23px",
-  fontSize: "18px",
-  color: "#222222",
-  textTransform: "uppercase",
-};
-
 const typeStyle = {
-  // position: "absolute",
-  // top: "8%",
-  height: "20px",
-  left: "10%",
-  width: "300px",
-  fontSize: "12",
+  width: "400px",
 };
 
 const nameStyle = {
-  // position: "absolute",
-  // top: "5%",
-  // left: "72%",
-  width: "200px",
-};
-
-const checkboxesStyle = {
-  // position: "absolute",
-  // top: "20%",
-  // left: "10%",
-  textAlign: "left",
-};
-
-const locationStyle = {
-  // position: "absolute",
-  // top: "65%",
-  // left: "10%",
-};
-
-const locationText = {
-  textAlign: "left",
-};
-
-const physicalAddressStyle = {
-  // position: "absolute",
-  // top: "80%",
-  // left: "10%",
-  textAlign: "left",
+  width: "400px",
 };
 
 const stateStyle = {
   width: "200px",
-  // position: "absolute",
-  // top: "2rem",
-  // left: "0rem",
 };
 
 const zipcodeStyle = {
   width: "200px",
-  // position: "absolute",
-  // top: "2rem",
-  // left: "0rem",
+};
+
+const placesStyle = {
+  width: "400px",
 };
 
 const startDateStyle = {
   width: "200px",
-  // position: "absolute",
-  // top: "60rem",
-  // left: "10%",
 };
 
 const endDateStyle = {
   width: "200px",
-  // position: "absolute",
-  // top: "60rem",
-  // left: "42%",
 };
 
 const descriptionStyle = {
-  width: "550px",
-  // position: "absolute",
-  // top: "70rem",
-  // left: "10%",
+  width: "400px",
 };
 
-const link = {
-  // position: "absolute",
-  // top: "85rem",
-  // left: "10%",
-};
-
-const linkStyle = {
-  // position: "absolute",
-  // top: "2rem",
-  // left: "0rem",
-  width: "300px",
-};
-
-const resourceContactStyle = {
-  // position: "absolute",
-  // top: "95rem",
-  // left: "10%",
+const websiteStyle = {
+  width: "400px",
 };
 
 const contactNameStyle = {
-  // position: "absolute",
-  // top: "5rem",
-  // left: "0rem",
-  width: "200px",
+  width: "400px",
 };
 
-const phoneNumberStyle = {
-  // position: "absolute",
-  // top: "5rem",
-  // left: "35rem",
+const phoneStyle = {
   width: "200px",
 };
 
 const emailStyle = {
-  // position: "absolute",
-  // top: "5rem",
-  // left: "70rem",
   width: "200px",
 };
 
@@ -173,25 +74,13 @@ const lineStyle = {
   height: "1px",
   strokeWidth: "1",
   backgroundColor: "#d8d8d8",
-  // position: "absolute",
-  // top: "110rem",
-  // left: "10rem",
 };
 
-const statusStyle = {
-  // position: "absolute",
-  // top: "112rem",
-  // left: "10rem",
-};
-
-const statusTextStyle = {
-  textAlign: "left",
+const ohidStyle = {
+  width: "200px",
 };
 
 const submitStyle = {
-  // position: "absolute",
-  // top: "125rem",
-  // left: "100rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -204,9 +93,6 @@ const submitStyle = {
 };
 
 const cancelStyle = {
-  // position: "absolute",
-  // top: "125.3rem",
-  // left: "88rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -218,13 +104,6 @@ const cancelStyle = {
   cursor: "pointer",
 };
 
-const ohidStyle = {
-  // position: "absolute",
-  // top: "-2rem",
-  // left: "73rem",
-  width: "200px",
-};
-
 export default class RequestDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -232,6 +111,8 @@ export default class RequestDetails extends React.Component {
       id: this.props.match.params.id,
       type: "",
       name: "",
+      startDate: "",
+      endDate: "",
       locationsThatOfferFreeWiFiPublicDevices: false,
       lowCostInternetServicesOrDeals: false,
       lowCostOrSubsidizedDevices: false,
@@ -244,21 +125,18 @@ export default class RequestDetails extends React.Component {
       mobileDevices: false,
       networkingDevices: false,
       location: "",
+      userOhid: "",
+      email: "",
+      phoneNumber: "",
       address: "",
       lat: "",
       lon: "",
-      city: "",
       state: "",
       zipCode: "",
-      startDate: "",
-      endDate: "",
       description: "",
       linkToWebsite: "",
       contactName: "",
-      phoneNumber: "",
-      email: "",
-      userOhid: "",
-      status: "",
+      status: "pending",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -269,6 +147,7 @@ export default class RequestDetails extends React.Component {
     fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         this.setState({
           type: result.data.resourceType,
           name: result.data.resourceName,
@@ -337,6 +216,13 @@ export default class RequestDetails extends React.Component {
     this.setState({
       [name]: value,
     });
+    console.log(this.state);
+  };
+
+  handleAddressChange = (event) => {
+    console.log(event);
+    const target = event.target;
+    console.log(target);
   };
 
   sleep(ms) {
@@ -412,7 +298,7 @@ export default class RequestDetails extends React.Component {
 
   digitalLiteracy() {
     return (
-      <div>
+      <div className="owt-content-digital-literacy">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -421,7 +307,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="digitalLiteracyTrainings"
-                  checked={!!this.state.digitalLiteracyTrainings}
+                  checked={this.state.digitalLiteracyTrainings}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Digital Literacy Trainings"
@@ -431,7 +319,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="assistanceForDevicesOrSoftware"
-                  checked={!!this.state.assistanceForDevicesOrSoftware}
+                  checked={this.state.assistanceForDevicesOrSoftware}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Assistance for Devices or Software"
@@ -441,7 +331,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="assistanceGettingASmallBusinessOnline"
-                  checked={!!this.state.assistanceGettingASmallBusinessOnline}
+                  checked={this.state.assistanceGettingASmallBusinessOnline}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Assistance Getting a Small Business Online"
@@ -455,7 +347,7 @@ export default class RequestDetails extends React.Component {
 
   digitalResources() {
     return (
-      <div>
+      <div className="owt-content-digital-resources">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -465,6 +357,8 @@ export default class RequestDetails extends React.Component {
                   onChange={this.handleInputChange}
                   name="lowCostInternetServicesOrDeals"
                   checked={this.state.lowCostInternetServicesOrDeals}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Low-Cost Internet Services Or Deals"
@@ -474,7 +368,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="lowCostOrSubsidizedDevices"
-                  checked={!!this.state.lowCostOrSubsidizedDevices}
+                  checked={this.state.lowCostOrSubsidizedDevices}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Low-Cost Or Subsidized Devices"
@@ -484,7 +380,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="locationsThatOfferFreeWiFiPublicDevices"
-                  checked={!!this.state.locationsThatOfferFreeWiFiPublicDevices}
+                  checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -494,7 +392,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerHotspots"
-                  checked={!!this.state.rentableLoanerHotspots}
+                  checked={this.state.rentableLoanerHotspots}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Rentable/Loaner Hotspots"
@@ -504,7 +404,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="rentableLoanerDevices"
-                  checked={!!this.state.rentableLoanerDevices}
+                  checked={this.state.rentableLoanerDevices}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Rentable/Loaner Devices"
@@ -518,7 +420,7 @@ export default class RequestDetails extends React.Component {
 
   donatedResources() {
     return (
-      <div>
+      <div className="owt-content-donated-resources">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -526,8 +428,10 @@ export default class RequestDetails extends React.Component {
               control={
                 <Checkbox
                   onChange={this.handleInputChange}
+                  checked={this.state.laptopsAndDesktops}
                   name="laptopsAndDesktops"
-                  checked={!!this.state.laptopsAndDesktops}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Laptops and Desktops"
@@ -537,7 +441,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="mobileDevices"
-                  checked={!!this.state.mobileDevices}
+                  checked={this.state.mobileDevices}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Mobile Devices"
@@ -547,7 +453,9 @@ export default class RequestDetails extends React.Component {
                 <Checkbox
                   onChange={this.handleInputChange}
                   name="networkingDevices"
-                  checked={!!this.state.networkingDevices}
+                  checked={this.state.networkingDevices}
+                  color="primary"
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Networking Devices"
@@ -561,7 +469,7 @@ export default class RequestDetails extends React.Component {
 
   allOfOhio() {
     return (
-      <div>
+      <div className="owt-content-state">
         <TextField
           style={stateStyle}
           onChange={this.handleInputChange}
@@ -569,7 +477,8 @@ export default class RequestDetails extends React.Component {
           label="State"
           name="state"
           value="Ohio"
-          variant="standard"
+          variant="outlined"
+          margin="dense"
           InputLabelProps={{
             shrink: true,
             readOnly: true,
@@ -581,14 +490,15 @@ export default class RequestDetails extends React.Component {
 
   zipCode() {
     return (
-      <div>
+      <div className="owt-content-zip-code">
         <TextField
           style={zipcodeStyle}
           onChange={this.handleInputChange}
           size="medium"
           label="Zip Code"
           name="zipCode"
-          variant="standard"
+          variant="outlined"
+          margin="dense"
           value={this.state.zipCode}
           InputLabelProps={{
             shrink: true,
@@ -624,7 +534,6 @@ export default class RequestDetails extends React.Component {
       .then((results) => getLatLng(results[0]))
       .then((latLng) =>
         this.setState({
-          address1: address.description,
           lat: latLng.lat,
           lon: latLng.lng,
         })
@@ -642,9 +551,10 @@ export default class RequestDetails extends React.Component {
 
   streetAddress() {
     return (
-      <div>
+      <div class="owt-content-google-places">
         <PlacesAutocomplete
-          value={this.state.address1}
+          value={this.state.address}
+          name="address1"
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -656,9 +566,10 @@ export default class RequestDetails extends React.Component {
           }) => (
             <div>
               <input
+                style={placesStyle}
                 {...getInputProps({
-                  placeholder: "Search Places ...",
-                  className: "location-search-input",
+                  placeholder: "Search Places...",
+                  // className: "location-search-input",
                 })}
               />
               <div className="autocomplete-dropdown-container">
@@ -694,7 +605,6 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
-    console.log("test = " + this.state.locationsThatOfferFreeWiFiPublicDevices);
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
@@ -711,257 +621,291 @@ export default class RequestDetails extends React.Component {
     } else if (this.state.location === "streetAddress") {
       locationRadio = this.streetAddress();
     }
-    console.log(this.state);
+    console.log("type = " + this.state.type);
+
     return (
-      <Grid
-        container
-        spacing={3}
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
-        <div style={appStyle}>
-            <h2 style={h2Style}>
-              <b>Request #{this.state.id}</b>
-            </h2>
-            <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-              <FormControl style={typeStyle}>
+      <div className="owt-content-main-body">
+        <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+          <Grid
+            container
+            spacing={1}
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item xs={12} className="owt-content-new-entry-form-title">
+              <h2>
+                <b>Request #{this.state.id}</b>
+              </h2>
+            </Grid>
+            <Grid item xs={6} className="owt-content-listing-type-text">
+              <p>Listing Type</p>
+            </Grid>
+            <Grid item xs={6} className="owt-content-resource-name-text">
+              <p>Resource Name</p>
+            </Grid>
+
+            <Grid item xs={6} className="owt-content-resource-type">
+              <FormControl required>
                 <Select
-                  required
-                  value={this.state.type ? this.state.type : " "}
+                  style={typeStyle}
+                  labelId="demo-simple-select-required-label"
                   displayEmpty
+                  margin="dense"
                   name="type"
+                  variant="outlined"
                   onChange={this.handleInputChange}
-                  // inputProps={{ "aria-label": "Without label" }}
+                  value={this.state.type ? this.state.type : ""}
                 >
                   <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
                   <MenuItem value="Digital Resource">Digital Resource</MenuItem>
                   <MenuItem value="Donated Resource">Donated Resource</MenuItem>
                 </Select>
-                <FormHelperText>Resource Type</FormHelperText>
               </FormControl>
+            </Grid>
+            <Grid item xs={6} className="owt-content-resource-name">
               <TextField
                 style={nameStyle}
                 required
                 size="medium"
-                label="Resource Name"
-                value={this.state.name}
                 name="name"
-                variant="standard"
+                variant="outlined"
+                margin="dense"
                 onChange={this.handleInputChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
               ></TextField>
-              <div style={checkboxesStyle}>
-                <h5>
-                  <b>Categories</b> (select all that apply)
-                </h5>
-                {value}
-              </div>
-              <div style={locationStyle}>
-                <h5 style={locationText}>
-                  <b>Location</b>
-                </h5>
-                <FormControl component="fieldset">
-                  {/* <FormLabel component="legend">Gender</FormLabel> */}
-                  <RadioGroup
-                    row
-                    aria-label="location"
-                    name="location"
-                    value={this.state.location}
-                    onChange={this.handleInputChange}
-                  >
-                    <FormControlLabel
-                      value="noPhysicalAddress"
-                      control={<Radio />}
-                      label="No physical address"
-                    />
-                    <FormControlLabel
-                      value="allOfOhio"
-                      control={<Radio />}
-                      label="All of Ohio"
-                    />
-                    <FormControlLabel
-                      value="zipCode"
-                      control={<Radio />}
-                      label="Zip Code"
-                    />
-                    <FormControlLabel
-                      value="streetAddress"
-                      control={<Radio />}
-                      label="Street Address"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </div>
-              <div style={physicalAddressStyle}>
-                <h5>
-                  <b>Physical Address</b> (if applicable)
-                </h5>
-                {locationRadio}
-              </div>
+            </Grid>
+            <Grid item xs={12} className="owt-content-categories-text">
+              <h5>
+                <b>Categories</b> (select all that apply)
+              </h5>
+            </Grid>
+            <Grid item xs={12} className="owt-content-categories">
+              {value}
+            </Grid>
+            <Grid item xs={12} className="owt-content-location-text">
+              <h5 className="LocationText">
+                <b>Location</b>
+              </h5>
+            </Grid>
+            <Grid item xs={12} className="owt-content-location-radios">
+              <FormControl component="fieldset">
+                <RadioGroup
+                  row
+                  aria-label="location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.handleInputChange}
+                >
+                  <FormControlLabel
+                    value="noPhysicalAddress"
+                    control={<Radio color="primary" />}
+                    label="No physical address"
+                  />
+                  <FormControlLabel
+                    value="allOfOhio"
+                    control={<Radio color="primary" />}
+                    label="All of Ohio"
+                  />
+                  <FormControlLabel
+                    value="zipCode"
+                    control={<Radio color="primary" />}
+                    label="Zip Code"
+                  />
+                  <FormControlLabel
+                    value="streetAddress"
+                    control={<Radio color="primary" />}
+                    label="Street Address"
+                  />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} className="owt-content-physical-address-text">
+              <h5>
+                <b>Physical Address</b> (if applicable)
+              </h5>
+            </Grid>
+            <Grid item xs={12} className="owt-content-location">
+              {locationRadio}
+            </Grid>
+            <Grid item xs={6} className="owt-content-start-date-text">
+              <p>Offer Start Date</p>
+            </Grid>
+            <Grid item xs={6} className="owt-content-end-date-text">
+              <p>Offer Expiration Date</p>
+            </Grid>
+            <Grid item xs={6} className="owt-content-start-date">
               <TextField
                 required
                 style={startDateStyle}
-                id="date"
-                label="Offer Start Date"
-                type="date"
                 value={this.state.startDate}
+                id="date"
+                type="date"
                 name="startDate"
+                variant="outlined"
+                margin="dense"
                 onChange={this.handleInputChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
               />
+            </Grid>
+            <Grid item xs={6} className="owt-content-end-date">
               <TextField
                 required
                 style={endDateStyle}
-                id="date"
-                label="Offer Expiration Date"
-                type="date"
                 value={this.state.endDate}
+                id="date"
+                type="date"
                 name="endDate"
+                variant="outlined"
+                margin="dense"
                 onChange={this.handleInputChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
               />
+            </Grid>
+            <Grid item xs={12} className="owt-content-description-text">
+              <p>Brief Description</p>
+            </Grid>
+            <Grid item xs={12} className="owt-content-description">
               <TextField
                 multiline
-                rows="6"
                 style={descriptionStyle}
-                size="medium"
-                label="Description"
                 value={this.state.description}
+                rows="4"
+                size="medium"
                 name="description"
                 onChange={this.handleInputChange}
-                variant="standard"
-                InputLabelProps={{
-                  shrink: true,
-                }}
+                variant="outlined"
+                margin="dense"
               ></TextField>
-              <div style={link}>
-                <h5>
-                  <b>Link to Website</b>
-                </h5>
-                <TextField
-                  style={linkStyle}
-                  size="medium"
-                  label="Website"
-                  name="linkToWebsite"
-                  value={this.state.linkToWebsite}
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-              </div>
-              <div style={resourceContactStyle}>
-                <h5>
-                  <b>Resource Contact</b>
-                </h5>
-                <TextField
-                  style={contactNameStyle}
-                  size="medium"
-                  label="Name (if applicable)"
-                  value={this.state.contactName}
-                  name="contactName"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-                <TextField
-                  style={phoneNumberStyle}
-                  size="medium"
-                  label="Phone Number"
-                  value={this.state.phoneNumber}
-                  name="phoneNumber"
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-                <TextField
-                  style={emailStyle}
-                  size="medium"
-                  label="Email"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                  variant="standard"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                ></TextField>
-              </div>
-              <div style={lineStyle}></div>
-              <div style={statusStyle}>
-                <h5 style={statusTextStyle}>
-                  <b>Status</b>
-                </h5>
-                <FormControl component="fieldset">
-                  {/* <FormLabel component="legend">Gender</FormLabel> */}
-                  <RadioGroup
-                    row
-                    aria-label="location"
-                    value={this.state.status}
-                    name="status"
-                    onChange={this.handleInputChange}
-                  >
-                    <FormControlLabel
-                      value="approved"
-                      control={<Radio />}
-                      label="Approve"
-                    />
-                    <FormControlLabel
-                      value="denied"
-                      control={<Radio />}
-                      label="Deny"
-                    />
-                    <FormControlLabel
-                      value="disabled"
-                      control={<Radio />}
-                      label="Disable"
-                    />
-                    <FormControlLabel
-                      value="deleted"
-                      control={<Radio />}
-                      label="Delete"
-                    />
-                  </RadioGroup>
+            </Grid>
+            <Grid item xs={12} className="owt-content-link-to-website-text">
+              <p>Link to Website</p>
+            </Grid>
+            <Grid item xs={12} className="owt-content-link-to-website">
+              <TextField
+                size="medium"
+                name="linkToWebsite"
+                value={this.state.linkToWebsite}
+                style={websiteStyle}
+                onChange={this.handleInputChange}
+                variant="outlined"
+                margin="dense"
+              ></TextField>
+            </Grid>
+            <Grid item xs={6} className="owt-content-name-text">
+              <p>Name (if Applicable)</p>
+            </Grid>
+            <Grid item xs={3} className="owt-content-phone-text">
+              <p>Phone Number</p>
+            </Grid>
+            <Grid item xs={3} className="owt-content-email-text">
+              <p>Email</p>
+            </Grid>
+            <Grid item xs={6} className="owt-content-name">
+              <TextField
+                size="medium"
+                name="contactName"
+                value={this.state.contactName}
+                style={contactNameStyle}
+                onChange={this.handleInputChange}
+                variant="outlined"
+                margin="dense"
+              ></TextField>
+            </Grid>
+            <Grid item xs={3} className="owt-content-phone">
+              <InputMask
+                mask="(999) 999-9999"
+                onChange={this.handleInputChange}
+              >
+                {() => (
                   <TextField
-                    style={ohidStyle}
-                    size="medium"
-                    label="OHID"
-                    name="userOhid"
-                    value={this.state.userOhid}
-                    onChange={this.handleInputChange}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    variant="standard"
-                  ></TextField>
-                </FormControl>
-              </div>
+                    name="phoneNumber"
+                    style={phoneStyle}
+                    margin="dense"
+                    variant="outlined"
+                    value={this.state.phone}
+                    type="text"
+                  />
+                )}
+              </InputMask>
+            </Grid>
+            <Grid item xs={3} className="owt-content-email">
+              <TextField
+                size="medium"
+                style={emailStyle}
+                value={this.state.email}
+                name="email"
+                onChange={this.handleInputChange}
+                variant="outlined"
+                margin="dense"
+              ></TextField>
+            </Grid>
+            <Grid item xs={12} className="owt-content-line-div">
+              <div style={lineStyle}></div>
+            </Grid>
+            <Grid item xs={6} className="owt-content-status-text">
+              <p>Status</p>
+            </Grid>
+            <Grid item xs={6} className="owt-content-ohid-text">
+              <p>OHID</p>
+            </Grid>
+            <Grid item xs={9} className="owt-content-status">
+              <FormControl component="fieldset">
+                <RadioGroup
+                  row
+                  aria-label="location"
+                  value={this.state.status}
+                  name="status"
+                  onChange={this.handleInputChange}
+                >
+                  <FormControlLabel
+                    value="approved"
+                    control={<Radio />}
+                    label="Approve"
+                  />
+                  <FormControlLabel
+                    value="denied"
+                    control={<Radio />}
+                    label="Deny"
+                  />
+                  <FormControlLabel
+                    value="disabled"
+                    control={<Radio />}
+                    label="Disable"
+                  />
+                  <FormControlLabel
+                    value="deleted"
+                    control={<Radio />}
+                    label="Delete"
+                  />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid item xs={3} className="owt-content-ohid">
+              <TextField
+                style={ohidStyle}
+                size="medium"
+                name="userOhid"
+                value={this.state.userOhid}
+                onChange={this.handleInputChange}
+                variant="standard"
+              ></TextField>
+            </Grid>
+            <Grid item xs={6} className="owt-content-cancel-button">
+              <Link to="/">
+                <div style={cancelStyle}>
+                  <b>Cancel</b>
+                </div>
+              </Link>
+            </Grid>
+            <Grid item xs={6} className="owt-content-submit-button">
               <input
                 style={submitStyle}
                 type="submit"
                 value="Save"
                 onSubmit={this.handleSubmit}
               />
-              <Link to="/">
-                <div style={cancelStyle}>
-                  <b>Cancel</b>
-                </div>
-              </Link>
-            </form>
-        </div>
-      </Grid>
+            </Grid>
+          </Grid>
+        </form>
+      </div>
     );
   }
 }
