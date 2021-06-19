@@ -270,7 +270,7 @@ export default class Table extends React.Component {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-              <h2 className="owt-contentadmin-title">Admin Dashboard</h2>
+              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
               <img
                 className="PlusButton"
                 src={PlusButton}
