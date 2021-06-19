@@ -73,6 +73,7 @@ const Button2Inactive = styled("div")`
 
 const badgeStyle = {
   paddingTop: ".6rem",
+  textAlign: "center !important"
 };
 
 // function getRow(id) {
@@ -341,7 +342,6 @@ export default class Table extends React.Component {
                     onClick={this.getNewEntries}
                   />
                 </span>
-
                 <div className="owt-content-request-text">
                   <p id="new-request-text">new request</p>
                 </div>
