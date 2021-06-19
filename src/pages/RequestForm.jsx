@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Radio } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
@@ -13,7 +12,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import InputLabel from "@material-ui/core/InputLabel";
 import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
@@ -21,222 +19,64 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
-import Constants from "../helpers/constants"
-
-
-const appStyle = {
-  textAlign: "center",
-  width: "100%",
-  height: "1200px",
-  marginLeft: "40rem",
-  marginRight: "40rem",
-  minWidth: "auto",
-  paddingBottom: "72px",
-  flexDirection: "column",
-  display: "flex",
-};
-
-const bodyStyle = {
-  position: "absolute",
-  left: "0%",
-  marginLeft: "40rem",
-  marginRight: "40rem",
-  minWidth: "100%",
-  height: "523px",
-  marginTop: "3rem",
-  flexGrow: "1",
-};
-
-const h2Style = {
-  position: "absolute",
-  left: "10%",
-  width: "500px",
-  height: "23px",
-  fontFamily: "Source Sans Pro",
-  fontSize: "18px",
-  color: "#222222",
-  textDecoration: "none solid rgb(34, 34, 34)",
-  textAlign: "left",
-};
-
-const listingTextStyle = {
-  position: "relative",
-  textAlign: "left"
-}
+import Constants from "../helpers/constants";
 
 const typeStyle = {
-  position: "absolute",
-  top: "3.5rem",
-  height: "20px",
-  left: "10%",
-  width: "400px",
-  fontSize: "12",
+  width: "400px"
 };
-
-const nameTextStyle = {
-  position: "absolute",
-  top: "3.8rem",
-  left: "70rem"
-}
 
 const nameStyle = {
-  position: "absolute",
-  top: "5rem",
-  left: "70rem",
-  width: "200px",
-};
-
-const checkboxesStyle = {
-  position: "absolute",
-  top: "20%",
-  left: "10%",
-  textAlign: "left",
-};
-
-const locationStyle = {
-  position: "absolute",
-  top: "65%",
-  left: "10%",
-};
-
-const locationText = {
-  textAlign: "left",
-};
-
-const physicalAddressStyle = {
-  position: "absolute",
-  top: "80%",
-  left: "10%",
-  textAlign: "left",
+  width: "400px"
 };
 
 const stateStyle = {
-  width: "200px",
-  position: "absolute",
-  top: "2rem",
-  left: "0rem",
+  width: "200px"
 };
 
 const zipcodeStyle = {
-  width: "200px",
-  position: "absolute",
-  top: "2rem",
-  left: "0rem",
+  width: "200px"
 };
 
-const startDateTextStyle = {
-  position: "absolute",
-  top: "54rem",
-  left: "10%",
+const placesStyle = {
+  width: "400px"
 }
 
 const startDateStyle = {
-  width: "200px",
-  position: "absolute",
-  top: "55rem",
-  left: "14rem",
+  width: "200px"
 };
-
-const endDateTextStyle = {
-  position: "absolute",
-  top: "54rem",
-  left: "37rem",
-}
 
 const endDateStyle = {
-  width: "200px",
-  position: "absolute",
-  top: "55rem",
-  left: "37rem",
+  width: "200px"
 };
-
-const descriptionTextStyle = {
-  position: "absolute",
-  top: "62rem",
-  left: "15rem"
-}
 
 const descriptionStyle = {
-  width: "550px",
-  position: "absolute",
-  top: "63rem",
-  left: "10%",
+  width: "400px"
 };
 
-const linkDiv = {
-  position: "absolute",
-  top: "75rem",
-  left: "10%",
-};
-
-const linkTextStyle = {
-  position: "absolute",
-  top: "1rem",
-  left: "-1rem",
-  width: "100px"
-};
-
-const linkStyle = {
-  position: "absolute",
-  top: "2rem",
-  left: "0rem",
-  width: "300px",
-};
-
-const resourceContactStyle = {
-  position: "absolute",
-  top: "85rem",
-  left: "10%",
+const websiteStyle = {
+  width: "400px"
 };
 
 const contactNameStyle = {
-  position: "absolute",
-  top: "3rem",
-  left: "0rem",
-  width: "400px",
+  width: "400px"
 };
 
-const phoneTextStyle = {
-  position: "absolute",
-  top: "1.8rem",
-  left: "44rem",
-  width: "100px"
-}
-
-const phoneNumberStyle = {
-  position: "absolute",
-  top: "3rem",
-  left: "45rem",
-  width: "200px",
-  color: "black",
+const phoneStyle = {
+  width: "200px"
 };
-
-const emailTextStyle = {
-  position: "absolute",
-  top: "1.8rem",
-  left: "70rem"
-}
 
 const emailStyle = {
-  position: "absolute",
-  top: "3rem",
-  left: "70rem",
-  width: "200px",
+  width: "200px"
 };
 
 const lineStyle = {
   width: "1080px",
   height: "1px",
   strokeWidth: "1",
-  backgroundColor: "#d8d8d8",
-  position: "absolute",
-  top: "100rem",
-  left: "10rem",
+  backgroundColor: "#d8d8d8"
 };
 
 const submitStyle = {
-  position: "absolute",
-  left: "100rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -245,12 +85,10 @@ const submitStyle = {
   fontSize: "14px",
   lineHeight: "32px",
   textAlign: "center",
-  border: "0px",
+  border: "0px"
 };
 
 const cancelStyle = {
-  position: "absolute",
-  left: "88rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -259,19 +97,7 @@ const cancelStyle = {
   fontSize: "14px",
   lineHeight: "32px",
   textAlign: "center",
-  cursor: "pointer",
-};
-
-const buttonsStyle = {
-  position: "absolute",
-  marginBottom: "300px",
-  paddingBottom: "30px",
-  top: "105rem"
-}
-
-const placesStyle = {
-  width: "500px",
-  minWidth: "500px",
+  cursor: "pointer"
 };
 
 export default class RequestDetails extends React.Component {
@@ -312,17 +138,14 @@ export default class RequestDetails extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {}
-
-  useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }));
+  componentDidMount() {
+    let userOhid = window.userPortalID
+    this.setState({
+      userOhid: this.userOhid
+    })
+    console.log(this.userOhid)
+    console.log(this.state.userOhid)
+  }
 
   handleInputChange = (event) => {
     const target = event.target;
@@ -348,52 +171,49 @@ export default class RequestDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     let update;
-    console.log("email = " + this.state.email);
-    console.log("phone number = " + this.state.phoneNumber);
-      console.log("both null");
-      update = {
-        data: {
-          resourceType: `${this.state.type}`,
-          resourceName: `${this.state.name}`,
-          offerStartDate: `${this.state.startDate}`,
-          offerExpirationDate: `${this.state.endDate}`,
-          address1: {
-            address: `${this.state.address}`,
-            lat: `${this.state.lat}`,
-            lon: `${this.state.lon}`,
-          },
-          location: `${this.state.location}`,
-          state: `${this.state.state}`,
-          zipCode: `${this.state.zipCode}`,
-          briefDescription: `${this.state.description}`,
-          linkToWebsite: `${this.state.linkToWebsite}`,
-          contactName: `${this.state.contactName}`,
-          status: `${this.state.status}`,
-          userOhid: `${this.state.userOhid}`,
-          email: `${this.state.email}`,
-          phoneNumber: `${this.state.phoneNumber}`,
-          categories: {
-            locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
-            lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
-            lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
-            rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
-            rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
-            digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
-            assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
-            assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
-            laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
-            mobileDevices: `${this.state.mobileDevices}`,
-            networkingDevices: `${this.state.networkingDevices}`,
-          },
+    let userOhid = window.userPortalID
+    this.setState({
+      userOhid: this.userOhid
+    })
+    update = {
+      data: {
+        resourceType: `${this.state.type}`,
+        resourceName: `${this.state.name}`,
+        offerStartDate: `${this.state.startDate}`,
+        offerExpirationDate: `${this.state.endDate}`,
+        address1: {
+          address: `${this.state.address}`,
+          lat: `${this.state.lat}`,
+          lon: `${this.state.lon}`,
         },
-      };
-    
-  
+        location: `${this.state.location}`,
+        state: `${this.state.state}`,
+        zipCode: `${this.state.zipCode}`,
+        briefDescription: `${this.state.description}`,
+        linkToWebsite: `${this.state.linkToWebsite}`,
+        contactName: `${this.state.contactName}`,
+        status: `${this.state.status}`,
+        userOhid: `${this.state.userOhid}`,
+        email: `${this.state.email}`,
+        phoneNumber: `${this.state.phoneNumber}`,
+        categories: {
+          locationsThatOfferFreeWiFiPublicDevices: `${this.state.locationsThatOfferFreeWiFiPublicDevices}`,
+          lowCostInternetServicesOrDeals: `${this.state.lowCostInternetServicesOrDeals}`,
+          lowCostOrSubsidizedDevices: `${this.state.lowCostOrSubsidizedDevices}`,
+          rentableLoanerDevices: `${this.state.rentableLoanerDevices}`,
+          rentableLoanerHotspots: `${this.state.rentableLoanerHotspots}`,
+          digitalLiteracyTrainings: `${this.state.digitalLiteracyTrainings}`,
+          assistanceForDevicesOrSoftware: `${this.state.assistanceForDevicesOrSoftware}`,
+          assistanceGettingASmallBusinessOnline: `${this.state.assistanceGettingASmallBusinessOnline}`,
+          laptopsAndDesktops: `${this.state.laptopsAndDesktops}`,
+          mobileDevices: `${this.state.mobileDevices}`,
+          networkingDevices: `${this.state.networkingDevices}`,
+        },
+      },
+    };
+
     console.log(update);
-    const response = axios.post(
-      `${Constants.DFRT_FORM_URL}`,
-      update
-    );
+    const response = axios.post(`${Constants.DFRT_FORM_URL}`, update);
     console.log(response);
     await this.sleep(1000);
     this.props.history.push("/");
@@ -401,7 +221,7 @@ export default class RequestDetails extends React.Component {
 
   digitalLiteracy() {
     return (
-      <div>
+      <div className="owt-content-digital-literacy">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -412,7 +232,7 @@ export default class RequestDetails extends React.Component {
                   name="digitalLiteracyTrainings"
                   checked={this.state.digitalLiteracyTrainings}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Digital Literacy Trainings"
@@ -424,7 +244,7 @@ export default class RequestDetails extends React.Component {
                   name="assistanceForDevicesOrSoftware"
                   checked={this.state.assistanceForDevicesOrSoftware}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Assistance for Devices or Software"
@@ -436,7 +256,7 @@ export default class RequestDetails extends React.Component {
                   name="assistanceGettingASmallBusinessOnline"
                   checked={this.state.assistanceGettingASmallBusinessOnline}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Assistance Getting a Small Business Online"
@@ -450,7 +270,7 @@ export default class RequestDetails extends React.Component {
 
   digitalResources() {
     return (
-      <div>
+      <div className="owt-content-digital-resources">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -461,7 +281,7 @@ export default class RequestDetails extends React.Component {
                   name="lowCostInternetServicesOrDeals"
                   checked={this.state.lowCostInternetServicesOrDeals}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Low-Cost Internet Services Or Deals"
@@ -473,7 +293,7 @@ export default class RequestDetails extends React.Component {
                   name="lowCostOrSubsidizedDevices"
                   checked={this.state.lowCostOrSubsidizedDevices}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Low-Cost Or Subsidized Devices"
@@ -485,7 +305,7 @@ export default class RequestDetails extends React.Component {
                   name="locationsThatOfferFreeWiFiPublicDevices"
                   checked={this.state.locationsThatOfferFreeWiFiPublicDevices}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Locations That Offer Free Wi-Fi/Public Devices"
@@ -497,7 +317,7 @@ export default class RequestDetails extends React.Component {
                   name="rentableLoanerHotspots"
                   checked={this.state.rentableLoanerHotspots}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Rentable/Loaner Hotspots"
@@ -509,7 +329,7 @@ export default class RequestDetails extends React.Component {
                   name="rentableLoanerDevices"
                   checked={this.state.rentableLoanerDevices}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Rentable/Loaner Devices"
@@ -523,7 +343,7 @@ export default class RequestDetails extends React.Component {
 
   donatedResources() {
     return (
-      <div>
+      <div className="owt-content-donated-resources">
         <FormControl component="fieldset">
           <FormLabel component="legend"></FormLabel>
           <FormGroup>
@@ -534,7 +354,7 @@ export default class RequestDetails extends React.Component {
                   checked={this.state.laptopsAndDesktops}
                   name="laptopsAndDesktops"
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Laptops and Desktops"
@@ -546,7 +366,7 @@ export default class RequestDetails extends React.Component {
                   name="mobileDevices"
                   checked={this.state.mobileDevices}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Mobile Devices"
@@ -558,7 +378,7 @@ export default class RequestDetails extends React.Component {
                   name="networkingDevices"
                   checked={this.state.networkingDevices}
                   color="primary"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  inputProps={{ "aria-label": "secondary checkbox" }}
                 />
               }
               label="Networking Devices"
@@ -572,7 +392,7 @@ export default class RequestDetails extends React.Component {
 
   allOfOhio() {
     return (
-      <div>
+      <div className="owt-content-state">
         <TextField
           style={stateStyle}
           onChange={this.handleInputChange}
@@ -593,7 +413,7 @@ export default class RequestDetails extends React.Component {
 
   zipCode() {
     return (
-      <div>
+      <div className="owt-content-zip-code">
         <TextField
           style={zipcodeStyle}
           onChange={this.handleInputChange}
@@ -654,11 +474,10 @@ export default class RequestDetails extends React.Component {
 
   streetAddress() {
     return (
-      <div>
+      <div class="owt-content-google-places">
         <PlacesAutocomplete
-          style={placesStyle}
-          value={this.state.address1}
-          name="address1"
+          value={this.state.address}
+          name="address"
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -670,6 +489,7 @@ export default class RequestDetails extends React.Component {
           }) => (
             <div>
               <input
+              style={placesStyle}
                 {...getInputProps({
                   placeholder: "Search Places...",
                   // className: "location-search-input",
@@ -708,6 +528,7 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
+    
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
@@ -727,185 +548,233 @@ export default class RequestDetails extends React.Component {
     console.log(this.state);
 
     return (
-      <div style={appStyle}>
-        <Grid>
-          <div style={bodyStyle}>
-            <h2 style={h2Style}>
+      <div className="owt-content-main-body">
+        <form
+            noValidate
+            autoComplete="off"
+            onSubmit={this.handleSubmit}
+          >
+        <Grid
+          container
+          spacing={1}
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          
+          <Grid item xs={12} className="owt-content-new-entry-form-title">
+            <h2>
               <b>New Entry Form</b>
             </h2>
-            <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-              <FormControl required style={typeStyle}>
-                <p style={listingTextStyle}>Listing Type</p>
-                <Select
-                  labelId="demo-simple-select-required-label"
-                  displayEmpty
-                  margin="dense"
-                  name="type"
-                  variant="outlined"
-                  onChange={this.handleInputChange}
-                  value={this.state.type}
-                >
-                  <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
-                  <MenuItem value="Digital Resource">Digital Resource</MenuItem>
-                  <MenuItem value="Donated Resource">Donated Resource</MenuItem>
-                </Select>
-              </FormControl>
-              <p style={nameTextStyle}>Resource Name</p>
-              <TextField
-                style={nameStyle}
-                required
-                size="medium"
-                name="name"
-                variant="outlined"
+          </Grid>
+          <Grid item xs={6} className="owt-content-listing-type-text">
+            <p>Listing Type</p>
+          </Grid>
+          <Grid item xs={6} className="owt-content-resource-name-text">
+            <p>Resource Name</p>
+          </Grid>
+
+          <Grid item xs={6} className="owt-content-resource-type">
+            <FormControl required>
+              <Select
+                style={typeStyle}
+                labelId="demo-simple-select-required-label"
+                displayEmpty
                 margin="dense"
-                onChange={this.handleInputChange}
-              ></TextField>
-              <div style={checkboxesStyle}>
-                <h5>
-                  <b>Categories</b> (select all that apply)
-                </h5>
-                {value}
-              </div>
-              <div style={locationStyle}>
-                <h5 style={locationText}>
-                  <b>Location</b>
-                </h5>
-                <FormControl component="fieldset">
-                  {/* <FormLabel component="legend">Gender</FormLabel> */}
-                  <RadioGroup
-                    row
-                    aria-label="location"
-                    name="location"
-                    onChange={this.handleInputChange}
-                  >
-                    <FormControlLabel
-                      value="noPhysicalAddress"
-                      control={<Radio color="primary"/>}
-                      label="No physical address"
-                    />
-                    <FormControlLabel
-                      value="allOfOhio"
-                      control={<Radio color="primary"/>}
-                      label="All of Ohio"
-                    />
-                    <FormControlLabel
-                      value="zipCode"
-                      control={<Radio color="primary"/>}
-                      label="Zip Code"
-                    />
-                    <FormControlLabel
-                      value="streetAddress"
-                      control={<Radio color="primary"/>}
-                      label="Street Address"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </div>
-              <div style={physicalAddressStyle}>
-                <h5>
-                  <b>Physical Address</b> (if applicable)
-                </h5>
-                {locationRadio}
-              </div>
-              <p style={startDateTextStyle}>Offer Start Date</p>
-              <TextField
-                required
-                style={startDateStyle}
-                id="date"
-                type="date"
-                name="startDate"
+                name="type"
                 variant="outlined"
-                margin="dense"
                 onChange={this.handleInputChange}
-              />
-              <p style={endDateTextStyle}>Offer Expiration Date</p>
-              <TextField
-                required
-                style={endDateStyle}
-                id="date"
-                type="date"
-                name="endDate"
-                variant="outlined"
-                margin="dense"
+                value={this.state.type}
+              >
+                <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
+                <MenuItem value="Digital Resource">Digital Resource</MenuItem>
+                <MenuItem value="Donated Resource">Donated Resource</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6} className="owt-content-resource-name">
+            <TextField
+              style={nameStyle}
+              required
+              size="medium"
+              name="name"
+              variant="outlined"
+              margin="dense"
+              onChange={this.handleInputChange}
+            ></TextField>
+          </Grid>
+          <Grid item xs={12} className="owt-content-categories-text">
+            <h5>
+              <b>Categories</b> (select all that apply)
+            </h5>
+          </Grid>
+          <Grid item xs={12} className="owt-content-categories">
+            {value}
+          </Grid>
+          <Grid item xs={12} className="owt-content-location-text">
+            <h5 className="LocationText">
+              <b>Location</b>
+            </h5>
+          </Grid>
+          <Grid item xs={12} className="owt-content-location-radios">
+            <FormControl component="fieldset">
+              <RadioGroup
+                row
+                aria-label="location"
+                name="location"
                 onChange={this.handleInputChange}
-              />
-              <p style={descriptionTextStyle}>Brief Description</p>
-              <TextField
-                multiline
-                rows="4"
-                style={descriptionStyle}
-                size="medium"
-                name="description"
-                onChange={this.handleInputChange}
-                variant="outlined"
-                margin="dense"
-              ></TextField>
-              <div style={linkDiv}>
-                <p style={linkTextStyle}>Link to Website</p>
+              >
+                <FormControlLabel
+                  value="noPhysicalAddress"
+                  control={<Radio color="primary" />}
+                  label="No physical address"
+                />
+                <FormControlLabel
+                  value="allOfOhio"
+                  control={<Radio color="primary" />}
+                  label="All of Ohio"
+                />
+                <FormControlLabel
+                  value="zipCode"
+                  control={<Radio color="primary" />}
+                  label="Zip Code"
+                />
+                <FormControlLabel
+                  value="streetAddress"
+                  control={<Radio color="primary" />}
+                  label="Street Address"
+                />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} className="owt-content-physical-address-text">
+            <h5>
+              <b>Physical Address</b> (if applicable)
+            </h5>
+          </Grid>
+          <Grid item xs={12} className="owt-content-location">
+            {locationRadio}
+          </Grid>
+          <Grid item xs={6} className="owt-content-start-date-text">
+            <p>Offer Start Date</p>
+          </Grid>
+          <Grid item xs={6} className="owt-content-end-date-text">
+            <p>Offer Expiration Date</p>
+          </Grid>
+          <Grid item xs={6} className="owt-content-start-date">
+            <TextField
+              required
+              style={startDateStyle}
+              id="date"
+              type="date"
+              name="startDate"
+              variant="outlined"
+              margin="dense"
+              onChange={this.handleInputChange}
+            />
+          </Grid>
+          <Grid item xs={6} className="owt-content-end-date">
+            <TextField
+              required
+              style={endDateStyle}
+              id="date"
+              type="date"
+              name="endDate"
+              variant="outlined"
+              margin="dense"
+              onChange={this.handleInputChange}
+            />
+          </Grid>
+          <Grid item xs={12} className="owt-content-description-text">
+            <p>Brief Description</p>
+          </Grid>
+          <Grid item xs={12} className="owt-content-description">
+            <TextField
+              multiline
+              style={descriptionStyle}
+              rows="4"
+              size="medium"
+              name="description"
+              onChange={this.handleInputChange}
+              variant="outlined"
+              margin="dense"
+            ></TextField>
+          </Grid>
+          <Grid item xs={12} className="owt-content-link-to-website-text">
+            <p>Link to Website</p>
+          </Grid>
+          <Grid item xs={12} className="owt-content-link-to-website">
+            <TextField
+              size="medium"
+              name="linkToWebsite"
+              style={websiteStyle}
+              onChange={this.handleInputChange}
+              variant="outlined"
+              margin="dense"
+            ></TextField>
+          </Grid>
+          <Grid item xs={6} className="owt-content-name-text">
+            <p>Name (if Applicable)</p>
+          </Grid>
+          <Grid item xs={3} className="owt-content-phone-text">
+            <p>Phone Number</p>
+          </Grid>
+          <Grid item xs={3} className="owt-content-email-text">
+            <p>Email</p>
+          </Grid>
+          <Grid item xs={6} className="owt-content-name">
+            <TextField
+              size="medium"
+              name="contactName"
+              style={contactNameStyle}
+              onChange={this.handleInputChange}
+              variant="outlined"
+              margin="dense"
+            ></TextField>
+          </Grid>
+          <Grid item xs={3} className="owt-content-phone">
+            <InputMask mask="(999) 999-9999" onChange={this.handleInputChange}>
+              {() => (
                 <TextField
-                  style={linkStyle}
-                  size="medium"
-                  name="linkToWebsite"
-                  onChange={this.handleInputChange}
-                  variant="outlined"
+                  name="phoneNumber"
+                  style={phoneStyle}
                   margin="dense"
-                ></TextField>
-              </div>
-              <div style={resourceContactStyle}>
-                <h5>
-                  <b>Resource Contact</b>
-                </h5>
-                <p>Name (if Applicable)</p>
-                <TextField
-                  style={contactNameStyle}
-                  size="medium"
-                  name="contactName"
-                  onChange={this.handleInputChange}
                   variant="outlined"
-                  margin="dense"
-                ></TextField>
-                <p style={phoneTextStyle}>Phone Number</p>
-                <InputMask
-                  mask="(999) 999-9999"
-                  onChange={this.handleInputChange}
-                >
-                  {() => (
-                    <TextField
-                      style={phoneNumberStyle}
-                      name="phoneNumber"
-                      margin="dense"
-                      variant="outlined"
-                      type="text"
-                    />
-                  )}
-                </InputMask>
-                <p style={emailTextStyle}>Email</p>
-                <TextField
-                  style={emailStyle}
-                  size="medium"
-                  name="email"
-                  onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
-                ></TextField>
+                  type="text"
+                />
+              )}
+            </InputMask>
+          </Grid>
+          <Grid item xs={3} className="owt-content-email">
+            <TextField
+              size="medium"
+              style={emailStyle}
+              name="email"
+              onChange={this.handleInputChange}
+              variant="outlined"
+              margin="dense"
+            ></TextField>
+          </Grid>
+          <Grid item xs={12} className="owt-content-line-div">
+            <div style={lineStyle}></div>
+          </Grid>
+          <Grid item xs={6} className="owt-content-cancel-button">
+            <Link to="/">
+              <div style={cancelStyle}>
+                <b>Cancel</b>
               </div>
-              <div style={lineStyle}></div>
-              <div style={buttonsStyle}>
-              <input
-                style={submitStyle}
-                type="submit"
-                value="Save"
-                onSubmit={this.handleSubmit}
-              />
-              <Link to="/">
-                <div style={cancelStyle}>
-                  <b>Cancel</b>
-                </div>
-              </Link>
-              </div>
-            </form>
-          </div>
+            </Link>
+          </Grid>
+          <Grid item xs={6} className="owt-content-submit-button">
+            <input
+              style={submitStyle}
+              type="submit"
+              value="Save"
+              onSubmit={this.handleSubmit}
+            />
+          </Grid>
         </Grid>
+        </form>
       </div>
     );
   }

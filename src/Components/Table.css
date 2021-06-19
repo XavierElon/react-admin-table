@@ -9,18 +9,15 @@
 }
 
 .admin-title {
-  width: 300px;
-  height: 23px;
   font-size: 18px;
   color: #222222;
   text-align: left;
-
 }
 
 .page-link {
   margin: auto;
   position: absolute;
-  right: 50rem;
+  right: 30rem;
 }
 
 .ToggleButtons {
@@ -31,19 +28,12 @@
 }
 
 .sc-pNWdM {
-  display: flex;
-}
-
-.PlusButton {
-  width: 16px;
-  height: 16px;
-  padding-right: 1px;
-  cursor: pointer;
+  /* display: flex; */
 }
 
 .NewRequestText {
   width: 120px;
-  height: 17px;
+  /* height: 17px; */
   font-size: 16px;
   color: #3d7aa9;
   line-height: 18px;
@@ -77,3 +67,38 @@ th {
 .fa-sort {
   display: inline-block !important;
 }
+
+#plus-button {
+  width: 16px;
+  height: 16px;
+  display:inline-block;
+  cursor:pointer;
+}
+
+.owt-content-admin-title {
+
+}
+
+.owt-content-admin-title-text {
+  display:inline-block;
+}
+
+.owt-content-plus-button {
+ display: inline-block;
+}
+.owt-content-request-text {
+  display:inline-block;
+}
+
+.owt-content-button1-active {
+  display:inline-block;
+}
+
+.owt-content-button2-inactive {
+  display:inline-block;
+}
+
+input.form-control {
+  display: inline-block;
+}
+
