@@ -567,17 +567,18 @@ export default class RequestDetails extends React.Component {
               <b>New Entry Form</b>
             </h2>
           </Grid>
-          <Grid item xs={6} className="owt-content-listing-type-text">
-            <p>Listing Type</p>
+          <Grid item xs={6}>
+            <p className="owt-content-resource-type">Listing Type</p>
           </Grid>
-          <Grid item xs={6} className="owt-content-resource-name-text">
-            <p>Resource Name</p>
+          <Grid item xs={6}>
+            <p className="owt-content-resource-name-text">Resource Name</p>
           </Grid>
 
-          <Grid item xs={6} className="owt-content-resource-type">
+          <Grid item xs={6} >
             <FormControl required>
               <Select
                 style={typeStyle}
+                className="owt-content-resource-type"
                 labelId="demo-simple-select-required-label"
                 displayEmpty
                 margin="dense"
