@@ -186,6 +186,7 @@ export default class Table extends React.Component {
       fontSize: "14px",
       lineHeight: "28px",
       textTransform: "uppercase",
+      textDecoration: "underline"
     };
 
     try {
