@@ -289,13 +289,15 @@ export default class Table extends React.Component {
               </Link>
             </div>
           </div>
-          <span className="owt-content-button1-active">
-            <Button1Active>New Requests</Button1Active>
-          </span>
-          <span className="owt-content-button2-inactive">
-            <Button2Inactive onClick={this.handleClick}>
-              Existing Entries
-            </Button2Inactive>
+          <span className="owt-content-buttons">
+            <span className="owt-content-button1-active">
+              <Button1Active>New Requests</Button1Active>
+            </span>
+            <span className="owt-content-button2-inactive">
+              <Button2Inactive onClick={this.handleClick}>
+                Existing Entries
+              </Button2Inactive>
+            </span>
           </span>
           <Grid
             container
@@ -345,13 +347,15 @@ export default class Table extends React.Component {
               </Link>
             </div>
           </div>
-          <span className="owt-content-button1-active">
-            <Button1Inactive onClick={this.handleClick}>
-              New Requests
-            </Button1Inactive>
-          </span>
-          <span className="owt-content-button2-inactive">
-            <Button2Active>Existing Entries</Button2Active>
+          <span className="owt-content-buttons">
+            <span className="owt-content-button1-active">
+              <Button1Inactive onClick={this.handleClick}>
+                New Requests
+              </Button1Inactive>
+            </span>
+            <span className="owt-content-button2-inactive">
+              <Button2Active>Existing Entries</Button2Active>
+            </span>
           </span>
           <Grid
             container
