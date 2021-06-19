@@ -273,7 +273,8 @@ export default class Table extends React.Component {
             <span className="owt-content-admin-title-text">
               <h2 className="owt-content-admin-title">Admin Dashboard</h2>
             </span>
-
+            <span>
+            <Link to="/requestform">
             <span className="owt-content-plus-button">
               <img
                 id="plus-button"
@@ -284,10 +285,12 @@ export default class Table extends React.Component {
             </span>
 
             <div className="owt-content-request-text">
-              <Link to="/requestform">
+              
                 <p id="new-request-text">new request</p>
-              </Link>
+              
             </div>
+            </Link>
+            </span>
           </div>
           <span className="owt-content-buttons">
             <span className="owt-content-button1-active">
