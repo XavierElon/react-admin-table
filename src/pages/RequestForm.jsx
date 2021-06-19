@@ -604,17 +604,17 @@ export default class RequestDetails extends React.Component {
             ></TextField>
           </Grid>
           <Grid item xs={12} className="owt-content-categories-text">
-            <h5>
+            <p>
               <b>Categories</b> (select all that apply)
-            </h5>
+            </p>
           </Grid>
           <Grid item xs={12} className="owt-content-categories">
             {value}
           </Grid>
           <Grid item xs={12} className="owt-content-location-text">
-            <h5 className="LocationText">
+            <p className="LocationText">
               <b>Location</b>
-            </h5>
+            </p>
           </Grid>
           <Grid item xs={12} className="owt-content-location-radios">
             <FormControl component="fieldset">
@@ -648,9 +648,9 @@ export default class RequestDetails extends React.Component {
             </FormControl>
           </Grid>
           <Grid item xs={12} className="owt-content-physical-address-text">
-            <h5>
+            <p>
               <b>Physical Address</b> (if applicable)
-            </h5>
+            </p>
           </Grid>
           <Grid item xs={12} className="owt-content-location">
             {locationRadio}
