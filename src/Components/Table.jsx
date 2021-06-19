@@ -274,22 +274,19 @@ export default class Table extends React.Component {
               <h2 className="owt-content-admin-title">Admin Dashboard</h2>
             </span>
             <span>
-            <Link to="/requestform">
-            <span className="owt-content-plus-button">
-              <img
-                id="plus-button"
-                src={PlusButton}
-                alt=""
-                onClick={this.getNewEntries}
-              />
-            </span>
-
-            <div className="owt-content-request-text">
-              
-                <p id="new-request-text">new request</p>
-              
-            </div>
-            </Link>
+              <Link to="/requestform">
+                <span className="owt-content-plus-button">
+                  <img
+                    id="plus-button"
+                    src={PlusButton}
+                    alt=""
+                    onClick={this.getNewEntries}
+                  />
+                </span>
+                <div className="owt-content-request-text">
+                  <p id="new-request-text">new request</p>
+                </div>
+              </Link>
             </span>
           </div>
           <span className="owt-content-buttons">
@@ -334,21 +331,22 @@ export default class Table extends React.Component {
             <span className="owt-content-admin-title-text">
               <h2 className="owt-content-admin-title">Admin Dashboard</h2>
             </span>
-
-            <span className="owt-content-plus-button">
-              <img
-                id="plus-button"
-                src={PlusButton}
-                alt=""
-                onClick={this.getNewEntries}
-              />
-            </span>
-
-            <div className="owt-content-request-text">
+            <span>
               <Link to="/requestform">
-                <p id="new-request-text">new request</p>
+                <span className="owt-content-plus-button">
+                  <img
+                    id="plus-button"
+                    src={PlusButton}
+                    alt=""
+                    onClick={this.getNewEntries}
+                  />
+                </span>
+
+                <div className="owt-content-request-text">
+                  <p id="new-request-text">new request</p>
+                </div>
               </Link>
-            </div>
+            </span>
           </div>
           <span className="owt-content-buttons">
             <span className="owt-content-button1-active">
