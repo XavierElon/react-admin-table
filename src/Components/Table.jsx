@@ -270,21 +270,29 @@ export default class Table extends React.Component {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+            <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+            <div className="owt-content-plus-button">
               <img
-                className="owt-content-plus-button"
+                id="plus-button"
                 src={PlusButton}
                 alt=""
                 onClick={this.getNewEntries}
               />
+            </div>
+            <div className="owt-content-request-text">
               <Link to="/requestform">
-                <p className="NewRequestText">new request</p>
+                <p id="new-request-text">new request</p>
               </Link>
+            </div>
           </div>
+          <div className="owt-content-button1-active">
             <Button1Active>New Requests</Button1Active>
-            <Button2Inactive onClick={this.handleClick}>
-              Existing Entries
-            </Button2Inactive>
+          </div>
+          <div className="owt-content-button2-inactive">
+          <Button2Inactive onClick={this.handleClick}>
+            Existing Entries
+          </Button2Inactive>
+          </div>
           <Grid
             container
             spacing={1}
@@ -293,8 +301,9 @@ export default class Table extends React.Component {
             alignItems="center"
           >
             <Grid item xs={12}>
+              <div className="owt-content-table">
               <MDBDataTable
-                className="owt-content-table"
+                className="data-table"
                 bordered
                 sortable
                 noBottomColumns={true}
@@ -304,46 +313,49 @@ export default class Table extends React.Component {
                 entriesOptions={[]}
                 paginationLabel={["<", ">"]}
               />
+              </div>
             </Grid>
           </Grid>
         </div>
       );
     } else {
       return (
-        <Grid
-          container
-          spacing={1}
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <div className="owt-main-content-table">
-            <Grid item xs={6}>
-              <h2 className="owt-contentadmin-title">Admin Dashboard</h2>
-            </Grid>
-            <Grid item xs={3}>
+        <div className="owt-main-content-table">
+          <div className="owt-content-title-row">
+            <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+            <div className="owt-content-plus-button">
               <img
-                className="PlusButton"
+                id="plus-button"
                 src={PlusButton}
                 alt=""
                 onClick={this.getNewEntries}
               />
-            </Grid>
-            <Grid item xs={3}>
+            </div>
+            <div className="owt-content-request-text">
               <Link to="/requestform">
-                <p className="NewRequestText">new request</p>
+                <p id="new-request-text">new request</p>
               </Link>
-            </Grid>
-            <Grid item xs={3}>
-              <Button1Inactive onClick={this.handleClick}>
-                New Requests
-              </Button1Inactive>
-            </Grid>
-            <Grid item xs={3}>
-              <Button2Active>Existing Entries</Button2Active>
-            </Grid>
+            </div>
+          </div>
+          <div className="owt-content-button1-active">
+            <Button1Inactive onClick={this.handleClick}>New Requests</Button1Inactive>
+          </div>
+          <div className="owt-content-button2-inactive">
+          <Button2Active >
+            Existing Entries
+          </Button2Active>
+          </div>
+          <Grid
+            container
+            spacing={1}
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
             <Grid item xs={12}>
+              <div className="owt-content-table">
               <MDBDataTable
+                className="data-table"
                 bordered
                 sortable
                 noBottomColumns={true}
@@ -353,9 +365,10 @@ export default class Table extends React.Component {
                 entriesOptions={[]}
                 paginationLabel={["<", ">"]}
               />
+              </div>
             </Grid>
-          </div>
-        </Grid>
+          </Grid>
+        </div>
       );
     }
   }
