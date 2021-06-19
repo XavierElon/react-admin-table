@@ -272,7 +272,7 @@ export default class Table extends React.Component {
           <div className="owt-content-title-row">
               <h2 className="owt-content-admin-title">Admin Dashboard</h2>
               <img
-                className="PlusButton"
+                className="owt-content-plus-button"
                 src={PlusButton}
                 alt=""
                 onClick={this.getNewEntries}
