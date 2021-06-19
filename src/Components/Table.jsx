@@ -27,7 +27,7 @@ const Button1Active = styled("div")`
 const Button1Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #d2d2d2;
+  background-color: #f2f2f2;
   stroke-width: 1;
   border-top-left-radius: 4px;
   color: black;
@@ -58,7 +58,7 @@ const Button2Active = styled("div")`
 const Button2Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #d2d2d2;
+  background-color: #f2f2f2;
   stroke-width: 1;
   border-top-right-radius: 4px;
   color: black;
@@ -270,29 +270,33 @@ export default class Table extends React.Component {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-            <h2 className="owt-content-admin-title">Admin Dashboard</h2>
-            <div className="owt-content-plus-button">
+            <span className="owt-content-admin-title-text">
+              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+            </span>
+
+            <span className="owt-content-plus-button">
               <img
                 id="plus-button"
                 src={PlusButton}
                 alt=""
                 onClick={this.getNewEntries}
               />
-            </div>
+            </span>
+
             <div className="owt-content-request-text">
               <Link to="/requestform">
                 <p id="new-request-text">new request</p>
               </Link>
             </div>
           </div>
-          <div className="owt-content-button1-active">
+          <span className="owt-content-button1-active">
             <Button1Active>New Requests</Button1Active>
-          </div>
-          <div className="owt-content-button2-inactive">
-          <Button2Inactive onClick={this.handleClick}>
-            Existing Entries
-          </Button2Inactive>
-          </div>
+          </span>
+          <span className="owt-content-button2-inactive">
+            <Button2Inactive onClick={this.handleClick}>
+              Existing Entries
+            </Button2Inactive>
+          </span>
           <Grid
             container
             spacing={1}
@@ -302,17 +306,17 @@ export default class Table extends React.Component {
           >
             <Grid item xs={12}>
               <div className="owt-content-table">
-              <MDBDataTable
-                className="data-table"
-                bordered
-                sortable
-                noBottomColumns={true}
-                entriesLabel=""
-                data={this.state.data2}
-                infoLabel={["", "", "", ""]}
-                entriesOptions={[]}
-                paginationLabel={["<", ">"]}
-              />
+                <MDBDataTable
+                  className="owt-content-datadata-table"
+                  bordered
+                  sortable
+                  noBottomColumns={true}
+                  entriesLabel=""
+                  data={this.state.data2}
+                  infoLabel={["", "", "", ""]}
+                  entriesOptions={[]}
+                  paginationLabel={["<", ">"]}
+                />
               </div>
             </Grid>
           </Grid>
@@ -322,29 +326,33 @@ export default class Table extends React.Component {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-            <h2 className="owt-content-admin-title">Admin Dashboard</h2>
-            <div className="owt-content-plus-button">
+            <span className="owt-content-admin-title-text">
+              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+            </span>
+
+            <span className="owt-content-plus-button">
               <img
                 id="plus-button"
                 src={PlusButton}
                 alt=""
                 onClick={this.getNewEntries}
               />
-            </div>
+            </span>
+
             <div className="owt-content-request-text">
               <Link to="/requestform">
                 <p id="new-request-text">new request</p>
               </Link>
             </div>
           </div>
-          <div className="owt-content-button1-active">
-            <Button1Inactive onClick={this.handleClick}>New Requests</Button1Inactive>
-          </div>
-          <div className="owt-content-button2-inactive">
-          <Button2Active >
-            Existing Entries
-          </Button2Active>
-          </div>
+          <span className="owt-content-button1-active">
+            <Button1Inactive onClick={this.handleClick}>
+              New Requests
+            </Button1Inactive>
+          </span>
+          <span className="owt-content-button2-inactive">
+            <Button2Active>Existing Entries</Button2Active>
+          </span>
           <Grid
             container
             spacing={1}
@@ -354,17 +362,17 @@ export default class Table extends React.Component {
           >
             <Grid item xs={12}>
               <div className="owt-content-table">
-              <MDBDataTable
-                className="data-table"
-                bordered
-                sortable
-                noBottomColumns={true}
-                entriesLabel=""
-                data={this.state.data}
-                infoLabel={["", "", "", ""]}
-                entriesOptions={[]}
-                paginationLabel={["<", ">"]}
-              />
+                <MDBDataTable
+                  className="owt-content-datadata-table"
+                  bordered
+                  sortable
+                  noBottomColumns={true}
+                  entriesLabel=""
+                  data={this.state.data}
+                  infoLabel={["", "", "", ""]}
+                  entriesOptions={[]}
+                  paginationLabel={["<", ">"]}
+                />
               </div>
             </Grid>
           </Grid>

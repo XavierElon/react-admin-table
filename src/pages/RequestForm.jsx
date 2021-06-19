@@ -138,6 +138,15 @@ export default class RequestDetails extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    let userOhid = window.userPortalID
+    this.setState({
+      userOhid: this.userOhid
+    })
+    console.log(this.userOhid)
+    console.log(this.state.userOhid)
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -162,6 +171,10 @@ export default class RequestDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     let update;
+    let userOhid = window.userPortalID
+    this.setState({
+      userOhid: this.userOhid
+    })
     update = {
       data: {
         resourceType: `${this.state.type}`,
@@ -515,6 +528,7 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
+    
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
