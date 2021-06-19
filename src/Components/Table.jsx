@@ -139,7 +139,7 @@ export default class Table extends React.Component {
     let data2 = {
       columns: [
         {
-          label: "Resource No.",
+          label: "Request No.",
           field: "number",
           sort: "disabled",
           width: 180,
@@ -154,7 +154,7 @@ export default class Table extends React.Component {
           label: "Resource Name",
           field: "name",
           sort: "asc",
-          width: 270,
+          width: 300,
         },
         {
           label: "Offer Start Date",
@@ -179,7 +179,7 @@ export default class Table extends React.Component {
     };
 
     const linkStyle = {
-      color: "#700017",
+      color: "#3d7aa9",
       width: "150px",
       height: "28px",
       fontSize: "14px",
