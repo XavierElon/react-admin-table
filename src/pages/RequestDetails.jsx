@@ -634,9 +634,9 @@ export default class RequestDetails extends React.Component {
             alignItems="center"
           >
             <Grid item xs={12} className="owt-content-new-entry-form-title">
-              <h2>
+              <p>
                 <b>Request #{this.state.id}</b>
-              </h2>
+              </p>
             </Grid>
             <Grid item xs={6} className="owt-content-listing-type-text">
               <p>Listing Type</p>
@@ -675,17 +675,17 @@ export default class RequestDetails extends React.Component {
               ></TextField>
             </Grid>
             <Grid item xs={12} className="owt-content-categories-text">
-              <h5>
+              <p>
                 <b>Categories</b> (select all that apply)
-              </h5>
+              </p>
             </Grid>
             <Grid item xs={12} className="owt-content-categories">
               {value}
             </Grid>
             <Grid item xs={12} className="owt-content-location-text">
-              <h5 className="LocationText">
+              <p className="LocationText">
                 <b>Location</b>
-              </h5>
+              </p>
             </Grid>
             <Grid item xs={12} className="owt-content-location-radios">
               <FormControl component="fieldset">
@@ -720,9 +720,9 @@ export default class RequestDetails extends React.Component {
               </FormControl>
             </Grid>
             <Grid item xs={12} className="owt-content-physical-address-text">
-              <h5>
+              <p>
                 <b>Physical Address</b> (if applicable)
-              </h5>
+              </p>
             </Grid>
             <Grid item xs={12} className="owt-content-location">
               {locationRadio}
