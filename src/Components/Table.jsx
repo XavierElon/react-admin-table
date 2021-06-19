@@ -27,7 +27,7 @@ const Button1Active = styled("div")`
 const Button1Inactive = styled("div")`
   width: 250px;
   height: 36px;
-  background-color: #f2f2f2;
+  background-color: #d2d2d2;
   stroke-width: 1;
   border-top-left-radius: 4px;
   color: black;
@@ -48,9 +48,9 @@ const Button2Active = styled("div")`
   border-top-right-radius: 4px;
   color: white;
   text-align: center;
-  position: absolute;
-  top: 1.6rem;
-  left: 41rem;
+  // position: absolute;
+  // top: 1.6rem;
+  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -63,9 +63,9 @@ const Button2Inactive = styled("div")`
   border-top-right-radius: 4px;
   color: black;
   text-align: center;
-  position: absolute;
-  top: 1.6rem;
-  left: 41rem;
+  // position: absolute;
+  // top: 1.6rem;
+  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -268,82 +268,92 @@ export default class Table extends React.Component {
   render() {
     if (this.state.active) {
       return (
-        <Grid
-          container
-          spacing={3}
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <div className="Table">
-            <h2 className="admin-title">Admin Dashboard</h2>
-
-            <div className="ToggleButtons">
-              <Button1Active>New Requests</Button1Active>
-              <Grid item xs={3}>
-                <Button2Inactive onClick={this.handleClick}>
-                  Existing Entries
-                </Button2Inactive>
-              </Grid>
-            </div>
-            <Link to="/requestform">
-              <p className="NewRequestText">new request</p>
+        <div className="owt-main-content-table">
+          <div className="owt-content-title-row">
+              <h2 className="owt-contentadmin-title">Admin Dashboard</h2>
               <img
                 className="PlusButton"
                 src={PlusButton}
                 alt=""
                 onClick={this.getNewEntries}
               />
-            </Link>
-            <MDBDataTable
-              bordered
-              sortable
-              noBottomColumns={true}
-              entriesLabel=""
-              data={this.state.data2}
-              infoLabel={["", "", "", ""]}
-              entriesOptions={[]}
-              paginationLabel={["<", ">"]}
-            />
+              <Link to="/requestform">
+                <p className="NewRequestText">new request</p>
+              </Link>
           </div>
-        </Grid>
+            <Button1Active>New Requests</Button1Active>
+            <Button2Inactive onClick={this.handleClick}>
+              Existing Entries
+            </Button2Inactive>
+          <Grid
+            container
+            spacing={1}
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item xs={12}>
+              <MDBDataTable
+                className="owt-content-table"
+                bordered
+                sortable
+                noBottomColumns={true}
+                entriesLabel=""
+                data={this.state.data2}
+                infoLabel={["", "", "", ""]}
+                entriesOptions={[]}
+                paginationLabel={["<", ">"]}
+              />
+            </Grid>
+          </Grid>
+        </div>
       );
     } else {
       return (
         <Grid
           container
-          spacing={3}
+          spacing={1}
           direction="row"
           justify="center"
           alignItems="center"
         >
-          <div className="Table">
-            <h2 className="admin-title">Admin Dashboard</h2>
-            <div>
-              <Button1Inactive onClick={this.handleClick}>
-                New Requests
-              </Button1Inactive>
-              <Button2Active>Existing Entries</Button2Active>
-            </div>
-            <Link to="/requestform">
-              <p className="NewRequestText">new request</p>
+          <div className="owt-main-content-table">
+            <Grid item xs={6}>
+              <h2 className="owt-contentadmin-title">Admin Dashboard</h2>
+            </Grid>
+            <Grid item xs={3}>
               <img
                 className="PlusButton"
                 src={PlusButton}
                 alt=""
                 onClick={this.getNewEntries}
               />
-            </Link>
-            <MDBDataTable
-              bordered
-              sortable
-              noBottomColumns={true}
-              entriesLabel=""
-              data={this.state.data}
-              infoLabel={["", "", "", ""]}
-              entriesOptions={[]}
-              paginationLabel={["<", ">"]}
-            />
+            </Grid>
+            <Grid item xs={3}>
+              <Link to="/requestform">
+                <p className="NewRequestText">new request</p>
+              </Link>
+            </Grid>
+            <Grid item xs={3}>
+              <Button1Inactive onClick={this.handleClick}>
+                New Requests
+              </Button1Inactive>
+            </Grid>
+            <Grid item xs={3}>
+              <Button2Active>Existing Entries</Button2Active>
+            </Grid>
+            <Grid item xs={12}>
+              <MDBDataTable
+                bordered
+                sortable
+                noBottomColumns={true}
+                entriesLabel=""
+                data={this.state.data}
+                infoLabel={["", "", "", ""]}
+                entriesOptions={[]}
+                paginationLabel={["<", ">"]}
+              />
+            </Grid>
           </div>
         </Grid>
       );

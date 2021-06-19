@@ -553,8 +553,8 @@ export default class RequestDetails extends React.Component {
     return (
       <div class="owt-content-google-places">
         <PlacesAutocomplete
-          value={this.state.address}
-          name="address1"
+          value={this.state.address1}
+          name="address"
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -846,7 +846,7 @@ export default class RequestDetails extends React.Component {
             <Grid item xs={6} className="owt-content-ohid-text">
               <p>OHID</p>
             </Grid>
-            <Grid item xs={9} className="owt-content-status">
+            <Grid item xs={6} className="owt-content-status">
               <FormControl component="fieldset">
                 <RadioGroup
                   row
@@ -878,7 +878,7 @@ export default class RequestDetails extends React.Component {
                 </RadioGroup>
               </FormControl>
             </Grid>
-            <Grid item xs={3} className="owt-content-ohid">
+            <Grid item xs={6} className="owt-content-ohid">
               <TextField
                 style={ohidStyle}
                 size="medium"

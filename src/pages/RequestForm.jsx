@@ -463,8 +463,8 @@ export default class RequestDetails extends React.Component {
     return (
       <div class="owt-content-google-places">
         <PlacesAutocomplete
-          value={this.state.address1}
-          name="address1"
+          value={this.state.address}
+          name="address"
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -542,7 +542,7 @@ export default class RequestDetails extends React.Component {
           >
         <Grid
           container
-          spacing={0.5}
+          spacing={1}
           direction="row"
           justify="center"
           alignItems="center"
