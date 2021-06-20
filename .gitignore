@@ -2,5 +2,5 @@ node_modules
 /build
 /helpers/filterFunction.js
 /helpers/common.js
-sp-cmdln.log
+./sp-cmdln.log
 requestdupe.jsx

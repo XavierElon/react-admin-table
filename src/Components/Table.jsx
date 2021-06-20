@@ -73,6 +73,7 @@ const Button2Inactive = styled("div")`
 
 const badgeStyle = {
   paddingTop: ".6rem",
+  textAlign: "center !important"
 };
 
 // function getRow(id) {
@@ -139,7 +140,7 @@ export default class Table extends React.Component {
     let data2 = {
       columns: [
         {
-          label: "Resource No.",
+          label: "Request No.",
           field: "number",
           sort: "disabled",
           width: 180,
@@ -154,7 +155,7 @@ export default class Table extends React.Component {
           label: "Resource Name",
           field: "name",
           sort: "asc",
-          width: 270,
+          width: 300,
         },
         {
           label: "Offer Start Date",
@@ -179,12 +180,13 @@ export default class Table extends React.Component {
     };
 
     const linkStyle = {
-      color: "#700017",
+      color: "#3d7aa9",
       width: "150px",
       height: "28px",
       fontSize: "14px",
       lineHeight: "28px",
       textTransform: "uppercase",
+      textDecoration: "underline"
     };
 
     try {
@@ -273,21 +275,21 @@ export default class Table extends React.Component {
             <span className="owt-content-admin-title-text">
               <h2 className="owt-content-admin-title">Admin Dashboard</h2>
             </span>
-
-            <span className="owt-content-plus-button">
-              <img
-                id="plus-button"
-                src={PlusButton}
-                alt=""
-                onClick={this.getNewEntries}
-              />
-            </span>
-
-            <div className="owt-content-request-text">
+            <span>
               <Link to="/requestform">
-                <p id="new-request-text">new request</p>
+                <span className="owt-content-plus-button">
+                  <img
+                    id="plus-button"
+                    src={PlusButton}
+                    alt=""
+                    onClick={this.getNewEntries}
+                  />
+                </span>
+                <div className="owt-content-request-text">
+                  <p id="new-request-text">new request</p>
+                </div>
               </Link>
-            </div>
+            </span>
           </div>
           <span className="owt-content-buttons">
             <span className="owt-content-button1-active">
@@ -331,21 +333,21 @@ export default class Table extends React.Component {
             <span className="owt-content-admin-title-text">
               <h2 className="owt-content-admin-title">Admin Dashboard</h2>
             </span>
-
-            <span className="owt-content-plus-button">
-              <img
-                id="plus-button"
-                src={PlusButton}
-                alt=""
-                onClick={this.getNewEntries}
-              />
-            </span>
-
-            <div className="owt-content-request-text">
+            <span>
               <Link to="/requestform">
-                <p id="new-request-text">new request</p>
+                <span className="owt-content-plus-button">
+                  <img
+                    id="plus-button"
+                    src={PlusButton}
+                    alt=""
+                    onClick={this.getNewEntries}
+                  />
+                </span>
+                <div className="owt-content-request-text">
+                  <p id="new-request-text">new request</p>
+                </div>
               </Link>
-            </div>
+            </span>
           </div>
           <span className="owt-content-buttons">
             <span className="owt-content-button1-active">

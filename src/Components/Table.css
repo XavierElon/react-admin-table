@@ -14,6 +14,10 @@
   text-align: left;
 }
 
+.Link {
+  text-decoration: underline;
+}
+
 .page-link {
   margin: auto;
   position: absolute;
@@ -25,10 +29,6 @@
   width: 324px;
   border-color: #d8d8d8;
   z-index: 0;
-}
-
-.sc-pNWdM {
-  /* display: flex; */
 }
 
 .NewRequestText {
