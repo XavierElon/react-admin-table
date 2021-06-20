@@ -81,7 +81,7 @@ const badgeStyle = {
 //   return <Link to={`/requestdetails/${id}`}></Link>;
 // }
 
-export default class CitizenTable extends React.Component {
+export default class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -95,9 +95,6 @@ export default class CitizenTable extends React.Component {
   }
 
   async componentDidMount() {
-    let ohid = window.portalUserID
-    console.log(ohid)
-
     let data = {
       columns: [
         {
@@ -325,6 +322,7 @@ export default class CitizenTable extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
+              <i class="fas fas-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>
@@ -383,6 +381,7 @@ export default class CitizenTable extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
+              <i class="fas fas-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>

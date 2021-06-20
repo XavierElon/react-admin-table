@@ -322,7 +322,7 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fal fa-search" aria-hidden="true"></i>
+              <i class="fas fas-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>
@@ -381,7 +381,7 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fal fa-search" aria-hidden="true"></i>
+              <i class="fas fas-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>
