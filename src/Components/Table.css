@@ -4,7 +4,7 @@
 }
 
 .Modal {
-  text-align:left;
+  text-align: left;
   padding-left: 50px;
 }
 
@@ -71,34 +71,40 @@ th {
 #plus-button {
   width: 16px;
   height: 16px;
-  display:inline-block;
-  cursor:pointer;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .owt-content-admin-title {
-
 }
 
 .owt-content-admin-title-text {
-  display:inline-block;
+  display: inline-block;
 }
 
 .owt-content-plus-button {
- display: inline-block;
+  display: inline-block;
 }
 .owt-content-request-text {
-  display:inline-block;
+  display: inline-block;
 }
 
 .owt-content-button1-active {
-  display:inline-block;
+  display: inline-block;
 }
 
 .owt-content-button2-inactive {
-  display:inline-block;
+  display: inline-block;
 }
 
 input.form-control {
   display: inline-block;
 }
 
+.fa-search {
+  top: -60px;
+  position: relative;
+  left: -33px;
+  color: grey;
+  font-size: 14px;
+}

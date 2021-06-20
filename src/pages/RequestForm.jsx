@@ -528,7 +528,7 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
-    
+    console.log("1")
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
