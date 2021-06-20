@@ -139,11 +139,12 @@ export default class RequestDetails extends React.Component {
   }
 
   componentDidMount() {
-    let userOhid = window.userPortalID
+    let userOhid = window.portalUserID
+    console.log(userOhid)
     this.setState({
       userOhid: userOhid
     })
-    console.log("userOHID = " + this.userOhid)
+    console.log("userOHID = " + userOhid)
     console.log("state OHID= " + this.state.userOhid)
   }
 
