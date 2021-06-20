@@ -141,10 +141,10 @@ export default class RequestDetails extends React.Component {
   componentDidMount() {
     let userOhid = window.userPortalID
     this.setState({
-      userOhid: this.userOhid
+      userOhid: userOhid
     })
-    console.log(this.userOhid)
-    console.log(this.state.userOhid)
+    console.log("userOHID = " + this.userOhid)
+    console.log("state OHID= " + this.state.userOhid)
   }
 
   handleInputChange = (event) => {
@@ -171,10 +171,7 @@ export default class RequestDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     let update;
-    let userOhid = window.userPortalID
-    this.setState({
-      userOhid: this.userOhid
-    })
+    
     update = {
       data: {
         resourceType: `${this.state.type}`,
