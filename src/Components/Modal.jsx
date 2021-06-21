@@ -12,9 +12,6 @@ const RedModal = styled("div")`
   border-radius: 3px;
   color: #222222;
   border: 1px solid #e32222;
-  position: absolute;
-  top: 3rem;
-  left: 25rem;
   text-align: left;
   padding-left: 50px;
   padding-top: 20px;
@@ -23,23 +20,15 @@ const GreenModal = styled("div")`
   width: 1080px;
   height: 65px;
   background-color: #c8d3ae;
-  font-size: 30x;
   stroke-width: 1;
   border-radius: 3px;
   color: #222222;
   border: 1px solid #5e8000;
-  position: absolute;
-  top: 3rem;
-  left: 25rem;
   text-align: left;
   padding-left: 30px;
   padding-top: 20px;
   text-transform: uppercase;
 `;
-
-// const textStyle = {
-//   fontSize: "30px"
-// }
 
 export default function Modal({ color, id }) {
   
