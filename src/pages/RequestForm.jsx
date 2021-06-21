@@ -573,8 +573,8 @@ export default class RequestDetails extends React.Component {
 
             <div className="row">
               <div className="col-sm-6">
-                <label class="ohio-field">
-                  <FormControl required className="owt-content-type-field">
+                <div className="owt-content-type-field">
+                  <FormControl required>
                     <Select
                       style={typeStyle}
                       displayEmpty
@@ -595,10 +595,10 @@ export default class RequestDetails extends React.Component {
                       </MenuItem>
                     </Select>
                   </FormControl>
-                </label>
+                </div>
               </div>
               <div className="col-sm-6">
-                <label class="ohio-field">
+                <div className="owt-content-resource-name-field">
                   <TextField
                     style={nameStyle}
                     required
@@ -609,25 +609,25 @@ export default class RequestDetails extends React.Component {
                     margin="dense"
                     onChange={this.handleInputChange}
                   ></TextField>
-                </label>
+                </div>
               </div>
             </div>
             <div className="row">
               <div className="col-sm-12">
-                <label className="ohio-field">
-                  <span className="owt-content-categories-label">
+                <span>
+                  <p className="owt-content-categories-label">
                     <b>Categories</b> (select all that apply)
-                  </span>
-                  {value}
-                </label>
+                  </p>
+                </span>
+                {value}
               </div>
             </div>
 
             <div className="row">
               <div className="col-sm-6">
                 <label className="ohio-field">
-                  <span className="owt-content-location-label">
-                    <b>Location</b>
+                  <span>
+                    <p className="owt-content-location-label">Location</p>
                   </span>
                 </label>
               </div>
@@ -635,11 +635,8 @@ export default class RequestDetails extends React.Component {
 
             <div className="row">
               <div className="col-sm-6">
-                <label className="ohio-field">
-                  <FormControl
-                    component="fieldset"
-                    className="owt-content-location-field"
-                  >
+                <div className="owt-content-location-field">
+                  <FormControl component="fieldset">
                     <RadioGroup
                       row
                       aria-label="location"
@@ -668,188 +665,191 @@ export default class RequestDetails extends React.Component {
                       />
                     </RadioGroup>
                   </FormControl>
-                </label>
+                </div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span>
+                  <p className="owt-content-physical-address-label">
+                    <b>Physical Address</b> (if applicable)
+                  </p>
+                </span>
+                {locationRadio}
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span>
+                  <p className="owt-content-physical-start-date-label">
+                    Offer Start Date
+                  </p>
+                </span>
+              </div>
+              <div className="col-sm-6">
+                <span>
+                  <p className="owt-content-physical-expiration-date-label">
+                    Offer Expiration Date
+                  </p>
+                </span>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span className="owt-content-start-date-field">
+                  <TextField
+                    required
+                    style={startDateStyle}
+                    id="date"
+                    type="date"
+                    name="startDate"
+                    variant="outlined"
+                    margin="dense"
+                    onChange={this.handleInputChange}
+                  />
+                </span>
+              </div>
+              <div className="col-sm-6">
+                <span className="owt-content-expiration-date-field">
+                  <TextField
+                    required
+                    style={endDateStyle}
+                    id="date"
+                    type="date"
+                    name="endDate"
+                    variant="outlined"
+                    margin="dense"
+                    onChange={this.handleInputChange}
+                  />
+                </span>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span>
+                  <p className="owt-content-location-label">
+                    Brief Description
+                  </p>
+                </span>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span className="owt-content-description-field">
+                  <TextField
+                    multiline
+                    style={descriptionStyle}
+                    rows="5"
+                    size="medium"
+                    name="description"
+                    onChange={this.handleInputChange}
+                    variant="outlined"
+                    margin="dense"
+                  ></TextField>
+                </span>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span>
+                  <p className="owt-content-website-label">Link to Website</p>
+                </span>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span className="owt-content-website-field">
+                  <TextField
+                    size="medium"
+                    name="linkToWebsite"
+                    style={websiteStyle}
+                    onChange={this.handleInputChange}
+                    variant="outlined"
+                    margin="dense"
+                  ></TextField>
+                </span>
               </div>
             </div>
 
             <div className="row">
               <div className="col-sm-6">
                 <label className="ohio-field">
-                  <span className="owt-content-physical-address-label">
-                    <p>
-                      <b>Physical Address</b> (if applicable)
+                  <span>
+                    <p className="owt-content-resource-contact-label">
+                      Resource Contact
                     </p>
                   </span>
-                  {locationRadio}
                 </label>
               </div>
             </div>
 
             <div className="row">
               <div className="col-sm-6">
-                <span className="owt-content-physical-start-date-label">
-                  <p>Offer Start Date</p>
-                </span>
-              </div>
-              <div className="col-sm-6">
-                <span className="owt-content-physical-expiration-date-label">
-                  <p>Offer Expiration Date</p>
-                </span>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <label className="ohio-field">
-                  <span className="owt-content-start-date-field">
-                    <TextField
-                      required
-                      style={startDateStyle}
-                      id="date"
-                      type="date"
-                      name="startDate"
-                      variant="outlined"
-                      margin="dense"
-                      onChange={this.handleInputChange}
-                    />
-                  </span>
-                </label>
-              </div>
-              <div className="col-sm-6">
-                <label className="ohio-field">
-                  <span className="owt-content-expiration-date-field">
-                    <TextField
-                      required
-                      style={endDateStyle}
-                      id="date"
-                      type="date"
-                      name="endDate"
-                      variant="outlined"
-                      margin="dense"
-                      onChange={this.handleInputChange}
-                    />
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <label className="ohio-field">
-                  <span className="owt-content-location-label">
-                    <p>Brief Description</p>
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <TextField
-                  className="owt-content-description-field"
-                  multiline
-                  style={descriptionStyle}
-                  rows="5"
-                  size="medium"
-                  name="description"
-                  onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
-                ></TextField>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <label className="ohio-field">
-                  <span className="owt-content-website-label">
-                    <p>Link to Website</p>
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <TextField
-                  className="owt-content-website-field"
-                  size="medium"
-                  name="linkToWebsite"
-                  style={websiteStyle}
-                  onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
-                ></TextField>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <label className="ohio-field">
-                  <span className="owt-content-resource-contact-label">
-                    <p>Resource Contact</p>
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <span className="owt-content-name-label">
-                  <p>Name (if Applicable)</p>
+                <span>
+                  <p className="owt-content-name-label">Name (if Applicable)</p>
                 </span>
               </div>
               <div className="col-sm-3">
-                <span className="owt-content-number-label">
-                  <p>Phone Number</p>
+                <span>
+                  <p className="owt-content-number-label">Phone Number</p>
                 </span>
               </div>
               <div className="col-sm-3">
-                <span className="owt-content-email-label">
-                  <p>Email</p>
+                <span>
+                  <p className="owt-content-email-label">Email</p>
                 </span>
               </div>
             </div>
 
             <div className="row">
               <div className="col-sm-6">
-                <TextField
-                  className="owt-content-name-field"
-                  size="medium"
-                  name="contactName"
-                  style={contactNameStyle}
-                  onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
-                ></TextField>
+                <span className="owt-content-name-field">
+                  <TextField
+                    size="medium"
+                    name="contactName"
+                    style={contactNameStyle}
+                    onChange={this.handleInputChange}
+                    variant="outlined"
+                    margin="dense"
+                  ></TextField>
+                </span>
               </div>
               <div className="col-sm-3">
-                <InputMask
-                  mask="(999) 999-9999"
-                  onChange={this.handleInputChange}
-                >
-                  {() => (
-                    <TextField
-                      className="owt-content-phone-field"
-                      name="phoneNumber"
-                      style={phoneStyle}
-                      margin="dense"
-                      variant="outlined"
-                      type="text"
-                    />
-                  )}
-                </InputMask>
+                <span className="owt-content-phone-field">
+                  <InputMask
+                    mask="(999) 999-9999"
+                    onChange={this.handleInputChange}
+                  >
+                    {() => (
+                      <TextField
+                        name="phoneNumber"
+                        style={phoneStyle}
+                        margin="dense"
+                        variant="outlined"
+                        type="text"
+                      />
+                    )}
+                  </InputMask>
+                </span>
               </div>
               <div className="col-sm-3">
-                <TextField
-                  className="owt-content-email-field"
-                  size="medium"
-                  style={emailStyle}
-                  name="email"
-                  onChange={this.handleInputChange}
-                  variant="outlined"
-                  margin="dense"
-                ></TextField>
+                <span className="owt-content-email-field">
+                  <TextField
+                    size="medium"
+                    style={emailStyle}
+                    name="email"
+                    onChange={this.handleInputChange}
+                    variant="outlined"
+                    margin="dense"
+                  ></TextField>
+                </span>
               </div>
             </div>
 
@@ -859,7 +859,7 @@ export default class RequestDetails extends React.Component {
               </div>
             </div>
 
-            <div className="row owt-content-buttons">
+            <div className="row owt-content-submit-cancel-buttons">
               <div className="col-sm-1">
                 <Link to="/">
                   <div

@@ -1,3 +1,4 @@
+import Home from "./pages/Home"
 import Dashboard from "./pages/Dashboard";
 import CitizenDashboard from "./pages/CitizenDashboard"
 import RequestForm from "./pages/RequestForm";
@@ -12,10 +13,10 @@ function App() {
   return (
     <Router basename={'/wps/myportal/gov/ohid/applications/owt-finder-admin'}>
       <Switch>
-        <Route path="/" exact component={Dashboard}></Route>
-        <Route path="/citizendashboard/:id" exact component={CitizenDashboard}></Route>
-
-        <Route path="/requestform" exact component={RequestForm}></Route>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/citizendashboard/" exact component={CitizenDashboard}></Route>
+        <Route path="/citizendashboard/citizenrequestdetails/:id" exact component={CitizenRequestDetails}></Route>
+        <Route path="/home/requestform" exact component={RequestForm}></Route>
         <Route path="/requestdetails/:id" exact component={RequestDetails}></Route>
         <Route path="/requestapproved/:id" exact component={RequestApproved}></Route>
         <Route path="/requestdenied/:id" exact component={RequestDenied}></Route>
@@ -26,3 +27,4 @@ function App() {
 }
 
 export default App;
+

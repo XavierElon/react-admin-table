@@ -91,7 +91,7 @@ export default class Table extends React.Component {
       active: true,
       userOhid: window.portalUserID,
     };
-    let ohid = window.portalUserID;
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -218,7 +218,7 @@ export default class Table extends React.Component {
             <Link
               className="Link"
               style={linkStyle}
-              to={`/requestdetails/${id}`}
+              to={`/citizenrequestdetails/${id}`}
             >
               {id}
             </Link>
