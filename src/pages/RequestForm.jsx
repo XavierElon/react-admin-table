@@ -123,6 +123,7 @@ export default class RequestDetails extends React.Component {
       userOhid: window.portalUserID,
       email: "",
       phoneNumber: "",
+      address1: "",
       lat: "",
       lon: "",
       state: "",
