@@ -18,8 +18,6 @@ const appStyle = {
 };
 
 const bodyStyle = {
-  // position: "absolute",
-  // left: "0%",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "100%",
@@ -29,9 +27,6 @@ const bodyStyle = {
 };
 
 const link1Style = {
-  // position: "absolute",
-  // top: "5rem",
-  // left: "15rem",
   color: "#700017",
   width: "150px",
   height: "28px",
@@ -76,9 +71,6 @@ const commentStyle = {
 };
 
 const submitStyle = {
-  // position: "absolute",
-  // top: "90rem",
-  // left: "125rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -91,9 +83,6 @@ const submitStyle = {
 };
 
 const cancelStyle = {
-  // position: "absolute",
-  // top: "90rem",
-  // left: "113rem",
   width: "112px",
   height: "36px",
   borderRadius: "4px",
@@ -164,42 +153,40 @@ export default class DenyDetails extends React.Component {
   render() {
       console.log(this.state)
     return (
-      <div style={appStyle}>
+      <div style={appStyle} className="owt-content-main-body">
         <Grid>
           <div style={bodyStyle}>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <Link to="/" style={link1Style}>
-                <h5>Admin Dashboard</h5>
+                <p className="owt-content-deny-admin-dash-text">Admin Dashboard</p>
               </Link>
-              <p style={slashStyle}> / </p>
+              <p style={slashStyle} className="owt-content-deny-slash-div"> / </p>
               <Link to={`/requestdetails/${this.state.id}`} style={link2Style}>
-                <h5>{this.state.id}</h5>
+                <p>{this.state.id}</p>
               </Link>
-              <p style={titleStyle}>
+              <p style={titleStyle} className="owt-content-deny-details-text">
                 <b>Deny Details</b>
               </p>
               <TextField
+                className="owt-content-deny-details-textfield"
                 multiline
-                rows="6"
+                rows="5"
                 style={commentStyle}
                 size="medium"
-                label="Comment (Optional)"
                 name="deniedComment"
                 onChange={this.handleInputChange}
-                variant="standard"
+                variant="outlined"
                 value={this.state.deniedComment}
-                InputLabelProps={{
-                  shrink: true,
-                }}
               ></TextField>
               <input
+                className="owt-content-deny-submit-button"
                 style={submitStyle}
                 type="submit"
                 value="Save"
                 onSubmit={this.handleSubmit}
               />
               <Link to="/">
-                <div style={cancelStyle}>
+                <div style={cancelStyle} className="owt-content-deny-cancel-button">
                   <b>Cancel</b>
                 </div>
               </Link>

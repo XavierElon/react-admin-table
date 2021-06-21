@@ -209,7 +209,7 @@ export default class RequestDetails extends React.Component {
   }
 
   handleInputChange = (event) => {
-    console.log(event)
+    console.log(event);
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -232,14 +232,10 @@ export default class RequestDetails extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    if (this.state.status === "deleted") {
-      const response = await axios.delete(
-        `${Constants.DFRT_FORM_URL}/${this.state.id}`
-      );
-      console.log(response);
-      await this.sleep(1000);
-      this.props.history.push("/");
-    }
+
+    this.setState({
+      status: "pending",
+    });
 
     const update = {
       data: {
@@ -278,23 +274,17 @@ export default class RequestDetails extends React.Component {
         },
       },
     };
-    if (this.state.status !== "deleted") {
-      console.log(update);
-      const response = await axios.put(
-        `${Constants.DFRT_FORM_URL}/${this.state.id}`,
-        update
-      );
-      console.log(response);
-      console.log("status = " + this.state.status);
 
-      if (this.state.status === "approved") {
-        this.props.history.push(`/requestapproved/${this.state.id}`);
-      } else if (this.state.status === "denied") {
-        this.props.history.push(`/denydetails/${this.state.id}`);
-      } else {
-        this.props.history.push("/");
-      }
-    }
+    console.log(update);
+    const response = await axios.put(
+      `${Constants.DFRT_FORM_URL}/${this.state.id}`,
+      update
+    );
+    console.log(response);
+    console.log("status = " + this.state.status);
+
+    await this.sleep(1000);
+    this.props.history.push("/");
   }
 
   digitalLiteracy() {
@@ -841,54 +831,6 @@ export default class RequestDetails extends React.Component {
             </Grid>
             <Grid item xs={12} className="owt-content-line-div">
               <div style={lineStyle}></div>
-            </Grid>
-            <Grid item xs={6} className="owt-content-status-text">
-              <p>Status</p>
-            </Grid>
-            <Grid item xs={6} className="owt-content-ohid-text">
-              <p>OHID</p>
-            </Grid>
-            <Grid item xs={6} className="owt-content-status">
-              <FormControl component="fieldset">
-                <RadioGroup
-                  row
-                  aria-label="location"
-                  value={this.state.status}
-                  name="status"
-                  onChange={this.handleInputChange}
-                >
-                  <FormControlLabel
-                    value="approved"
-                    control={<Radio />}
-                    label="Approve"
-                  />
-                  <FormControlLabel
-                    value="denied"
-                    control={<Radio />}
-                    label="Deny"
-                  />
-                  <FormControlLabel
-                    value="disabled"
-                    control={<Radio />}
-                    label="Disable"
-                  />
-                  <FormControlLabel
-                    value="deleted"
-                    control={<Radio />}
-                    label="Delete"
-                  />
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-            <Grid item xs={6} className="owt-content-ohid">
-              <TextField
-                style={ohidStyle}
-                size="medium"
-                name="userOhid"
-                value={this.state.userOhid}
-                onChange={this.handleInputChange}
-                variant="standard"
-              ></TextField>
             </Grid>
             <Grid item xs={6} className="owt-content-cancel-button">
               <Link to="/">

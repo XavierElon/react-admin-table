@@ -283,7 +283,7 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-admin-title-text">
-              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+              <p className="owt-content-admin-title">Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
               <Link to="/requestform">
