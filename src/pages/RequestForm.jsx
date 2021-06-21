@@ -120,10 +120,10 @@ export default class RequestDetails extends React.Component {
       mobileDevices: false,
       networkingDevices: false,
       location: "",
-      userOhid: "",
+      userOhid: window.portalUserID,
       email: "",
       phoneNumber: "",
-      address: "",
+      address1: "",
       lat: "",
       lon: "",
       state: "",
@@ -136,15 +136,6 @@ export default class RequestDetails extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    let userOhid = window.userPortalID
-    this.setState({
-      userOhid: this.userOhid
-    })
-    console.log(this.userOhid)
-    console.log(this.state.userOhid)
   }
 
   handleInputChange = (event) => {
@@ -171,10 +162,7 @@ export default class RequestDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     let update;
-    let userOhid = window.userPortalID
-    this.setState({
-      userOhid: this.userOhid
-    })
+    
     update = {
       data: {
         resourceType: `${this.state.type}`,
@@ -182,7 +170,7 @@ export default class RequestDetails extends React.Component {
         offerStartDate: `${this.state.startDate}`,
         offerExpirationDate: `${this.state.endDate}`,
         address1: {
-          address: `${this.state.address}`,
+          address: `${this.state.address1}`,
           lat: `${this.state.lat}`,
           lon: `${this.state.lon}`,
         },
@@ -476,7 +464,7 @@ export default class RequestDetails extends React.Component {
     return (
       <div class="owt-content-google-places">
         <PlacesAutocomplete
-          value={this.state.address}
+          value={this.state.address1}
           name="address"
           onChange={this.handleChange}
           onSelect={this.handleSelect}
@@ -528,8 +516,8 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
-    console.log("1")
-    let value = "";
+    let value = ""
+    console.log("state OHID= " + this.state.userOhid)
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
     } else if (this.state.type === "Digital Resource") {
@@ -563,9 +551,9 @@ export default class RequestDetails extends React.Component {
         >
           
           <Grid item xs={12} className="owt-content-new-entry-form-title">
-            <h2>
+            <p className="owt-content-new-entry-form-text">
               <b>New Entry Form</b>
-            </h2>
+            </p>
           </Grid>
           <Grid item xs={6} className="owt-content-listing-type-text">
             <p>Listing Type</p>
@@ -692,7 +680,7 @@ export default class RequestDetails extends React.Component {
             <TextField
               multiline
               style={descriptionStyle}
-              rows="4"
+              rows="5"
               size="medium"
               name="description"
               onChange={this.handleInputChange}

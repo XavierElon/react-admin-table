@@ -73,7 +73,7 @@ const Button2Inactive = styled("div")`
 
 const badgeStyle = {
   paddingTop: ".6rem",
-  textAlign: "center !important"
+  textAlign: "center !important",
 };
 
 // function getRow(id) {
@@ -89,8 +89,9 @@ export default class Table extends React.Component {
       data2: {},
       isLoading: true,
       active: true,
+      userOhid: window.portalUserID,
     };
-
+    let ohid = window.portalUserID;
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -186,7 +187,7 @@ export default class Table extends React.Component {
       fontSize: "14px",
       lineHeight: "28px",
       textTransform: "uppercase",
-      textDecoration: "underline"
+      textDecoration: "underline",
     };
 
     try {
@@ -197,65 +198,74 @@ export default class Table extends React.Component {
       let length = result.length;
       console.log(result);
       for (let i = 0; i < length; i++) {
-        let newStart = "";
-        let newEnd = "";
+        if (result[i].data.userOhid === this.state.userOhid) {
+          let newStart = "";
+          let newEnd = "";
 
-        let start = result[i].data.offerStartDate;
-        if (start != null) {
-          newStart = start.substr(0, start.length - 14);
-        }
+          let start = result[i].data.offerStartDate;
+          if (start != null) {
+            newStart = start.substr(0, start.length - 14);
+          }
 
-        let end = result[i].data.offerExpirationDate;
-        if (end != null) {
-          newEnd = end.substr(0, end.length - 14);
-        }
+          let end = result[i].data.offerExpirationDate;
+          if (end != null) {
+            newEnd = end.substr(0, end.length - 14);
+          }
 
-        let status;
-        let id = result[i]._id;
-        let new_id = (
-          <Link className="Link" style={linkStyle} to={`/requestdetails/${id}`}>
-            {id}
-          </Link>
-        );
-
-        if (result[i].data.status === "pending") {
-          status = (
-            <Badges.BlueBadge style={badgeStyle}>
-              Pending Review
-            </Badges.BlueBadge>
+          let status;
+          let id = result[i]._id;
+          let new_id = (
+            <Link
+              className="Link"
+              style={linkStyle}
+              to={`/requestdetails/${id}`}
+            >
+              {id}
+            </Link>
           );
-        } else if (result[i].data.status === "approved") {
-          status = (
-            <Badges.GreenBadge style={badgeStyle}>Approved</Badges.GreenBadge>
-          );
-        } else if (result[i].data.status === "disabled") {
-          status = (
-            <Badges.GreyBadge style={badgeStyle}>Disabled</Badges.GreyBadge>
-          );
-        } else if (result[i].data.status === "denied") {
-          status = <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>;
-        }
-        data.rows.push({
-          number: new_id,
-          type: result[i].data.resourceType,
-          name: result[i].data.resourceName,
-          startDate: newStart,
-          endDate: newEnd,
-          status: status,
-          // clickEvent: () => this.getRow(id),
-        });
 
-        if (result[i].data.status === "pending") {
-          data2.rows.push({
+          if (result[i].data.status === "pending") {
+            status = (
+              <Badges.BlueBadge style={badgeStyle}>
+                Pending Review
+              </Badges.BlueBadge>
+            );
+          } else if (result[i].data.status === "approved") {
+            status = (
+              <Badges.GreenBadge style={badgeStyle}>Approved</Badges.GreenBadge>
+            );
+          } else if (result[i].data.status === "disabled") {
+            status = (
+              <Badges.GreyBadge style={badgeStyle}>Disabled</Badges.GreyBadge>
+            );
+          } else if (result[i].data.status === "denied") {
+            status = (
+              <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>
+            );
+          }
+          data.rows.push({
             number: new_id,
             type: result[i].data.resourceType,
             name: result[i].data.resourceName,
             startDate: newStart,
             endDate: newEnd,
             status: status,
+            // clickEvent: () => this.getRow(id),
           });
+
+          if (result[i].data.status === "pending") {
+            data2.rows.push({
+              number: new_id,
+              type: result[i].data.resourceType,
+              name: result[i].data.resourceName,
+              startDate: newStart,
+              endDate: newEnd,
+              status: status,
+            });
+          }
         }
       }
+
       this.setState((this.state.data2 = data2));
       this.setState((this.state.data = data));
     } catch (error) {
@@ -273,9 +283,9 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-admin-title-text">
-              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+              <p className="owt-content-admin-title">Dashboard</p>
             </span>
-            <span>
+            <span className="owt-content-new-form-div">
               <Link to="/requestform">
                 <span className="owt-content-plus-button">
                   <img
@@ -322,7 +332,7 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fas fas-search" aria-hidden="true"></i>
+              <i class="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>
@@ -334,7 +344,7 @@ export default class Table extends React.Component {
             <span className="owt-content-admin-title-text">
               <h2 className="owt-content-admin-title">Admin Dashboard</h2>
             </span>
-            <span>
+            <span className="owt-content-new-form-div">
               <Link to="/requestform">
                 <span className="owt-content-plus-button">
                   <img
@@ -381,7 +391,7 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fas fas-search" aria-hidden="true"></i>
+              <i class="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>
