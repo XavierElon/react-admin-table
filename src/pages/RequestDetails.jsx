@@ -19,6 +19,8 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import { Form } from 'react-formio';
+import {FormBuilder} from '@formio/react';
 import Constants from "../helpers/constants";
 
 const typeStyle = {
@@ -128,7 +130,6 @@ export default class RequestDetails extends React.Component {
       userOhid: "",
       email: "",
       phoneNumber: "",
-      address: "",
       lat: "",
       lon: "",
       state: "",
@@ -183,7 +184,7 @@ export default class RequestDetails extends React.Component {
             result.data.categories.networkingDevices
           ),
           location: result.data.location,
-          address: result.data.address1.address,
+          address1: result.data.address1.address,
           lat: result.data.address1.lat,
           lon: result.data.address1.lon,
           state: result.data.state,
@@ -209,6 +210,7 @@ export default class RequestDetails extends React.Component {
   }
 
   handleInputChange = (event) => {
+    console.log(event)
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -625,6 +627,7 @@ export default class RequestDetails extends React.Component {
 
     return (
       <div className="owt-content-main-body">
+        {/* <Form src="https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/60d08f28a4996a5875d08dec"/> */}
         <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
           <Grid
             container
@@ -667,6 +670,7 @@ export default class RequestDetails extends React.Component {
               <TextField
                 style={nameStyle}
                 required
+                value={this.state.resourceName}
                 size="medium"
                 name="name"
                 variant="outlined"

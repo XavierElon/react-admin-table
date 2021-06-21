@@ -120,10 +120,9 @@ export default class RequestDetails extends React.Component {
       mobileDevices: false,
       networkingDevices: false,
       location: "",
-      userOhid: "",
+      userOhid: window.portalUserID,
       email: "",
       phoneNumber: "",
-      address: "",
       lat: "",
       lon: "",
       state: "",
@@ -180,7 +179,7 @@ export default class RequestDetails extends React.Component {
         offerStartDate: `${this.state.startDate}`,
         offerExpirationDate: `${this.state.endDate}`,
         address1: {
-          address: `${this.state.address}`,
+          address: `${this.state.address1}`,
           lat: `${this.state.lat}`,
           lon: `${this.state.lon}`,
         },
@@ -474,7 +473,7 @@ export default class RequestDetails extends React.Component {
     return (
       <div class="owt-content-google-places">
         <PlacesAutocomplete
-          value={this.state.address}
+          value={this.state.address1}
           name="address"
           onChange={this.handleChange}
           onSelect={this.handleSelect}
@@ -526,15 +525,8 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
-    console.log("2")
-    let value = "";
-    let ohid = window.portalUserID
-    this.setState({
-      userOhid: ohid
-    })
-    console.log("userOHID = " + ohid)
+    let value = ""
     console.log("state OHID= " + this.state.userOhid)
-    console.log("ohid = " + ohid)
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
     } else if (this.state.type === "Digital Resource") {
