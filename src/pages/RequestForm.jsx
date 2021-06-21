@@ -561,9 +561,9 @@ export default class RequestDetails extends React.Component {
         >
           
           <Grid item xs={12} className="owt-content-new-entry-form-title">
-            <h2>
+            <p className="owt-content-new-entry-form-text">
               <b>New Entry Form</b>
-            </h2>
+            </p>
           </Grid>
           <Grid item xs={6} className="owt-content-listing-type-text">
             <p>Listing Type</p>
@@ -690,7 +690,7 @@ export default class RequestDetails extends React.Component {
             <TextField
               multiline
               style={descriptionStyle}
-              rows="4"
+              rows="5"
               size="medium"
               name="description"
               onChange={this.handleInputChange}
