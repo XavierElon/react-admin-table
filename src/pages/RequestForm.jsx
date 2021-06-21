@@ -22,58 +22,58 @@ import PlacesAutocomplete, {
 import Constants from "../helpers/constants";
 
 const typeStyle = {
-  width: "400px"
+  width: "400px",
 };
 
 const nameStyle = {
-  width: "400px"
+  width: "400px",
 };
 
 const stateStyle = {
-  width: "200px"
+  width: "200px",
 };
 
 const zipcodeStyle = {
-  width: "200px"
+  width: "200px",
 };
 
 const placesStyle = {
-  width: "400px"
-}
+  width: "400px",
+};
 
 const startDateStyle = {
-  width: "200px"
+  width: "200px",
 };
 
 const endDateStyle = {
-  width: "200px"
+  width: "200px",
 };
 
 const descriptionStyle = {
-  width: "400px"
+  width: "400px",
 };
 
 const websiteStyle = {
-  width: "400px"
+  width: "400px",
 };
 
 const contactNameStyle = {
-  width: "400px"
+  width: "400px",
 };
 
 const phoneStyle = {
-  width: "200px"
+  width: "200px",
 };
 
 const emailStyle = {
-  width: "200px"
+  width: "200px",
 };
 
 const lineStyle = {
   width: "1080px",
   height: "1px",
   strokeWidth: "1",
-  backgroundColor: "#d8d8d8"
+  backgroundColor: "#d8d8d8",
 };
 
 const submitStyle = {
@@ -85,7 +85,7 @@ const submitStyle = {
   fontSize: "14px",
   lineHeight: "32px",
   textAlign: "center",
-  border: "0px"
+  border: "0px",
 };
 
 const cancelStyle = {
@@ -97,7 +97,7 @@ const cancelStyle = {
   fontSize: "14px",
   lineHeight: "32px",
   textAlign: "center",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
 export default class RequestDetails extends React.Component {
@@ -162,7 +162,7 @@ export default class RequestDetails extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     let update;
-    
+
     update = {
       data: {
         resourceType: `${this.state.type}`,
@@ -331,9 +331,11 @@ export default class RequestDetails extends React.Component {
 
   donatedResources() {
     return (
-      <div className="owt-content-donated-resources">
-        <FormControl component="fieldset">
-          <FormLabel component="legend"></FormLabel>
+      <div>
+        <FormControl
+          component="fieldset"
+          className="owt-content-donated-resources"
+        >
           <FormGroup>
             <FormControlLabel
               control={
@@ -372,7 +374,6 @@ export default class RequestDetails extends React.Component {
               label="Networking Devices"
             />
           </FormGroup>
-          <FormHelperText></FormHelperText>
         </FormControl>
       </div>
     );
@@ -380,41 +381,56 @@ export default class RequestDetails extends React.Component {
 
   allOfOhio() {
     return (
-      <div className="owt-content-state">
-        <TextField
-          style={stateStyle}
-          onChange={this.handleInputChange}
-          size="medium"
-          label="State"
-          name="state"
-          value="Ohio"
-          variant="outlined"
-          margin="dense"
-          InputLabelProps={{
-            shrink: true,
-            readOnly: true,
-          }}
-        ></TextField>
+      <div>
+        <div className="row">
+          <div className="col-sm-6">
+            <label class="ohio-field">
+              <p className="owt-content-state-label">State</p>
+            </label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-6">
+            <TextField
+              className="owt-content-state"
+              style={stateStyle}
+              onChange={this.handleInputChange}
+              size="medium"
+              name="state"
+              value="Ohio"
+              variant="outlined"
+              margin="dense"
+            ></TextField>
+          </div>
+        </div>
       </div>
     );
   }
 
   zipCode() {
     return (
-      <div className="owt-content-zip-code">
-        <TextField
-          style={zipcodeStyle}
-          onChange={this.handleInputChange}
-          size="medium"
-          label="Zip Code"
-          name="zipCode"
-          variant="outlined"
-          margin="dense"
-          value={this.state.zipCode}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        ></TextField>
+      <div>
+        <div className="row">
+          <div className="col-sm-6">
+            <label class="ohio-field">
+              <p className="owt-content-zipcode-label">Zipcode</p>
+            </label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-6">
+            <TextField
+              className="owt-content-zip-code"
+              style={zipcodeStyle}
+              onChange={this.handleInputChange}
+              size="medium"
+              name="zipCode"
+              variant="outlined"
+              margin="dense"
+              value={this.state.zipCode}
+            ></TextField>
+          </div>
+        </div>
       </div>
     );
   }
@@ -477,7 +493,7 @@ export default class RequestDetails extends React.Component {
           }) => (
             <div>
               <input
-              style={placesStyle}
+                style={placesStyle}
                 {...getInputProps({
                   placeholder: "Search Places...",
                   // className: "location-search-input",
@@ -516,8 +532,8 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
-    let value = ""
-    console.log("state OHID= " + this.state.userOhid)
+    let value = "";
+    console.log("state OHID= " + this.state.userOhid);
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
     } else if (this.state.type === "Digital Resource") {
@@ -536,234 +552,345 @@ export default class RequestDetails extends React.Component {
     console.log(this.state);
 
     return (
-      <div className="owt-content-main-body">
-        <form
-            noValidate
-            autoComplete="off"
-            onSubmit={this.handleSubmit}
-          >
-        <Grid
-          container
-          spacing={1}
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          
-          <Grid item xs={12} className="owt-content-new-entry-form-title">
-            <p className="owt-content-new-entry-form-text">
-              <b>New Entry Form</b>
-            </p>
-          </Grid>
-          <Grid item xs={6} className="owt-content-listing-type-text">
-            <p>Listing Type</p>
-          </Grid>
-          <Grid item xs={6} className="owt-content-resource-name-text">
-            <p>Resource Name</p>
-          </Grid>
-
-          <Grid item xs={6} className="owt-content-resource-type">
-            <FormControl required>
-              <Select
-                style={typeStyle}
-                labelId="demo-simple-select-required-label"
-                displayEmpty
-                margin="dense"
-                name="type"
-                variant="outlined"
-                onChange={this.handleInputChange}
-                value={this.state.type}
-              >
-                <MenuItem value="Digital Literacy">Digital Literacy</MenuItem>
-                <MenuItem value="Digital Resource">Digital Resource</MenuItem>
-                <MenuItem value="Donated Resource">Donated Resource</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={6} className="owt-content-resource-name">
-            <TextField
-              style={nameStyle}
-              required
-              size="medium"
-              name="name"
-              variant="outlined"
-              margin="dense"
-              onChange={this.handleInputChange}
-            ></TextField>
-          </Grid>
-          <Grid item xs={12} className="owt-content-categories-text">
-            <p>
-              <b>Categories</b> (select all that apply)
-            </p>
-          </Grid>
-          <Grid item xs={12} className="owt-content-categories">
-            {value}
-          </Grid>
-          <Grid item xs={12} className="owt-content-location-text">
-            <p className="LocationText">
-              <b>Location</b>
-            </p>
-          </Grid>
-          <Grid item xs={12} className="owt-content-location-radios">
-            <FormControl component="fieldset">
-              <RadioGroup
-                row
-                aria-label="location"
-                name="location"
-                onChange={this.handleInputChange}
-              >
-                <FormControlLabel
-                  value="noPhysicalAddress"
-                  control={<Radio color="primary" />}
-                  label="No physical address"
-                />
-                <FormControlLabel
-                  value="allOfOhio"
-                  control={<Radio color="primary" />}
-                  label="All of Ohio"
-                />
-                <FormControlLabel
-                  value="zipCode"
-                  control={<Radio color="primary" />}
-                  label="Zip Code"
-                />
-                <FormControlLabel
-                  value="streetAddress"
-                  control={<Radio color="primary" />}
-                  label="Street Address"
-                />
-              </RadioGroup>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12} className="owt-content-physical-address-text">
-            <p>
-              <b>Physical Address</b> (if applicable)
-            </p>
-          </Grid>
-          <Grid item xs={12} className="owt-content-location">
-            {locationRadio}
-          </Grid>
-          <Grid item xs={6} className="owt-content-start-date-text">
-            <p>Offer Start Date</p>
-          </Grid>
-          <Grid item xs={6} className="owt-content-end-date-text">
-            <p>Offer Expiration Date</p>
-          </Grid>
-          <Grid item xs={6} className="owt-content-start-date">
-            <TextField
-              required
-              style={startDateStyle}
-              id="date"
-              type="date"
-              name="startDate"
-              variant="outlined"
-              margin="dense"
-              onChange={this.handleInputChange}
-            />
-          </Grid>
-          <Grid item xs={6} className="owt-content-end-date">
-            <TextField
-              required
-              style={endDateStyle}
-              id="date"
-              type="date"
-              name="endDate"
-              variant="outlined"
-              margin="dense"
-              onChange={this.handleInputChange}
-            />
-          </Grid>
-          <Grid item xs={12} className="owt-content-description-text">
-            <p>Brief Description</p>
-          </Grid>
-          <Grid item xs={12} className="owt-content-description">
-            <TextField
-              multiline
-              style={descriptionStyle}
-              rows="5"
-              size="medium"
-              name="description"
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={12} className="owt-content-link-to-website-text">
-            <p>Link to Website</p>
-          </Grid>
-          <Grid item xs={12} className="owt-content-link-to-website">
-            <TextField
-              size="medium"
-              name="linkToWebsite"
-              style={websiteStyle}
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={6} className="owt-content-name-text">
-            <p>Name (if Applicable)</p>
-          </Grid>
-          <Grid item xs={3} className="owt-content-phone-text">
-            <p>Phone Number</p>
-          </Grid>
-          <Grid item xs={3} className="owt-content-email-text">
-            <p>Email</p>
-          </Grid>
-          <Grid item xs={6} className="owt-content-name">
-            <TextField
-              size="medium"
-              name="contactName"
-              style={contactNameStyle}
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={3} className="owt-content-phone">
-            <InputMask mask="(999) 999-9999" onChange={this.handleInputChange}>
-              {() => (
-                <TextField
-                  name="phoneNumber"
-                  style={phoneStyle}
-                  margin="dense"
-                  variant="outlined"
-                  type="text"
-                />
-              )}
-            </InputMask>
-          </Grid>
-          <Grid item xs={3} className="owt-content-email">
-            <TextField
-              size="medium"
-              style={emailStyle}
-              name="email"
-              onChange={this.handleInputChange}
-              variant="outlined"
-              margin="dense"
-            ></TextField>
-          </Grid>
-          <Grid item xs={12} className="owt-content-line-div">
-            <div style={lineStyle}></div>
-          </Grid>
-          <Grid item xs={6} className="owt-content-cancel-button">
-            <Link to="/">
-              <div style={cancelStyle}>
-                <b>Cancel</b>
+      <main className="owt-content-main-body">
+        <article className="owt-content-form-page">
+          <p className="owt-content-new-entry-form-text">
+            <b>New Entry Form</b>
+          </p>
+          <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+            <div className="row">
+              <div className="col-sm-6">
+                <label class="ohio-field">
+                  <span className="owt-content-listing-type-label">
+                    Listing Type
+                  </span>
+                </label>
               </div>
-            </Link>
-          </Grid>
-          <Grid item xs={6} className="owt-content-submit-button">
-            <input
-              style={submitStyle}
-              type="submit"
-              value="Save"
-              onSubmit={this.handleSubmit}
-            />
-          </Grid>
-        </Grid>
-        </form>
-      </div>
+              <div className="col-sm-6">
+                <label class="ohio-field">
+                  <span className="owt-content-listing-name-label">
+                    Resource Name
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label class="ohio-field">
+                  <FormControl required>
+                    <Select
+                      style={typeStyle}
+                      labelId="demo-simple-select-required-label"
+                      displayEmpty
+                      margin="dense"
+                      name="type"
+                      variant="outlined"
+                      onChange={this.handleInputChange}
+                      value={this.state.type}
+                    >
+                      <MenuItem value="Digital Literacy">
+                        Digital Literacy
+                      </MenuItem>
+                      <MenuItem value="Digital Resource">
+                        Digital Resource
+                      </MenuItem>
+                      <MenuItem value="Donated Resource">
+                        Donated Resource
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
+                </label>
+              </div>
+              <div className="col-sm-6">
+                <label class="ohio-field">
+                  <TextField
+                    style={nameStyle}
+                    required
+                    value={this.state.resourceName}
+                    size="medium"
+                    name="name"
+                    variant="outlined"
+                    margin="dense"
+                    onChange={this.handleInputChange}
+                  ></TextField>
+                </label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
+                <label className="ohio-field">
+                  <span className="owt-content-categories-label">
+                    <b>Categories</b> (select all that apply)
+                  </span>
+                  {value}
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <span className="owt-content-location-label">
+                    <b>Location</b>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <FormControl
+                    component="fieldset"
+                    className="owt-content-location-field"
+                  >
+                    <RadioGroup
+                      row
+                      aria-label="location"
+                      name="location"
+                      onChange={this.handleInputChange}
+                    >
+                      <FormControlLabel
+                        value="noPhysicalAddress"
+                        control={<Radio color="primary" />}
+                        label="No physical address"
+                      />
+                      <FormControlLabel
+                        value="allOfOhio"
+                        control={<Radio color="primary" />}
+                        label="All of Ohio"
+                      />
+                      <FormControlLabel
+                        value="zipCode"
+                        control={<Radio color="primary" />}
+                        label="Zip Code"
+                      />
+                      <FormControlLabel
+                        value="streetAddress"
+                        control={<Radio color="primary" />}
+                        label="Street Address"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <span className="owt-content-physical-address-label">
+                    <p>
+                      <b>Physical Address</b> (if applicable)
+                    </p>
+                  </span>
+                  {locationRadio}
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                  <span className="owt-content-physical-start-date-label">
+                    <p>Offer Start Date</p>
+                  </span>
+              </div>
+              <div className="col-sm-6">
+                  <span className="owt-content-physical-expiration-date-label">
+                    <p>Offer Expiration Date</p>
+                  </span>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <span className="owt-content-start-date-field">
+                    <TextField
+                      required
+                      style={startDateStyle}
+                      id="date"
+                      type="date"
+                      name="startDate"
+                      variant="outlined"
+                      margin="dense"
+                      onChange={this.handleInputChange}
+                    />
+                  </span>
+                </label>
+              </div>
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <span className="owt-content-expiration-date-field">
+                    <TextField
+                      required
+                      style={endDateStyle}
+                      id="date"
+                      type="date"
+                      name="endDate"
+                      variant="outlined"
+                      margin="dense"
+                      onChange={this.handleInputChange}
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <span className="owt-content-location-label">
+                    <p>Brief Description</p>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <TextField
+                  className="owt-content-description-field"
+                  multiline
+                  style={descriptionStyle}
+                  rows="5"
+                  size="medium"
+                  name="description"
+                  onChange={this.handleInputChange}
+                  variant="outlined"
+                  margin="dense"
+                ></TextField>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <span className="owt-content-website-label">
+                    <p>Link to Website</p>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <TextField
+                  className="owt-content-website-field"
+                  size="medium"
+                  name="linkToWebsite"
+                  style={websiteStyle}
+                  onChange={this.handleInputChange}
+                  variant="outlined"
+                  margin="dense"
+                ></TextField>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <label className="ohio-field">
+                  <span className="owt-content-resource-contact-label">
+                    <p>Resource Contact</p>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <span className="owt-content-name-label">
+                  <p>Name (if Applicable)</p>
+                </span>
+              </div>
+              <div className="col-sm-3">
+                <span className="owt-content-number-label">
+                  <p>Phone Number</p>
+                </span>
+              </div>
+              <div className="col-sm-3">
+                <span className="owt-content-email-label">
+                  <p>Email</p>
+                </span>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <TextField
+                  className="owt-content-name-field"
+                  size="medium"
+                  name="contactName"
+                  style={contactNameStyle}
+                  onChange={this.handleInputChange}
+                  variant="outlined"
+                  margin="dense"
+                ></TextField>
+              </div>
+              <div className="col-sm-3">
+                <InputMask
+                  mask="(999) 999-9999"
+                  onChange={this.handleInputChange}
+                >
+                  {() => (
+                    <TextField
+                      className="owt-content-phone-field"
+                      name="phoneNumber"
+                      style={phoneStyle}
+                      margin="dense"
+                      variant="outlined"
+                      type="text"
+                    />
+                  )}
+                </InputMask>
+              </div>
+              <div className="col-sm-3">
+                <TextField
+                  className="owt-content-email-field"
+                  size="medium"
+                  style={emailStyle}
+                  name="email"
+                  onChange={this.handleInputChange}
+                  variant="outlined"
+                  margin="dense"
+                ></TextField>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="owt-content-line-div" style={lineStyle}></div>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-6">
+                <Link to="/">
+                  <div
+                    style={cancelStyle}
+                    className="owt-content-cancel-button"
+                  >
+                    <b>Cancel</b>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-sm-6">
+                <input
+                  className="owt-content-submit-button"
+                  style={submitStyle}
+                  type="submit"
+                  value="Save"
+                  onSubmit={this.handleSubmit}
+                />
+              </div>
+            </div>
+
+            <Grid item xs={6} className="owt-content-cancel-button"></Grid>
+            <Grid item xs={6} className="owt-content-submit-button"></Grid>
+          </form>
+        </article>
+      </main>
     );
   }
 }
