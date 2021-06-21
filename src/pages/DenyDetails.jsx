@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
-import Constants from "../helpers/constants"
-import Grid from '@material-ui/core/Grid';
+import Constants from "../helpers/constants";
+import Grid from "@material-ui/core/Grid";
 
 const appStyle = {
   textAlign: "center",
@@ -99,7 +99,7 @@ export default class DenyDetails extends React.Component {
     super(props);
     console.log(this.props.match.params.id);
     this.state = {
-      id: this.props.match.params.id
+      id: this.props.match.params.id,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -107,14 +107,12 @@ export default class DenyDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch(
-      `${Constants.DFRT_FORM_URL}/${this.state.id}`
-    )
+    fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
+        console.log(result);
         this.setState({
-          deniedComment: result.data.deniedComment
+          deniedComment: result.data.deniedComment,
         });
       });
   }
@@ -124,7 +122,7 @@ export default class DenyDetails extends React.Component {
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     console.log("value = " + value + " name = " + name);
-    console.log(this.state.deniedComment)
+    console.log(this.state.deniedComment);
     this.setState({
       [name]: value,
     });
@@ -134,12 +132,12 @@ export default class DenyDetails extends React.Component {
     event.preventDefault();
 
     const update = [
-        {
-      op: "replace",
-      path: "/data/deniedComment",
-      value: `${this.state.deniedComment}`
-        }
-    ]
+      {
+        op: "replace",
+        path: "/data/deniedComment",
+        value: `${this.state.deniedComment}`,
+      },
+    ];
 
     console.log(update);
     const response = await axios.patch(
@@ -151,16 +149,21 @@ export default class DenyDetails extends React.Component {
   }
 
   render() {
-      console.log(this.state)
+    console.log(this.state);
     return (
       <div style={appStyle} className="owt-content-main-body">
         <Grid>
           <div style={bodyStyle}>
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
               <Link to="/" style={link1Style}>
-                <p className="owt-content-deny-admin-dash-text">Admin Dashboard</p>
+                <p className="owt-content-deny-admin-dash-text">
+                  Admin Dashboard
+                </p>
               </Link>
-              <p style={slashStyle} className="owt-content-deny-slash-div"> / </p>
+              <p style={slashStyle} className="owt-content-deny-slash-div">
+                {" "}
+                /{" "}
+              </p>
               <Link to={`/requestdetails/${this.state.id}`} style={link2Style}>
                 <p>{this.state.id}</p>
               </Link>
@@ -186,7 +189,10 @@ export default class DenyDetails extends React.Component {
                 onSubmit={this.handleSubmit}
               />
               <Link to="/">
-                <div style={cancelStyle} className="owt-content-deny-cancel-button">
+                <div
+                  style={cancelStyle}
+                  className="owt-content-deny-cancel-button"
+                >
                   <b>Cancel</b>
                 </div>
               </Link>

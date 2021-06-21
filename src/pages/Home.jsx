@@ -30,7 +30,7 @@ export default function Home() {
   let ohid = window.portalUserID;
   let admin = false;
   console.log("ohid = " + ohid);
-  if (!admin) {
+  if (admin) {
     return (
       <div style={appStyle}>
         <Grid>

@@ -16,7 +16,7 @@ function App() {
         <Route path="/" exact component={Home}></Route>
         <Route path="/citizendashboard/" exact component={CitizenDashboard}></Route>
         <Route path="/citizendashboard/citizenrequestdetails/:id" exact component={CitizenRequestDetails}></Route>
-        <Route path="/home/requestform" exact component={RequestForm}></Route>
+        <Route path="/requestform" exact component={RequestForm}></Route>
         <Route path="/requestdetails/:id" exact component={RequestDetails}></Route>
         <Route path="/requestapproved/:id" exact component={RequestApproved}></Route>
         <Route path="/requestdenied/:id" exact component={RequestDenied}></Route>

@@ -282,7 +282,7 @@ export default class Table extends React.Component {
               <p className="owt-content-admin-title">Admin Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
-              <Link to="/home/requestform">
+              <Link to="/requestform">
                 <span className="owt-content-plus-button">
                   <img
                     id="plus-button"

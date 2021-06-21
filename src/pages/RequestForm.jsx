@@ -555,7 +555,7 @@ export default class RequestDetails extends React.Component {
     console.log(this.state);
 
     return (
-      <main className="owt-content-main-body">
+      <main className="owt-content-main-body container">
         <article className="owt-content-form-page">
           <h2 className="owt-content-new-entry-form-text">
             <b>New Entry Form</b>
