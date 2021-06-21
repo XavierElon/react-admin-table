@@ -34,17 +34,12 @@ export default function Modal({ color, id }) {
   
   if (color === "green") {
     return (
-      <div>
-        <GreenModal className="Green">
-          <p>Request {id} was approved.</p>
+      <div className="owt-content-modal">
+        <GreenModal className="owt-content-green-modal">
+          <p className="owt-content-green-modal-text">Request {id} was approved.</p>
           <Link to='/'>
           <img
-            style={{
-              position: "absolute",
-              top: "15px",
-              right: "25px",
-              cursor: "pointer",
-            }}
+            className="owt-content-green-modal-x"
             src={GX}
             alt=""
           />
@@ -54,17 +49,12 @@ export default function Modal({ color, id }) {
     );
   } else {
     return (
-      <div>
-        <RedModal className="Red">
-          <p>Request #1234567890 has been denied.</p>
+      <div className="owt-content-modal">
+        <RedModal className="owt-content-red-modal">
+          <p className="owt-content-red-modal-text">Request {id} has been denied.</p>
           <Link to='/'>
           <img
-            style={{
-              position: "absolute",
-              top: "15px",
-              right: "25px",
-              cursor: "pointer",
-            }}
+            className="owt-content-red-modal-x"
             src={RX}
             alt=""
           />
