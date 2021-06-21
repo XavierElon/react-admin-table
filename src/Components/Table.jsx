@@ -73,7 +73,7 @@ const Button2Inactive = styled("div")`
 
 const badgeStyle = {
   paddingTop: ".6rem",
-  textAlign: "center !important"
+  textAlign: "center !important",
 };
 
 // function getRow(id) {
@@ -98,7 +98,7 @@ export default class Table extends React.Component {
     let data = {
       columns: [
         {
-          label: "Resource No.",
+          label: "Request No.",
           field: "number",
           sort: "disabled",
           width: 180,
@@ -186,7 +186,7 @@ export default class Table extends React.Component {
       fontSize: "14px",
       lineHeight: "28px",
       textTransform: "uppercase",
-      textDecoration: "underline"
+      textDecoration: "underline",
     };
 
     try {
@@ -235,15 +235,21 @@ export default class Table extends React.Component {
         } else if (result[i].data.status === "denied") {
           status = <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>;
         }
-        data.rows.push({
-          number: new_id,
-          type: result[i].data.resourceType,
-          name: result[i].data.resourceName,
-          startDate: newStart,
-          endDate: newEnd,
-          status: status,
-          // clickEvent: () => this.getRow(id),
-        });
+        if (
+          result[i].data.status === "approved" ||
+              result[i].data.status === "disabled" ||
+              result[i].data.status === "denied"
+        ) {
+          data.rows.push({
+            number: new_id,
+            type: result[i].data.resourceType,
+            name: result[i].data.resourceName,
+            startDate: newStart,
+            endDate: newEnd,
+            status: status,
+            // clickEvent: () => this.getRow(id),
+          });
+        }
 
         if (result[i].data.status === "pending") {
           data2.rows.push({

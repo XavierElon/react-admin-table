@@ -554,34 +554,29 @@ export default class RequestDetails extends React.Component {
     return (
       <main className="owt-content-main-body">
         <article className="owt-content-form-page">
-          <p className="owt-content-new-entry-form-text">
+          <h2 className="owt-content-new-entry-form-text">
             <b>New Entry Form</b>
-          </p>
+          </h2>
           <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="row">
               <div className="col-sm-6">
-                <label class="ohio-field">
-                  <span className="owt-content-listing-type-label">
-                    Listing Type
-                  </span>
-                </label>
+                <span className="owt-content-listing-type-label">
+                  Listing Type
+                </span>
               </div>
               <div className="col-sm-6">
-                <label class="ohio-field">
-                  <span className="owt-content-listing-name-label">
-                    Resource Name
-                  </span>
-                </label>
+                <span className="owt-content-listing-name-label">
+                  Resource Name
+                </span>
               </div>
             </div>
 
             <div className="row">
               <div className="col-sm-6">
                 <label class="ohio-field">
-                  <FormControl required>
+                  <FormControl required className="owt-content-type-field">
                     <Select
                       style={typeStyle}
-                      labelId="demo-simple-select-required-label"
                       displayEmpty
                       margin="dense"
                       name="type"
@@ -692,14 +687,14 @@ export default class RequestDetails extends React.Component {
 
             <div className="row">
               <div className="col-sm-6">
-                  <span className="owt-content-physical-start-date-label">
-                    <p>Offer Start Date</p>
-                  </span>
+                <span className="owt-content-physical-start-date-label">
+                  <p>Offer Start Date</p>
+                </span>
               </div>
               <div className="col-sm-6">
-                  <span className="owt-content-physical-expiration-date-label">
-                    <p>Offer Expiration Date</p>
-                  </span>
+                <span className="owt-content-physical-expiration-date-label">
+                  <p>Offer Expiration Date</p>
+                </span>
               </div>
             </div>
 
@@ -864,8 +859,8 @@ export default class RequestDetails extends React.Component {
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-sm-6">
+            <div className="row owt-content-buttons">
+              <div className="col-sm-1">
                 <Link to="/">
                   <div
                     style={cancelStyle}
@@ -875,7 +870,7 @@ export default class RequestDetails extends React.Component {
                   </div>
                 </Link>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-1">
                 <input
                   className="owt-content-submit-button"
                   style={submitStyle}
@@ -885,9 +880,6 @@ export default class RequestDetails extends React.Component {
                 />
               </div>
             </div>
-
-            <Grid item xs={6} className="owt-content-cancel-button"></Grid>
-            <Grid item xs={6} className="owt-content-submit-button"></Grid>
           </form>
         </article>
       </main>
