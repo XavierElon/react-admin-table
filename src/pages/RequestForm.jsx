@@ -138,15 +138,15 @@ export default class RequestDetails extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    let userOhid = window.portalUserID
-    console.log(userOhid)
-    this.setState({
-      userOhid: userOhid
-    })
-    console.log("userOHID = " + userOhid)
-    console.log("state OHID= " + this.state.userOhid)
-  }
+  // componentDidMount() {
+  //   let userOhid = window.portalUserID
+  //   console.log(userOhid)
+  //   this.setState({
+  //     userOhid: userOhid
+  //   })
+  //   console.log("userOHID = " + userOhid)
+  //   console.log("state OHID= " + this.state.userOhid)
+  // }
 
   handleInputChange = (event) => {
     const target = event.target;
@@ -526,8 +526,15 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
-    console.log("1")
+    console.log("2")
     let value = "";
+    let ohid = window.portalUserID
+    this.setState({
+      userOhid: ohid
+    })
+    console.log("userOHID = " + ohid)
+    console.log("state OHID= " + this.state.userOhid)
+    console.log("ohid = " + ohid)
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
     } else if (this.state.type === "Digital Resource") {
