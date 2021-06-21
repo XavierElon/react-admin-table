@@ -332,7 +332,7 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-admin-title-text">
-              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+              <p className="owt-content-admin-title">Admin Dashboard</p>
             </span>
             <span>
               <Link to="/requestform">
@@ -381,7 +381,7 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fas fas-search" aria-hidden="true"></i>
+              <i className="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>

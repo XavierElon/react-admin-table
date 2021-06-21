@@ -635,7 +635,7 @@ export default class RequestDetails extends React.Component {
             alignItems="center"
           >
             <Grid item xs={12} className="owt-content-new-entry-form-title">
-              <p>
+              <p className="owt-content-new-entry-form-text">
                 <b>Request #{this.state.id}</b>
               </p>
             </Grid>
