@@ -332,49 +332,50 @@ export default class RequestDetails extends React.Component {
   donatedResources() {
     return (
       <div>
-        <FormControl
-          component="fieldset"
-          className="owt-content-donated-resources"
-        >
-          <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  onChange={this.handleInputChange}
-                  checked={this.state.laptopsAndDesktops}
-                  name="laptopsAndDesktops"
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
-                />
-              }
-              label="Laptops and Desktops"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  onChange={this.handleInputChange}
-                  name="mobileDevices"
-                  checked={this.state.mobileDevices}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
-                />
-              }
-              label="Mobile Devices"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  onChange={this.handleInputChange}
-                  name="networkingDevices"
-                  checked={this.state.networkingDevices}
-                  color="primary"
-                  inputProps={{ "aria-label": "secondary checkbox" }}
-                />
-              }
-              label="Networking Devices"
-            />
-          </FormGroup>
-        </FormControl>
+        <div className="owt-content-donated-resources">
+          <FormControl
+            component="fieldset"
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={this.handleInputChange}
+                    checked={this.state.laptopsAndDesktops}
+                    name="laptopsAndDesktops"
+                    color="primary"
+                    inputProps={{ "aria-label": "secondary checkbox" }}
+                  />
+                }
+                label="Laptops and Desktops"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={this.handleInputChange}
+                    name="mobileDevices"
+                    checked={this.state.mobileDevices}
+                    color="primary"
+                    inputProps={{ "aria-label": "secondary checkbox" }}
+                  />
+                }
+                label="Mobile Devices"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={this.handleInputChange}
+                    name="networkingDevices"
+                    checked={this.state.networkingDevices}
+                    color="primary"
+                    inputProps={{ "aria-label": "secondary checkbox" }}
+                  />
+                }
+                label="Networking Devices"
+              />
+            </FormGroup>
+          </FormControl>
+        </div>
       </div>
     );
   }
@@ -391,16 +392,17 @@ export default class RequestDetails extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm-6">
-            <TextField
-              className="owt-content-state"
-              style={stateStyle}
-              onChange={this.handleInputChange}
-              size="medium"
-              name="state"
-              value="Ohio"
-              variant="outlined"
-              margin="dense"
-            ></TextField>
+            <span className="owt-content-state-field">
+              <TextField
+                style={stateStyle}
+                onChange={this.handleInputChange}
+                size="medium"
+                name="state"
+                value="Ohio"
+                variant="outlined"
+                margin="dense"
+              ></TextField>
+            </span>
           </div>
         </div>
       </div>
@@ -419,16 +421,17 @@ export default class RequestDetails extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm-6">
-            <TextField
-              className="owt-content-zip-code"
-              style={zipcodeStyle}
-              onChange={this.handleInputChange}
-              size="medium"
-              name="zipCode"
-              variant="outlined"
-              margin="dense"
-              value={this.state.zipCode}
-            ></TextField>
+            <span className="owt-content-zipcode-field">
+              <TextField
+                style={zipcodeStyle}
+                onChange={this.handleInputChange}
+                size="medium"
+                name="zipCode"
+                variant="outlined"
+                margin="dense"
+                value={this.state.zipCode}
+              ></TextField>
+            </span>
           </div>
         </div>
       </div>
@@ -683,14 +686,14 @@ export default class RequestDetails extends React.Component {
             <div className="row">
               <div className="col-sm-6">
                 <span>
-                  <p className="owt-content-physical-start-date-label">
+                  <p className="owt-content-start-date-label">
                     Offer Start Date
                   </p>
                 </span>
               </div>
               <div className="col-sm-6">
                 <span>
-                  <p className="owt-content-physical-expiration-date-label">
+                  <p className="owt-content-expiration-date-label">
                     Offer Expiration Date
                   </p>
                 </span>
@@ -731,7 +734,7 @@ export default class RequestDetails extends React.Component {
             <div className="row">
               <div className="col-sm-6">
                 <span>
-                  <p className="owt-content-location-label">
+                  <p className="owt-content-description-label">
                     Brief Description
                   </p>
                 </span>
