@@ -33,31 +33,26 @@ const GreenModal = styled("div")`
 const gxStyle = {
   position: "relative",
   top: "-4rem",
-  left: "102rem"
-}
+  left: "102rem",
+};
 
 const rxStyle = {
   position: "relative",
   top: "-4rem",
-  left: "102rem"
-}
-
-
+  left: "102rem",
+};
 
 export default function Modal({ color, id }) {
-  console.log(color)
+  console.log(color);
   if (color === "green") {
     return (
       <div className="owt-content-modal">
         <GreenModal className="owt-content-green-modal">
-          <p className="owt-content-green-modal-text">Request {id} was approved.</p>
-          <Link to='/'>
-          <img
-            className="owt-content-green-modal-x"
-            style={gxStyle}
-            src={GX}
-            alt=""
-          />
+          <p className="owt-content-green-modal-text">
+            Request {id} was approved.
+          </p>
+          <Link to="/">
+            <i class="fa fa-times" aria-hidden="true"></i>
           </Link>
         </GreenModal>
       </div>
@@ -66,14 +61,16 @@ export default function Modal({ color, id }) {
     return (
       <div className="owt-content-modal">
         <RedModal className="owt-content-red-modal">
-          <p className="owt-content-red-modal-text">Request {id} has been denied.</p>
-          <Link to='/'>
-          <img
-           style={rxStyle}
-            className="owt-content-red-modal-x"
-            src={RX}
-            alt=""
-          />
+          <p className="owt-content-red-modal-text">
+            Request {id} has been denied.
+          </p>
+          <Link to="/">
+            <img
+              style={rxStyle}
+              className="owt-content-red-modal-x"
+              src={RX}
+              alt=""
+            />
           </Link>
         </RedModal>
       </div>

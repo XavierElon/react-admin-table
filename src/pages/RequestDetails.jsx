@@ -1021,7 +1021,7 @@ export default class RequestDetails extends React.Component {
                     margin="dense"
                     value={this.state.userOhid}
                     onChange={this.handleInputChange}
-                    variant="standard"
+                    variant="outlined"
                   ></TextField>
                 </span>
               </div>
