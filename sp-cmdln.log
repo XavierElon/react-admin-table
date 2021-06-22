@@ -1,16 +1,16 @@
-2021-06-22 11:07:54 -- Script Application command line utility version: 8.5
+2021-06-22 11:23:47 -- Script Application command line utility version: 8.5
 
-2021-06-22 11:07:54 -- Script Application command line utility build number: 20190928-2258
+2021-06-22 11:23:47 -- Script Application command line utility build number: 20190928-2258
 
-2021-06-22 11:07:54 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
+2021-06-22 11:23:47 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
 
-2021-06-22 11:07:54 -- Java environment: 
+2021-06-22 11:23:47 -- Java environment: 
 
 	java.home = C:\Program Files\Java\jre1.8.0_291
 	java.vendor = Oracle Corporation
 	java.version = 1.8.0_291
 
-2021-06-22 11:07:54 -- Effective configuration properties: 
+2021-06-22 11:23:47 -- Effective configuration properties: 
 
 	contentRoot = ./OhioOWT
 	excludes = [^bin$, ^lib$, ^src$, ^node_modules$, ^\.classpath$, ^\.project$, ^\..*ignore$, ^sp-config.json$, ^sp-cmdln.log$, ^sp.bat$, ^sp.sh$]
@@ -21,28 +21,28 @@
 	wcmContentID = 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 	wcmSiteArea = Script Portlet Library/Script Portlet Applications/
 
-2021-06-22 11:07:54 -- Begin content push to Portal.
+2021-06-22 11:23:47 -- Begin content push to Portal.
 
-2021-06-22 11:08:03 -- Accept-Language: en-US,en
+2021-06-22 11:23:55 -- Accept-Language: en-US,en
 
-2021-06-22 11:08:03 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
+2021-06-22 11:23:55 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
 
-2021-06-22 11:08:03 -- Virtual Portal Context: gov
+2021-06-22 11:23:55 -- Virtual Portal Context: gov
 
-2021-06-22 11:08:03 -- Project Context: null
+2021-06-22 11:23:55 -- Project Context: null
 
-2021-06-22 11:08:03 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
+2021-06-22 11:23:55 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 
-2021-06-22 11:08:03 -- WCM Content Path: null
+2021-06-22 11:23:55 -- WCM Content Path: null
 
-2021-06-22 11:08:03 -- WCM Content Title: null
+2021-06-22 11:23:55 -- WCM Content Title: null
 
-2021-06-22 11:08:03 -- Main HTML file: build/index.html
+2021-06-22 11:23:55 -- Main HTML file: build/index.html
 
-2021-06-22 11:08:06 -- Archive file: 
+2021-06-22 11:23:57 -- Archive file: 
 
-	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-8113729196242466516.zip
-	(12,012,465 bytes in 677 files) 
+	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-6451814845223105768.zip
+	(12,034,559 bytes in 684 files) 
 
 	.git/COMMIT_EDITMSG
 	.git/config
@@ -104,6 +104,7 @@
 	.git/objects/0a/c9b41c0cf0726576f69ce95c941241836b455f
 	.git/objects/0b/2beed08809ee2d2dcc41ba7f0a46d6ee255f46
 	.git/objects/0b/641ef3ca4897a60fc14e8757d0c7e88550818e
+	.git/objects/0b/6b3af5f2e1ad1822fa5926ee13676f8adfe763
 	.git/objects/0b/7eab9e4cbec70643decbbbf580f6bb590dd014
 	.git/objects/0c/797b12b34c85f02ad191e478502fa4c80ac547
 	.git/objects/0c/873fa4ec136bd20512c3c5d244b5932e26cfc3
@@ -144,6 +145,7 @@
 	.git/objects/19/ee6a96c4fc2cb0cffa74a4edffc6744b97e2f7
 	.git/objects/1a/0fe262fd6ec7dde3551c2ece10fe0b89de1bb9
 	.git/objects/1a/1c8cb70b365e020a2632ff19d62043eeb1a58f
+	.git/objects/1a/7516a5f7e7a21f145565d0f9ae215fcc4d923a
 	.git/objects/1a/fa8af7b0dcbefbccbe58fb17c2eecfb22786a7
 	.git/objects/1b/1da4d2532358728e52b6fb0e5b19a19ca25b0b
 	.git/objects/1c/1823f029c230abbc16ffd5825b9300bd344981
@@ -265,6 +267,7 @@
 	.git/objects/4a/0ad9b7314e28a3973212a62aae393bbc16a8c6
 	.git/objects/4c/5c5941cf5b3dc253de540ba4ece05b28422001
 	.git/objects/4c/5d2f909cbadd23cbefda8e2f4a335e8a7c80f0
+	.git/objects/4c/d215780dc59a520e7fdcc62d1ba2806917d2d9
 	.git/objects/4d/c52b9fe12ac874f5ba5b89cf6b1ee26503ebd4
 	.git/objects/4e/0b6141a7aeae086e23e626aaa369964cef0ff6
 	.git/objects/4e/13fe24770ae427083c7bc5b61ac3dd7a6703ab
@@ -340,6 +343,7 @@
 	.git/objects/6e/ac41c2f4b1b6609ff6cc30d71341a9055d27d0
 	.git/objects/6e/bc3c18b740e4d5ec93f2540f7f643b88ec7a07
 	.git/objects/6f/b85556a4b8921b7493ee53c9dd7936dab9a5bf
+	.git/objects/70/0040966e87769cf9fcbc6a3897cf581c498a93
 	.git/objects/70/18f5b0e519d5a496d39d10988e96785923ec83
 	.git/objects/71/2a45bdd6c7ad603474a0a9cccdbecb64d75695
 	.git/objects/71/c3335e689cdd65c6bcf31ee2d87834dc0a196b
@@ -408,6 +412,7 @@
 	.git/objects/8d/be826d26e845995482650ac805ce0ccc27f663
 	.git/objects/8e/f760d09b2d5999d849eec20ee1ccedc762a6a0
 	.git/objects/8f/0a31701ad182be16381dd2b60b93cc2cb98198
+	.git/objects/8f/0c5253d02835bca8556c438dc8837bbc274dc5
 	.git/objects/8f/811348b318bdf07c85721454061f5d37b5eed4
 	.git/objects/90/2e2c636fe07f64917efc528df886b5163bff50
 	.git/objects/91/b3a20da60bf9d99d56514e974e44022c8a78ad
@@ -415,6 +420,7 @@
 	.git/objects/92/5394fc1c076f408caa9d77be6558d8867f5012
 	.git/objects/92/6e913a3e840e6eb87bc1a9edbc55ff452f1ddf
 	.git/objects/92/7bf5b75af075f9884f14a6b28d5e537770d1eb
+	.git/objects/92/909f2655456ab133131f9eabac071bbcaa0a65
 	.git/objects/92/d7b5cdb730a21274ccaabce4a448bf6b2df9d5
 	.git/objects/93/12b6c87e98bb120901aab3160a9cae822578ea
 	.git/objects/93/8ddc8b3c8c3298de31aa3112b443b331d53b2e
@@ -669,6 +675,7 @@
 	.git/objects/f9/1d531c48da0175c32c4118495082d71ef401fb
 	.git/objects/f9/73e7d5244f5a7b316b07f9ad8ff58f9df0df88
 	.git/objects/fb/5f4695dddf0e4887c2b55f90a43bb7800d077e
+	.git/objects/fb/d35bf016d9a4b5db5328e8d4aa17549d87d1df
 	.git/objects/fb/de32eae46c8d8a2e59312bc17224214e3394cb
 	.git/objects/fb/f1ced00450efe87f027b4e681b434720dc67b8
 	.git/objects/fc/00bc85caff5447ef982241640cf3c6331c8b51
@@ -708,7 +715,7 @@
 	build/static/js/2.372d6e42.chunk.js
 	build/static/js/2.372d6e42.chunk.js.LICENSE.txt
 	build/static/js/3.7489a786.chunk.js
-	build/static/js/main.6f4d37eb.chunk.js
+	build/static/js/main.fb1fdeec.chunk.js
 	build/static/js/runtime-main.651cf951.js
 	build/static/media/icn-close-green.8e53d78f.svg
 	build/static/media/icn-close-red.5b792ae2.svg
@@ -722,13 +729,13 @@
 	public/robots.txt
 	README.md
 
-2021-06-22 11:08:22 -- Response status: HTTP/1.1 200 OK
+2021-06-22 11:24:02 -- Response status: HTTP/1.1 200 OK
 
-2021-06-22 11:08:22 -- Content-Type: application/json; charset=UTF-8
+2021-06-22 11:24:02 -- Content-Type: application/json; charset=UTF-8
 
-2021-06-22 11:08:22 -- Effective character set of body: UTF-8
+2021-06-22 11:24:02 -- Effective character set of body: UTF-8
 
-2021-06-22 11:08:22 -- Body content: 
+2021-06-22 11:24:02 -- Body content: 
 
 {
 
@@ -755,7 +762,7 @@
             ,
             {
 
-               "filename" : "JavaScript\/static\/js\/main.6f4d37eb.chunk.js"
+               "filename" : "JavaScript\/static\/js\/main.fb1fdeec.chunk.js"
             }
             ,
             {
@@ -788,13 +795,13 @@
 }
 
 
-2021-06-22 11:08:22 -- Target authentication state: SUCCESS
+2021-06-22 11:24:02 -- Target authentication state: SUCCESS
 
-2021-06-22 11:08:22 -- Target authentication scheme: BASIC
+2021-06-22 11:24:02 -- Target authentication scheme: BASIC
 
-2021-06-22 11:08:22 -- Target authentication credentials: [principal: 39761230]
+2021-06-22 11:24:02 -- Target authentication credentials: [principal: 39761230]
 
-2021-06-22 11:08:22 -- Content push was successful.
+2021-06-22 11:24:02 -- Content push was successful.
 
-2021-06-22 11:08:22 -- End content push to Portal.
+2021-06-22 11:24:02 -- End content push to Portal.
 
