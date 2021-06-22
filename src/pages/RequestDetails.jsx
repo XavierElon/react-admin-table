@@ -645,7 +645,7 @@ export default class RequestDetails extends React.Component {
     return (
       <main className="owt-content-main-body container">
         <article className="owt-content-form-page">
-          <h2 className="owt-content-new-entry-form-text">
+          <h2 className="owt-content-request-number-text">
             <b>Request #{this.state.id}</b>
           </h2>
           <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>

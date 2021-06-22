@@ -897,6 +897,7 @@ export default class RequestDetails extends React.Component {
                 />
               </div>
             </div>
+            
           </form>
         </article>
       </main>
