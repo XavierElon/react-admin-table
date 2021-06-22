@@ -796,6 +796,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     required
                     style={startDateStyle}
+                    value={this.state.startDate}
                     className="owt-content-start-date-textfield"
                     id="date"
                     type="date"
@@ -811,6 +812,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     required
                     style={endDateStyle}
+                    value={this.state.endDate}
                     className="owt-content-end-date-textfield"
                     id="date"
                     type="date"
