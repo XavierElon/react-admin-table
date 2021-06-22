@@ -110,7 +110,7 @@ export default class RequestDetails extends React.Component {
     this.state = {
       id: this.props.match.params.id,
       type: "",
-      name: "",
+      resourceName: "",
       startDate: "",
       endDate: "",
       locationsThatOfferFreeWiFiPublicDevices: false,
@@ -150,7 +150,7 @@ export default class RequestDetails extends React.Component {
         console.log(result);
         this.setState({
           type: result.data.resourceType,
-          name: result.data.resourceName,
+          resourceName: result.data.resourceName,
           locationsThatOfferFreeWiFiPublicDevices: JSON.parse(
             result.data.categories.locationsThatOfferFreeWiFiPublicDevices
           ),
@@ -244,7 +244,7 @@ export default class RequestDetails extends React.Component {
     const update = {
       data: {
         resourceType: `${this.state.type}`,
-        resourceName: `${this.state.name}`,
+        resourceName: `${this.state.resourceName}`,
         offerStartDate: `${this.state.startDate}`,
         offerExpirationDate: `${this.state.endDate}`,
         address1: {
@@ -623,6 +623,7 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
+    console.log("naem = " + this.state.resourceName)
     let value = "";
     if (this.state.type === "Digital Literacy") {
       value = this.digitalLiteracy();
@@ -645,7 +646,7 @@ export default class RequestDetails extends React.Component {
       <main className="owt-content-main-body container">
         <article className="owt-content-form-page">
           <h2 className="owt-content-new-entry-form-text">
-            <b>New Entry Form</b>
+            <b>Request #{this.state.id}</b>
           </h2>
           <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="row">
