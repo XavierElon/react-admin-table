@@ -109,11 +109,12 @@ export default class DenyDetails extends React.Component {
                 </div>
                 <div className="col-sm-3">
                   <span>
-                    <Link to={`/requestdetails/${this.state.id}`}>
-                      <p className="owt-content-deny-id-link">
-                        {this.state.id}
-                      </p>
-                    </Link>
+                      <span className="owt-content-deny-request-id">
+                        <p>Request #</p>
+                        <p className="owt-content-deny-id-link">
+                          {this.state.id}
+                        </p>
+                      </span>
                   </span>
                 </div>
               </div>
