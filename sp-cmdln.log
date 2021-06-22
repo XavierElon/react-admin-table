@@ -1,16 +1,16 @@
-2021-06-22 15:55:55 -- Script Application command line utility version: 8.5
+2021-06-22 15:58:44 -- Script Application command line utility version: 8.5
 
-2021-06-22 15:55:55 -- Script Application command line utility build number: 20190928-2258
+2021-06-22 15:58:44 -- Script Application command line utility build number: 20190928-2258
 
-2021-06-22 15:55:55 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
+2021-06-22 15:58:44 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
 
-2021-06-22 15:55:55 -- Java environment: 
+2021-06-22 15:58:44 -- Java environment: 
 
 	java.home = C:\Program Files\Java\jre1.8.0_291
 	java.vendor = Oracle Corporation
 	java.version = 1.8.0_291
 
-2021-06-22 15:55:55 -- Effective configuration properties: 
+2021-06-22 15:58:44 -- Effective configuration properties: 
 
 	contentRoot = ./OhioOWT
 	excludes = [^bin$, ^lib$, ^src$, ^node_modules$, ^\.classpath$, ^\.project$, ^\..*ignore$, ^sp-config.json$, ^sp-cmdln.log$, ^sp.bat$, ^sp.sh$]
@@ -21,28 +21,28 @@
 	wcmContentID = 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 	wcmSiteArea = Script Portlet Library/Script Portlet Applications/
 
-2021-06-22 15:55:55 -- Begin content push to Portal.
+2021-06-22 15:58:44 -- Begin content push to Portal.
 
-2021-06-22 15:56:05 -- Accept-Language: en-US,en
+2021-06-22 15:58:52 -- Accept-Language: en-US,en
 
-2021-06-22 15:56:05 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
+2021-06-22 15:58:52 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
 
-2021-06-22 15:56:05 -- Virtual Portal Context: gov
+2021-06-22 15:58:52 -- Virtual Portal Context: gov
 
-2021-06-22 15:56:05 -- Project Context: null
+2021-06-22 15:58:52 -- Project Context: null
 
-2021-06-22 15:56:05 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
+2021-06-22 15:58:52 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 
-2021-06-22 15:56:05 -- WCM Content Path: null
+2021-06-22 15:58:52 -- WCM Content Path: null
 
-2021-06-22 15:56:05 -- WCM Content Title: null
+2021-06-22 15:58:52 -- WCM Content Title: null
 
-2021-06-22 15:56:05 -- Main HTML file: build/index.html
+2021-06-22 15:58:52 -- Main HTML file: build/index.html
 
-2021-06-22 15:56:08 -- Archive file: 
+2021-06-22 15:58:54 -- Archive file: 
 
-	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-4556535173838321922.zip
-	(12,449,654 bytes in 801 files) 
+	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-6314627355427637823.zip
+	(12,472,567 bytes in 804 files) 
 
 	.git/COMMIT_EDITMSG
 	.git/config
@@ -279,6 +279,7 @@
 	.git/objects/40/9e6faa4a35a92658bc4125005f0dc07e79b162
 	.git/objects/40/b59727ac1ae4babbecb1148c74fbda725f5a08
 	.git/objects/41/1fc8872ef21af92fa594df2c2f22ed7a8fb762
+	.git/objects/41/4dd7e9295f352b9444c41c91bd0476b8604e9c
 	.git/objects/41/ca4c6fa1dcb51e7f4e20316f38aa5038f6c148
 	.git/objects/42/0621f89ebb715f0f498c9c7a3b58570b5b702e
 	.git/objects/42/22b6c184d3bacf8fe72b466e327c91142d4e01
@@ -378,6 +379,7 @@
 	.git/objects/67/d8109526813b88ab212f0a6b1df844ac6c05ae
 	.git/objects/68/189ad825ccf3fca91f353b58e653ba8a6b5eab
 	.git/objects/68/304ee8812483009c3a01c7f21c7180971dc9a0
+	.git/objects/68/8181af0e24aafc9b98a521ff5cf0f7827b2a55
 	.git/objects/68/b3db3ac78b17f4450aef9801310c4d52fe71a6
 	.git/objects/68/caad770743c6e77e1a476a33e30f669c54bc0c
 	.git/objects/69/0f74ff7281ee2a37f254da98b53cf1b515714e
@@ -576,6 +578,7 @@
 	.git/objects/ad/8f3ac4df9a44583c2788fbbc32e6d015069893
 	.git/objects/ad/e86060831bbd2eb6d2dd5f321ea955a31276ba
 	.git/objects/ae/ff6235bbf3dbe97f36d6378d1046a698f154fa
+	.git/objects/af/52bad441eb19098d7e02f76ef6e5c008127a82
 	.git/objects/af/8608dd1b56442ee322480779283dda9359914e
 	.git/objects/b0/21cbcaf9a1bc26d42653f8d44e0eea818ba9f3
 	.git/objects/b0/714f440a68020f3eb30c5a9b977e8fecaf06d1
@@ -846,13 +849,13 @@
 	public/robots.txt
 	README.md
 
-2021-06-22 15:56:12 -- Response status: HTTP/1.1 200 OK
+2021-06-22 15:58:58 -- Response status: HTTP/1.1 200 OK
 
-2021-06-22 15:56:12 -- Content-Type: application/json; charset=UTF-8
+2021-06-22 15:58:58 -- Content-Type: application/json; charset=UTF-8
 
-2021-06-22 15:56:12 -- Effective character set of body: UTF-8
+2021-06-22 15:58:58 -- Effective character set of body: UTF-8
 
-2021-06-22 15:56:12 -- Body content: 
+2021-06-22 15:58:58 -- Body content: 
 
 {
 
@@ -912,13 +915,13 @@
 }
 
 
-2021-06-22 15:56:12 -- Target authentication state: SUCCESS
+2021-06-22 15:58:58 -- Target authentication state: SUCCESS
 
-2021-06-22 15:56:12 -- Target authentication scheme: BASIC
+2021-06-22 15:58:58 -- Target authentication scheme: BASIC
 
-2021-06-22 15:56:12 -- Target authentication credentials: [principal: 39761230]
+2021-06-22 15:58:58 -- Target authentication credentials: [principal: 39761230]
 
-2021-06-22 15:56:12 -- Content push was successful.
+2021-06-22 15:58:58 -- Content push was successful.
 
-2021-06-22 15:56:12 -- End content push to Portal.
+2021-06-22 15:58:58 -- End content push to Portal.
 

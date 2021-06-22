@@ -485,6 +485,7 @@ export default class RequestDetails extends React.Component {
   streetAddress() {
     return (
       <div class="owt-content-google-places">
+        <p className="owt-content-physical-address-label"><b>Physical Address</b> (if applicable)</p>
         <PlacesAutocomplete
         
           value={this.state.address1}
@@ -681,11 +682,6 @@ export default class RequestDetails extends React.Component {
 
             <div className="row">
               <div className="col-sm-6">
-                <span>
-                  <p className="owt-content-physical-address-label">
-                    <b>Physical Address</b> (if applicable)
-                  </p>
-                </span>
                 {locationRadio}
               </div>
             </div>
