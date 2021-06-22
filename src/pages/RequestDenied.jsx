@@ -4,7 +4,6 @@ import Modal  from "../Components/Modal";
 import Grid from "@material-ui/core/Grid";
 
 const appStyle = {
-  textAlign: "center",
   width: "100%",
   height: "1080px",
   marginLeft: "auto",
@@ -16,8 +15,6 @@ const appStyle = {
 };
 
 const bodyStyle = {
-  position: "absolute",
-  left: "0%",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "100%",

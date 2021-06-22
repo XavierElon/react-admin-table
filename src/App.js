@@ -14,7 +14,7 @@ function App() {
     <Router basename={'/wps/myportal/gov/ohid/applications/owt-finder-admin'}>
       <Switch>
         <Route path="/" exact component={Home}></Route>
-        <Route path="/citizendashboard/" exact component={CitizenDashboard}></Route>
+        <Route path="/citizendashboard" exact component={CitizenDashboard}></Route>
         <Route path="/citizendashboard/citizenrequestdetails/:id" exact component={CitizenRequestDetails}></Route>
         <Route path="/requestform" exact component={RequestForm}></Route>
         <Route path="/requestdetails/:id" exact component={RequestDetails}></Route>
