@@ -1018,6 +1018,7 @@ export default class RequestDetails extends React.Component {
                     style={ohidStyle}
                     size="medium"
                     name="userOhid"
+                    margin="dense"
                     value={this.state.userOhid}
                     onChange={this.handleInputChange}
                     variant="standard"

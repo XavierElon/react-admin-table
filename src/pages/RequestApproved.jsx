@@ -16,8 +16,6 @@ const appStyle = {
 };
 
 const bodyStyle = {
-  position: "absolute",
-  left: "0%",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "100%",
