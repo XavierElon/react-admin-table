@@ -13,7 +13,7 @@ const RedModal = styled("div")`
   color: #222222;
   border: 1px solid #e32222;
   text-align: left;
-  padding-left: 50px;
+  padding-left: 20px;
   padding-top: 20px;
 `;
 const GreenModal = styled("div")`
@@ -25,13 +25,27 @@ const GreenModal = styled("div")`
   color: #222222;
   border: 1px solid #5e8000;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-top: 20px;
   text-transform: uppercase;
 `;
 
+const gxStyle = {
+  position: "relative",
+  top: "-4rem",
+  left: "102rem"
+}
+
+const rxStyle = {
+  position: "relative",
+  top: "-4rem",
+  left: "102rem"
+}
+
+
+
 export default function Modal({ color, id }) {
-  
+  console.log(color)
   if (color === "green") {
     return (
       <div className="owt-content-modal">
@@ -40,6 +54,7 @@ export default function Modal({ color, id }) {
           <Link to='/'>
           <img
             className="owt-content-green-modal-x"
+            style={gxStyle}
             src={GX}
             alt=""
           />
@@ -54,6 +69,7 @@ export default function Modal({ color, id }) {
           <p className="owt-content-red-modal-text">Request {id} has been denied.</p>
           <Link to='/'>
           <img
+           style={rxStyle}
             className="owt-content-red-modal-x"
             src={RX}
             alt=""

@@ -84,7 +84,7 @@ export default class DenyDetails extends React.Component {
       update
     );
     console.log(response);
-    this.props.history.push("/");
+    this.props.history.push(`/requestdenied/${this.state.id}`);
   }
 
   render() {
