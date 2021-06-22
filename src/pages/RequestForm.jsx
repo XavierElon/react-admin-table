@@ -15,6 +15,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import InputMask from "react-input-mask";
 import "date-fns";
 import axios from "axios";
+import "./RequestForm.css"
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -74,6 +75,10 @@ const lineStyle = {
   height: "1px",
   strokeWidth: "1",
   backgroundColor: "#d8d8d8",
+};
+
+const ohidStyle = {
+  width: "200px",
 };
 
 const submitStyle = {
@@ -385,9 +390,7 @@ export default class RequestDetails extends React.Component {
       <div>
         <div className="row">
           <div className="col-sm-6">
-            <label class="ohio-field">
               <p className="owt-content-state-label">State</p>
-            </label>
           </div>
         </div>
         <div className="row">
@@ -395,6 +398,7 @@ export default class RequestDetails extends React.Component {
             <span className="owt-content-state-field">
               <TextField
                 style={stateStyle}
+                className="owt-content-state-textfield"
                 onChange={this.handleInputChange}
                 size="medium"
                 name="state"
@@ -414,9 +418,7 @@ export default class RequestDetails extends React.Component {
       <div>
         <div className="row">
           <div className="col-sm-6">
-            <label class="ohio-field">
               <p className="owt-content-zipcode-label">Zipcode</p>
-            </label>
           </div>
         </div>
         <div className="row">
@@ -424,6 +426,7 @@ export default class RequestDetails extends React.Component {
             <span className="owt-content-zipcode-field">
               <TextField
                 style={zipcodeStyle}
+                className="owt-content-zipcode-textfield"
                 onChange={this.handleInputChange}
                 size="medium"
                 name="zipCode"
@@ -483,6 +486,7 @@ export default class RequestDetails extends React.Component {
     return (
       <div class="owt-content-google-places">
         <PlacesAutocomplete
+        
           value={this.state.address1}
           name="address"
           onChange={this.handleChange}
@@ -497,6 +501,7 @@ export default class RequestDetails extends React.Component {
             <div>
               <input
                 style={placesStyle}
+                className="owt-content-places-textfield"
                 {...getInputProps({
                   placeholder: "Search Places...",
                   // className: "location-search-input",
@@ -580,6 +585,7 @@ export default class RequestDetails extends React.Component {
                   <FormControl required>
                     <Select
                       style={typeStyle}
+                      className="owt-content-type-textfield"
                       displayEmpty
                       margin="dense"
                       name="type"
@@ -604,6 +610,7 @@ export default class RequestDetails extends React.Component {
                 <div className="owt-content-resource-name-field">
                   <TextField
                     style={nameStyle}
+                    className="owt-content-name-textfield"
                     required
                     value={this.state.resourceName}
                     size="medium"
@@ -706,6 +713,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     required
                     style={startDateStyle}
+                    className="owt-content-start-date-textfield"
                     id="date"
                     type="date"
                     name="startDate"
@@ -720,6 +728,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     required
                     style={endDateStyle}
+                    className="owt-content-end-date-textfield"
                     id="date"
                     type="date"
                     name="endDate"
@@ -747,6 +756,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     multiline
                     style={descriptionStyle}
+                    className="owt-content-description-textfield"
                     rows="5"
                     size="medium"
                     name="description"
@@ -773,6 +783,7 @@ export default class RequestDetails extends React.Component {
                     size="medium"
                     name="linkToWebsite"
                     style={websiteStyle}
+                    className="owt-content-website-textfield"
                     onChange={this.handleInputChange}
                     variant="outlined"
                     margin="dense"
@@ -818,6 +829,7 @@ export default class RequestDetails extends React.Component {
                     size="medium"
                     name="contactName"
                     style={contactNameStyle}
+                    className="owt-content-contact-name-textfield"
                     onChange={this.handleInputChange}
                     variant="outlined"
                     margin="dense"
@@ -834,6 +846,7 @@ export default class RequestDetails extends React.Component {
                       <TextField
                         name="phoneNumber"
                         style={phoneStyle}
+                        className="owt-content-phone-textfield"
                         margin="dense"
                         variant="outlined"
                         type="text"
@@ -847,6 +860,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     size="medium"
                     style={emailStyle}
+                    className="owt-content-email-textfield"
                     name="email"
                     onChange={this.handleInputChange}
                     variant="outlined"
@@ -858,7 +872,7 @@ export default class RequestDetails extends React.Component {
 
             <div className="row">
               <div className="col-sm-12">
-                <div className="owt-content-line-div" style={lineStyle}></div>
+                <div className="owt-content-line-div owt-content-line-style" style={lineStyle}></div>
               </div>
             </div>
 
@@ -875,8 +889,8 @@ export default class RequestDetails extends React.Component {
               </div>
               <div className="col-sm-1">
                 <input
-                  className="owt-content-submit-button"
                   style={submitStyle}
+                  className="owt-content-submit-button"
                   type="submit"
                   value="Save"
                   onSubmit={this.handleSubmit}

@@ -1,0 +1,78 @@
+.owt-content-type-textfield {
+    width: "400px",
+  };
+  
+.owt-content-name-textfield {
+    width: "400px",
+  };
+  
+.owt-content-state-textfield {
+    width: "200px",
+  };
+  
+.owt-content-zipcode-textfield {
+    width: "200px",
+  };
+  
+.owt-content-places-textfield {
+    width: "400px",
+  };
+  
+.owt-content-start-date-textfield {
+    width: "200px",
+  };
+
+.owt-content-end-date-textfield {
+    width: "200px",
+  };
+  
+.owt-content-description-textfield {
+    width: "400px",
+  };
+  
+.owt-content-website-textfield {
+    width: "400px",
+  };
+  
+.owt-content-contact-name-textfield {
+    width: "400px",
+  };
+  
+.owt-content-phone-textfield {
+    width: "200px",
+  };
+  
+.owt-content-email-textfield {
+    width: "200px",
+  };
+  
+.owt-content-line-style {
+    width: "1080px";
+    height: "1px";
+    stroke-width: "1";
+    background-color: "#d8d8d8";
+  };
+  
+.owt-content-submit-button {
+    width: "112px";
+    height: "36px";
+    border-radius: "4px";
+    background-color: "#1672B5";
+    color: "white";
+    font-size: "14px";
+    line-height: "32px";
+    text-align: "center";
+    border: "0px";
+  };
+  
+.owt-content-cancel-button {
+    width: "112px";
+    height: "36px";
+    border-radius: "4px";
+    background-color: "white";
+    color: "black";
+    font-size: "14px";
+    line-height: "32px";
+    text-align: "center";
+    cursor: "pointer";
+  };
