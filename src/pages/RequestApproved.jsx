@@ -41,7 +41,7 @@ export default class RequestApproved extends React.Component {
             <div style={appStyle}>
                 <Grid>
                   <div style={bodyStyle}>
-                    <Modal color="green" id={this.state.id}></Modal>
+                    <Modal className="owt-content-green-modal" color="green" id={this.state.id}></Modal>
                     <Table></Table>
                   </div>
                 </Grid>

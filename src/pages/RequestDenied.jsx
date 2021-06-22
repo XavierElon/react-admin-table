@@ -40,7 +40,7 @@ export default class RequestDenied extends React.Component {
         <div style={appStyle}>
             <Grid>
               <div style={bodyStyle}>
-                  <Modal color="red" id={this.state.id}></Modal>
+                  <Modal className="owt-content-red-modal" color="red" id={this.state.id}></Modal>
                 <Table></Table>
               </div>
             </Grid>
