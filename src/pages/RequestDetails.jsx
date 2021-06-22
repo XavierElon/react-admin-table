@@ -965,8 +965,8 @@ export default class RequestDetails extends React.Component {
             <div className="row">
               <div className="col-sm-6">
                 <label>
-                  <span className="owt-content-status-label">
-                    <p>Status</p>
+                  <span>
+                    <p className="owt-content-status-label">Status</p>
                   </span>
                 </label>
               </div>
@@ -1008,8 +1008,8 @@ export default class RequestDetails extends React.Component {
 
             <div className="row">
               <div className="col-sm-6">
-                <span className="owt-content-ohid-label">
-                  <p>OHID</p>
+                <span>
+                  <p className="owt-content-ohid-label">OHID</p>
                 </span>
               </div>
               <div className="col-sm-6">
