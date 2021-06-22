@@ -623,6 +623,8 @@ export default class RequestDetails extends React.Component {
   }
 
   render() {
+    console.log(this.state.phoneNumber)
+    let number=8134047326
     console.log("naem = " + this.state.resourceName)
     let value = "";
     if (this.state.type === "Digital Literacy") {
@@ -841,6 +843,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     multiline
                     style={descriptionStyle}
+                    value={this.state.description}
                     className="owt-content-description-textfield"
                     rows="5"
                     size="medium"
@@ -868,6 +871,7 @@ export default class RequestDetails extends React.Component {
                     size="medium"
                     name="linkToWebsite"
                     style={websiteStyle}
+                    value={this.state.linkToWebsite}
                     className="owt-content-website-textfield"
                     onChange={this.handleInputChange}
                     variant="outlined"
@@ -913,6 +917,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     size="medium"
                     name="contactName"
+                    value={this.state.contactName}
                     style={contactNameStyle}
                     className="owt-content-contact-name-textfield"
                     onChange={this.handleInputChange}
@@ -926,6 +931,7 @@ export default class RequestDetails extends React.Component {
                   <InputMask
                     mask="(999) 999-9999"
                     onChange={this.handleInputChange}
+                    value={this.state.phoneNumber}
                   >
                     {() => (
                       <TextField
@@ -945,6 +951,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     size="medium"
                     style={emailStyle}
+                    value={this.state.email}
                     className="owt-content-email-textfield"
                     name="email"
                     onChange={this.handleInputChange}

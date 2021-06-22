@@ -49,7 +49,7 @@ export default function Modal({ color, id }) {
       <div className="owt-content-modal">
         <GreenModal className="owt-content-green-modal">
           <p className="owt-content-green-modal-text">
-            Request {id} was approved.
+            Request <p className="owt-content-modal-id">{id}</p> has been approved.
           </p>
           <Link to="/">
             <i class="fa fa-times owt-content-green-x" aria-hidden="true"></i>
@@ -62,7 +62,7 @@ export default function Modal({ color, id }) {
       <div className="owt-content-modal">
         <RedModal className="owt-content-red-modal">
           <p className="owt-content-red-modal-text">
-            Request {id} has been denied.
+            Request <p className="owt-content-modal-id">{id}</p> has been denied.
           </p>
           <Link to="/">
             <i class="fa fa-times owt-content-red-x" aria-hidden="true"></i>

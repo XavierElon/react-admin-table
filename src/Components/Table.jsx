@@ -307,6 +307,7 @@ export default class Table extends React.Component {
               </Button2Inactive>
             </span>
           </span>
+          <i className="fa fa-search owt-content-existing-entries-magnifying-glass" aria-hidden="true"></i>
           <Grid
             container
             spacing={1}
@@ -320,6 +321,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data2}
@@ -328,7 +330,7 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i className="fa fa-search" aria-hidden="true"></i>
+              
             </Grid>
           </Grid>
         </div>
@@ -366,6 +368,7 @@ export default class Table extends React.Component {
               <Button2Active>Existing Entries</Button2Active>
             </span>
           </span>
+          <i className="fa fa-search owt-content-new-entries-magnifying-glass" aria-hidden="true"></i>
           <Grid
             container
             spacing={1}
@@ -379,6 +382,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data}
@@ -387,7 +391,6 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i className="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
         </div>
