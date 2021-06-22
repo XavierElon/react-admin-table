@@ -52,7 +52,7 @@ export default function Modal({ color, id }) {
             Request {id} was approved.
           </p>
           <Link to="/">
-            <i class="fa fa-times" aria-hidden="true"></i>
+            <i class="fa fa-times owt-content-green-x" aria-hidden="true"></i>
           </Link>
         </GreenModal>
       </div>
@@ -65,12 +65,7 @@ export default function Modal({ color, id }) {
             Request {id} has been denied.
           </p>
           <Link to="/">
-            <img
-              style={rxStyle}
-              className="owt-content-red-modal-x"
-              src={RX}
-              alt=""
-            />
+            <i class="fa fa-times owt-content-red-x" aria-hidden="true"></i>
           </Link>
         </RedModal>
       </div>
