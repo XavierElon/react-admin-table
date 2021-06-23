@@ -29,9 +29,9 @@ export default function Home() {
   let ohid = window.portalUserID;
   let admin = false;
   
-  if(ohid.charAt(0) === '7') {
-    admin=true
-  }
+  // if(ohid.charAt(0) === '7') {
+  //   admin=true
+  // }
 
   if (!admin) {
     return (
