@@ -91,7 +91,7 @@ export default class Table extends React.Component {
       active: true,
       userOhid: window.portalUserID,
     };
-    
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -99,7 +99,7 @@ export default class Table extends React.Component {
     let data = {
       columns: [
         {
-          label: "Resource No.",
+          label: "Request No.",
           field: "number",
           sort: "disabled",
           width: 180,
@@ -187,20 +187,30 @@ export default class Table extends React.Component {
       fontSize: "14px",
       lineHeight: "28px",
       textTransform: "uppercase",
-      textDecoration: "underline",
+      textDecoration: "underline !important",
     };
 
     try {
       const res = await fetch(
-        `${Constants.DFRT_FORM_URL}?limit=${Constants.LIMIT_AMOUNT}`
+        `${Constants.DRFT_FORM_SUBMISSION_URL_NO_SLASH}?limit=${Constants.LIMIT_AMOUNT}`
       );
       const result = await res.json();
       let length = result.length;
-      console.log(result);
+      console.log("result = " + result);
       for (let i = 0; i < length; i++) {
-        if (result[i].data.userOhid === this.state.userOhid) {
+        if (this.state.userOhid === result[i].data.userOhid) {
           let newStart = "";
           let newEnd = "";
+          let resource_type;
+          console.log(result[i].data);
+
+          if (result[i].data.resourceType === "digitalResource") {
+            resource_type = "Digital Resource";
+          } else if (result[i].data.resourceType === "digitalLiteracy") {
+            resource_type = "Digital Literacy";
+          } else if (result[i].data.resourceType === "donatedResource") {
+            resource_type = "Donated Resource";
+          }
 
           let start = result[i].data.offerStartDate;
           if (start != null) {
@@ -215,11 +225,7 @@ export default class Table extends React.Component {
           let status;
           let id = result[i]._id;
           let new_id = (
-            <Link
-              className="Link"
-              style={linkStyle}
-              to={`/citizenrequestdetails/${id}`}
-            >
+            <Link className="Link" style={linkStyle} to={`/testdetails/${id}`}>
               {id}
             </Link>
           );
@@ -243,20 +249,26 @@ export default class Table extends React.Component {
               <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>
             );
           }
-          data.rows.push({
-            number: new_id,
-            type: result[i].data.resourceType,
-            name: result[i].data.resourceName,
-            startDate: newStart,
-            endDate: newEnd,
-            status: status,
-            // clickEvent: () => this.getRow(id),
-          });
+          if (
+            result[i].data.status === "approved" ||
+            result[i].data.status === "disabled" ||
+            result[i].data.status === "denied"
+          ) {
+            data.rows.push({
+              number: new_id,
+              type: resource_type,
+              name: result[i].data.resourceName,
+              startDate: newStart,
+              endDate: newEnd,
+              status: status,
+              // clickEvent: () => this.getRow(id),
+            });
+          }
 
           if (result[i].data.status === "pending") {
             data2.rows.push({
               number: new_id,
-              type: result[i].data.resourceType,
+              type: resource_type,
               name: result[i].data.resourceName,
               startDate: newStart,
               endDate: newEnd,
@@ -265,7 +277,6 @@ export default class Table extends React.Component {
           }
         }
       }
-
       this.setState((this.state.data2 = data2));
       this.setState((this.state.data = data));
     } catch (error) {

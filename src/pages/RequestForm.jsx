@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Radio } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -77,9 +76,6 @@ const lineStyle = {
   backgroundColor: "#d8d8d8",
 };
 
-const ohidStyle = {
-  width: "200px",
-};
 
 const submitStyle = {
   width: "112px",

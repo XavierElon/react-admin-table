@@ -51,7 +51,7 @@ export default class DenyDetails extends React.Component {
       .then((result) => {
         console.log(result);
         this.setState({
-          deniedComment: result.data.deniedComment,
+          deniedComment: "Unfortunately, your FINDER request form has been denied. The reason for denying your request is" + result.data.deniedComment,
         });
       });
   }

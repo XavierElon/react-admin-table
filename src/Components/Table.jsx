@@ -7,6 +7,7 @@ import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
+import $ from 'jquery'
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -191,14 +192,24 @@ export default class Table extends React.Component {
 
     try {
       const res = await fetch(
-        `${Constants.DFRT_FORM_URL}?limit=${Constants.LIMIT_AMOUNT}`
+        `${Constants.DRFT_FORM_SUBMISSION_URL_NO_SLASH}?limit=${Constants.LIMIT_AMOUNT}`
       );
       const result = await res.json();
       let length = result.length;
-      console.log(result);
+      console.log("result = " + result);
       for (let i = 0; i < length; i++) {
         let newStart = "";
         let newEnd = "";
+        let resource_type
+        console.log(result[i].data)
+
+        if (result[i].data.resourceType === "digitalResource") {
+          resource_type = "Digital Resource"
+        } else if (result[i].data.resourceType === "digitalLiteracy") {
+          resource_type = "Digital Literacy"
+        } else if (result[i].data.resourceType === "donatedResource") {
+          resource_type = "Donated Resource"
+        }
 
         let start = result[i].data.offerStartDate;
         if (start != null) {
@@ -213,7 +224,7 @@ export default class Table extends React.Component {
         let status;
         let id = result[i]._id;
         let new_id = (
-          <Link className="Link" style={linkStyle} to={`/requestdetails/${id}`}>
+          <Link className="Link" style={linkStyle} to={`/testdetails/${id}`}>
             {id}
           </Link>
         );
@@ -242,7 +253,7 @@ export default class Table extends React.Component {
         ) {
           data.rows.push({
             number: new_id,
-            type: result[i].data.resourceType,
+            type: resource_type,
             name: result[i].data.resourceName,
             startDate: newStart,
             endDate: newEnd,
@@ -254,7 +265,7 @@ export default class Table extends React.Component {
         if (result[i].data.status === "pending") {
           data2.rows.push({
             number: new_id,
-            type: result[i].data.resourceType,
+            type: resource_type,
             name: result[i].data.resourceName,
             startDate: newStart,
             endDate: newEnd,
@@ -284,7 +295,7 @@ export default class Table extends React.Component {
             <span className="owt-content-new-form-div">
               
                 <span className="owt-content-plus-button">
-                <Link to="/requestform">
+                <Link to="/testform">
                   <img
                     id="plus-button"
                     src={PlusButton}
@@ -293,7 +304,7 @@ export default class Table extends React.Component {
                   />
                   </Link>
                 </span>
-                <Link to="/requestform">
+                <Link to="/testform">
                 <div className="owt-content-request-text">
                   <p id="new-request-text">new request</p>
                 </div>
@@ -324,7 +335,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={30}
+                  entries={15}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data2}
@@ -346,19 +357,22 @@ export default class Table extends React.Component {
               <p className="owt-content-admin-title">Admin Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
-              <Link to="/requestform">
                 <span className="owt-content-plus-button">
+                <Link to="/testform">
                   <img
                     id="plus-button"
                     src={PlusButton}
                     alt=""
                     onClick={this.getNewEntries}
                   />
+                  </Link>
                 </span>
                 <div className="owt-content-request-text">
+                <Link to="/testform">
                   <p id="new-request-text">new request</p>
+                  </Link>
                 </div>
-              </Link>
+              
             </span>
           </div>
           <span className="owt-content-buttons">
