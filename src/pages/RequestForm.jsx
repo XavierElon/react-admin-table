@@ -171,7 +171,7 @@ export default class RequestDetails extends React.Component {
     update = {
       data: {
         resourceType: `${this.state.type}`,
-        resourceName: `${this.state.name}`,
+        resourceName: `${this.state.resourceName}`,
         offerStartDate: `${this.state.startDate}`,
         offerExpirationDate: `${this.state.endDate}`,
         address1: {
@@ -856,6 +856,7 @@ export default class RequestDetails extends React.Component {
                   <TextField
                     size="medium"
                     style={emailStyle}
+                    errorText="You suck"
                     className="owt-content-email-textfield"
                     name="email"
                     onChange={this.handleInputChange}
