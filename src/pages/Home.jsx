@@ -6,7 +6,6 @@ import Grid from "@material-ui/core/Grid";
 const appStyle = {
   textAlign: "center",
   width: "100%",
-  height: "1080px",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "auto",
