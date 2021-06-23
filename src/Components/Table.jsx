@@ -186,7 +186,7 @@ export default class Table extends React.Component {
       fontSize: "14px",
       lineHeight: "28px",
       textTransform: "uppercase",
-      textDecoration: "underline",
+      textDecoration: "underline !important",
     };
 
     try {
@@ -333,9 +333,9 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              
             </Grid>
           </Grid>
+          <div className="owt-content-table-bottom"></div>
         </div>
       );
     } else {
@@ -396,6 +396,7 @@ export default class Table extends React.Component {
               </div>
             </Grid>
           </Grid>
+          <div className="owt-content-table-bottom"></div>
         </div>
       );
     }
