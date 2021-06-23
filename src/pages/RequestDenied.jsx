@@ -3,25 +3,25 @@ import Table from "../Components/Table";
 import Modal  from "../Components/Modal";
 import Grid from "@material-ui/core/Grid";
 
-const appStyle = {
-  width: "100%",
-  height: "1080px",
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "auto",
-  paddingBottom: "72px",
-  flexDirection: "column",
-  display: "flex"
-};
+// const appStyle = {
+//   width: "100%",
+//   height: "1080px",
+//   marginLeft: "auto",
+//   marginRight: "auto",
+//   minWidth: "auto",
+//   paddingBottom: "72px",
+//   flexDirection: "column",
+//   display: "flex"
+// };
 
-const bodyStyle = {
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "100%",
-  height: "523px",
-  marginTop: "10rem",
-  flexGrow: "1"
-};
+// const bodyStyle = {
+//   marginLeft: "auto",
+//   marginRight: "auto",
+//   minWidth: "100%",
+//   height: "523px",
+//   marginTop: "10rem",
+//   flexGrow: "1"
+// };
 
 export default class RequestDenied extends React.Component {
   constructor(props) {
