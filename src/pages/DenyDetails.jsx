@@ -98,7 +98,14 @@ export default class DenyDetails extends React.Component {
                 <div className="col-sm-3">
                   <Link to="/">
                     <span className="owt-content-deny-admin-dash-text">
-                      Admin Dashboard   / Request #{this.state.id}
+                      Admin Dashboard  
+                    </span>
+                  </Link>
+                </div>
+                <div className="col-sm-3">
+                  <Link to="/">
+                    <span className="owt-content-deny-admin-id-text">
+                      /   Request #{this.state.id} 
                     </span>
                   </Link>
                 </div>
