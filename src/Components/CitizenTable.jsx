@@ -17,9 +17,6 @@ const Button1Active = styled("div")`
   color: white;
   text-align: center;
   border: 1px solid;
-  // position: absolute;
-  // top: -5rem;
-  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -32,9 +29,6 @@ const Button1Inactive = styled("div")`
   border-top-left-radius: 4px;
   color: black;
   text-align: center;
-  // position: absolute;
-  // top: -5rem;
-  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -48,9 +42,6 @@ const Button2Active = styled("div")`
   border-top-right-radius: 4px;
   color: white;
   text-align: center;
-  // position: absolute;
-  // top: 1.6rem;
-  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -63,9 +54,6 @@ const Button2Inactive = styled("div")`
   border-top-right-radius: 4px;
   color: black;
   text-align: center;
-  // position: absolute;
-  // top: 1.6rem;
-  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -204,12 +192,12 @@ export default class Table extends React.Component {
           let resource_type;
           console.log(result[i].data);
 
-          if (result[i].data.resourceType === "digitalResource") {
-            resource_type = "Digital Resource";
+          if (result[i].data.resourceType === "serviceDeals") {
+            resource_type = "Service Deals";
           } else if (result[i].data.resourceType === "digitalLiteracy") {
             resource_type = "Digital Literacy";
-          } else if (result[i].data.resourceType === "donatedResource") {
-            resource_type = "Donated Resource";
+          } else if (result[i].data.resourceType === "donateResources") {
+            resource_type = "Donate Resources";
           }
 
           let start = result[i].data.offerStartDate;
@@ -225,7 +213,7 @@ export default class Table extends React.Component {
           let status;
           let id = result[i]._id;
           let new_id = (
-            <Link className="Link" style={linkStyle} to={`/testdetails/${id}`}>
+            <Link className="Link" style={linkStyle} to={`/citizenrequestdetails/${id}`}>
               {id}
             </Link>
           );
@@ -297,15 +285,17 @@ export default class Table extends React.Component {
               <p className="owt-content-admin-title">Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
-              <Link to="/requestform">
-                <span className="owt-content-plus-button">
+              <span className="owt-content-plus-button">
+                <Link to="/testform">
                   <img
                     id="plus-button"
                     src={PlusButton}
                     alt=""
                     onClick={this.getNewEntries}
                   />
-                </span>
+                </Link>
+              </span>
+              <Link to="/testform">
                 <div className="owt-content-request-text">
                   <p id="new-request-text">new request</p>
                 </div>
@@ -357,15 +347,17 @@ export default class Table extends React.Component {
               <p className="owt-content-admin-title">Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
-              <Link to="/requestform">
-                <span className="owt-content-plus-button">
+              <span className="owt-content-plus-button">
+                <Link to="/testform">
                   <img
                     id="plus-button"
                     src={PlusButton}
                     alt=""
                     onClick={this.getNewEntries}
                   />
-                </span>
+                </Link>
+              </span>
+              <Link to="/testform">
                 <div className="owt-content-request-text">
                   <p id="new-request-text">new request</p>
                 </div>

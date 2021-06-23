@@ -196,19 +196,18 @@ export default class Table extends React.Component {
       );
       const result = await res.json();
       let length = result.length;
-      console.log("result = " + result);
+
       for (let i = 0; i < length; i++) {
         let newStart = "";
         let newEnd = "";
         let resource_type
-        console.log(result[i].data)
 
-        if (result[i].data.resourceType === "digitalResource") {
-          resource_type = "Digital Resource"
+        if (result[i].data.resourceType === "serviceDeals") {
+          resource_type = "Service Deals"
         } else if (result[i].data.resourceType === "digitalLiteracy") {
           resource_type = "Digital Literacy"
-        } else if (result[i].data.resourceType === "donatedResource") {
-          resource_type = "Donated Resource"
+        } else if (result[i].data.resourceType === "donateResources") {
+          resource_type = "Donate Resources"
         }
 
         let start = result[i].data.offerStartDate;

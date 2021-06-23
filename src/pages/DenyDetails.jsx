@@ -80,7 +80,7 @@ export default class DenyDetails extends React.Component {
 
     console.log(update);
     const response = await axios.patch(
-      `${Constants.DFRT_FORM_URL}/${this.state.id}`,
+      `${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`,
       update
     );
     console.log(response);
