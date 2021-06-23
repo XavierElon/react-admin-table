@@ -26,15 +26,15 @@ const bodyStyle = {
 };
 
 export default function Home() {
-  let ohid = window.portalUserID;
-  let admin = false;
-  console.log('ohid = ' + ohid)
+  // let ohid = window.portalUserID;
+  // let admin = false;
+  // console.log('ohid = ' + ohid)
   
   // if(ohid.charAt(0) === '7') {
   //   admin=true
   // }
 
-  if (!admin) {
+  if (true) {
     return (
       <div style={appStyle}>
         <Grid>

@@ -18,9 +18,6 @@ const Button1Active = styled("div")`
   color: white;
   text-align: center;
   border: 1px solid;
-  // position: absolute;
-  // top: -5rem;
-  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -33,9 +30,6 @@ const Button1Inactive = styled("div")`
   border-top-left-radius: 4px;
   color: black;
   text-align: center;
-  // position: absolute;
-  // top: -5rem;
-  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -49,9 +43,6 @@ const Button2Active = styled("div")`
   border-top-right-radius: 4px;
   color: white;
   text-align: center;
-  // position: absolute;
-  // top: 1.6rem;
-  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -64,9 +55,6 @@ const Button2Inactive = styled("div")`
   border-top-right-radius: 4px;
   color: black;
   text-align: center;
-  // position: absolute;
-  // top: 1.6rem;
-  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
