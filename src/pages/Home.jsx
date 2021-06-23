@@ -28,6 +28,7 @@ const bodyStyle = {
 export default function Home() {
   let ohid = window.portalUserID;
   let admin = false;
+  console.log('ohid = ' + ohid)
   
   // if(ohid.charAt(0) === '7') {
   //   admin=true
