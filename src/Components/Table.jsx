@@ -7,7 +7,6 @@ import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
-import $ from 'jquery'
 
 const Button1Active = styled("div")`
   width: 250px;
