@@ -24,39 +24,46 @@ export default class TestForm extends React.Component {
       status: "pending",
     };
 
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
 
-
-  // async handleSubmit(event) {
-  //   let id;
-  //   fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}`)
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //       this.setState({
-  //           id: result[0]._id,
-  //         });
-  //     });
-  //     console.log("id = " +this.state.id)
-  //     await this.sleep(1000);
-  //   let update = [
-  //     {
-  //       op: "replace",
-  //       path: "/data/status",
-  //       value: "pending",
-  //     },
-  //   ];
-  //   const response = await axios.patch(
-  //     `${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`,
-  //     update
-  //   );
-  //   console.log(response);
-  //   this.props.history.push("/");
-  // }
+  async handleSubmit(event) {
+    let ohid = window.portalUserID
+    await this.sleep(1000);
+    fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}`)
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result.data);
+        this.setState({
+            id: result[0]._id,
+          });
+      });
+      console.log("id = " +this.state.id)
+      await this.sleep(1000);
+    let update = [
+      {
+        op: "replace",
+        path: "/data/status",
+        value: "pending",
+      },
+      {
+        op: "replace",
+        path: "/data/userOhid",
+        value: {ohid}
+      }
+    ];
+    const response = await axios.patch(
+      `${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`,
+      update
+    );
+    console.log(response);
+    this.props.history.push("/");
+  }
 
 
 

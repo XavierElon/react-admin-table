@@ -191,8 +191,8 @@ export default class Table extends React.Component {
 
         if (result[i].data.resourceType === "serviceDeals") {
           resource_type = "Service Deals"
-        } else if (result[i].data.resourceType === "digitalLiteracy") {
-          resource_type = "Digital Literacy"
+        } else if (result[i].data.resourceType === "digitalResources") {
+          resource_type = "Digital Resources"
         } else if (result[i].data.resourceType === "donateResources") {
           resource_type = "Donate Resources"
         }
