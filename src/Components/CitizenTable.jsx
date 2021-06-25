@@ -17,9 +17,6 @@ const Button1Active = styled("div")`
   color: white;
   text-align: center;
   border: 1px solid;
-  // position: absolute;
-  // top: -5rem;
-  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -32,9 +29,6 @@ const Button1Inactive = styled("div")`
   border-top-left-radius: 4px;
   color: black;
   text-align: center;
-  // position: absolute;
-  // top: -5rem;
-  // left: 0rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -48,9 +42,6 @@ const Button2Active = styled("div")`
   border-top-right-radius: 4px;
   color: white;
   text-align: center;
-  // position: absolute;
-  // top: 1.6rem;
-  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
 `;
@@ -63,9 +54,6 @@ const Button2Inactive = styled("div")`
   border-top-right-radius: 4px;
   color: black;
   text-align: center;
-  // position: absolute;
-  // top: 1.6rem;
-  // left: 41rem;
   font-size: 18px;
   padding-top: 5px;
   cursor: pointer;
@@ -85,13 +73,13 @@ export default class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      ohid: window.portalUserID,
       data: {},
       data2: {},
       isLoading: true,
       active: true,
-      userOhid: window.portalUserID,
     };
-    let ohid = window.portalUserID;
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -99,7 +87,7 @@ export default class Table extends React.Component {
     let data = {
       columns: [
         {
-          label: "Resource No.",
+          label: "Request No.",
           field: "number",
           sort: "disabled",
           width: 180,
@@ -131,7 +119,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "disabled",
+          sort: "asc",
           width: 170,
         },
       ],
@@ -173,7 +161,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "disabled",
+          sort: "asc",
           width: 170,
         },
       ],
@@ -187,20 +175,31 @@ export default class Table extends React.Component {
       fontSize: "14px",
       lineHeight: "28px",
       textTransform: "uppercase",
-      textDecoration: "underline",
+      textDecoration: "underline !important",
     };
 
     try {
       const res = await fetch(
-        `${Constants.DFRT_FORM_URL}?limit=${Constants.LIMIT_AMOUNT}`
+        `${Constants.DRFT_FORM_SUBMISSION_URL_NO_SLASH}?limit=${Constants.LIMIT_AMOUNT}`
       );
       const result = await res.json();
       let length = result.length;
-      console.log(result);
+      console.log("state id = " + this.state.ohid);
       for (let i = 0; i < length; i++) {
-        if (result[i].data.userOhid === this.state.userOhid) {
+        if (this.state.ohid === result[i].data.userOhid) {
           let newStart = "";
           let newEnd = "";
+          let resource_type;
+          let cap_name = result[i].data.resourceName;
+          cap_name = cap_name.charAt(0).toUpperCase() + cap_name.slice(1);
+
+          if (result[i].data.resourceType === "serviceDeals") {
+            resource_type = "Service Deals";
+          } else if (result[i].data.resourceType === "digitalResources") {
+            resource_type = "Digital Resources";
+          } else if (result[i].data.resourceType === "donateDevices") {
+            resource_type = "Donate Devices";
+          }
 
           let start = result[i].data.offerStartDate;
           if (start != null) {
@@ -218,7 +217,7 @@ export default class Table extends React.Component {
             <Link
               className="Link"
               style={linkStyle}
-              to={`/requestdetails/${id}`}
+              to={`/citizenrequestdetails/${id}`}
             >
               {id}
             </Link>
@@ -243,21 +242,27 @@ export default class Table extends React.Component {
               <Badges.RedBadge style={badgeStyle}>Denied</Badges.RedBadge>
             );
           }
-          data.rows.push({
-            number: new_id,
-            type: result[i].data.resourceType,
-            name: result[i].data.resourceName,
-            startDate: newStart,
-            endDate: newEnd,
-            status: status,
-            // clickEvent: () => this.getRow(id),
-          });
+          if (
+            result[i].data.status === "approved" ||
+            result[i].data.status === "disabled" ||
+            result[i].data.status === "denied"
+          ) {
+            data.rows.push({
+              number: new_id,
+              type: resource_type,
+              name: result[i].data.resourceName,
+              startDate: newStart,
+              endDate: newEnd,
+              status: status,
+              // clickEvent: () => this.getRow(id),
+            });
+          }
 
           if (result[i].data.status === "pending") {
             data2.rows.push({
               number: new_id,
-              type: result[i].data.resourceType,
-              name: result[i].data.resourceName,
+              type: cap_name,
+              name: cap_name,
               startDate: newStart,
               endDate: newEnd,
               status: status,
@@ -265,7 +270,6 @@ export default class Table extends React.Component {
           }
         }
       }
-
       this.setState((this.state.data2 = data2));
       this.setState((this.state.data = data));
     } catch (error) {
@@ -278,23 +282,26 @@ export default class Table extends React.Component {
   }
 
   render() {
+    console.log("citizen table 2");
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-            <span className="owt-content-admin-title-text">
-              <p className="owt-content-admin-title">Dashboard</p>
+            <span className="owt-content-citizen-title-text">
+              <p className="owt-content-ciziten-title">Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
-              <Link to="/requestform">
-                <span className="owt-content-plus-button">
+              <span className="owt-content-plus-button">
+                <Link to="/requestform">
                   <img
                     id="plus-button"
                     src={PlusButton}
                     alt=""
                     onClick={this.getNewEntries}
                   />
-                </span>
+                </Link>
+              </span>
+              <Link to="/requestform">
                 <div className="owt-content-request-text">
                   <p id="new-request-text">new request</p>
                 </div>
@@ -311,6 +318,10 @@ export default class Table extends React.Component {
               </Button2Inactive>
             </span>
           </span>
+          <i
+            className="fa fa-search owt-content-existing-entries-magnifying-glass"
+            aria-hidden="true"
+          ></i>
           <Grid
             container
             spacing={1}
@@ -324,6 +335,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data2}
@@ -332,9 +344,9 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
+          <div className="owt-content-table-bottom"></div>
         </div>
       );
     } else {
@@ -342,22 +354,24 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-admin-title-text">
-              <h2 className="owt-content-admin-title">Admin Dashboard</h2>
+              <p className="owt-content-admin-title">Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
-              <Link to="/requestform">
-                <span className="owt-content-plus-button">
+              <span className="owt-content-plus-button">
+                <Link to="/requestform">
                   <img
                     id="plus-button"
                     src={PlusButton}
                     alt=""
                     onClick={this.getNewEntries}
                   />
-                </span>
-                <div className="owt-content-request-text">
+                </Link>
+              </span>
+              <div className="owt-content-request-text">
+                <Link to="/requestform">
                   <p id="new-request-text">new request</p>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </span>
           </div>
           <span className="owt-content-buttons">
@@ -370,6 +384,10 @@ export default class Table extends React.Component {
               <Button2Active>Existing Entries</Button2Active>
             </span>
           </span>
+          <i
+            className="fa fa-search owt-content-new-entries-magnifying-glass"
+            aria-hidden="true"
+          ></i>
           <Grid
             container
             spacing={1}
@@ -383,6 +401,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data}
@@ -391,9 +410,9 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
+          <div className="owt-content-table-bottom"></div>
         </div>
       );
     }

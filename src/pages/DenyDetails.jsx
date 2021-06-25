@@ -2,72 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
-import Constants from "../helpers/constants"
-import Grid from '@material-ui/core/Grid';
-
-const appStyle = {
-  textAlign: "center",
-  width: "100%",
-  height: "1080px",
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "auto",
-  paddingBottom: "72px",
-  flexDirection: "column",
-  display: "flex",
-};
-
-const bodyStyle = {
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "100%",
-  height: "523px",
-  marginTop: "10rem",
-  flexGrow: "1",
-};
-
-const link1Style = {
-  color: "#700017",
-  width: "150px",
-  height: "28px",
-  fontSize: "14px",
-  lineHeight: "28px",
-  textTransform: "uppercase",
-};
-
-const link2Style = {
-  position: "absolute",
-  top: "5rem",
-  left: "32rem",
-  color: "#700017",
-  width: "150px",
-  height: "28px",
-  fontSize: "14px",
-  lineHeight: "28px",
-  textTransform: "uppercase",
-};
-
-const slashStyle = {
-  position: "absolute",
-  top: "5rem",
-  left: "30rem",
-};
-
-const titleStyle = {
-  position: "absolute",
-  top: "8.5rem",
-  left: "16rem",
-  width: "100px",
-  height: "20px",
-  fontSize: "18px",
-  color: "#222222",
-};
+import Constants from "../helpers/constants";
+import Grid from "@material-ui/core/Grid";
 
 const commentStyle = {
   width: "550px",
-  position: "absolute",
-  top: "13rem",
-  left: "17rem",
 };
 
 const submitStyle = {
@@ -99,7 +38,7 @@ export default class DenyDetails extends React.Component {
     super(props);
     console.log(this.props.match.params.id);
     this.state = {
-      id: this.props.match.params.id
+      id: this.props.match.params.id.toUpperCase(),
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -107,14 +46,12 @@ export default class DenyDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch(
-      `${Constants.DFRT_FORM_URL}/${this.state.id}`
-    )
+    fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
+        console.log(result);
         this.setState({
-          deniedComment: result.data.deniedComment
+          deniedComment: "Unfortunately, your FINDER request form has been denied. The reason for denying your request is" + result.data.deniedComment,
         });
       });
   }
@@ -124,7 +61,7 @@ export default class DenyDetails extends React.Component {
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     console.log("value = " + value + " name = " + name);
-    console.log(this.state.deniedComment)
+    console.log(this.state.deniedComment);
     this.setState({
       [name]: value,
     });
@@ -134,62 +71,100 @@ export default class DenyDetails extends React.Component {
     event.preventDefault();
 
     const update = [
-        {
-      op: "replace",
-      path: "/data/deniedComment",
-      value: `${this.state.deniedComment}`
-        }
-    ]
+      {
+        op: "replace",
+        path: "/data/deniedComment",
+        value: `${this.state.deniedComment}`,
+      },
+    ];
 
     console.log(update);
     const response = await axios.patch(
-      `${Constants.DFRT_FORM_URL}/${this.state.id}`,
+      `${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`,
       update
     );
     console.log(response);
-    this.props.history.push("/");
+    this.props.history.push(`/requestdenied/${this.state.id}`);
   }
 
   render() {
-      console.log(this.state)
+    console.log(this.state);
     return (
-      <div style={appStyle} className="owt-content-main-body">
+      <div className="owt-content-main-body">
         <Grid>
-          <div style={bodyStyle}>
+          <div className="owt-content-deny-comment-main-body container">
             <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-              <Link to="/" style={link1Style}>
-                <p className="owt-content-deny-admin-dash-text">Admin Dashboard</p>
-              </Link>
-              <p style={slashStyle} className="owt-content-deny-slash-div"> / </p>
-              <Link to={`/requestdetails/${this.state.id}`} style={link2Style}>
-                <p>{this.state.id}</p>
-              </Link>
-              <p style={titleStyle} className="owt-content-deny-details-text">
-                <b>Deny Details</b>
-              </p>
-              <TextField
-                className="owt-content-deny-details-textfield"
-                multiline
-                rows="5"
-                style={commentStyle}
-                size="medium"
-                name="deniedComment"
-                onChange={this.handleInputChange}
-                variant="outlined"
-                value={this.state.deniedComment}
-              ></TextField>
-              <input
-                className="owt-content-deny-submit-button"
-                style={submitStyle}
-                type="submit"
-                value="Save"
-                onSubmit={this.handleSubmit}
-              />
-              <Link to="/">
-                <div style={cancelStyle} className="owt-content-deny-cancel-button">
-                  <b>Cancel</b>
+              <div className="row">
+                <div className="col-sm-3">
+                  <Link to="/">
+                    <span className="owt-content-deny-admin-dash-text">
+                      Admin Dashboard  
+                    </span>
+                  </Link>
                 </div>
-              </Link>
+                <div className="col-sm-6">
+                    <span className="owt-content-deny-admin-id-text">
+                      /    Request #{this.state.id} 
+                    </span>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-sm-3">
+                  <span>
+                    <p className="owt-content-deny-details-text">
+                      Deny Details
+                    </p>
+                  </span>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-sm-3">
+                  <span>
+                    <p className="owt-content-deny-comment-label">
+                      Comment (Required)
+                    </p>
+                  </span>
+                </div>
+                <div className="col-sm-3">
+                  <span className="owt-content-deny-details-textfield">
+                    <TextField
+                      required
+                      multiline
+                      rows="5"
+                      style={commentStyle}
+                      size="medium"
+                      name="deniedComment"
+                      onChange={this.handleInputChange}
+                      variant="outlined"
+                      value={this.state.deniedComment}
+                    ></TextField>
+                  </span>
+                </div>
+              </div>
+
+              <div className="row owt-content deny-submit-cancel-buttons">
+                <div className="col-sm-1">
+                  <Link to="/">
+                    <div
+                      style={cancelStyle}
+                      className="owt-content-deny-cancel-button"
+                    >
+                      <b>Cancel</b>
+                    </div>
+                  </Link>
+                </div>
+                <div className="col-sm-1">
+                  <input
+                    style={submitStyle}
+                    className="owt-content-deny-submit-button"
+                    type="submit"
+                    value="Save"
+                    onSubmit={this.handleSubmit}
+                  />
+                </div>
+              </div>
             </form>
           </div>
         </Grid>

@@ -1,40 +1,22 @@
 import React from "react";
 import Table from "../Components/Table";
-import CitizenTable from "../Components/CitizenTable"
+import CitizenTable from "../Components/CitizenTable";
 import Grid from "@material-ui/core/Grid";
-
-const appStyle = {
-  textAlign: "center",
-  width: "100%",
-  height: "1080px",
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "auto",
-  paddingBottom: "72px",
-  flexDirection: "column",
-  display: "flex",
-};
-
-const bodyStyle = {
-  position: "absolute",
-  left: "0%",
-  marginLeft: "auto",
-  marginRight: "auto",
-  minWidth: "100%",
-  height: "523px",
-  marginTop: "10rem",
-  flexGrow: "1",
-};
 
 export default function Home() {
   let ohid = window.portalUserID;
   let admin = false;
-  console.log("ohid = " + ohid);
-  if (!admin) {
+
+  console.log("ohid = " + ohid)
+  if(ohid.charAt(0) === '7') {
+    admin=true
+  }
+
+  if (admin) {
     return (
-      <div style={appStyle}>
+      <div>
         <Grid>
-          <div style={bodyStyle}>
+          <div className="owt-home-table-body">
             <Table></Table>
           </div>
         </Grid>
@@ -42,13 +24,13 @@ export default function Home() {
     );
   } else {
     return (
-        <div style={appStyle}>
-          <Grid>
-            <div style={bodyStyle}>
-              <CitizenTable></CitizenTable>
-            </div>
-          </Grid>
-        </div>
-      );
+      <div>
+        <Grid>
+          <div className="owt-home-table-body">
+            <CitizenTable></CitizenTable>
+          </div>
+        </Grid>
+      </div>
+    );
   }
 }
