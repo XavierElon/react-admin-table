@@ -1,16 +1,16 @@
-2021-06-25 12:29:22 -- Script Application command line utility version: 8.5
+2021-06-25 12:54:15 -- Script Application command line utility version: 8.5
 
-2021-06-25 12:29:22 -- Script Application command line utility build number: 20190928-2258
+2021-06-25 12:54:15 -- Script Application command line utility build number: 20190928-2258
 
-2021-06-25 12:29:22 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
+2021-06-25 12:54:15 -- Home folder: C:\Users\xhollingsworth\Documents\new-ohio\sp_cmdln
 
-2021-06-25 12:29:22 -- Java environment: 
+2021-06-25 12:54:15 -- Java environment: 
 
 	java.home = C:\Program Files\Java\jre1.8.0_291
 	java.vendor = Oracle Corporation
 	java.version = 1.8.0_291
 
-2021-06-25 12:29:22 -- Effective configuration properties: 
+2021-06-25 12:54:15 -- Effective configuration properties: 
 
 	contentRoot = ./OhioOWT
 	excludes = [^bin$, ^lib$, ^src$, ^node_modules$, ^\.classpath$, ^\.project$, ^\..*ignore$, ^sp-config.json$, ^sp-cmdln.log$, ^sp.bat$, ^sp.sh$]
@@ -21,28 +21,28 @@
 	wcmContentID = 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 	wcmSiteArea = Script Portlet Library/Script Portlet Applications/
 
-2021-06-25 12:29:22 -- Begin content push to Portal.
+2021-06-25 12:54:15 -- Begin content push to Portal.
 
-2021-06-25 12:29:29 -- Accept-Language: en-US,en
+2021-06-25 12:54:26 -- Accept-Language: en-US,en
 
-2021-06-25 12:29:29 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
+2021-06-25 12:54:26 -- Push URL: POST https://internal-prdauth-elb-1304937352.us-east-2.elb.amazonaws.com/wps/mycontenthandler/gov?uri=scriptportlet%3A1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1 HTTP/1.1
 
-2021-06-25 12:29:29 -- Virtual Portal Context: gov
+2021-06-25 12:54:26 -- Virtual Portal Context: gov
 
-2021-06-25 12:29:29 -- Project Context: null
+2021-06-25 12:54:26 -- Project Context: null
 
-2021-06-25 12:29:29 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
+2021-06-25 12:54:26 -- WCM content ID: 1a2af1b4-8eca-43e6-b8fd-ba0d81d6e3d1
 
-2021-06-25 12:29:29 -- WCM Content Path: null
+2021-06-25 12:54:26 -- WCM Content Path: null
 
-2021-06-25 12:29:29 -- WCM Content Title: null
+2021-06-25 12:54:26 -- WCM Content Title: null
 
-2021-06-25 12:29:29 -- Main HTML file: build/index.html
+2021-06-25 12:54:26 -- Main HTML file: build/index.html
 
-2021-06-25 12:29:34 -- Archive file: 
+2021-06-25 12:54:30 -- Archive file: 
 
-	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-5379141355014959972.zip
-	(14,984,793 bytes in 1,082 files) 
+	C:\Users\xhollingsworth\AppData\Local\Temp\sp-content-1730936510867598181.zip
+	(15,202,862 bytes in 1,116 files) 
 
 	.git/COMMIT_EDITMSG
 	.git/config
@@ -87,6 +87,7 @@
 	.git/logs/refs/remotes/origin/moreFixes
 	.git/logs/refs/remotes/origin/newBranch
 	.git/logs/refs/remotes/origin/newv2.0
+	.git/logs/refs/remotes/origin/old-state3
 	.git/logs/refs/remotes/origin/styling
 	.git/logs/refs/remotes/origin/uiFixes
 	.git/logs/refs/remotes/origin/updateForm
@@ -142,6 +143,7 @@
 	.git/objects/0e/3b236a0d9c85dbceda5d7ba3d59fc4f6b337f5
 	.git/objects/0e/68a7fc8ab1158c109b7cbe4dcfb3fecf9549d4
 	.git/objects/0e/8fced1c95b129fe37d51619b72d040915c4a78
+	.git/objects/0e/fb34b0a68756335db9113eb1b686e780447137
 	.git/objects/0f/16f56feaaf8c21b584a793be60efb679859d94
 	.git/objects/0f/327c583b1a394ee824f5b07b4d46c3c6a28b3f
 	.git/objects/0f/9133374a5e068168831037d427eb7bf70bf898
@@ -168,6 +170,8 @@
 	.git/objects/13/7b50c516ba164ea9d56640e99230e17e30a6f5
 	.git/objects/13/9fa25edf98227b57026d54945e2a436b1c4ffa
 	.git/objects/13/efdf6e888670d8ce0cf24a2e449db409c139d8
+	.git/objects/14/0b9a08e0f2f36609048a884335a2b089b5d8c0
+	.git/objects/14/151ec3c2ac77be7f84aa0ac0e5ddc7b0e03608
 	.git/objects/14/154b22f85b9c8e7ab4436b406c7b4b8d1afde9
 	.git/objects/14/37234d0ba5277e174325d45f5f1191f82064a1
 	.git/objects/14/8eba63166ddc313dc410f6adf12a6f1a4ce1f6
@@ -270,6 +274,7 @@
 	.git/objects/2c/1efd7d7bea09ccb01c5142debac9484657c59a
 	.git/objects/2c/5d1d7a18cce944899de4afe6047d9e22b090e3
 	.git/objects/2c/835f61a170a7bea2c209be2344a2997f4f30d6
+	.git/objects/2c/8360ca99edd450ac55a27e7924aeab720b808d
 	.git/objects/2c/84264a8c58c6d136e5ff3d373f1a2aea5b761b
 	.git/objects/2d/3a896889dcd3179b06d9c3d438ce6e9bc6753c
 	.git/objects/2d/8fa129270b6e83d50228a90729a5e522389b3a
@@ -310,6 +315,7 @@
 	.git/objects/34/c451355976804eb94ebf5abe351f43b9eb17ec
 	.git/objects/35/31ef0b536abcd881469866e4b2884f1a7e7cd4
 	.git/objects/35/47026ca8820f69586fff2c691e64f479fe4125
+	.git/objects/35/576d948c441fb0991d5bfb7eed9599449a88fb
 	.git/objects/35/8bb0384e85bbef0361dfd4cf25950f9f09d10d
 	.git/objects/35/f48126ad7d1eb2fdf38dc55d23aed6f31ec73d
 	.git/objects/36/2274abb6e89e17635987bd694eb9f9ecc23bd8
@@ -350,6 +356,7 @@
 	.git/objects/3c/c614829d0eca716adb6a6796d161701e1df41e
 	.git/objects/3d/4b337ab777ccf2de61ee5696fc8d97057699ad
 	.git/objects/3d/4d926a763a9f207146476609e94a7c4c90fbbf
+	.git/objects/3d/65027b56746889ba63562a53d42d3aa10154e2
 	.git/objects/3d/bdec5118721e8137570fbd727cebbf77a5b52e
 	.git/objects/3e/42afdf603d2102ca52a9b752d8d2078c314f40
 	.git/objects/3e/5a2c58dfc312af3f3e7157fea302466e4c6e34
@@ -360,6 +367,7 @@
 	.git/objects/3f/823ee02dd71c7d16ba528b9e99335bc90a5584
 	.git/objects/3f/b4b1667e5dc197ca8535fa8c6dc483e9e5ba5b
 	.git/objects/3f/bed2b473e68f5c0c2d336f02f9f0343987b734
+	.git/objects/40/17b88f0b778622f2e85152d7e5617b6644a2d4
 	.git/objects/40/1eb263ab6d07a0959e6181ad53dd896901f2ae
 	.git/objects/40/3d6d29fd4d9fc993f5cbf6b37632d09ed0e85a
 	.git/objects/40/9e6faa4a35a92658bc4125005f0dc07e79b162
@@ -385,6 +393,7 @@
 	.git/objects/46/405ae2135144e618e7f93e809f7cb252be3a7a
 	.git/objects/46/45c08f3cd67096910e391acf2265e5bf8eb29a
 	.git/objects/46/7e23d254f9def3079b7f90a242ed438ca48405
+	.git/objects/46/8829726b470ef081b190346a834212b6837f36
 	.git/objects/46/8986ec2449c9f52be77fa451c3e90fa1527189
 	.git/objects/46/bf537a8680902cae768b2de6c9fc9bb8d1967b
 	.git/objects/46/ea854ceeffced18aca40b8a4a6d76bf12032c0
@@ -395,6 +404,7 @@
 	.git/objects/48/5fe760e83f39666665328111f7b60204e1eabc
 	.git/objects/48/d32f47e866ef3f2e4078b1a25ba0e429c9fe8a
 	.git/objects/49/0349859faca14907d4d92fbb5577807c804288
+	.git/objects/49/b0b0bd108de9afc6e5125bd1a07c27f2a03fcd
 	.git/objects/49/e499b61e7955cc548b2f4a0485858779be4543
 	.git/objects/4a/0ad9b7314e28a3973212a62aae393bbc16a8c6
 	.git/objects/4a/8d4f3d020db22d0087ec43eed617b304f89d41
@@ -409,6 +419,7 @@
 	.git/objects/4e/13fe24770ae427083c7bc5b61ac3dd7a6703ab
 	.git/objects/4e/7f409c6c1f2bf77d8b6cffe76820401dc56f72
 	.git/objects/4e/bb1b5e2eb6f52c28f99baf7e23c125149f6c24
+	.git/objects/4e/bb98c2adbcf78bde83b07b0e78e87f6f6b6906
 	.git/objects/4e/c6dac6cd4f63bf75dc4729ca4f39068a99d8b1
 	.git/objects/4e/f1ab490f455ddf2537c9a4b45bd72f951f72fb
 	.git/objects/4f/90c15ff768d3007c4a3aea9e1542de314071f8
@@ -426,6 +437,7 @@
 	.git/objects/55/9ecbcac6fb3d4792f11e737a65a6d3d8f72c1c
 	.git/objects/55/b3e10f255d50286c3f47f3ae3357889522c23d
 	.git/objects/56/507184c9245972d359fcd12ab77526e0663d85
+	.git/objects/57/b1757eb3008c2fbfb28fd857487c8a3bdaabcf
 	.git/objects/58/22967ca3c8beda20503d1a7e598d5c2d434cc1
 	.git/objects/58/5c0c68a6d9fb5471a8cc9dca664f153895f985
 	.git/objects/58/a5f7e132d5cf55be5f94fa55419f44e8309d88
@@ -452,6 +464,7 @@
 	.git/objects/5d/be8151e6ddb9ccbdd16fc7784c58bae6beaf3a
 	.git/objects/5e/28b4b9687cd294d69709bd65d4e2dde21a762e
 	.git/objects/5e/3e9b5bcd23a8790ffe46bcb9bd30fb7dc8a15b
+	.git/objects/5e/5181aa0b46100ffd8f035ea9eea1356fb5efa9
 	.git/objects/5e/f7d1b5b30ff6fb4fd361b11910c41fb269e4b5
 	.git/objects/5e/fb26e7e434e95d3213f091ee8725d1e8c9996d
 	.git/objects/5f/0ea6363741377afcc4d3fbdaba3f1ec47c1d16
@@ -478,7 +491,9 @@
 	.git/objects/63/6e40b08c7899cebccc7392fb49b46e32df39b9
 	.git/objects/63/74efd520551459f697ae0bb9873ee5122309c0
 	.git/objects/64/312ac0acd317dc73520b60090b9bab48c4b07f
+	.git/objects/64/31bc5fc6b2c932dfe5d0418fc667b86c18b9fc
 	.git/objects/64/383128f3f61397301477292ef4ab1fcd62919c
+	.git/objects/64/b6a14333fd81a494873929e2e784e965bbe9a2
 	.git/objects/64/e9741d67ac56bf7e2b3d72ac3d59872851759e
 	.git/objects/64/f42cfdc99299286cc2eedffdb07ffa38387a11
 	.git/objects/65/455fce929d86764c6ab12cd106e2da0e082107
@@ -506,6 +521,7 @@
 	.git/objects/69/edbb3a87c598533294f481c765d6d4a87228c8
 	.git/objects/6a/012bcf4f020893d8ab1c1300e3d8da9e46ff4a
 	.git/objects/6a/45662a20afcd561fe5b2443851283eb6041829
+	.git/objects/6a/cbb2d16a9a3b1218d2a174a8ce0628c5988c55
 	.git/objects/6b/0045bd12b56c3d7b52edac0796c0f4a0d13111
 	.git/objects/6b/3050eb61ca88f032ad2c4833ecef6346ca9ae7
 	.git/objects/6b/4298f07bf84d68bbe4f32c47569545ef168c0c
@@ -522,6 +538,7 @@
 	.git/objects/6d/b4f374f8e92ec4164b37102a79287a418ce3bb
 	.git/objects/6e/ac41c2f4b1b6609ff6cc30d71341a9055d27d0
 	.git/objects/6e/bc3c18b740e4d5ec93f2540f7f643b88ec7a07
+	.git/objects/6f/32dc8dfb0f43093619ef481f9516a4e185b7c5
 	.git/objects/6f/4b78cfad3c21bcd7816de07149af8f610a4ed9
 	.git/objects/6f/b85556a4b8921b7493ee53c9dd7936dab9a5bf
 	.git/objects/70/0040966e87769cf9fcbc6a3897cf581c498a93
@@ -538,6 +555,7 @@
 	.git/objects/73/5b721d480e2e151334a215db7c913cc1efc8b4
 	.git/objects/74/5d7fbe995606560b38abde293241cdd7f3003a
 	.git/objects/75/2cead7b34afbc1c42a39fe023af91fc03dc40b
+	.git/objects/75/6a32adc34114121ec5694c34ec66842bf58af8
 	.git/objects/75/a2a532c9278faf2f24e4d861e307f36f715217
 	.git/objects/75/ac122d0fc582609f8b3c002783e3e54961549c
 	.git/objects/76/3d3985b8c6fd1d946463687629412f10003426
@@ -555,6 +573,7 @@
 	.git/objects/79/dd3114fe0b6dc43f579c9f45713622a2ee3016
 	.git/objects/7a/32f1b0bfba2eb9b96f5fb1bf58a2738693f96e
 	.git/objects/7a/9c2b68b0d14a687b21500c61ff1e09eb3f1b75
+	.git/objects/7a/a386fe3308018b183b577bd93080c62ee15c8f
 	.git/objects/7a/dbe2c18cbfd0b4cf609c74eed3d5f830873808
 	.git/objects/7b/0cc1f800b83913ec26487cc8ee8d0096e91638
 	.git/objects/7b/1460ba63399e5a40991ed83d2f327b9e396df2
@@ -563,8 +582,10 @@
 	.git/objects/7c/605c0a485fdebc3a0378b51715bb4d4a3d8497
 	.git/objects/7d/1ffc4988a274f3550c7bbb26ca438cea316285
 	.git/objects/7d/389db74d4b931029049d7a239257fe6d785b37
+	.git/objects/7d/d1fc1a5a17ba4eb3b8fd0a4dbd23b989d859c7
 	.git/objects/7d/e6f4366bbbe780b268e3fd6c947ba55c20b8ea
 	.git/objects/7d/fb705b2fbd602aa9faa52375be94c4b130930a
+	.git/objects/7e/3fe8a9901eb34f28508f01162de0db0d6ff39b
 	.git/objects/7e/4348f858cf4fe9e1749ac11859a9f28e6de842
 	.git/objects/7e/51a5c50de838040ec12154231243b69795c3ef
 	.git/objects/7e/584614ea60f43da18113999b42c6bd0988dd71
@@ -573,6 +594,7 @@
 	.git/objects/7e/9e8565a9154cc1d97cc086d25b09634a1c7657
 	.git/objects/7e/b58291677e5d95785fc699b95de342dd2f3fd0
 	.git/objects/7e/b78d636c6cb9d6d1b6f0013003be6ea12847f5
+	.git/objects/7e/ea00f982c89722fa0e66bc3c60f8a328b43de6
 	.git/objects/7e/ec8477fb269c66777be9419e2de84952a3815d
 	.git/objects/7e/f1e9410842dd8bef3b766d1472507fc3d59a32
 	.git/objects/7f/0488734261de8bb962bf1589474f6b20443c08
@@ -628,6 +650,7 @@
 	.git/objects/8c/4c9d1be088a0bd60041914ac0f96580fbba81d
 	.git/objects/8c/6a8d43e1deeb047227544b702f647d80e7f97d
 	.git/objects/8c/bdb78b75dafa2663885d76a8cb28defdfe92fd
+	.git/objects/8c/d8cffaf04d8f8365ce7ea6012169395c10bd7c
 	.git/objects/8d/4d4462631e57c06ccca4efbfa09ae7d017c942
 	.git/objects/8d/51b93fb766f816d97a25ce617d1d177282eb2d
 	.git/objects/8d/8fdcb7c996187501914894379aaed64f478d99
@@ -685,15 +708,18 @@
 	.git/objects/98/c4038a41636981bcdbf74b1ddf9e1b09767734
 	.git/objects/99/76e0d3c935b2c5fad201b5cf7bbfa12c9ce30f
 	.git/objects/99/7d37b91a24ccdc6e20d5c7c575fb3b7cd3c345
+	.git/objects/99/8d4c75018ed3990ce3aa8d26c620a01fe147a2
 	.git/objects/99/b91756f83c091528c0295f6bbcac10281249ec
 	.git/objects/99/d561c7c9661c0b4a47652b03eaf1a4000af302
 	.git/objects/99/dcb9e4bc583ff1ff714d614dedf30b24ef7cb6
+	.git/objects/99/fe0aa1d6c46f8bc671d2573de21df4d64167a7
 	.git/objects/9a/0ef02736b28e86ba990ad8f3874c4f3fdfcb70
 	.git/objects/9a/463672f83082925820dfa7891267d9effa3995
 	.git/objects/9a/608dd563831e61c009f342e77625ad8fead1cd
 	.git/objects/9a/86d3c5d7d8eaed90f30e2cac35136b8be106e8
 	.git/objects/9a/aae600b2162ef7197464ab99b6d2e5a9dcada1
 	.git/objects/9a/bf05c542469a0abb2f9aa150915616565880b7
+	.git/objects/9a/c0ca0291f0df4df6d6fa8388f716ae291a2dac
 	.git/objects/9a/f02b1a6764fa2d2982cc3c6f8fe1e12b91b997
 	.git/objects/9b/4f9bf198b3c14dc7e30c78b5bec125d9f0c75d
 	.git/objects/9b/62a93642c1bb577bf2862931d5bf4b58d310b4
@@ -712,6 +738,7 @@
 	.git/objects/9d/b754af23d30ee5a8a9e3dcf5450ebf90d15ccb
 	.git/objects/9e/44768d8e0e9b968a88646e63a08a93a828b8fc
 	.git/objects/9e/8b728cabf4722b274123ff8e9f4ff671c57b17
+	.git/objects/9e/c41e6af9205bdf04ae55fd9b3a6b7b61a5b9ec
 	.git/objects/9f/5033012da65b25aaf9a496aadb377b01244f53
 	.git/objects/a0/6b08c65bcf49cd5cd912aa64d8dbded8042be9
 	.git/objects/a0/84abe09b47c28dd16160b2d897b404b4e24181
@@ -723,6 +750,7 @@
 	.git/objects/a1/be2fcf1f1bcb3f201920c63fa8a4b3e7db5ba6
 	.git/objects/a1/d74b0cb2e824f57a42d9ac32114340ea3646d4
 	.git/objects/a2/6e2baf4fcddba3c8b59e36b093807cca43bf98
+	.git/objects/a2/73b0cfc0e965c35524e3cd0d3574cbe1ad2d0d
 	.git/objects/a2/b1df0432f9f3465adbfa22e5dab61ba62db827
 	.git/objects/a2/bde79efa022898a57e1db5df123bdd0192b9ee
 	.git/objects/a3/3c4cb29033bbc3c0c1ab5bafd4865f5ef10995
@@ -731,6 +759,7 @@
 	.git/objects/a4/51214481f06dd189724a9fbfe2ff3a148f30b8
 	.git/objects/a4/54f7dbb35fb86927d32af7ebe9594531bfd754
 	.git/objects/a4/d25df9c63a02a0753214b8471b72ea476ef21c
+	.git/objects/a5/117c9c9ca92208b7da44e6280be446c679f84a
 	.git/objects/a5/31a94bec5bdf7f096e80af0df006a5ab3c6fa9
 	.git/objects/a5/40308f52460983c2a5577f8b2d0b155240277e
 	.git/objects/a5/67fb44397a955e301c0c321669a9102b02bcb4
@@ -939,6 +968,7 @@
 	.git/objects/da/243080a14dce6cd20a5b41bb8d2debbe41d78f
 	.git/objects/da/ae0395a2cb9325eea022bd9f257c78b09efccc
 	.git/objects/da/bbf100e3c8adfeec060f9c20a8dff4eb8c8ad7
+	.git/objects/da/fd3bc0b5a8752f5d18c5d35a4aacfcc7d28980
 	.git/objects/db/40f797fbbd3bd139b6d42a577139575e43d5f8
 	.git/objects/db/63e8f22b88827fe75373d335218caf6be63a03
 	.git/objects/db/cb56de9ac84a8170e8c6bc19ec0c43946a1896
@@ -982,6 +1012,7 @@
 	.git/objects/e5/dc165d37ae42df074b3a4bc0b5c732ce1b06da
 	.git/objects/e5/e7de7e9a0a297f5032bb22bfecd6ef75b68d1f
 	.git/objects/e7/3e42b2fc5bcd530655b9a50ad602bd2e0af450
+	.git/objects/e7/55bc394d31764e250fc9abfd1f674df6d24647
 	.git/objects/e7/569fd30d90ae85d40c5d58ab12823074c035b9
 	.git/objects/e7/5febf6a2b35da9a0dccb9b7cf6201e07a6b592
 	.git/objects/e7/757e20b68bbb461dc3fb3b255f3205e6733598
@@ -1014,6 +1045,7 @@
 	.git/objects/ee/ee0ce8a964158190c6dfe08b3b2de43939652f
 	.git/objects/ef/704bd578d935833e628d20ade117a371022b41
 	.git/objects/ef/9d1f3b5488ec05a168bcb08c2b088d35413615
+	.git/objects/ef/aa521bac7c2060b9765e3bc1c64231ae8a27b8
 	.git/objects/f0/08d9b41da841be068ca4fce643855faab4927d
 	.git/objects/f0/1002e1b5d7d64334928f3769bd087eaabb2e4e
 	.git/objects/f0/12930cc3000178f8b48527e2dac593e876eef1
@@ -1033,6 +1065,7 @@
 	.git/objects/f3/b48ad0afdd7eeb59193ee8dcaeff3fac7f5e31
 	.git/objects/f3/fc4a9cceb9b6b5ade49a4029ffed6ed179d417
 	.git/objects/f4/3b4888afd02489c001b9aecb2e175693724c17
+	.git/objects/f5/5e5960f1824fa889a2d995a1aad00da8c8a095
 	.git/objects/f5/5e812b3f33b08493ba20d4be0dcc0776e2f15b
 	.git/objects/f5/7f5349bc19e2ea2f75e81c9224ff474b5913b1
 	.git/objects/f6/0cce15071838cedd467db3c1896a92bf0bc790
@@ -1050,6 +1083,7 @@
 	.git/objects/f8/301c9c05c1ae30a1312f5abbda3bea200e71cf
 	.git/objects/f8/5f796599edfb25b4da0b6eb0054c2404da0e60
 	.git/objects/f8/8cbc6e76839800b6e07388409ca26cf1950f29
+	.git/objects/f8/8fe455ef2f2b113840c3e366ea63b0bcccde77
 	.git/objects/f8/b16b955bf3da59379a3861d1bb34bf86cbe75a
 	.git/objects/f8/e1839ce8417b2edcc9e659daa2864061ba35ed
 	.git/objects/f9/19918067ef2551dfd7a772173d0991acf0aec6
@@ -1100,6 +1134,7 @@
 	.git/refs/remotes/origin/moreFixes
 	.git/refs/remotes/origin/newBranch
 	.git/refs/remotes/origin/newv2.0
+	.git/refs/remotes/origin/old-state3
 	.git/refs/remotes/origin/styling
 	.git/refs/remotes/origin/uiFixes
 	.git/refs/remotes/origin/updateForm
@@ -1110,11 +1145,11 @@
 	build/manifest.json
 	build/robots.txt
 	build/static/css/main.9765b3e9.chunk.css
-	build/static/js/2.fa11cdd0.chunk.js
-	build/static/js/2.fa11cdd0.chunk.js.LICENSE.txt
-	build/static/js/3.cc34c5c4.chunk.js
-	build/static/js/main.ce6c5c8d.chunk.js
-	build/static/js/runtime-main.4175e3c0.js
+	build/static/js/2.ecd97783.chunk.js
+	build/static/js/2.ecd97783.chunk.js.LICENSE.txt
+	build/static/js/3.67cd8bdd.chunk.js
+	build/static/js/main.7c0e1d82.chunk.js
+	build/static/js/runtime-main.a0417b46.js
 	build/static/media/icn-close-green.8e53d78f.svg
 	build/static/media/icn-close-red.5b792ae2.svg
 	config-overrides.js
@@ -1125,15 +1160,14 @@
 	public/manifest.json
 	public/robots.txt
 	README.md
-	tsconfig.json
 
-2021-06-25 12:29:38 -- Response status: HTTP/1.1 200 OK
+2021-06-25 12:54:33 -- Response status: HTTP/1.1 200 OK
 
-2021-06-25 12:29:38 -- Content-Type: application/json; charset=UTF-8
+2021-06-25 12:54:33 -- Content-Type: application/json; charset=UTF-8
 
-2021-06-25 12:29:38 -- Effective character set of body: UTF-8
+2021-06-25 12:54:33 -- Effective character set of body: UTF-8
 
-2021-06-25 12:29:38 -- Body content: 
+2021-06-25 12:54:33 -- Body content: 
 
 {
 
@@ -1150,22 +1184,22 @@
             ,
             {
 
-               "filename" : "JavaScript\/static\/js\/2.fa11cdd0.chunk.js"
+               "filename" : "JavaScript\/static\/js\/2.ecd97783.chunk.js"
             }
             ,
             {
 
-               "filename" : "JavaScript\/static\/js\/3.cc34c5c4.chunk.js"
+               "filename" : "JavaScript\/static\/js\/3.67cd8bdd.chunk.js"
             }
             ,
             {
 
-               "filename" : "JavaScript\/static\/js\/main.ce6c5c8d.chunk.js"
+               "filename" : "JavaScript\/static\/js\/main.7c0e1d82.chunk.js"
             }
             ,
             {
 
-               "filename" : "JavaScript\/static\/js\/runtime-main.4175e3c0.js"
+               "filename" : "JavaScript\/static\/js\/runtime-main.a0417b46.js"
             }
             ,
             {
@@ -1193,13 +1227,13 @@
 }
 
 
-2021-06-25 12:29:38 -- Target authentication state: SUCCESS
+2021-06-25 12:54:33 -- Target authentication state: SUCCESS
 
-2021-06-25 12:29:38 -- Target authentication scheme: BASIC
+2021-06-25 12:54:33 -- Target authentication scheme: BASIC
 
-2021-06-25 12:29:38 -- Target authentication credentials: [principal: 39761230]
+2021-06-25 12:54:33 -- Target authentication credentials: [principal: 39761230]
 
-2021-06-25 12:29:38 -- Content push was successful.
+2021-06-25 12:54:33 -- Content push was successful.
 
-2021-06-25 12:29:38 -- End content push to Portal.
+2021-06-25 12:54:33 -- End content push to Portal.
 

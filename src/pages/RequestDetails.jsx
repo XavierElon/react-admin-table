@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styled from 'styled-components'
 import Constants from "../helpers/constants";
 
 const cancelStyle = {
@@ -14,6 +15,13 @@ const cancelStyle = {
   textAlign: "center",
   cursor: "pointer",
 };
+
+const FormContainer = styled.div`
+  max-width: 1080px;
+  margin: auto;
+  margin: 50px auto;
+  padding: 40px 32px;
+`;
 
 export default class RequestDetails extends React.Component {
   constructor(props) {
@@ -77,6 +85,7 @@ export default class RequestDetails extends React.Component {
   render() {
     return (
       <div>
+        <FormContainer>
           <h2 className="owt-content-new-entry-form-text">
             <b>Request #{this.state.id}</b>
           </h2>
@@ -86,6 +95,7 @@ export default class RequestDetails extends React.Component {
                 <b>Cancel</b>
               </div>
             </Link>
+            </FormContainer>
         </div>
     );
   }

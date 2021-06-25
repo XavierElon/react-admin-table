@@ -324,7 +324,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={15}
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data2}
@@ -388,7 +388,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={15}
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data}

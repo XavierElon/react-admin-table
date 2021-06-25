@@ -282,13 +282,13 @@ export default class Table extends React.Component {
   }
 
   render() {
-    console.log("citizen table 1");
+    console.log("citizen table 2");
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-            <span className="owt-content-admin-title-text">
-              <p className="owt-content-admin-title">Dashboard</p>
+            <span className="owt-content-citizen-title-text">
+              <p className="owt-content-ciziten-title">Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
               <span className="owt-content-plus-button">
@@ -335,7 +335,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={15}
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data2}
@@ -401,7 +401,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={15}
+                  entries={20}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data}
