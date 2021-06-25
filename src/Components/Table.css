@@ -33,7 +33,6 @@
 
 .NewRequestText {
   width: 120px;
-  /* height: 17px; */
   font-size: 16px;
   color: #3d7aa9;
   line-height: 18px;
@@ -74,8 +73,9 @@ th {
   display: inline-block;
   cursor: pointer;
 }
-
-.owt-content-admin-title {
+.owt-content-main-table {
+  position: relative;
+  top: 30rem;
 }
 
 .owt-content-admin-title-text {
@@ -96,15 +96,3 @@ th {
 .owt-content-button2-inactive {
   display: inline-block;
 }
-
-input.form-control {
-  display: inline-block;
-}
-
-/* .fa-search {
-  top: -63.5rem;
-  position: relative;
-  left: 75rem;
-  color: grey;
-  font-size: 20px;
-} */

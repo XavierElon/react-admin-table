@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "../Components/Table";
-import Modal  from "../Components/Modal";
+import Modal from "../Components/Modal";
 import Grid from "@material-ui/core/Grid";
 
 const appStyle = {
@@ -16,8 +16,6 @@ const appStyle = {
 };
 
 const bodyStyle = {
-  position: "absolute",
-  left: "0%",
   marginLeft: "auto",
   marginRight: "auto",
   minWidth: "100%",
@@ -28,23 +26,26 @@ const bodyStyle = {
 
 export default class RequestDenied extends React.Component {
   constructor(props) {
-      super(props)
-      console.log(this.props.match.params.id)
-        this.state = {
-            id: this.props.match.params.id
-        }
+    super(props);
+    this.state = {
+      id: this.props.match.params.id.toUpperCase(),
+    };
   }
-  
-  render () {
+
+  render() {
     return (
-        <div style={appStyle}>
-            <Grid>
-              <div style={bodyStyle}>
-                  <Modal color="red" id={this.state.id}></Modal>
-                <Table></Table>
-              </div>
-            </Grid>
-        </div>
-      );
+      <div style={appStyle}>
+        <Grid>
+          <div style={bodyStyle}>
+            <Modal
+              className="owt-content-red-modal"
+              color="red"
+              id={this.state.id}
+            ></Modal>
+            <Table></Table>
+          </div>
+        </Grid>
+      </div>
+    );
   }
 }

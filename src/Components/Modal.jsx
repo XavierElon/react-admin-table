@@ -13,7 +13,7 @@ const RedModal = styled("div")`
   color: #222222;
   border: 1px solid #e32222;
   text-align: left;
-  padding-left: 50px;
+  padding-left: 20px;
   padding-top: 20px;
 `;
 const GreenModal = styled("div")`
@@ -25,24 +25,34 @@ const GreenModal = styled("div")`
   color: #222222;
   border: 1px solid #5e8000;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-top: 20px;
   text-transform: uppercase;
 `;
 
+const gxStyle = {
+  position: "relative",
+  top: "-4rem",
+  left: "102rem",
+};
+
+const rxStyle = {
+  position: "relative",
+  top: "-4rem",
+  left: "102rem",
+};
+
 export default function Modal({ color, id }) {
-  
+  console.log(color);
   if (color === "green") {
     return (
       <div className="owt-content-modal">
         <GreenModal className="owt-content-green-modal">
-          <p className="owt-content-green-modal-text">Request {id} was approved.</p>
-          <Link to='/'>
-          <img
-            className="owt-content-green-modal-x"
-            src={GX}
-            alt=""
-          />
+          <p className="owt-content-green-modal-text">
+            Request #{id} has been approved.
+          </p>
+          <Link to="/">
+            <i class="fa fa-times owt-content-green-x" aria-hidden="true"></i>
           </Link>
         </GreenModal>
       </div>
@@ -51,13 +61,11 @@ export default function Modal({ color, id }) {
     return (
       <div className="owt-content-modal">
         <RedModal className="owt-content-red-modal">
-          <p className="owt-content-red-modal-text">Request {id} has been denied.</p>
-          <Link to='/'>
-          <img
-            className="owt-content-red-modal-x"
-            src={RX}
-            alt=""
-          />
+          <p className="owt-content-red-modal-text">
+            Request #{id} has been denied.
+          </p>
+          <Link to="/">
+            <i class="fa fa-times owt-content-red-x" aria-hidden="true"></i>
           </Link>
         </RedModal>
       </div>
