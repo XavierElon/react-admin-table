@@ -38,7 +38,7 @@ export default class DenyDetails extends React.Component {
     super(props);
     console.log(this.props.match.params.id);
     this.state = {
-      id: this.props.match.params.id,
+      id: this.props.match.params.id.toUpperCase(),
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -123,13 +123,14 @@ export default class DenyDetails extends React.Component {
                 <div className="col-sm-3">
                   <span>
                     <p className="owt-content-deny-comment-label">
-                      Comment (Optional)
+                      Comment (Required)
                     </p>
                   </span>
                 </div>
                 <div className="col-sm-3">
                   <span className="owt-content-deny-details-textfield">
                     <TextField
+                      required
                       multiline
                       rows="5"
                       style={commentStyle}

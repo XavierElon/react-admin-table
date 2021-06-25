@@ -73,11 +73,11 @@ export default class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      ohid: window.portalUserID,
       data: {},
       data2: {},
       isLoading: true,
       active: true,
-      userOhid: window.portalUserID,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -119,7 +119,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "disabled",
+          sort: "asc",
           width: 170,
         },
       ],
@@ -161,7 +161,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "disabled",
+          sort: "asc",
           width: 170,
         },
       ],
@@ -184,20 +184,21 @@ export default class Table extends React.Component {
       );
       const result = await res.json();
       let length = result.length;
-      console.log("result = " + result);
+      console.log("state id = " + this.state.ohid);
       for (let i = 0; i < length; i++) {
-        if (this.state.userOhid === result[i].data.userOhid) {
+        if (this.state.ohid === result[i].data.userOhid) {
           let newStart = "";
           let newEnd = "";
           let resource_type;
-          console.log(result[i].data);
+          let cap_name = result[i].data.resourceName;
+          cap_name = cap_name.charAt(0).toUpperCase() + cap_name.slice(1);
 
           if (result[i].data.resourceType === "serviceDeals") {
             resource_type = "Service Deals";
-          } else if (result[i].data.resourceType === "digitalLiteracy") {
-            resource_type = "Digital Literacy";
-          } else if (result[i].data.resourceType === "donateResources") {
-            resource_type = "Donate Resources";
+          } else if (result[i].data.resourceType === "digitalResources") {
+            resource_type = "Digital Resources";
+          } else if (result[i].data.resourceType === "donateDevices") {
+            resource_type = "Donate Devices";
           }
 
           let start = result[i].data.offerStartDate;
@@ -213,7 +214,11 @@ export default class Table extends React.Component {
           let status;
           let id = result[i]._id;
           let new_id = (
-            <Link className="Link" style={linkStyle} to={`/citizenrequestdetails/${id}`}>
+            <Link
+              className="Link"
+              style={linkStyle}
+              to={`/citizenrequestdetails/${id}`}
+            >
               {id}
             </Link>
           );
@@ -256,8 +261,8 @@ export default class Table extends React.Component {
           if (result[i].data.status === "pending") {
             data2.rows.push({
               number: new_id,
-              type: resource_type,
-              name: result[i].data.resourceName,
+              type: cap_name,
+              name: cap_name,
               startDate: newStart,
               endDate: newEnd,
               status: status,
@@ -277,6 +282,7 @@ export default class Table extends React.Component {
   }
 
   render() {
+    console.log("citizen table 1");
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
@@ -286,7 +292,7 @@ export default class Table extends React.Component {
             </span>
             <span className="owt-content-new-form-div">
               <span className="owt-content-plus-button">
-                <Link to="/testform">
+                <Link to="/requestform">
                   <img
                     id="plus-button"
                     src={PlusButton}
@@ -295,7 +301,7 @@ export default class Table extends React.Component {
                   />
                 </Link>
               </span>
-              <Link to="/testform">
+              <Link to="/requestform">
                 <div className="owt-content-request-text">
                   <p id="new-request-text">new request</p>
                 </div>
@@ -312,6 +318,10 @@ export default class Table extends React.Component {
               </Button2Inactive>
             </span>
           </span>
+          <i
+            className="fa fa-search owt-content-existing-entries-magnifying-glass"
+            aria-hidden="true"
+          ></i>
           <Grid
             container
             spacing={1}
@@ -334,9 +344,9 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
+          <div className="owt-content-table-bottom"></div>
         </div>
       );
     } else {
@@ -348,7 +358,7 @@ export default class Table extends React.Component {
             </span>
             <span className="owt-content-new-form-div">
               <span className="owt-content-plus-button">
-                <Link to="/testform">
+                <Link to="/requestform">
                   <img
                     id="plus-button"
                     src={PlusButton}
@@ -357,11 +367,11 @@ export default class Table extends React.Component {
                   />
                 </Link>
               </span>
-              <Link to="/testform">
-                <div className="owt-content-request-text">
+              <div className="owt-content-request-text">
+                <Link to="/requestform">
                   <p id="new-request-text">new request</p>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </span>
           </div>
           <span className="owt-content-buttons">
@@ -374,6 +384,10 @@ export default class Table extends React.Component {
               <Button2Active>Existing Entries</Button2Active>
             </span>
           </span>
+          <i
+            className="fa fa-search owt-content-new-entries-magnifying-glass"
+            aria-hidden="true"
+          ></i>
           <Grid
             container
             spacing={1}
@@ -396,9 +410,9 @@ export default class Table extends React.Component {
                   paginationLabel={["<", ">"]}
                 />
               </div>
-              <i class="fa fa-search" aria-hidden="true"></i>
             </Grid>
           </Grid>
+          <div className="owt-content-table-bottom"></div>
         </div>
       );
     }

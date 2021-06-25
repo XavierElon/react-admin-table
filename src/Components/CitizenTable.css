@@ -1,18 +1,4 @@
-.Table {
-  width: 1080px;
-  height: 600px;
-}
 
-.Modal {
-  text-align: left;
-  padding-left: 50px;
-}
-
-.admin-title {
-  font-size: 18px;
-  color: #222222;
-  text-align: left;
-}
 
 .Link {
   text-decoration: underline;
@@ -31,14 +17,6 @@
   z-index: 0;
 }
 
-.NewRequestText {
-  width: 120px;
-  /* height: 17px; */
-  font-size: 16px;
-  color: #3d7aa9;
-  line-height: 18px;
-  cursor: pointer;
-}
 
 .bs-select {
   display: none !important;
@@ -75,9 +53,6 @@ th {
   cursor: pointer;
 }
 
-.owt-content-admin-title {
-}
-
 .owt-content-admin-title-text {
   display: inline-block;
 }
@@ -94,10 +69,6 @@ th {
 }
 
 .owt-content-button2-inactive {
-  display: inline-block;
-}
-
-input.form-control {
   display: inline-block;
 }
 

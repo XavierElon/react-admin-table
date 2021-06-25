@@ -27,9 +27,8 @@ const bodyStyle = {
 export default class RequestDenied extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match.params.id);
     this.state = {
-      id: this.props.match.params.id,
+      id: this.props.match.params.id.toUpperCase(),
     };
   }
 

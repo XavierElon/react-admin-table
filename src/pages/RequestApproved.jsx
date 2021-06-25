@@ -29,7 +29,7 @@ export default class RequestApproved extends React.Component {
     super(props);
     console.log(this.props.match.params.id);
     this.state = {
-      id: this.props.match.params.id,
+      id: this.props.match.params.id.toUpperCase(),
     };
   }
 

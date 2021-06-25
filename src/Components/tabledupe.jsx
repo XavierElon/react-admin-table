@@ -118,7 +118,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "asc",
+          sort: "disabled",
           width: 170,
         },
       ],
@@ -160,7 +160,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "asc",
+          sort: "disabled",
           width: 170,
         },
       ],
@@ -188,8 +188,6 @@ export default class Table extends React.Component {
         let newStart = "";
         let newEnd = "";
         let resource_type
-        let cap_name = result[i].data.resourceName
-        cap_name = cap_name.charAt(0).toUpperCase() + cap_name.slice(1)
 
         if (result[i].data.resourceType === "serviceDeals") {
           resource_type = "Service Deals"
@@ -212,7 +210,7 @@ export default class Table extends React.Component {
         let status;
         let id = result[i]._id;
         let new_id = (
-          <Link className="Link" style={linkStyle} to={`/requestdetails/${id}`}>
+          <Link className="Link" style={linkStyle} to={`/testdetails/${id}`}>
             {id}
           </Link>
         );
@@ -242,7 +240,7 @@ export default class Table extends React.Component {
           data.rows.push({
             number: new_id,
             type: resource_type,
-            name: cap_name,
+            name: result[i].data.resourceName,
             startDate: newStart,
             endDate: newEnd,
             status: status,
@@ -254,7 +252,7 @@ export default class Table extends React.Component {
           data2.rows.push({
             number: new_id,
             type: resource_type,
-            name: cap_name,
+            name: result[i].data.resourceName,
             startDate: newStart,
             endDate: newEnd,
             status: status,
@@ -273,7 +271,7 @@ export default class Table extends React.Component {
   }
 
   render() {
-    console.log('Admin Table 1')
+    console.log('1')
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
@@ -284,7 +282,7 @@ export default class Table extends React.Component {
             <span className="owt-content-new-form-div">
               
                 <span className="owt-content-plus-button">
-                <Link to="/requestform">
+                <Link to="/testform">
                   <img
                     id="plus-button"
                     src={PlusButton}
@@ -293,7 +291,7 @@ export default class Table extends React.Component {
                   />
                   </Link>
                 </span>
-                <Link to="/requestform">
+                <Link to="/testform">
                 <div className="owt-content-request-text">
                   <p id="new-request-text">new request</p>
                 </div>
@@ -347,7 +345,7 @@ export default class Table extends React.Component {
             </span>
             <span className="owt-content-new-form-div">
                 <span className="owt-content-plus-button">
-                <Link to="/requestform">
+                <Link to="/testform">
                   <img
                     id="plus-button"
                     src={PlusButton}
@@ -357,7 +355,7 @@ export default class Table extends React.Component {
                   </Link>
                 </span>
                 <div className="owt-content-request-text">
-                <Link to="/requestform">
+                <Link to="/testform">
                   <p id="new-request-text">new request</p>
                   </Link>
                 </div>
