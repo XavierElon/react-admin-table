@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import styled from 'styled-components'
+import styled from "styled-components";
 import Constants from "../helpers/constants";
 
 const cancelStyle = {
@@ -37,7 +37,7 @@ export default class RequestDetails extends React.Component {
   }
 
   componentDidMount() {
-    window["formLoad"](`${this.state.id}`)
+    window["formLoad"](`${this.state.id}`);
     // fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
     //   .then((res) => res.json())
     //   .then((result) => {
@@ -89,14 +89,14 @@ export default class RequestDetails extends React.Component {
           <h2 className="owt-content-new-entry-form-text">
             <b>Request #{this.state.id}</b>
           </h2>
-            <div id="requestor-formio"></div>
-            <Link to="/">
-              <div style={cancelStyle} className="owt-content-cancel-button">
-                <b>Cancel</b>
-              </div>
-            </Link>
-            </FormContainer>
-        </div>
+          <div id="requestor-formio"></div>
+          <Link to="/">
+            <div style={cancelStyle} className="owt-content-cancel-button">
+              <b>Cancel</b>
+            </div>
+          </Link>
+        </FormContainer>
+      </div>
     );
   }
 }

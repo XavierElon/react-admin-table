@@ -6,6 +6,7 @@ import RequestApproved from "./pages/RequestApproved"
 import RequestDenied from "./pages/RequestDenied"
 import DenyDetails from "./pages/DenyDetails"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import axios from 'axios';
 
 function App() {
   return (

@@ -8,11 +8,11 @@ export default function Home() {
   let admin = false;
 
   console.log("ohid = " + ohid)
-  if(ohid.charAt(0) === '7') {
-    admin=true
-  }
+  // if(ohid.charAt(0) === '7') {
+  //   admin=true
+  // }
 
-  if (admin) {
+  if (true) {
     return (
       <div>
         <Grid>

@@ -15,23 +15,66 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
       const FORM_URL =
         "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform";
       const SUBMISSION_URL =
         "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/";
+
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
       function createForm() {
         Formio.createForm(
           document.getElementById("requestor-formio"),
           FORM_URL
-        );
+        ).then(function (form) {
+          console.log(form);
+          form.on("submitDone", (res) => {
+            console.log(res);
+            let userOhid = window.portalUserID;
+            console.log(userOhid);
+            let id = res._id;
+            let url = SUBMISSION_URL + id;
+            let updated_status = "pending";
+              let update = [
+              {
+                op: "replace",
+                path: "/data/status",
+                value: "pending",
+              },
+              {
+                op: "replace",
+                path: "/data/userOhid",
+                value: `${userOhid}`,
+              }
+            ];
+            const response = axios.patch(url, update);
+            redirectHome();
+            
+          });
+        });
+      }
+      async function redirectHome() {
+        await sleep(2000)
+        window.location.assign('/')
+        // window.location.assign("/wps/myportal/gov/ohid/applications/owt-finder-admin");
       }
       function formLoad(id) {
-        let url = SUBMISSION_URL+id
+        let url = SUBMISSION_URL + id;
         Formio.createForm(
           document.getElementById("requestor-formio"),
           url
-        );
+        ).then(function (form) {
+          console.log(form);
+          form.on("submitDone", (res) => {
+            console.log(res);
+            console.log("submitted");
+          });
+        });
       }
     </script>
     <link
@@ -55,46 +98,6 @@
     <title>React App</title>
   </head>
   <body>
-    <!-- <script type="text/javascript">
-      var browserHost = window.location.host,
-        formIOBaseUrl = "https://webform-portal.iop.ohio.gov",
-        formIOProjectUrl = "https://webform-portal.iop.ohio.gov/authoring-owt",
-        formURL =
-          "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform";
-
-      Formio.setBaseUrl(formIOBaseUrl);
-      Formio.setProjectUrl(formIOProjectUrl);
-      loadFormIO = function () {
-        Formio.icons = "fontawesome";
-        Formio.Templates.framework = "bootstrap3";
-        var iconClass = Formio.Templates.templates.bootstrap3.iconClass;
-        Formio.Templates.templates.bootstrap3.iconClass = function (
-          iconset,
-          name,
-          spinning
-        ) {
-          return iconClass(iconset, name, spinning).replace("fa ", "fas ");
-        };
-        Formio.createForm(
-          document.getElementById("requestor-formio"),
-          formURL,
-          {
-            hooks: {
-              beforeSubmit: function (submission, next) {
-                if (
-                  typeof preProcessFormIoSubmition !== "undefined" &&
-                  typeof preProcessFormIoSubmition === "function"
-                ) {
-                  preProcessFormIoSubmition(submission, next, formName);
-                } else {
-                  next();
-                }
-              },
-            },
-          }
-        ).
-      };
-    </script> -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

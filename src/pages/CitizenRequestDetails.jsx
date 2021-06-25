@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import styled from 'styled-components'
+import styled from "styled-components";
 import Constants from "../helpers/constants";
 
 const cancelStyle = {
@@ -38,7 +38,7 @@ export default class CitizenRequestDetails extends React.Component {
   }
 
   componentDidMount() {
-    window["formLoad"](`${this.state.id}`)
+    window["formLoad"](`${this.state.id}`);
     // console.log(this.state.url);
     // fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
     //   .then((res) => res.json())
@@ -48,7 +48,6 @@ export default class CitizenRequestDetails extends React.Component {
     //       status: result.data.status,
     //     });
     //   });
-
   }
 
   sleep(ms) {
@@ -78,15 +77,17 @@ export default class CitizenRequestDetails extends React.Component {
   render() {
     return (
       <div className="odx-form__container">
-        <h2 className="owt-content-citizen-entry-form-text">
-          <b>Request #{this.state.id}</b>
-        </h2>
-        <div id="requestor-formio"></div>
-        <Link to="/">
-          <div style={cancelStyle} className="owt-content-cancel-button">
-            <b>Cancel</b>
-          </div>
-        </Link>
+        <FormContainer>
+          <h2 className="owt-content-citizen-entry-form-text">
+            <b>Request #{this.state.id}</b>
+          </h2>
+          <div id="requestor-formio"></div>
+          <Link to="/">
+            <div style={cancelStyle} className="owt-content-cancel-button">
+              <b>Cancel</b>
+            </div>
+          </Link>
+        </FormContainer>
       </div>
     );
   }

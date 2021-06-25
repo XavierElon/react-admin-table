@@ -185,6 +185,7 @@ export default class Table extends React.Component {
       let length = result.length;
 
       for (let i = 0; i < length; i++) {
+        console.log(result[i].data)
         let newStart = "";
         let newEnd = "";
         let resource_type

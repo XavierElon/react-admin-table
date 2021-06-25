@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Constants from "../helpers/constants";
 import styled from 'styled-components'
+import $ from 'jquery'
 
 const cancelStyle = {
   width: "70px",
@@ -23,22 +24,33 @@ const FormContainer = styled.div`
   padding: 40px 32px;
 `;
 
-export default class TestForm extends React.Component {
+export default class RequestForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: "",
       status: "pending",
     };
+    
   }
 
-  componentDidMount() {
+  sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async componentDidMount() {
     window["createForm"]();
+    await this.sleep(500)
+    let ohid = document.getElementsByClassName("formio-component-userOhid")
+    ohid[0].style.display='none'
+    let status = document.getElementsByClassName("formio-component-status")
+    status[0].style.display='none'
   }
 
   render() {
+    
     return (
-      <div className="odx-form__container">
+      <div>
         <FormContainer>
             <h2 className="owt-content-new-request-form-text">
             <b>New Entry Form</b>
@@ -52,5 +64,6 @@ export default class TestForm extends React.Component {
         </FormContainer>
       </div>
     );
+    
   }
 }
