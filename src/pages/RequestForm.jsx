@@ -19,9 +19,10 @@ const cancelStyle = {
 
 const FormContainer = styled.div`
   max-width: 1080px;
-  margin: auto;
-  margin: 50px auto;
-  padding: 40px 32px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
 `;
 
 export default class RequestForm extends React.Component {

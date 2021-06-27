@@ -18,9 +18,10 @@ const cancelStyle = {
 
 const FormContainer = styled.div`
   max-width: 1080px;
-  margin: auto;
-  margin: 50px auto;
-  padding: 40px 32px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
 `;
 
 export default class CitizenRequestDetails extends React.Component {
@@ -37,42 +38,37 @@ export default class CitizenRequestDetails extends React.Component {
     console.log(this.state.id);
   }
 
-  componentDidMount() {
-    window["formLoad"](`${this.state.id}`);
-    // console.log(this.state.url);
-    // fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     console.log(result);
-    //     this.setState({
-    //       status: result.data.status,
-    //     });
-    //   });
-  }
-
   sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  //   async handleSubmit(event) {
-  //     await this.sleep(1000);
-  //     this.setState({
-  //       status: "pending"
-  //     })
-  //     let update = [
-  //       {
-  //         op: "replace",
-  //         path: "/data/status",
-  //         value: "pending",
-  //       },
-  //     ];
-  //     const response = await axios.patch(
-  //       `${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`,
-  //       update
-  //     );
-  //     console.log(response);
-  //     this.props.history.push("/");
-  //   }
+  async componentDidMount() {
+    window["citizenFormLoad"](`${this.state.id}`);
+    await this.sleep(1000)
+    fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`)
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+      let type = result.data.resourceType
+      let approve = document.getElementsByTagName("label")
+      console.log(approve)
+      if (type === "serviceDeals") {
+        console.log("service deals")
+        approve[19].style.display='none'
+        approve[20].style.display='none'
+      } else if (type === "digitalResources") {
+        console.log("digital resources")
+        approve[23].style.display='none'
+        approve[24].style.display='none'
+      } else if (type === "donateDevices") {
+        console.log("donate devices")
+        approve[20].style.display='none'
+        approve[21].style.display='none'
+      }
+    });
+    let ohid = document.getElementsByClassName("formio-component-userOhid")
+    ohid[0].style.display='none'
+  }
 
   render() {
     return (
