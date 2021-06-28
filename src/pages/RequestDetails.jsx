@@ -56,10 +56,10 @@ export default class RequestDetails extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <FormContainer>
           <h2 className="owt-content-new-entry-form-text">
-            <b>Request #{this.state.id}</b>
+            <b>Request #{this.state.id.toUpperCase()}</b>
           </h2>
           <div id="requestor-formio"></div>
           <Link to="/">

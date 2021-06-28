@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import styled from "styled-components";
 import Constants from "../helpers/constants";
 
@@ -32,10 +31,6 @@ export default class CitizenRequestDetails extends React.Component {
       status: "",
       url: Constants.DRFT_FORM_SUBMISSION_URL + this.props.match.params.id,
     };
-
-    // this.handleSubmit = this.handleSubmit.bind(this);
-
-    console.log(this.state.id);
   }
 
   sleep(ms) {
@@ -72,7 +67,7 @@ export default class CitizenRequestDetails extends React.Component {
 
   render() {
     return (
-      <div className="odx-form__container">
+      <div className="odx-form__container container">
         <FormContainer>
           <h2 className="owt-content-citizen-entry-form-text">
             <b>Request #{this.state.id}</b>

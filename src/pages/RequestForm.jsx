@@ -41,7 +41,7 @@ export default class RequestForm extends React.Component {
 
   async componentDidMount() {
     window["createForm"]();
-    await this.sleep(500)
+    await this.sleep(800)
     let ohid = document.getElementsByClassName("formio-component-userOhid")
     ohid[0].style.display='none'
     let status = document.getElementsByClassName("formio-component-status")
@@ -51,7 +51,7 @@ export default class RequestForm extends React.Component {
   render() {
     
     return (
-      <div>
+      <div className="container">
         <FormContainer>
             <h2 className="owt-content-new-request-form-text">
             <b>New Entry Form</b>

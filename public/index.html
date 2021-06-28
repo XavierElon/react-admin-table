@@ -15,9 +15,10 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <!-- <script src="./node_modules/axios/dist/axios.min.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
+      // import { Link } from "react-router-dom";
       const FORM_URL =
         "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform";
       const SUBMISSION_URL =
@@ -65,7 +66,7 @@
         await sleep(2000);
         window.location.assign("/");
         window.location.assign(
-          "/wps/myportal/gov/ohid/applications/owt-finder-admin"
+          "/wps/myportal/gov/ohid/applications/owt-finder-admin", "flocka"
         );
       }
 
@@ -95,12 +96,14 @@
                     "/wps/myportal/gov/ohid/applications/owt-finder-admin"
                   );
                 } else if (status === "approved") {
+                  window.alert(`Request #${id.toUpperCase()} has been approved.`)
                   window.location.assign(
-                    `/wps/myportal/gov/ohid/applications/owt-finder-admin/requestapproved/${id}`
+                    "/wps/myportal/gov/ohid/applications/owt-finder-admin"
                   );
                 } else if (status === "denied") {
+                  window.alert(`Request #${id.toUpperCase()} has been denied.`)
                   window.location.assign(
-                    `/wps/myportal/gov/ohid/applications/owt-finder-admin/denydetails/${id}`
+                    `/wps/myportal/gov/ohid/applications/owt-finder-admin`
                   );
                 } else {
                   redirectHome();
@@ -144,7 +147,7 @@
                   }
                   ];
                   const response = axios.patch(url, update);
-                 redirectHome();
+                  redirectHome();
                 } else {
                   redirectHome();
                 }

@@ -49,6 +49,13 @@ th {
   cursor: pointer;
 }
 
+#citizen-plus-button {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  cursor: pointer;
+}
+
 .owt-content-admin-title-text {
   display: inline-block;
 }
