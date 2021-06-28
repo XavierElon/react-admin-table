@@ -38,7 +38,7 @@ export default class DenyDetails extends React.Component {
     super(props);
     console.log(this.props.match.params.id);
     this.state = {
-      id: this.props.match.params.id.toUpperCase(),
+      id: this.props.match.params.id,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -46,7 +46,7 @@ export default class DenyDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
+    fetch(`${Constants.DRFT_FORM_URL}/${this.state.id}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
