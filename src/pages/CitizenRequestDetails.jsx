@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import styled from 'styled-components'
+import styled from "styled-components";
 import Constants from "../helpers/constants";
 
 const cancelStyle = {
@@ -18,9 +17,10 @@ const cancelStyle = {
 
 const FormContainer = styled.div`
   max-width: 1080px;
-  margin: auto;
-  margin: 50px auto;
-  padding: 40px 32px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
 `;
 
 export default class CitizenRequestDetails extends React.Component {
@@ -31,62 +31,61 @@ export default class CitizenRequestDetails extends React.Component {
       status: "",
       url: Constants.DRFT_FORM_SUBMISSION_URL + this.props.match.params.id,
     };
-
-    // this.handleSubmit = this.handleSubmit.bind(this);
-
-    console.log(this.state.id);
-  }
-
-  componentDidMount() {
-    window["formLoad"](`${this.state.id}`)
-    // console.log(this.state.url);
-    // fetch(`${Constants.DFRT_FORM_URL}/${this.state.id}`)
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     console.log(result);
-    //     this.setState({
-    //       status: result.data.status,
-    //     });
-    //   });
-
   }
 
   sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  //   async handleSubmit(event) {
-  //     await this.sleep(1000);
-  //     this.setState({
-  //       status: "pending"
-  //     })
-  //     let update = [
-  //       {
-  //         op: "replace",
-  //         path: "/data/status",
-  //         value: "pending",
-  //       },
-  //     ];
-  //     const response = await axios.patch(
-  //       `${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`,
-  //       update
-  //     );
-  //     console.log(response);
-  //     this.props.history.push("/");
-  //   }
+  async componentDidMount() {
+    window["citizenFormLoad"](`${this.state.id}`);
+    await this.sleep(1500);
+    fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`)
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        let type = result.data.resourceType;
+        let approve = document.getElementsByTagName("label");
+        console.log(approve);
+        let length = approve.length;
+        console.log(length);
+        for (let i = 0; i < length; i++) {
+          console.log(approve[i].attributes);
+          console.log(approve[i].attributes[0].nodeValue);
+          let str = approve[i].attributes[0].nodeValue;
+          let str2 = approve[i].attributes[0].nodeValue;
+          str = str.substr(8);
+          str2 = str2.substr(7);
+          console.log(str2);
+          console.log(str);
+          if (
+            str === "approved" ||
+            str === "denied" ||
+            str2 === "approved" ||
+            str2 === "denied"
+          ) {
+            approve[i].style.display = "none";
+          }
+        }
+      });
+    let ohid = document.getElementsByClassName("formio-component-userOhid");
+    ohid[0].style.display = "none";
+  }
 
   render() {
     return (
-      <div className="odx-form__container">
-        <h2 className="owt-content-citizen-entry-form-text">
-          <b>Request #{this.state.id}</b>
-        </h2>
-        <div id="requestor-formio"></div>
-        <Link to="/">
-          <div style={cancelStyle} className="owt-content-cancel-button">
-            <b>Cancel</b>
-          </div>
-        </Link>
+      <div className="odx-form__container container">
+        <FormContainer>
+          <h2 className="owt-content-citizen-entry-form-text">
+            <b>Request #{this.state.id}</b>
+          </h2>
+          <div id="requestor-formio"></div>
+          <Link to="/">
+            <div style={cancelStyle} className="owt-content-cancel-button">
+              <b>Cancel</b>
+            </div>
+          </Link>
+        </FormContainer>
       </div>
     );
   }

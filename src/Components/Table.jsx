@@ -7,6 +7,7 @@ import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
+import $ from 'jquery'
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -69,6 +70,14 @@ const badgeStyle = {
 //   return <Link to={`/requestdetails/${id}`}></Link>;
 // }
 
+const FormContainer = styled.div`
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+`;
+
 export default class Table extends React.Component {
   constructor(props) {
     super(props);
@@ -78,24 +87,37 @@ export default class Table extends React.Component {
       isLoading: true,
       active: true,
     };
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
+// $('td:last-child').wrap("<span className='last-row'></span>")
+// $('td:last-child').css('padding', '6px')
+// $('td:last-child').css('border', '1px solid white')
+// $('td:last-child').css('border-radius', '5px')
+// $('td:last-child').css('position', 'relative')
+// $('td:last-child').css('top', '5px')
+// $('td:last-child').css('text-align', 'center')
+// $('td:last-child').css('color', 'white', )
+// $('td:last-child').css('width', '128px', )
+// let lastChild = $('td:last-child').val()
+// console.log('last child = ' + lastChild)
+// $('td:last-child').val("Pending Review").css('background-color', '#3d7aa9')
+// $('td:last-child').val("Approved").css('background-color', '#5e8000')
+
     let data = {
       columns: [
         {
           label: "Request No.",
           field: "number",
           sort: "disabled",
-          width: 180,
+          width: 150,
         },
         {
           label: "Resource Type",
           field: "type",
           sort: "asc",
-          width: 200,
+          width: 150,
         },
         {
           label: "Resource Name",
@@ -131,25 +153,25 @@ export default class Table extends React.Component {
           label: "Request No.",
           field: "number",
           sort: "disabled",
-          width: 180,
+          width: 150,
         },
         {
           label: "Resource Type",
           field: "type",
           sort: "asc",
-          width: 200,
+          width: 150,
         },
         {
           label: "Resource Name",
           field: "name",
           sort: "asc",
-          width: 300,
+          width: 150,
         },
         {
           label: "Offer Start Date",
           field: "startDate",
           sort: "asc",
-          width: 100,
+          width: 150,
         },
         {
           label: "Offer End Date",
@@ -161,7 +183,7 @@ export default class Table extends React.Component {
           label: "Status",
           field: "status",
           sort: "asc",
-          width: 170,
+          width: 150,
         },
       ],
       rows: [],
@@ -185,18 +207,19 @@ export default class Table extends React.Component {
       let length = result.length;
 
       for (let i = 0; i < length; i++) {
+        console.log(result[i])
         let newStart = "";
         let newEnd = "";
-        let resource_type
-        let cap_name = result[i].data.resourceName
-        cap_name = cap_name.charAt(0).toUpperCase() + cap_name.slice(1)
+        let resource_type;
+        let cap_name = result[i].data.resourceName;
+        cap_name = cap_name.charAt(0).toUpperCase() + cap_name.slice(1);
 
         if (result[i].data.resourceType === "serviceDeals") {
-          resource_type = "Service Deals"
+          resource_type = "Service Deals";
         } else if (result[i].data.resourceType === "digitalResources") {
-          resource_type = "Digital Resources"
+          resource_type = "Digital Resources";
         } else if (result[i].data.resourceType === "donateDevices") {
-          resource_type = "Donate Devices"
+          resource_type = "Donate Devices";
         }
 
         let start = result[i].data.offerStartDate;
@@ -236,8 +259,8 @@ export default class Table extends React.Component {
         }
         if (
           result[i].data.status === "approved" ||
-              result[i].data.status === "disabled" ||
-              result[i].data.status === "denied"
+          result[i].data.status === "disabled" ||
+          result[i].data.status === "denied"
         ) {
           data.rows.push({
             number: new_id,
@@ -273,69 +296,73 @@ export default class Table extends React.Component {
   }
 
   render() {
-    console.log('Admin Table 1')
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
-          <div className="owt-content-title-row">
-            <span className="owt-content-admin-title-text">
-              <p className="owt-content-admin-title">Admin Dashboard</p>
-            </span>
-            <span className="owt-content-new-form-div">
-              
+          <FormContainer>
+            <div className="owt-content-title-row">
+              <span className="owt-content-admin-title-text">
+                <p className="owt-content-admin-title">Admin Dashboard</p>
+              </span>
+              <span className="owt-content-new-form-div">
                 <span className="owt-content-plus-button">
-                <Link to="/requestform">
-                  <img
-                    id="plus-button"
-                    src={PlusButton}
-                    alt=""
-                    onClick={this.getNewEntries}
-                  />
+                  <Link to="/requestform">
+                    <img
+                      id="plus-button"
+                      src={PlusButton}
+                      alt=""
+                      onClick={this.getNewEntries}
+                    />
                   </Link>
                 </span>
                 <Link to="/requestform">
-                <div className="owt-content-request-text">
-                  <p id="new-request-text">new request</p>
+                  <div className="owt-content-request-text">
+                    <p id="new-request-text">new request</p>
+                  </div>
+                </Link>
+              </span>
+            </div>
+            <span className="owt-content-buttons">
+              <span className="owt-content-button1-active">
+                <Button1Active>New Requests</Button1Active>
+              </span>
+              <span className="owt-content-button2-inactive">
+                <Button2Inactive onClick={this.handleClick}>
+                  Existing Entries
+                </Button2Inactive>
+              </span>
+            </span>
+            <i
+              className="fa fa-search owt-content-existing-entries-magnifying-glass"
+              aria-hidden="true"
+            ></i>
+            <Grid
+              container
+              spacing={1}
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item xs={12}>
+                <div className="owt-content-table">
+                  <MDBDataTable
+                    className="owt-content-datadata-table"
+                    bordered
+                    sortable
+                    small
+                    maxHeight="500px"
+                    entries={25}
+                    noBottomColumns={true}
+                    entriesLabel=""
+                    data={this.state.data2}
+                    infoLabel={["", "", "", ""]}
+                    entriesOptions={[]}
+                    paginationLabel={["<", ">"]}
+                  />
                 </div>
-              </Link>
-            </span>
-          </div>
-          <span className="owt-content-buttons">
-            <span className="owt-content-button1-active">
-              <Button1Active>New Requests</Button1Active>
-            </span>
-            <span className="owt-content-button2-inactive">
-              <Button2Inactive onClick={this.handleClick}>
-                Existing Entries
-              </Button2Inactive>
-            </span>
-          </span>
-          <i className="fa fa-search owt-content-existing-entries-magnifying-glass" aria-hidden="true"></i>
-          <Grid
-            container
-            spacing={1}
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            <Grid item xs={12}>
-              <div className="owt-content-table">
-                <MDBDataTable
-                  className="owt-content-datadata-table"
-                  bordered
-                  sortable
-                  entries={20}
-                  noBottomColumns={true}
-                  entriesLabel=""
-                  data={this.state.data2}
-                  infoLabel={["", "", "", ""]}
-                  entriesOptions={[]}
-                  paginationLabel={["<", ">"]}
-                />
-              </div>
+              </Grid>
             </Grid>
-          </Grid>
-          <div className="owt-content-table-bottom"></div>
+          </FormContainer>
         </div>
       );
     } else {
@@ -346,7 +373,7 @@ export default class Table extends React.Component {
               <p className="owt-content-admin-title">Admin Dashboard</p>
             </span>
             <span className="owt-content-new-form-div">
-                <span className="owt-content-plus-button">
+              <span className="owt-content-plus-button">
                 <Link to="/requestform">
                   <img
                     id="plus-button"
@@ -354,14 +381,13 @@ export default class Table extends React.Component {
                     alt=""
                     onClick={this.getNewEntries}
                   />
-                  </Link>
-                </span>
-                <div className="owt-content-request-text">
+                </Link>
+              </span>
+              <div className="owt-content-request-text">
                 <Link to="/requestform">
                   <p id="new-request-text">new request</p>
-                  </Link>
-                </div>
-              
+                </Link>
+              </div>
             </span>
           </div>
           <span className="owt-content-buttons">
@@ -374,7 +400,10 @@ export default class Table extends React.Component {
               <Button2Active>Existing Entries</Button2Active>
             </span>
           </span>
-          <i className="fa fa-search owt-content-new-entries-magnifying-glass" aria-hidden="true"></i>
+          <i
+            className="fa fa-search owt-content-new-entries-magnifying-glass"
+            aria-hidden="true"
+          ></i>
           <Grid
             container
             spacing={1}
@@ -388,7 +417,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={20}
+                  entries={25}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data}

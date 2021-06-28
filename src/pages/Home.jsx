@@ -5,19 +5,18 @@ import Grid from "@material-ui/core/Grid";
 
 export default function Home() {
   let ohid = window.portalUserID;
-  let admin = false;
+  let admin = true;
 
-  console.log("ohid = " + ohid)
-  if(ohid.charAt(0) === '7') {
-    admin=true
-  }
+  // if(ohid.charAt(0) === '7') {
+  //   admin=false
+  // }
 
-  if (admin) {
+  if (!admin) {
     return (
       <div>
         <Grid>
           <div className="owt-home-table-body">
-            <Table></Table>
+            <CitizenTable></CitizenTable>
           </div>
         </Grid>
       </div>
@@ -27,7 +26,7 @@ export default function Home() {
       <div>
         <Grid>
           <div className="owt-home-table-body">
-            <CitizenTable></CitizenTable>
+            <Table></Table>
           </div>
         </Grid>
       </div>

@@ -34,10 +34,6 @@ th {
   cursor: pointer !important;
 }
 
-.form-control {
-  width: 305px !important;
-}
-
 .sr-only {
   display: none !important;
 }
@@ -47,6 +43,13 @@ th {
 }
 
 #plus-button {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#citizen-plus-button {
   width: 16px;
   height: 16px;
   display: inline-block;

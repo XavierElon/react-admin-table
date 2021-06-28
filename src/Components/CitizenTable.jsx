@@ -184,7 +184,6 @@ export default class Table extends React.Component {
       );
       const result = await res.json();
       let length = result.length;
-      console.log("state id = " + this.state.ohid);
       for (let i = 0; i < length; i++) {
         if (this.state.ohid === result[i].data.userOhid) {
           let newStart = "";
@@ -282,19 +281,18 @@ export default class Table extends React.Component {
   }
 
   render() {
-    console.log("citizen table 2");
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-citizen-title-text">
-              <p className="owt-content-ciziten-title">Dashboard</p>
+              <p className="owt-content-citizen-title">Dashboard</p>
             </span>
-            <span className="owt-content-new-form-div">
+            <span className="owt-content-citizen-new-request-div">
               <span className="owt-content-plus-button">
                 <Link to="/requestform">
                   <img
-                    id="plus-button"
+                    id="citizen-plus-button"
                     src={PlusButton}
                     alt=""
                     onClick={this.getNewEntries}
@@ -335,7 +333,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={20}
+                  entries={25}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data2}
@@ -353,14 +351,14 @@ export default class Table extends React.Component {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-            <span className="owt-content-admin-title-text">
-              <p className="owt-content-admin-title">Dashboard</p>
+            <span className="owt-content-citizen-title-text">
+              <p className="owt-content-citizen-title">Dashboard</p>
             </span>
-            <span className="owt-content-new-form-div">
+            <span className="owt-content-citizen-new-request-div">
               <span className="owt-content-plus-button">
                 <Link to="/requestform">
                   <img
-                    id="plus-button"
+                    id="citizen-plus-button"
                     src={PlusButton}
                     alt=""
                     onClick={this.getNewEntries}
@@ -401,7 +399,7 @@ export default class Table extends React.Component {
                   className="owt-content-datadata-table"
                   bordered
                   sortable
-                  entries={20}
+                  entries={25}
                   noBottomColumns={true}
                   entriesLabel=""
                   data={this.state.data}
