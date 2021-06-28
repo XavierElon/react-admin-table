@@ -17,7 +17,7 @@ const cancelStyle = {
 
 const FormContainer = styled.div`
   max-width: 1080px;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
   margin-top: 5rem;
   margin-bottom: 10rem;
@@ -39,30 +39,37 @@ export default class CitizenRequestDetails extends React.Component {
 
   async componentDidMount() {
     window["citizenFormLoad"](`${this.state.id}`);
-    await this.sleep(1000)
+    await this.sleep(1500);
     fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`)
-    .then((res) => res.json())
-    .then((result) => {
-      console.log(result);
-      let type = result.data.resourceType
-      let approve = document.getElementsByTagName("label")
-      console.log(approve)
-      if (type === "serviceDeals") {
-        console.log("service deals")
-        approve[19].style.display='none'
-        approve[20].style.display='none'
-      } else if (type === "digitalResources") {
-        console.log("digital resources")
-        approve[23].style.display='none'
-        approve[24].style.display='none'
-      } else if (type === "donateDevices") {
-        console.log("donate devices")
-        approve[20].style.display='none'
-        approve[21].style.display='none'
-      }
-    });
-    let ohid = document.getElementsByClassName("formio-component-userOhid")
-    ohid[0].style.display='none'
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        let type = result.data.resourceType;
+        let approve = document.getElementsByTagName("label");
+        console.log(approve);
+        let length = approve.length;
+        console.log(length);
+        for (let i = 0; i < length; i++) {
+          console.log(approve[i].attributes);
+          console.log(approve[i].attributes[0].nodeValue);
+          let str = approve[i].attributes[0].nodeValue;
+          let str2 = approve[i].attributes[0].nodeValue;
+          str = str.substr(8);
+          str2 = str2.substr(7);
+          console.log(str2);
+          console.log(str);
+          if (
+            str === "approved" ||
+            str === "denied" ||
+            str2 === "approved" ||
+            str2 === "denied"
+          ) {
+            approve[i].style.display = "none";
+          }
+        }
+      });
+    let ohid = document.getElementsByClassName("formio-component-userOhid");
+    ohid[0].style.display = "none";
   }
 
   render() {

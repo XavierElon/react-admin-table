@@ -18,7 +18,7 @@ const cancelStyle = {
 
 const FormContainer = styled.div`
   max-width: 1080px;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
   margin-top: 5rem;
   margin-bottom: 10rem;
@@ -42,17 +42,15 @@ export default class RequestDetails extends React.Component {
   }
 
   async componentDidMount() {
-    let type
+    let type;
     window["formLoad"](`${this.state.id}`);
-    await this.sleep(1000)
+    await this.sleep(1000);
     fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`)
-    .then((res) => res.json())
-    .then((result) => {
-      console.log(result);
-      type = result.data.resourceType
-    });
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
   }
-
 
   render() {
     return (

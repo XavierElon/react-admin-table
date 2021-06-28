@@ -7,10 +7,9 @@ export default function Home() {
   let ohid = window.portalUserID;
   let admin = true;
 
-  console.log("ohid = " + ohid)
-  if(ohid.charAt(0) === '7') {
-    admin=false
-  }
+  // if(ohid.charAt(0) === '7') {
+  //   admin=false
+  // }
 
   if (!admin) {
     return (

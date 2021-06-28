@@ -7,6 +7,7 @@ import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
+import $ from 'jquery'
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -90,6 +91,20 @@ export default class Table extends React.Component {
   }
 
   async componentDidMount() {
+// $('td:last-child').wrap("<span className='last-row'></span>")
+// $('td:last-child').css('padding', '6px')
+// $('td:last-child').css('border', '1px solid white')
+// $('td:last-child').css('border-radius', '5px')
+// $('td:last-child').css('position', 'relative')
+// $('td:last-child').css('top', '5px')
+// $('td:last-child').css('text-align', 'center')
+// $('td:last-child').css('color', 'white', )
+// $('td:last-child').css('width', '128px', )
+// let lastChild = $('td:last-child').val()
+// console.log('last child = ' + lastChild)
+// $('td:last-child').val("Pending Review").css('background-color', '#3d7aa9')
+// $('td:last-child').val("Approved").css('background-color', '#5e8000')
+
     let data = {
       columns: [
         {
@@ -192,6 +207,7 @@ export default class Table extends React.Component {
       let length = result.length;
 
       for (let i = 0; i < length; i++) {
+        console.log(result[i])
         let newStart = "";
         let newEnd = "";
         let resource_type;
@@ -280,7 +296,6 @@ export default class Table extends React.Component {
   }
 
   render() {
-    console.log("Admin Table 1");
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
