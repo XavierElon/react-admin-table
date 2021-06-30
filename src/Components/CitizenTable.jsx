@@ -6,6 +6,8 @@ import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
+import CitizenMobileTable from "./CitizenMobileTable"
+import CitizenMobileTablePending from "./CitizenMobileTablePending"
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -62,11 +64,6 @@ const badgeStyle = {
   paddingTop: ".6rem",
   textAlign: "center !important",
 };
-
-// function getRow(id) {
-//   console.log("row");
-//   return <Link to={`/requestdetails/${id}`}></Link>;
-// }
 
 export default class Table extends React.Component {
   constructor(props) {
@@ -341,7 +338,9 @@ export default class Table extends React.Component {
               </div>
             </Grid>
           </Grid>
-          <div className="owt-content-table-bottom"></div>
+          <React.Fragment>
+              <CitizenMobileTablePending></CitizenMobileTablePending>
+           </React.Fragment>
         </div>
       );
     } else {
@@ -405,7 +404,9 @@ export default class Table extends React.Component {
               </div>
             </Grid>
           </Grid>
-          <div className="owt-content-table-bottom"></div>
+          <React.Fragment>
+              <CitizenMobileTable></CitizenMobileTable>
+           </React.Fragment>
         </div>
       );
     }
