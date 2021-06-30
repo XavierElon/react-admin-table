@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import Constants from "../helpers/constants";
+// import Constants from "../helpers/constants";
 import styled from 'styled-components'
-import $ from 'jquery'
 
 const cancelStyle = {
   width: "70px",
@@ -53,9 +51,9 @@ export default class RequestForm extends React.Component {
     return (
       <div className="container">
         <FormContainer>
-            <h2 className="owt-content-new-request-form-text">
+            <h3 className="owt-content-new-request-form-text">
             <b>New Entry Form</b>
-          </h2>
+          </h3>
           <div id="requestor-formio"></div>
           <Link to="/">
             <div style={cancelStyle} className="owt-content-cancel-button">

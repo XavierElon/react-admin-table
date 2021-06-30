@@ -1,7 +1,6 @@
 import React from "react";
 import { MDBDataTable } from "mdbreact";
 import "./Table.css";
-import PlusButton from "../images/plus-button.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
@@ -260,7 +259,7 @@ export default class Table extends React.Component {
           if (result[i].data.status === "pending") {
             data2.rows.push({
               number: new_id,
-              type: cap_name,
+              type: resource_type,
               name: cap_name,
               startDate: newStart,
               endDate: newEnd,
@@ -286,17 +285,15 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-citizen-title-text">
-              <p className="owt-content-citizen-title">Dashboard</p>
+              <h1 className="owt-content-citizen-title">Dashboard</h1>
             </span>
             <span className="owt-content-citizen-new-request-div">
               <span className="owt-content-plus-button">
                 <Link to="/requestform">
-                  <img
-                    id="citizen-plus-button"
-                    src={PlusButton}
-                    alt=""
-                    onClick={this.getNewEntries}
-                  />
+                  <i
+                    class="fas fa-plus citizen-plus-button"
+                    aria-hidden="true"
+                  ></i>
                 </Link>
               </span>
               <Link to="/requestform">
@@ -352,17 +349,15 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-citizen-title-text">
-              <p className="owt-content-citizen-title">Dashboard</p>
+              <h1 className="owt-content-citizen-title">Dashboard</h1>
             </span>
             <span className="owt-content-citizen-new-request-div">
               <span className="owt-content-plus-button">
                 <Link to="/requestform">
-                  <img
-                    id="citizen-plus-button"
-                    src={PlusButton}
-                    alt=""
-                    onClick={this.getNewEntries}
-                  />
+                  <i
+                    class="fas fa-plus citizen-plus-button"
+                    aria-hidden="true"
+                  ></i>
                 </Link>
               </span>
               <div className="owt-content-request-text">

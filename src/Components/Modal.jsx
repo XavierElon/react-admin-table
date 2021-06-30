@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import GX from "../images/icn-close-green.svg";
-import RX from "../images/icn-close-red.svg";
 import { Link } from "react-router-dom";
 
 const RedModal = styled("div")`
@@ -30,17 +28,17 @@ const GreenModal = styled("div")`
   text-transform: uppercase;
 `;
 
-const gxStyle = {
-  position: "relative",
-  top: "-4rem",
-  left: "102rem",
-};
+// const gxStyle = {
+//   position: "relative",
+//   top: "-4rem",
+//   left: "102rem",
+// };
 
-const rxStyle = {
-  position: "relative",
-  top: "-4rem",
-  left: "102rem",
-};
+// const rxStyle = {
+//   position: "relative",
+//   top: "-4rem",
+//   left: "102rem",
+// };
 
 export default function Modal({ color, id }) {
   console.log(color);
