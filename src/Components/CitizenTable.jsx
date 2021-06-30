@@ -6,8 +6,8 @@ import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
-import CitizenMobileTable from "./CitizenMobileTable"
-import CitizenMobileTablePending from "./CitizenMobileTablePending"
+import CitizenMobileTable from "./CitizenMobileTable";
+import CitizenMobileTablePending from "./CitizenMobileTablePending";
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -339,8 +339,8 @@ export default class Table extends React.Component {
             </Grid>
           </Grid>
           <React.Fragment>
-              <CitizenMobileTablePending></CitizenMobileTablePending>
-           </React.Fragment>
+            <CitizenMobileTablePending></CitizenMobileTablePending>
+          </React.Fragment>
         </div>
       );
     } else {
@@ -405,8 +405,8 @@ export default class Table extends React.Component {
             </Grid>
           </Grid>
           <React.Fragment>
-              <CitizenMobileTable></CitizenMobileTable>
-           </React.Fragment>
+            <CitizenMobileTable></CitizenMobileTable>
+          </React.Fragment>
         </div>
       );
     }
