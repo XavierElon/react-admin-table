@@ -88,10 +88,10 @@ export default class MobileTablePending extends React.Component {
         {this.state.data.map((person, index) => (
           <div className="container">
             <div className="row">
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-5 col-sm-4">
                 <p className="mobile-admin-request-number">Request No.</p>
               </div>
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-7 col-sm-4">
                 <p key={index} classNam="owt-content-admin-mobile-id">
                   <Link
                     className="owt-content-admin-id-link"
@@ -105,10 +105,10 @@ export default class MobileTablePending extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-5 col-sm-4">
                 <p className="mobile-admin-status-text">Status</p>
               </div>
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-7 col-sm-4">
                 <p className="mobile-admin-status" key={index}>
                   {person.status}
                 </p>
@@ -116,12 +116,12 @@ export default class MobileTablePending extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-5 col-sm-4">
                 <p className="mobile-admin-resource-name-text">
                   Resource Name{" "}
                 </p>
               </div>
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-7 col-sm-4">
                 <p className="mobile-admin-resource-name" key={index}>
                   {person.name}
                 </p>

@@ -138,7 +138,7 @@ export default class MobileTable extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-5 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <Link
                   className="mobile-admin-edit"
                   to={`/requestdetails/${person.number}`}
@@ -146,7 +146,7 @@ export default class MobileTable extends React.Component {
                   <i class="fas fa-edit">edit</i>
                 </Link>
               </div>
-              <div className="col-xs-7 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <i class="far fa-trash-alt mobile-admin-delete" onclick="DeleteId(12)">delete</i>
               </div>
             </div>
