@@ -94,13 +94,13 @@ export default class CitizenMobileTablePending extends React.Component {
         {this.state.data.map((person, index) => (
           <div className="container">
             <div className="row">
-              <div className="col-xs-5 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <p className="mobile-admin-request-number">Request No.</p>
               </div>
-              <div className="col-xs-7 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <p key={index} classNam="owt-content-admin-mobile-id">
                   <Link
-                    className="Link"
+                    className="owt-content-admin-id-link"
                     style={linkStyle}
                     to={`/citizenrequestdetails/${person.number}`}
                   >
@@ -111,10 +111,10 @@ export default class CitizenMobileTablePending extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-5 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <p className="mobile-admin-status-text">Status</p>
               </div>
-              <div className="col-xs-7 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <p className="mobile-admin-status" key={index}>
                   {person.status}
                 </p>
@@ -122,12 +122,12 @@ export default class CitizenMobileTablePending extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-5 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <p className="mobile-admin-resource-name-text">
                   Resource Name{" "}
                 </p>
               </div>
-              <div className="col-xs-7 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <p className="mobile-admin-resource-name" key={index}>
                   {person.name}
                 </p>
@@ -135,7 +135,7 @@ export default class CitizenMobileTablePending extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-5 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <Link
                   className="mobile-admin-edit"
                   to={`/requestdetails/${person.number}`}
@@ -143,7 +143,7 @@ export default class CitizenMobileTablePending extends React.Component {
                   <i class="fas fa-edit">edit</i>
                 </Link>
               </div>
-              <div className="col-xs-7 col-sm-4">
+              <div className="col-xs-2 col-sm-4">
                 <i class="far fa-trash-alt mobile-admin-delete" onclick="DeleteId(12)">delete</i>
               </div>
             </div>

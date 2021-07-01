@@ -103,7 +103,7 @@ export default class MobileTable extends React.Component {
               <div className="col-xs-7 col-sm-4">
                 <p key={index} classNam="owt-content-admin-mobile-id">
                   <Link
-                    className="Link"
+                    className="owt-content-admin-id-link"
                     style={linkStyle}
                     to={`/requestdetails/${person.number}`}
                   >
