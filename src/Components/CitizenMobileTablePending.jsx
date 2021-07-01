@@ -90,34 +90,63 @@ export default class CitizenMobileTablePending extends React.Component {
     console.log("data");
     console.log(this.state.data);
     return (
-      <div className="mobile-admin-table">
+        <div className="mobile-admin-table">
         {this.state.data.map((person, index) => (
-          <div>
-            <p className="mobile-admin-request-number">Request No.</p>
-            <p key={index} classNam="owt-content-admin-mobile-id">
-              <Link
-                className="Link"
-                style={linkStyle}
-                to={`/citizenrequestdetails/${person.number}`}
-              >
-                {person.number}
-              </Link>
-            </p>
-            <p className="mobile-admin-status-text">Status</p>
-            <p key={index}>{person.status}</p>
-            <p className="mobile-admin-resource-name-text">Resource Name </p>
-            <p className="mobile-admin-resource-name" key={index}>
-              {person.name}
-            </p>
-            <Link
-              className="mobile-admin-edit"
-              to={`/requestdetails/${person.number}`}
-            >
-              <i class="fas fa-edit">edit</i>
-            </Link>
-            <br></br>
-            <i class="far fa-trash-alt mobile-admin-delete">delete</i>
-            <div className="div-line"></div>
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-5 col-sm-4">
+                <p className="mobile-admin-request-number">Request No.</p>
+              </div>
+              <div className="col-xs-7 col-sm-4">
+                <p key={index} classNam="owt-content-admin-mobile-id">
+                  <Link
+                    className="Link"
+                    style={linkStyle}
+                    to={`/citizenrequestdetails/${person.number}`}
+                  >
+                    {person.number}
+                  </Link>
+                </p>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-xs-5 col-sm-4">
+                <p className="mobile-admin-status-text">Status</p>
+              </div>
+              <div className="col-xs-7 col-sm-4">
+                <p className="mobile-admin-status" key={index}>
+                  {person.status}
+                </p>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-xs-5 col-sm-4">
+                <p className="mobile-admin-resource-name-text">
+                  Resource Name{" "}
+                </p>
+              </div>
+              <div className="col-xs-7 col-sm-4">
+                <p className="mobile-admin-resource-name" key={index}>
+                  {person.name}
+                </p>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-xs-5 col-sm-4">
+                <Link
+                  className="mobile-admin-edit"
+                  to={`/requestdetails/${person.number}`}
+                >
+                  <i class="fas fa-edit">edit</i>
+                </Link>
+              </div>
+              <div className="col-xs-7 col-sm-4">
+                <i class="far fa-trash-alt mobile-admin-delete" onclick="DeleteId(12)">delete</i>
+              </div>
+            </div>
           </div>
         ))}
       </div>

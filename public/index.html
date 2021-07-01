@@ -41,6 +41,7 @@
           form.on("submitDone", (res) => {
             console.log(res);
             let userOhid = window.portalUserID;
+            let userEmail = window.userMail
             console.log(userOhid);
             let id = res._id;
             let url = SUBMISSION_URL + id;
@@ -56,6 +57,11 @@
                 path: "/data/userOhid",
                 value: `${userOhid}`,
               },
+              {
+                op: "replace",
+                path: "/data/userOhidEmail",
+                value: `${userEmail}`,
+              }
             ];
             const response = axios.patch(url, update);
             redirectHome();
