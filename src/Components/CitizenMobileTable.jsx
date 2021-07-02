@@ -2,7 +2,7 @@ import React from "react";
 import Constants from "../helpers/constants";
 import { Link } from "react-router-dom";
 import * as Badges from "./Badge";
-import axios from 'axios'
+import axios from "axios";
 
 const linkStyle = {
   color: "#3d7aa9",
@@ -150,16 +150,13 @@ export default class CitizenMobileTable extends React.Component {
                   className="mobile-admin-edit"
                   to={`/citizenrequestdetails/${person.number}`}
                 >
-                  <i class="fas fa-edit">edit</i>
+                  <i class="fas fa-edit"></i>
+                  <p className="edit-text">edit</p>
                 </Link>
               </div>
               <div className="col-xs-2 col-sm-4">
-                <i
-                  class="far fa-trash-alt mobile-admin-delete"
-                  onClick={() => this.DeleteId(person.number)}
-                >
-                  delete
-                </i>
+                <i class="far fa-trash-alt mobile-admin-delete"></i>
+                <p className="delete-text" onClick={() => this.DeleteId(person.number)}>delete</p>
               </div>
             </div>
           </div>

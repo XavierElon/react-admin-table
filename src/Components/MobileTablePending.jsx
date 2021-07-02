@@ -94,7 +94,7 @@ export default class MobileTablePending extends React.Component {
                 <p className="mobile-admin-request-number">Request No.</p>
               </div>
               <div className="col-xs-7 col-sm-4">
-                <p key={index} classNam="owt-content-admin-mobile-id">
+                <p key={index} className="owt-content-admin-mobile-id">
                   <Link
                     className="owt-content-admin-id-link"
                     style={linkStyle}
@@ -136,11 +136,13 @@ export default class MobileTablePending extends React.Component {
                   className="mobile-admin-edit"
                   to={`/requestdetails/${person.number}`}
                 >
-                  <i className="fas fa-edit">edit</i>
+                  <i className="fas fa-edit"></i>
+                  <p className="edit-text">edit</p>
                 </Link>
               </div>
               <div className="col-xs-2 col-sm-4">
-                <i className="far fa-trash-alt mobile-admin-delete" onClick={() => this.DeleteId(person.number)}>delete</i>
+                <i className="far fa-trash-alt mobile-admin-delete" onClick={() => this.DeleteId(person.number)}></i>
+                <p className="delete-text" onClick={() => this.DeleteId(person.number)}>delete</p>
               </div>
             </div>
           </div>

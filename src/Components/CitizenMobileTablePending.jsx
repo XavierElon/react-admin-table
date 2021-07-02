@@ -146,11 +146,13 @@ export default class CitizenMobileTablePending extends React.Component {
                   className="mobile-admin-edit"
                   to={`/citizenrequestdetails/${person.number}`}
                 >
-                  <i class="fas fa-edit">edit</i>
+                  <i class="fas fa-edit"></i>
+                  <p className="edit-text">edit</p>
                 </Link>
               </div>
               <div className="col-xs-2 col-sm-4">
                 <i class="far fa-trash-alt mobile-admin-delete" onClick={() => this.DeleteId(person.number)}>delete</i>
+                <p className="delete-text" onClick={() => this.DeleteId(person.number)}>delete</p>
               </div>
             </div>
           </div>
