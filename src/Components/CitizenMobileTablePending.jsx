@@ -26,7 +26,7 @@ export default class CitizenMobileTablePending extends React.Component {
       data: [],
       ohid: window.portalUserID,
     };
-    this.deleteId = this.deleteId.bind(this);
+    this.DeleteId = this.DeleteId.bind(this);
   }
 
   async componentDidMount() {

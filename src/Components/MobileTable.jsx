@@ -25,7 +25,7 @@ export default class MobileTable extends React.Component {
     this.state = {
       data: [],
     };
-    this.deleteId = this.deleteId.bind(this)
+    this.DeleteId = this.DeleteId.bind(this)
   }
 
 
