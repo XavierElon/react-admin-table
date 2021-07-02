@@ -2,6 +2,7 @@ import React from "react";
 import Constants from "../helpers/constants";
 import { Link } from "react-router-dom";
 import * as Badges from "./Badge";
+import axios from 'axios'
 
 const linkStyle = {
   color: "#3d7aa9",
@@ -84,9 +85,14 @@ export default class MobileTable extends React.Component {
     }
   }
 
-  deleteId(id) {
-    console.log(id)
-    console.log('clicked')
+  sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async DeleteId(id) {
+    const response = axios.delete(`${Constants.DRFT_FORM_SUBMISSION_URL}${id}`);
+    await this.sleep(1000);
+    window.location.reload();
   }
 
   render() {
@@ -147,7 +153,7 @@ export default class MobileTable extends React.Component {
                 </Link>
               </div>
               <div className="col-xs-2 col-sm-4">
-                <i class="far fa-trash-alt mobile-admin-delete" onclick="DeleteId(12)">delete</i>
+                <i class="far fa-trash-alt mobile-admin-delete" onClick={() => this.DeleteId(person.number)}>delete</i>
               </div>
             </div>
           </div>
