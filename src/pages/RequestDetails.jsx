@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import styled from "styled-components";
 import Constants from "../helpers/constants";
 
@@ -33,8 +32,6 @@ export default class RequestDetails extends React.Component {
       url: Constants.DRFT_FORM_SUBMISSION_URL + this.props.match.params.id,
       approvedUrl: "requestapproved/" + this.props.match.params.id,
     };
-
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   sleep(ms) {
@@ -42,7 +39,6 @@ export default class RequestDetails extends React.Component {
   }
 
   async componentDidMount() {
-    let type;
     window["formLoad"](`${this.state.id}`);
     await this.sleep(1000);
     fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`)
@@ -56,9 +52,9 @@ export default class RequestDetails extends React.Component {
     return (
       <div className="container">
         <FormContainer>
-          <h2 className="owt-content-new-entry-form-text">
+          <h3 className="owt-content-new-entry-form-text">
             <b>Request #{this.state.id.toUpperCase()}</b>
-          </h2>
+          </h3>
           <div id="requestor-formio"></div>
           <Link to="/">
             <div style={cancelStyle} className="owt-content-cancel-button">
