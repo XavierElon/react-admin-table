@@ -65,6 +65,14 @@ const badgeStyle = {
   textAlign: "center !important",
 };
 
+const FormContainer = styled.div`
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+`;
+
 export default class Table extends React.Component {
   constructor(props) {
     super(props);
@@ -280,83 +288,81 @@ export default class Table extends React.Component {
     if (this.state.active) {
       return (
         <div className="owt-main-content-table">
-          <div className="owt-content-title-row">
-            <span className="owt-content-citizen-title-text">
-              <h1 className="owt-content-citizen-title">Dashboard</h1>
-            </span>
-            <span className="owt-content-citizen-new-request-div">
-              <span className="owt-content-plus-button">
+          <FormContainer>
+            <div className="owt-content-title-row">
+              <span className="owt-content-admin-title-text">
+                <h1 className="owt-content-admin-title">Dashboard</h1>
+              </span>
+              <span className="owt-content-new-form-div">
+                <span className="owt-content-plus-button">
+                  <Link to="/requestform">
+                    <i class="fas fa-plus" aria-hidden="true"></i>
+                  </Link>
+                </span>
                 <Link to="/requestform">
-                  <i
-                    class="fas fa-plus citizen-plus-button"
-                    aria-hidden="true"
-                  ></i>
+                  <div className="owt-content-request-text">
+                    <p id="new-request-text">new request</p>
+                  </div>
                 </Link>
               </span>
-              <Link to="/requestform">
-                <div className="owt-content-request-text">
-                  <p id="new-request-text">new request</p>
+            </div>
+            <span className="owt-content-buttons">
+              <span className="owt-content-button1-active">
+                <Button1Active>New Requests</Button1Active>
+              </span>
+              <span className="owt-content-button2-inactive">
+                <Button2Inactive onClick={this.handleClick}>
+                  Existing Entries
+                </Button2Inactive>
+              </span>
+            </span>
+            <i
+              className="fa fa-search owt-content-existing-entries-magnifying-glass"
+              aria-hidden="true"
+            ></i>
+            <Grid
+              container
+              spacing={1}
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item xs={12}>
+                <div className="owt-content-table">
+                  <MDBDataTable
+                    className="owt-content-datadata-table"
+                    bordered
+                    sortable
+                    small
+                    maxHeight="500px"
+                    entries={25}
+                    noBottomColumns={true}
+                    entriesLabel=""
+                    data={this.state.data2}
+                    infoLabel={["", "", "", ""]}
+                    entriesOptions={[]}
+                    paginationLabel={["<", ">"]}
+                  />
                 </div>
-              </Link>
-            </span>
-          </div>
-          <span className="owt-content-buttons">
-            <span className="owt-content-button1-active">
-              <Button1Active>New Requests</Button1Active>
-            </span>
-            <span className="owt-content-button2-inactive">
-              <Button2Inactive onClick={this.handleClick}>
-                Existing Entries
-              </Button2Inactive>
-            </span>
-          </span>
-          <i
-            className="fa fa-search owt-content-existing-entries-magnifying-glass"
-            aria-hidden="true"
-          ></i>
-          <Grid
-            container
-            spacing={1}
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            <Grid item xs={12}>
-              <div className="owt-content-table">
-                <MDBDataTable
-                  className="owt-content-datadata-table"
-                  bordered
-                  sortable
-                  entries={25}
-                  noBottomColumns={true}
-                  entriesLabel=""
-                  data={this.state.data2}
-                  infoLabel={["", "", "", ""]}
-                  entriesOptions={[]}
-                  paginationLabel={["<", ">"]}
-                />
-              </div>
+              </Grid>
             </Grid>
-          </Grid>
-          <React.Fragment>
-            <CitizenMobileTablePending></CitizenMobileTablePending>
-          </React.Fragment>
+            <React.Fragment>
+              <CitizenMobileTablePending></CitizenMobileTablePending>
+            </React.Fragment>
+          </FormContainer>
         </div>
       );
     } else {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-            <span className="owt-content-citizen-title-text">
-              <h1 className="owt-content-citizen-title">Dashboard</h1>
+            <span className="owt-content-admin-title-text">
+              <h1 className="owt-content-admin-title">Dashboard</h1>
             </span>
-            <span className="owt-content-citizen-new-request-div">
+            <span className="owt-content-new-form-div">
               <span className="owt-content-plus-button">
                 <Link to="/requestform">
-                  <i
-                    class="fas fa-plus citizen-plus-button"
-                    aria-hidden="true"
-                  ></i>
+                  <i class="fas fa-plus" aria-hidden="true"></i>
                 </Link>
               </span>
               <div className="owt-content-request-text">
@@ -412,3 +418,138 @@ export default class Table extends React.Component {
     }
   }
 }
+
+// if (this.state.active) {
+//   return (
+//     <div className="owt-main-content-table">
+//       <div className="owt-content-title-row">
+//         <span className="owt-content-citizen-title-text">
+//           <h1 className="owt-content-citizen-title">Dashboard</h1>
+//         </span>
+//         <span className="owt-content-citizen-new-request-div">
+//           <span className="owt-content-plus-button">
+//             <Link to="/requestform">
+//               <i
+//                 class="fas fa-plus citizen-plus-button"
+//                 aria-hidden="true"
+//               ></i>
+//             </Link>
+//           </span>
+//           <Link to="/requestform">
+//             <div className="owt-content-request-text">
+//               <p id="new-request-text">new request</p>
+//             </div>
+//           </Link>
+//         </span>
+//       </div>
+//       <span className="owt-content-buttons">
+//         <span className="owt-content-button1-active">
+//           <Button1Active>New Requests</Button1Active>
+//         </span>
+//         <span className="owt-content-button2-inactive">
+//           <Button2Inactive onClick={this.handleClick}>
+//             Existing Entries
+//           </Button2Inactive>
+//         </span>
+//       </span>
+//       <i
+//         className="fa fa-search owt-content-existing-entries-magnifying-glass"
+//         aria-hidden="true"
+//       ></i>
+//       <Grid
+//         container
+//         spacing={1}
+//         direction="row"
+//         justify="center"
+//         alignItems="center"
+//       >
+//         <Grid item xs={12}>
+//           <div className="owt-content-table">
+//             <MDBDataTable
+//               className="owt-content-datadata-table"
+//               bordered
+//               sortable
+//               entries={25}
+//               noBottomColumns={true}
+//               entriesLabel=""
+//               data={this.state.data2}
+//               infoLabel={["", "", "", ""]}
+//               entriesOptions={[]}
+//               paginationLabel={["<", ">"]}
+//             />
+//           </div>
+//         </Grid>
+//       </Grid>
+//       <React.Fragment>
+//         <CitizenMobileTablePending></CitizenMobileTablePending>
+//       </React.Fragment>
+//     </div>
+//   );
+// } else {
+//   return (
+//     <div className="owt-main-content-table">
+//       <div className="owt-content-title-row">
+//         <span className="owt-content-citizen-title-text">
+//           <h1 className="owt-content-citizen-title">Dashboard</h1>
+//         </span>
+//         <span className="owt-content-citizen-new-request-div">
+//           <span className="owt-content-plus-button">
+//             <Link to="/requestform">
+//               <i
+//                 class="fas fa-plus citizen-plus-button"
+//                 aria-hidden="true"
+//               ></i>
+//             </Link>
+//           </span>
+//           <div className="owt-content-request-text">
+//             <Link to="/requestform">
+//               <p id="new-request-text">new request</p>
+//             </Link>
+//           </div>
+//         </span>
+//       </div>
+//       <span className="owt-content-buttons">
+//         <span className="owt-content-button1-active">
+//           <Button1Inactive onClick={this.handleClick}>
+//             New Requests
+//           </Button1Inactive>
+//         </span>
+//         <span className="owt-content-button2-inactive">
+//           <Button2Active>Existing Entries</Button2Active>
+//         </span>
+//       </span>
+//       <i
+//         className="fa fa-search owt-content-new-entries-magnifying-glass"
+//         aria-hidden="true"
+//       ></i>
+//       <Grid
+//         container
+//         spacing={1}
+//         direction="row"
+//         justify="center"
+//         alignItems="center"
+//       >
+//         <Grid item xs={12}>
+//           <div className="owt-content-table">
+//             <MDBDataTable
+//               className="owt-content-datadata-table"
+//               bordered
+//               sortable
+//               entries={25}
+//               noBottomColumns={true}
+//               entriesLabel=""
+//               data={this.state.data}
+//               infoLabel={["", "", "", ""]}
+//               entriesOptions={[]}
+//               paginationLabel={["<", ">"]}
+//             />
+//           </div>
+//         </Grid>
+//       </Grid>
+//       <React.Fragment>
+//         <CitizenMobileTable></CitizenMobileTable>
+//       </React.Fragment>
+//     </div>
+//   );
+// }
+// }

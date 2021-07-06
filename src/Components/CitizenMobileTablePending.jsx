@@ -104,7 +104,7 @@ export default class CitizenMobileTablePending extends React.Component {
                 <p className="mobile-admin-request-number">Request No.</p>
               </div>
               <div className="col-xs-7 col-sm-4">
-                <p key={index} classNam="owt-content-admin-mobile-id">
+                <p key={index} className="owt-content-admin-mobile-id">
                   <Link
                     className="owt-content-admin-id-link"
                     style={linkStyle}
@@ -141,18 +141,17 @@ export default class CitizenMobileTablePending extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-3 col-sm-4">
                 <Link
+                  key={index}
                   className="mobile-admin-edit"
                   to={`/citizenrequestdetails/${person.number}`}
                 >
-                  <i class="fas fa-edit"></i>
-                  <p className="edit-text">edit</p>
+                  <i class="fas fa-edit"></i>edit
                 </Link>
               </div>
-              <div className="col-xs-2 col-sm-4">
-                <i class="far fa-trash-alt mobile-admin-delete" onClick={() => this.DeleteId(person.number)}>delete</i>
-                <p className="delete-text" onClick={() => this.DeleteId(person.number)}>delete</p>
+              <div className="col-xs-3 col-sm-4" onClick={() => this.DeleteId(person.number)}>
+                <i className="far fa-trash-alt mobile-admin-delete" key={index}></i>delete
               </div>
             </div>
           </div>

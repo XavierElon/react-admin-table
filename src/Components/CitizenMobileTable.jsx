@@ -145,18 +145,19 @@ export default class CitizenMobileTable extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-2 col-sm-4">
+              <div className="col-xs-3 col-sm-4">
                 <Link
                   className="mobile-admin-edit"
                   to={`/citizenrequestdetails/${person.number}`}
                 >
-                  <i class="fas fa-edit"></i>
-                  <p className="edit-text">edit</p>
+                  <i class="fas fa-edit"></i>edit
                 </Link>
               </div>
-              <div className="col-xs-2 col-sm-4">
-                <i class="far fa-trash-alt mobile-admin-delete"></i>
-                <p className="delete-text" onClick={() => this.DeleteId(person.number)}>delete</p>
+              <div className="col-xs-3 col-sm-4" onClick={() => this.DeleteId(person.number)}>
+                <i
+                  className="far fa-trash-alt mobile-admin-delete"
+                ></i>
+                delete
               </div>
             </div>
           </div>
