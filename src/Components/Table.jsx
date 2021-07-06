@@ -1,13 +1,14 @@
 import React from "react";
 import { MDBDataTable } from "mdbreact";
 import "./Table.css";
-import PlusButton from "../images/plus-button.png";
 import styled from "styled-components";
 import * as Badges from "./Badge";
 import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
-import $ from 'jquery'
+import MobileTable from "./MobileTable";
+import MobileTablePending from "./MobileTablePending"
+
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -90,21 +91,12 @@ export default class Table extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  async componentDidMount() {
-// $('td:last-child').wrap("<span className='last-row'></span>")
-// $('td:last-child').css('padding', '6px')
-// $('td:last-child').css('border', '1px solid white')
-// $('td:last-child').css('border-radius', '5px')
-// $('td:last-child').css('position', 'relative')
-// $('td:last-child').css('top', '5px')
-// $('td:last-child').css('text-align', 'center')
-// $('td:last-child').css('color', 'white', )
-// $('td:last-child').css('width', '128px', )
-// let lastChild = $('td:last-child').val()
-// console.log('last child = ' + lastChild)
-// $('td:last-child').val("Pending Review").css('background-color', '#3d7aa9')
-// $('td:last-child').val("Approved").css('background-color', '#5e8000')
+  sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
+  async componentWillMount() {
+    console.log('hello')
     let data = {
       columns: [
         {
@@ -198,16 +190,16 @@ export default class Table extends React.Component {
       textTransform: "uppercase",
       textDecoration: "underline !important",
     };
-
+    let length;
     try {
       const res = await fetch(
         `${Constants.DRFT_FORM_SUBMISSION_URL_NO_SLASH}?limit=${Constants.LIMIT_AMOUNT}`
       );
       const result = await res.json();
-      let length = result.length;
+      length = result.length;
 
       for (let i = 0; i < length; i++) {
-        console.log(result[i])
+        // console.log(result[i]);
         let newStart = "";
         let newEnd = "";
         let resource_type;
@@ -295,24 +287,23 @@ export default class Table extends React.Component {
     this.setState({ active: !this.state.active });
   }
 
+
   render() {
-    if (this.state.active) {
+    let new_rows = this.state.data.rows
+    console.log(new_rows)
+    console.log(this.state.data.rows)
+    if (this.state.active && new_rows) {
       return (
         <div className="owt-main-content-table">
           <FormContainer>
             <div className="owt-content-title-row">
               <span className="owt-content-admin-title-text">
-                <p className="owt-content-admin-title">Admin Dashboard</p>
+                <h1 className="owt-content-admin-title">Admin Dashboard</h1>
               </span>
               <span className="owt-content-new-form-div">
                 <span className="owt-content-plus-button">
                   <Link to="/requestform">
-                    <img
-                      id="plus-button"
-                      src={PlusButton}
-                      alt=""
-                      onClick={this.getNewEntries}
-                    />
+                    <i class="fas fa-plus" aria-hidden="true"></i>
                   </Link>
                 </span>
                 <Link to="/requestform">
@@ -362,6 +353,9 @@ export default class Table extends React.Component {
                 </div>
               </Grid>
             </Grid>
+           <React.Fragment>
+              <MobileTablePending></MobileTablePending>
+           </React.Fragment>
           </FormContainer>
         </div>
       );
@@ -370,17 +364,12 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-admin-title-text">
-              <p className="owt-content-admin-title">Admin Dashboard</p>
+              <h1 className="owt-content-admin-title">Admin Dashboard</h1>
             </span>
             <span className="owt-content-new-form-div">
               <span className="owt-content-plus-button">
                 <Link to="/requestform">
-                  <img
-                    id="plus-button"
-                    src={PlusButton}
-                    alt=""
-                    onClick={this.getNewEntries}
-                  />
+                  <i class="fas fa-plus" aria-hidden="true"></i>
                 </Link>
               </span>
               <div className="owt-content-request-text">
@@ -428,7 +417,9 @@ export default class Table extends React.Component {
               </div>
             </Grid>
           </Grid>
-          <div className="owt-content-table-bottom"></div>
+          <React.Fragment>
+              <MobileTable></MobileTable>
+           </React.Fragment>
         </div>
       );
     }

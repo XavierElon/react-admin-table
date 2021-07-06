@@ -41,6 +41,7 @@
           form.on("submitDone", (res) => {
             console.log(res);
             let userOhid = window.portalUserID;
+            let userEmail = window.userMail
             console.log(userOhid);
             let id = res._id;
             let url = SUBMISSION_URL + id;
@@ -56,6 +57,11 @@
                 path: "/data/userOhid",
                 value: `${userOhid}`,
               },
+              {
+                op: "replace",
+                path: "/data/userOhidEmail",
+                value: `${userEmail}`,
+              }
             ];
             const response = axios.patch(url, update);
             redirectHome();
@@ -102,17 +108,6 @@
                   );
                 } else if (status === "denied") {
                   window.alert(`Request #${id.toUpperCase()} has been denied.`)
-                  let deniedComment = prompt("Why are you denying this request?", "")
-                  console.log(deniedComment)
-                  let update = [
-                  {
-                    op: "replace",
-                    path: "/data/deniedComment",
-                    value: `${deniedComment}`,
-                  }
-                  ];
-                  const response = axios.patch(url, update);
-                  delay(1000)
                   window.location.assign(
                     `/wps/myportal/gov/ohid/applications/owt-finder-admin`
                   );

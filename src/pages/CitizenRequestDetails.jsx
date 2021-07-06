@@ -39,12 +39,11 @@ export default class CitizenRequestDetails extends React.Component {
 
   async componentDidMount() {
     window["citizenFormLoad"](`${this.state.id}`);
-    await this.sleep(1500);
+    await this.sleep(1200);
     fetch(`${Constants.DRFT_FORM_SUBMISSION_URL}${this.state.id}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        let type = result.data.resourceType;
         let approve = document.getElementsByTagName("label");
         console.log(approve);
         let length = approve.length;
@@ -65,6 +64,12 @@ export default class CitizenRequestDetails extends React.Component {
             str2 === "denied"
           ) {
             approve[i].style.display = "none";
+          } else if (str === "disabled" ||
+          str === "deleted" ||
+          str2 === "disabled" ||
+          str2 === "deleted") {
+            approve[i].style.position='relative';
+            approve[i].style.left='-4rem';
           }
         }
       });
@@ -76,9 +81,9 @@ export default class CitizenRequestDetails extends React.Component {
     return (
       <div className="odx-form__container container">
         <FormContainer>
-          <h2 className="owt-content-citizen-entry-form-text">
+          <h3 className="owt-content-citizen-entry-form-text">
             <b>Request #{this.state.id}</b>
-          </h2>
+          </h3>
           <div id="requestor-formio"></div>
           <Link to="/">
             <div style={cancelStyle} className="owt-content-cancel-button">
