@@ -314,10 +314,10 @@ export default class Table extends React.Component {
               </span>
             </div>
             <span className="owt-content-buttons">
-              <span className="owt-content-button1-active">
+              <span className="owt-content-button1-active" tabIndex="0" description="new-requests">
                 <Button1Active>New Requests</Button1Active>
               </span>
-              <span className="owt-content-button2-inactive">
+              <span className="owt-content-button2-inactive" tabIndex="0" description="existing-entries">
                 <Button2Inactive onClick={this.handleClick}>
                   Existing Entries
                 </Button2Inactive>
@@ -380,12 +380,12 @@ export default class Table extends React.Component {
             </span>
           </div>
           <span className="owt-content-buttons">
-            <span className="owt-content-button1-active">
+            <span className="owt-content-button1-active" tabIndex="0" description="new-requests"> 
               <Button1Inactive onClick={this.handleClick}>
                 New Requests
               </Button1Inactive>
             </span>
-            <span className="owt-content-button2-inactive">
+            <span className="owt-content-button2-inactive" tabIndex="0" description="existing-entries">
               <Button2Active>Existing Entries</Button2Active>
             </span>
           </span>
