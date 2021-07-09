@@ -10,4 +10,4 @@
 // let lastChild = $('td:last-child').val()
 // console.log('last child = ' + lastChild)
 // $('td:last-child').val("Pending Review").css('background-color', '#3d7aa9')
-// // $('td:last-child').val("Approved").css('background-color', '#5e8000')
+// $('td:last-child').val("Approved").css('background-color', '#5e8000')
