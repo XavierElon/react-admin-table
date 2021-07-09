@@ -191,7 +191,6 @@ export default class Table extends React.Component {
       );
       const result = await res.json();
       length = result.length;
-
       for (let i = 0; i < length; i++) {
         let newStart = "";
         let newEnd = "";
@@ -294,7 +293,7 @@ export default class Table extends React.Component {
               <span className="owt-content-new-form-div">
                 <span className="owt-content-plus-button">
                   <Link to="/requestform">
-                    <i class="fas fa-plus" aria-hidden="true"></i>
+                    <i className="fas fa-plus" aria-hidden="true"></i>
                   </Link>
                 </span>
                 <Link to="/requestform">

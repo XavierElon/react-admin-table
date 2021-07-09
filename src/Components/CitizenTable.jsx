@@ -291,7 +291,7 @@ export default class Table extends React.Component {
           <FormContainer>
             <div className="owt-content-title-row">
               <span className="owt-content-admin-title-text">
-                <h1 className="owt-content-admin-title">Dashboard</h1>
+                <h1 id="owt-content-admin-title" className="owt-content-admin-title">Dashboard</h1>
               </span>
               <span className="owt-content-new-form-div">
                 <span className="owt-content-plus-button">
@@ -357,7 +357,7 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-admin-title-text">
-              <h1 className="owt-content-admin-title">Dashboard</h1>
+              <h1 id="owt-content-admin-title" className="owt-content-admin-title">Dashboard</h1>
             </span>
             <span className="owt-content-new-form-div">
               <span className="owt-content-plus-button">
