@@ -131,7 +131,7 @@ export default class MobileTablePending extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-3 col-sm-4">
+              <div className="col-xs-3 col-sm-4 col-edit">
                 <Link
                   className="mobile-admin-edit"
                   to={`/requestdetails/${person.number}`}
@@ -139,7 +139,7 @@ export default class MobileTablePending extends React.Component {
                   <i className="fas fa-edit"></i>edit
                 </Link>
               </div>
-              <div className="col-xs-3 col-sm-4" onClick={() => this.DeleteId(person.number)}>
+              <div className="col-xs-3 col-sm-4 col-delete" onClick={() => this.DeleteId(person.number)}>
                 <i className="far fa-trash-alt mobile-admin-delete"></i>delete
               </div>
             </div>

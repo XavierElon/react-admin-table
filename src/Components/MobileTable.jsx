@@ -30,11 +30,6 @@ export default class MobileTable extends React.Component {
 
 
   async componentDidMount() {
-    // fetch(
-    //   `${Constants.DRFT_FORM_SUBMISSION_URL_NO_SLASH}?limit=${Constants.LIMIT_AMOUNT}`
-    // )
-    //   .then((result) => result.json())
-    //   .then((res) => this.setState({ data: res }));
     let length;
     let data = []
     try {
@@ -144,7 +139,7 @@ export default class MobileTable extends React.Component {
             </div>
 
             <div className="row">
-              <div className="col-xs-3 col-sm-4">
+              <div className="col-xs-3 col-sm-4 col-edit">
                 <Link
                   className="mobile-admin-edit"
                   to={`/requestdetails/${person.number}`}
@@ -152,7 +147,7 @@ export default class MobileTable extends React.Component {
                   <i class="fas fa-edit"></i>edit
                 </Link>
               </div>
-              <div className="col-xs-3 col-sm-4" onClick={() => this.DeleteId(person.number)}onClick={() => this.DeleteId(person.number)}>
+              <div className="col-xs-3 col-sm-4 col-delete" onClick={() => this.DeleteId(person.number)}onClick={() => this.DeleteId(person.number)}>
                 <i class="far fa-trash-alt mobile-admin-delete" ></i>delete
               </div>
             </div>
