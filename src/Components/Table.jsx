@@ -66,11 +66,6 @@ const badgeStyle = {
   textAlign: "center !important",
 };
 
-// function getRow(id) {
-//   console.log("row");
-//   return <Link to={`/requestdetails/${id}`}></Link>;
-// }
-
 const FormContainer = styled.div`
   max-width: 1080px;
   margin-left: auto;
@@ -96,7 +91,6 @@ export default class Table extends React.Component {
   }
 
   async componentWillMount() {
-    console.log('hello')
     let data = {
       columns: [
         {
@@ -199,7 +193,6 @@ export default class Table extends React.Component {
       length = result.length;
 
       for (let i = 0; i < length; i++) {
-        // console.log(result[i]);
         let newStart = "";
         let newEnd = "";
         let resource_type;
@@ -290,8 +283,6 @@ export default class Table extends React.Component {
 
   render() {
     let new_rows = this.state.data.rows
-    console.log(new_rows)
-    console.log(this.state.data.rows)
     if (this.state.active && new_rows) {
       return (
         <div className="owt-main-content-table">

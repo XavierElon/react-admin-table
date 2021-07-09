@@ -38,8 +38,6 @@ export default class CitizenMobileTablePending extends React.Component {
         `${Constants.DRFT_FORM_SUBMISSION_URL_NO_SLASH}?limit=${Constants.LIMIT_AMOUNT}`
       );
       const result = await res.json();
-      console.log("result");
-      console.log(result);
       length = result.length;
 
       for (let i = 0; i < length; i++) {
@@ -93,8 +91,6 @@ export default class CitizenMobileTablePending extends React.Component {
   }
 
   render() {
-    console.log("data");
-    console.log(this.state.data);
     return (
         <div className="mobile-admin-table">
         {this.state.data.map((person, index) => (

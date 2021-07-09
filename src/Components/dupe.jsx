@@ -11,3 +11,14 @@
 // console.log('last child = ' + lastChild)
 // $('td:last-child').val("Pending Review").css('background-color', '#3d7aa9')
 // // $('td:last-child').val("Approved").css('background-color', '#5e8000')
+
+const browserHost = window.location.hostname
+      let formHost
+      let formSubmission
+      if(browserHost === 'ohid.ohio.gov' || browserHost === 'www.ohid.ohio.gov' || browserHost === 'dx.myohio.gov' {
+        formHost = "https://webform-designer.iop.ohio.gov/live-owt/drftrequestform"
+        formSubmission ="https://webform-designer.iop.ohio.gov/live-owt/drftrequestform/submission/"
+      } else {
+        formHost = "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform"
+        formSubmission = "https://webform-portal.iop.ohio.gov/authoring-owt/drftrequestform/submission/"
+      }

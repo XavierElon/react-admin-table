@@ -91,8 +91,6 @@ export default class MobileTable extends React.Component {
   }
 
   render() {
-      console.log("data")
-    console.log(this.state.data);
     return (
         <div className="mobile-admin-table">
         {this.state.data.map((person, index) => (
