@@ -8,6 +8,7 @@ import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
 import CitizenMobileTable from "./CitizenMobileTable";
 import CitizenMobileTablePending from "./CitizenMobileTablePending";
+import $ from "jquery"
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -81,7 +82,9 @@ export default class Table extends React.Component {
       data: {},
       data2: {},
       isLoading: true,
-      active: true,
+      active: true, 
+      newCount: 0,
+      existingCount: 0
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -273,11 +276,20 @@ export default class Table extends React.Component {
           }
         }
       }
+      this.setState((this.state.newLength = data.length))
+      this.setState((this.state.existingLength = data2.length))
       this.setState((this.state.data2 = data2));
       this.setState((this.state.data = data));
     } catch (error) {
       console.log(error);
     }
+    // $(document).ready(function(){
+    //   var adminTitle = document.getElementById('owt-content-admin-title').innerHTML;
+    //    if (adminTitle.toLowerCase().trim() === "dashboard") {
+    //         document.getElementById('owt-content-admin-title').innerHTML = "Dashboard<span style='visibility:hidden'>Admin </span>";
+           
+    //       }
+    //   });
   }
 
   handleClick() {
@@ -308,11 +320,14 @@ export default class Table extends React.Component {
             </div>
             <span className="owt-content-buttons">
               <span className="owt-content-button1-active">
-                <Button1Active>New Requests</Button1Active>
+                <Button1Active>New Requests 
+                <span class="ohio-badge badge success">{this.state.newCount}</span>
+                </Button1Active>
               </span>
               <span className="owt-content-button2-inactive">
                 <Button2Inactive onClick={this.handleClick}>
-                  Existing Entries
+                  Existing Entries 
+                  <span class="ohio-badge badge info">{this.state.existingCount}</span>
                 </Button2Inactive>
               </span>
             </span>
@@ -356,7 +371,7 @@ export default class Table extends React.Component {
       return (
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
-            <span className="owt-content-admin-title-text">
+            <span className="owt-content-title-text">
               <h1 id="owt-content-admin-title" className="owt-content-admin-title">Dashboard</h1>
             </span>
             <span className="owt-content-new-form-div">
@@ -418,138 +433,3 @@ export default class Table extends React.Component {
     }
   }
 }
-
-// if (this.state.active) {
-//   return (
-//     <div className="owt-main-content-table">
-//       <div className="owt-content-title-row">
-//         <span className="owt-content-citizen-title-text">
-//           <h1 className="owt-content-citizen-title">Dashboard</h1>
-//         </span>
-//         <span className="owt-content-citizen-new-request-div">
-//           <span className="owt-content-plus-button">
-//             <Link to="/requestform">
-//               <i
-//                 class="fas fa-plus citizen-plus-button"
-//                 aria-hidden="true"
-//               ></i>
-//             </Link>
-//           </span>
-//           <Link to="/requestform">
-//             <div className="owt-content-request-text">
-//               <p id="new-request-text">new request</p>
-//             </div>
-//           </Link>
-//         </span>
-//       </div>
-//       <span className="owt-content-buttons">
-//         <span className="owt-content-button1-active">
-//           <Button1Active>New Requests</Button1Active>
-//         </span>
-//         <span className="owt-content-button2-inactive">
-//           <Button2Inactive onClick={this.handleClick}>
-//             Existing Entries
-//           </Button2Inactive>
-//         </span>
-//       </span>
-//       <i
-//         className="fa fa-search owt-content-existing-entries-magnifying-glass"
-//         aria-hidden="true"
-//       ></i>
-//       <Grid
-//         container
-//         spacing={1}
-//         direction="row"
-//         justify="center"
-//         alignItems="center"
-//       >
-//         <Grid item xs={12}>
-//           <div className="owt-content-table">
-//             <MDBDataTable
-//               className="owt-content-datadata-table"
-//               bordered
-//               sortable
-//               entries={25}
-//               noBottomColumns={true}
-//               entriesLabel=""
-//               data={this.state.data2}
-//               infoLabel={["", "", "", ""]}
-//               entriesOptions={[]}
-//               paginationLabel={["<", ">"]}
-//             />
-//           </div>
-//         </Grid>
-//       </Grid>
-//       <React.Fragment>
-//         <CitizenMobileTablePending></CitizenMobileTablePending>
-//       </React.Fragment>
-//     </div>
-//   );
-// } else {
-//   return (
-//     <div className="owt-main-content-table">
-//       <div className="owt-content-title-row">
-//         <span className="owt-content-citizen-title-text">
-//           <h1 className="owt-content-citizen-title">Dashboard</h1>
-//         </span>
-//         <span className="owt-content-citizen-new-request-div">
-//           <span className="owt-content-plus-button">
-//             <Link to="/requestform">
-//               <i
-//                 class="fas fa-plus citizen-plus-button"
-//                 aria-hidden="true"
-//               ></i>
-//             </Link>
-//           </span>
-//           <div className="owt-content-request-text">
-//             <Link to="/requestform">
-//               <p id="new-request-text">new request</p>
-//             </Link>
-//           </div>
-//         </span>
-//       </div>
-//       <span className="owt-content-buttons">
-//         <span className="owt-content-button1-active">
-//           <Button1Inactive onClick={this.handleClick}>
-//             New Requests
-//           </Button1Inactive>
-//         </span>
-//         <span className="owt-content-button2-inactive">
-//           <Button2Active>Existing Entries</Button2Active>
-//         </span>
-//       </span>
-//       <i
-//         className="fa fa-search owt-content-new-entries-magnifying-glass"
-//         aria-hidden="true"
-//       ></i>
-//       <Grid
-//         container
-//         spacing={1}
-//         direction="row"
-//         justify="center"
-//         alignItems="center"
-//       >
-//         <Grid item xs={12}>
-//           <div className="owt-content-table">
-//             <MDBDataTable
-//               className="owt-content-datadata-table"
-//               bordered
-//               sortable
-//               entries={25}
-//               noBottomColumns={true}
-//               entriesLabel=""
-//               data={this.state.data}
-//               infoLabel={["", "", "", ""]}
-//               entriesOptions={[]}
-//               paginationLabel={["<", ">"]}
-//             />
-//           </div>
-//         </Grid>
-//       </Grid>
-//       <React.Fragment>
-//         <CitizenMobileTable></CitizenMobileTable>
-//       </React.Fragment>
-//     </div>
-//   );
-// }
-// }

@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
 import MobileTable from "./MobileTable";
-import MobileTablePending from "./MobileTablePending"
-
+import MobileTablePending from "./MobileTablePending";
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -82,6 +81,8 @@ export default class Table extends React.Component {
       data2: {},
       isLoading: true,
       active: true,
+      newCount: 0,
+      existingCount: 0,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -268,6 +269,10 @@ export default class Table extends React.Component {
           });
         }
       }
+      let existing = data.rows.length;
+      let newL = data2.rows.length;
+      this.setState({ newCount: newL });
+      this.setState({ existingCount: existing });
       this.setState((this.state.data2 = data2));
       this.setState((this.state.data = data));
     } catch (error) {
@@ -279,9 +284,8 @@ export default class Table extends React.Component {
     this.setState({ active: !this.state.active });
   }
 
-
   render() {
-    let new_rows = this.state.data.rows
+    let new_rows = this.state.data.rows;
     if (this.state.active && new_rows) {
       return (
         <div className="owt-main-content-table">
@@ -304,12 +308,28 @@ export default class Table extends React.Component {
               </span>
             </div>
             <span className="owt-content-buttons">
-              <span className="owt-content-button1-active" tabIndex="0" description="new-requests">
-                <Button1Active>New Requests</Button1Active>
+              <span
+                className="owt-content-button1-active"
+                tabIndex="0"
+                description="new-requests"
+              >
+                <Button1Active>
+                  New Requests
+                  <span class="ohio-badge badge success">
+                    {this.state.newCount}
+                  </span>
+                </Button1Active>
               </span>
-              <span className="owt-content-button2-inactive" tabIndex="0" description="existing-entries">
+              <span
+                className="owt-content-button2-inactive"
+                tabIndex="0"
+                description="existing-entries"
+              >
                 <Button2Inactive onClick={this.handleClick}>
                   Existing Entries
+                  <span class="ohio-badge badge info">
+                    {this.state.existingCount}
+                  </span>
                 </Button2Inactive>
               </span>
             </span>
@@ -343,9 +363,9 @@ export default class Table extends React.Component {
                 </div>
               </Grid>
             </Grid>
-           <React.Fragment>
+            <React.Fragment>
               <MobileTablePending></MobileTablePending>
-           </React.Fragment>
+            </React.Fragment>
           </FormContainer>
         </div>
       );
@@ -370,13 +390,29 @@ export default class Table extends React.Component {
             </span>
           </div>
           <span className="owt-content-buttons">
-            <span className="owt-content-button1-active" tabIndex="0" description="new-requests"> 
+            <span
+              className="owt-content-button1-active"
+              tabIndex="0"
+              description="new-requests"
+            >
               <Button1Inactive onClick={this.handleClick}>
                 New Requests
+                <span class="ohio-badge badge success">
+                  {this.state.newCount}
+                </span>
               </Button1Inactive>
             </span>
-            <span className="owt-content-button2-inactive" tabIndex="0" description="existing-entries">
-              <Button2Active>Existing Entries</Button2Active>
+            <span
+              className="owt-content-button2-inactive"
+              tabIndex="0"
+              description="existing-entries"
+            >
+              <Button2Active>
+                Existing Entries
+                <span class="ohio-badge badge info">
+                  {this.state.existingCount}
+                </span>
+              </Button2Active>
             </span>
           </span>
           <i
@@ -408,8 +444,8 @@ export default class Table extends React.Component {
             </Grid>
           </Grid>
           <React.Fragment>
-              <MobileTable></MobileTable>
-           </React.Fragment>
+            <MobileTable></MobileTable>
+          </React.Fragment>
         </div>
       );
     }
