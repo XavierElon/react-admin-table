@@ -322,7 +322,7 @@ export default class Table extends React.Component {
               <span className="owt-content-button1-active">
                 <Button1Active>
                   New Requests
-                  <span class="ohio-badge badge success">
+                  <span class="ohio-badge badge success owt-success-badge">
                     {this.state.newCount}
                   </span>
                 </Button1Active>
@@ -330,7 +330,7 @@ export default class Table extends React.Component {
               <span className="owt-content-button2-inactive">
                 <Button2Inactive onClick={this.handleClick}>
                   Existing Entries
-                  <span class="ohio-badge badge info">
+                  <span class="ohio-badge badge info owt-info-badge">
                     {this.state.existingCount}
                   </span>
                 </Button2Inactive>
@@ -401,7 +401,7 @@ export default class Table extends React.Component {
             <span className="owt-content-button1-active">
               <Button1Inactive onClick={this.handleClick}>
                 New Requests
-                <span class="ohio-badge badge success">
+                <span class="ohio-badge badge success owt-success-badge">
                   {this.state.newCount}
                 </span>
               </Button1Inactive>
@@ -409,7 +409,7 @@ export default class Table extends React.Component {
             <span className="owt-content-button2-inactive">
               <Button2Active>
                 Existing Entries
-                <span class="ohio-badge badge info">
+                <span class="ohio-badge badge info owt-info-badge">
                   {this.state.existingCount}
                 </span>
               </Button2Active>
