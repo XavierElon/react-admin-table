@@ -126,7 +126,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "asc",
+          // sort: "asc",
           width: 170,
         },
       ],
@@ -168,7 +168,7 @@ export default class Table extends React.Component {
         {
           label: "Status",
           field: "status",
-          sort: "asc",
+          // sort: "asc",
           width: 170,
         },
       ],
