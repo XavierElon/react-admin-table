@@ -306,14 +306,14 @@ export default class Table extends React.Component {
                 </h1>
               </span>
               <span className="owt-content-new-form-div">
-              <span className="owt-content-plus-button" aria-description="new request component">
-                  <Link to="/requestform">
+              <span className="owt-content-plus-button" aria-hidden="true">
+                  <Link to="/requestform" aria-description="new request component">
                     <i className="fas fa-plus" aria-hidden="true"></i>
                   </Link>
                 </span>
                 
-                  <div className="owt-content-request-text" aria-description="new request link">
-                    <Link to="/requestform">
+                  <div className="owt-content-request-text" aria-hidden="true">
+                    <Link to="/requestform" aria-description="new request link">
                       <p id="new-request-text" aria-hidden="true">new request</p>
                     </Link>
                   </div>
@@ -387,14 +387,14 @@ export default class Table extends React.Component {
               </h1>
             </span>
             <span className="owt-content-new-form-div">
-            <span className="owt-content-plus-button" aria-description="new request component">
-                  <Link to="/requestform">
+            <span className="owt-content-plus-button" aria-hidden="true">
+                  <Link to="/requestform" aria-description="new request component">
                     <i className="fas fa-plus" aria-hidden="true"></i>
                   </Link>
                 </span>
                 
-                  <div className="owt-content-request-text" aria-description="new request link">
-                    <Link to="/requestform">
+                  <div className="owt-content-request-text" aria-hidden="true">
+                    <Link to="/requestform" aria-description="new request link">
                       <p id="new-request-text" aria-hidden="true">new request</p>
                     </Link>
                   </div>
