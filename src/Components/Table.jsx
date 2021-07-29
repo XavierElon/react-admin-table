@@ -8,6 +8,7 @@ import Constants from "../helpers/constants";
 import Grid from "@material-ui/core/Grid";
 import MobileTable from "./MobileTable";
 import MobileTablePending from "./MobileTablePending";
+import $ from "jquery"
 
 const Button1Active = styled("div")`
   width: 250px;
@@ -84,6 +85,8 @@ export default class Table extends React.Component {
       newCount: 0,
       existingCount: 0,
     };
+    
+    $("input[aria-label='Search']").attr('aria-description', 'Search dashboard data fields. Type Request Number, Resource Type, Resource Name, Start Date, End Date, or Status.')
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -92,6 +95,8 @@ export default class Table extends React.Component {
   }
 
   async componentWillMount() {
+    $('.form-control-sm').attr('aria-description', 'Test')
+    //$("[aria-label='Search']").attr('aria-description', 'Search dashboard data fields. Type Request Number, Resource Type, Resource Name, Start Date, End Date, or Status.')
     let data = {
       columns: [
         {
@@ -137,7 +142,7 @@ export default class Table extends React.Component {
     let data2 = {
       columns: [
         {
-          label: "Request No.",
+          label: "Request NO",
           field: "number",
           sort: "disabled",
           width: 150,
@@ -280,6 +285,10 @@ export default class Table extends React.Component {
     }
   }
 
+  componentDidMount() {
+    $('.form-control-sm').attr('aria-description', 'Test')
+  }
+
   handleClick() {
     this.setState({ active: !this.state.active });
   }
@@ -292,26 +301,30 @@ export default class Table extends React.Component {
           <FormContainer>
             <div className="owt-content-title-row">
               <span className="owt-content-admin-title-text">
-                <h1 className="owt-content-admin-title">Admin Dashboard</h1>
+                <h1 className="owt-content-admin-title" aria-description="Admin Dashboard. This dashboard is used for staff to administrate resource requests.">Admin Dashboard</h1>
               </span>
               <span className="owt-content-new-form-div">
-                <span className="owt-content-plus-button">
+
+                <span className="owt-content-plus-button" aria-description="new request component">
                   <Link to="/requestform">
                     <i className="fas fa-plus" aria-hidden="true"></i>
                   </Link>
                 </span>
-                <Link to="/requestform">
-                  <div className="owt-content-request-text">
-                    <p id="new-request-text">new request</p>
+                
+                  <div className="owt-content-request-text" aria-description="new request link">
+                    <Link to="/requestform">
+                      <p id="new-request-text" aria-hidden="true">new request</p>
+                    </Link>
                   </div>
-                </Link>
+                
               </span>
             </div>
+
             <span className="owt-content-buttons">
-              <span
+              <a
                 className="owt-content-button1-active"
                 tabIndex="0"
-                description="new-requests"
+                aria-description="new requests link. to select click ctrl+option+spacebar."
               >
                 <Button1Active>
                   New Requests
@@ -319,11 +332,11 @@ export default class Table extends React.Component {
                     {this.state.newCount}
                   </span>
                 </Button1Active>
-              </span>
-              <span
+              </a>
+              <a
                 className="owt-content-button2-inactive"
                 tabIndex="0"
-                description="existing-entries"
+                aria-description="existing entries link. to select click ctrl+option+spacebar."
               >
                 <Button2Inactive onClick={this.handleClick}>
                   Existing Entries
@@ -331,7 +344,7 @@ export default class Table extends React.Component {
                     {this.state.existingCount}
                   </span>
                 </Button2Inactive>
-              </span>
+              </a>
             </span>
             <i
               className="fa fa-search owt-content-existing-entries-magnifying-glass"
@@ -374,19 +387,21 @@ export default class Table extends React.Component {
         <div className="owt-main-content-table">
           <div className="owt-content-title-row">
             <span className="owt-content-admin-title-text">
-              <h1 className="owt-content-admin-title">Admin Dashboard</h1>
+              <h1 className="owt-content-admin-title" aria-description="Admin Dashboard. This dashboard is used for staff to administrate resource requests.">Admin Dashboard</h1>
             </span>
             <span className="owt-content-new-form-div">
-              <span className="owt-content-plus-button">
-                <Link to="/requestform">
-                  <i class="fas fa-plus" aria-hidden="true"></i>
-                </Link>
-              </span>
-              <div className="owt-content-request-text">
-                <Link to="/requestform">
-                  <p id="new-request-text">new request</p>
-                </Link>
-              </div>
+
+              <span className="owt-content-plus-button" aria-description="new request component">
+                  <Link to="/requestform">
+                    <i className="fas fa-plus" aria-hidden="true"></i>
+                  </Link>
+                </span>
+                
+                  <div className="owt-content-request-text" aria-description="new request link">
+                    <Link to="/requestform">
+                      <p id="new-request-text" aria-hidden="true">new request</p>
+                    </Link>
+                  </div>
             </span>
           </div>
           <span className="owt-content-buttons">
@@ -394,6 +409,7 @@ export default class Table extends React.Component {
               className="owt-content-button1-active"
               tabIndex="0"
               description="new-requests"
+              aria-description="to select click ctrl+option+spacebar."
             >
               <Button1Inactive onClick={this.handleClick}>
                 New Requests
@@ -406,6 +422,7 @@ export default class Table extends React.Component {
               className="owt-content-button2-inactive"
               tabIndex="0"
               description="existing-entries"
+              aria-description="to select click ctrl+option+spacebar."
             >
               <Button2Active>
                 Existing Entries

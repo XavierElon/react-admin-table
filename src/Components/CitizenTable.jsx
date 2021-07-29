@@ -87,10 +87,14 @@ export default class Table extends React.Component {
       existingCount: 0,
     };
 
+    $('input.form-control-sm').attr('aria-description', 'Test')
+
     this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
+    //$("input[aria-label='Search']").attr('aria-description', 'Search dashboard data fields. Type Request Number, Resource Type, Resource Name, Start Date, End Date, or Status.')
+    
     let data = {
       columns: [
         {
@@ -301,40 +305,42 @@ export default class Table extends React.Component {
                 <h1
                   id="owt-content-admin-title"
                   className="owt-content-admin-title"
+                  aria-description="Resource Dashboard. This dashboard is used for resources to submit request forms for the Finder Website."
                 >
                   Dashboard
                 </h1>
               </span>
               <span className="owt-content-new-form-div">
-                <span className="owt-content-plus-button">
+              <span className="owt-content-plus-button" aria-description="new request component">
                   <Link to="/requestform">
-                    <i class="fas fa-plus" aria-hidden="true"></i>
+                    <i className="fas fa-plus" aria-hidden="true"></i>
                   </Link>
                 </span>
-                <Link to="/requestform">
-                  <div className="owt-content-request-text">
-                    <p id="new-request-text">new request</p>
+                
+                  <div className="owt-content-request-text" aria-description="new request link">
+                    <Link to="/requestform">
+                      <p id="new-request-text" aria-hidden="true">new request</p>
+                    </Link>
                   </div>
-                </Link>
               </span>
             </div>
             <span className="owt-content-buttons">
-              <span className="owt-content-button1-active">
+              <a className="owt-content-button1-active">
                 <Button1Active>
                   New Requests
                   <span class="ohio-badge badge success owt-success-badge">
                     {this.state.newCount}
                   </span>
                 </Button1Active>
-              </span>
-              <span className="owt-content-button2-inactive">
+              </a>
+              <a className="owt-content-button2-inactive">
                 <Button2Inactive onClick={this.handleClick}>
                   Existing Entries
                   <span class="ohio-badge badge info owt-info-badge">
                     {this.state.existingCount}
                   </span>
                 </Button2Inactive>
-              </span>
+              </a>
             </span>
             <i
               className="fa fa-search owt-content-existing-entries-magnifying-glass"
@@ -380,40 +386,42 @@ export default class Table extends React.Component {
               <h1
                 id="owt-content-admin-title"
                 className="owt-content-admin-title"
+                aria-description="Resource Dashboard. This dashboard is used for resources to submit request forms for the Finder Website."
               >
                 Dashboard
               </h1>
             </span>
             <span className="owt-content-new-form-div">
-              <span className="owt-content-plus-button">
-                <Link to="/requestform">
-                  <i class="fas fa-plus" aria-hidden="true"></i>
-                </Link>
-              </span>
-              <div className="owt-content-request-text">
-                <Link to="/requestform">
-                  <p id="new-request-text">new request</p>
-                </Link>
-              </div>
+            <span className="owt-content-plus-button" aria-description="new request component">
+                  <Link to="/requestform">
+                    <i className="fas fa-plus" aria-hidden="true"></i>
+                  </Link>
+                </span>
+                
+                  <div className="owt-content-request-text" aria-description="new request link">
+                    <Link to="/requestform">
+                      <p id="new-request-text" aria-hidden="true">new request</p>
+                    </Link>
+                  </div>
             </span>
           </div>
           <span className="owt-content-buttons">
-            <span className="owt-content-button1-active">
+            <a className="owt-content-button1-active" aria-description="to select click ctrl+option+spacebar.">
               <Button1Inactive onClick={this.handleClick}>
                 New Requests
                 <span class="ohio-badge badge success owt-success-badge">
                   {this.state.newCount}
                 </span>
               </Button1Inactive>
-            </span>
-            <span className="owt-content-button2-inactive">
+            </a>
+            <a className="owt-content-button2-inactive" aria-description="to select click ctrl+option+spacebar.">
               <Button2Active>
                 Existing Entries
                 <span class="ohio-badge badge info owt-info-badge">
                   {this.state.existingCount}
                 </span>
               </Button2Active>
-            </span>
+            </a>
           </span>
           <i
             className="fa fa-search owt-content-new-entries-magnifying-glass"
