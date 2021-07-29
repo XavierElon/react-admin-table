@@ -86,15 +86,10 @@ export default class Table extends React.Component {
       newCount: 0,
       existingCount: 0,
     };
-
-    $('input.form-control-sm').attr('aria-description', 'Test')
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
-    //$("input[aria-label='Search']").attr('aria-description', 'Search dashboard data fields. Type Request Number, Resource Type, Resource Name, Start Date, End Date, or Status.')
-    
     let data = {
       columns: [
         {

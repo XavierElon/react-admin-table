@@ -85,8 +85,6 @@ export default class Table extends React.Component {
       newCount: 0,
       existingCount: 0,
     };
-    
-    $("input[aria-label='Search']").attr('aria-description', 'Search dashboard data fields. Type Request Number, Resource Type, Resource Name, Start Date, End Date, or Status.')
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -95,8 +93,7 @@ export default class Table extends React.Component {
   }
 
   async componentWillMount() {
-    $('.form-control-sm').attr('aria-description', 'Test')
-    //$("[aria-label='Search']").attr('aria-description', 'Search dashboard data fields. Type Request Number, Resource Type, Resource Name, Start Date, End Date, or Status.')
+    
     let data = {
       columns: [
         {
@@ -286,7 +283,7 @@ export default class Table extends React.Component {
   }
 
   componentDidMount() {
-    $('.form-control-sm').attr('aria-description', 'Test')
+    // $('.form-control').attr('aria-description', 'Test')
   }
 
   handleClick() {
